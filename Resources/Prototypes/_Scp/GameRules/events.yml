@@ -40,6 +40,25 @@
     - id: Scp096PhotoDeveloped
 
 - type: entity
+  id: SpawnScp1837
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    weight: 5
+  - type: SpawnInEntityStorageRule
+    probability: 0.08
+    entities:
+    - id: Scp1837
+  - type: SpawnInPlayerInventoryRule
+    probability: 0.05
+    sound:
+      path: /Audio/_Scp/Effects/spawn.ogg
+      params:
+        volume: 3
+    entities:
+    - id: Scp1837
+
+- type: entity
   id: SpawnScp133Paper
   parent: BaseStationEventShortDelay
   components:
@@ -136,5 +155,6 @@
     - id: Blackout
     - id: SpawnScp096Photo
     - id: AirlockManEater
+    - id: SpawnScp1837
     - id: SpawnScp133Paper
     - id: SpawnScp3199Egg
