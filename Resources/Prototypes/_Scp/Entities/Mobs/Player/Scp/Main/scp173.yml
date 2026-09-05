@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent:
   - BaseScp
   - MobCombat
@@ -20,6 +20,17 @@
     name: SCP-173
     class: Euclid
   - type: Scp173
+  - type: ScpRestrictMovementOnVisibility
+    containersMoveWhitelist:
+      components:
+      - ScpCage
+  - type: ScpBlind
+    mustBeAllowedToBlind: true
+    minWatchersToBlind: 3
+    inContainersBlindBlacklist:
+      components:
+      - ScpCage
+  - type: ScpClog
   - type: ShowBlinkable
   - type: XenoArtifact
     effectsTable: !type:GroupSelector
@@ -116,12 +127,6 @@
   - type: SpeedModifierContactCapClothing
     maxContactSprintSlowdown: 1
     maxContactWalkSlowdown: 1
-  - type: ActionGrant
-    actions:
-    - Scp173Blind
-    - Scp173Clog
-    - Scp173DamageStructure
-    - Scp173FastMovement
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepScp173Classic

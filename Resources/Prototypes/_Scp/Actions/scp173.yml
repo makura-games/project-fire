@@ -12,7 +12,7 @@
     itemIconStyle: BigAction
     raiseOnUser: true
   - type: InstantAction
-    event: !type:Scp173BlindAction
+    event: !type:ScpBlindActionEvent
 
 - type: entity
   id: Scp173Clog
@@ -28,7 +28,7 @@
     itemIconStyle: BigAction
     raiseOnUser: true
   - type: InstantAction
-    event: !type:Scp173ClogAction
+    event: !type:ScpClogActionEvent
   - type: SafeTimeRestricted
 
 - type: entity
