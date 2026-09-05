@@ -95,6 +95,21 @@
     tags:
     - Scp019GlassShard
 
+# Scp007, Scp124
+
+- type: entity
+  id: ScpDirtLump
+  parent: BaseScpResearchMaterial
+  name: lump of dirt
+  description: A small pile of soil.
+  components:
+  - type: Sprite
+    sprite: _Scp/Objects/Research/research_material.rsi
+    state: scp-dirt
+  - type: Tag
+    tags:
+    - ScpDirtLump
+
 # Scp012
 
 - type: entity

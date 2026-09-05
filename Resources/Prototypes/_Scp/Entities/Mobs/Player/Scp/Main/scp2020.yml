@@ -1,0 +1,82 @@
+﻿- type: entity
+  id: Scp2020
+  name: ???
+  suffix: SCP-2020
+  parent:
+  - BaseScpFriendlySapient
+  - MobCombat
+  - MobBloodstream
+  - AppearanceScpHands
+  components:
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      100: 0.9
+      150: 0.8
+      180: 0.7
+  - type: TTS
+    voice: meepo_dota_2
+#  - type: Blinkable
+  - type: AutoGhostRole
+    disconnectDelay: 600
+    pollDuration: 900
+    transferDelay: 180
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Scp/Mobs/Scp/scp-2020.rsi
+    layers:
+    - state: scp-2020
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      color: "#ffffff"
+      visible: false
+  - type: Scp
+    class: Euclid
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 5
+  - type: GhostPanelAntagonistMarker
+    name: ghost-panel-antagonist-scp-minor-name
+    description: ghost-panel-antagonist-scp-minor-description
+    priority: 0
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      250: Dead # его тело крепче человеческого
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-scp2020-name
+    description: ghost-role-information-scp2020-description
+    raffle:
+      settings: short
+    job: Scp2020
+  - type: GhostTakeoverAvailable
+  - type: GuideHelp
+    guides:
+    - ScpResearch
+  - type: Thirst
+  - type: Hunger
+  - type: Cuffable
+  - type: Damageable
+    damageModifierSet: SCP-2020
+  - type: Body
+  - type: Paws
+    screamInterval: 3
+    thresholdDamage: 5
+    coughInterval: 5
+    emotesTakeDamage:
+    - Pain
+  - type: Fear
+    phobias:
+    - Exoremophobia
+    - Necrophobia
+  - type: ProximityTarget
+  - type: ComponentToggler
+    components:
+    - type: FearSource
+      phobiaType: Necrophobia
+      uponComeCloser: None
+    - type: WatchingTarget

@@ -151,6 +151,9 @@
 # SCP
 
 - type: playTimeTracker
+  id: JobScp007
+
+- type: playTimeTracker
   id: JobScp0192
 
 - type: playTimeTracker
@@ -175,10 +178,19 @@
   id: JobScp173
 
 - type: playTimeTracker
+  id: JobScp208
+
+- type: playTimeTracker
   id: JobScp247
 
 - type: playTimeTracker
   id: JobScp457
+
+- type: playTimeTracker
+  id: JobScp492
+
+- type: playTimeTracker
+  id: JobScp527
 
 - type: playTimeTracker
   id: JobScp939
@@ -191,6 +203,9 @@
 
 - type: playTimeTracker
   id: JobScp1589
+
+- type: playTimeTracker
+  id: JobScp2020
 
 - type: playTimeTracker
   id: JobScp2295
@@ -209,6 +224,9 @@
 
 - type: playTimeTracker
   id: JobScp3288Aristocrat
+
+- type: playTimeTracker
+  id: JobScp4449
 
 # Отряды МОГ
 

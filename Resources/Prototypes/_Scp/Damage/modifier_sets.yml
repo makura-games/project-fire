@@ -24,6 +24,34 @@
     Radiation: 0.0
 
 - type: damageModifierSet
+  id: SCP-2020
+  coefficients:
+    Blunt: 1.0
+    Slash: 0.6
+    Piercing: 0.8
+    Cold: 1.0
+    Caustic: 1.0
+    Heat: 1.0
+    Poison: 1.0
+    Cellular: 1.0
+    Radiation: 1.0
+
+- type: damageModifierSet
+  id: SCP-4449
+  coefficients:
+    Blunt: 0.9
+    Slash: 1.0
+    Piercing: 1.0
+    Cold: 0.0
+    Caustic: 0.0
+    Heat: 1.5
+    Poison: 0.0
+    Cellular: 0.0
+    Radiation: 0.0
+    Mangleness: 0.0
+    Shock: 0.0
+
+- type: damageModifierSet
   id: SCP-059
   coefficients:
     Blunt: 1.3

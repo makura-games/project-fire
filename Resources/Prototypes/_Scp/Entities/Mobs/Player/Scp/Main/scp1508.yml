@@ -132,3 +132,5 @@
   id: Scp1508Gear
   equipment:
     belt: ClothingBeltScp1508
+  inhand:
+  - Scp1508PaperFlyer

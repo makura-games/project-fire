@@ -1,0 +1,9 @@
+﻿- type: entity
+  id: ActionScp4449Jump
+  parent: ActionGravityJump
+  name: jump
+  description: You push yourself forward in the direction you are looking.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 0.3

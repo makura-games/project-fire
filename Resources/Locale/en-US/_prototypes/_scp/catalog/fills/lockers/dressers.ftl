@@ -22,6 +22,10 @@ ent-ScpDresserScientificServiceDirectorFilled = { ent-DresserResearchDirectorFil
 ent-ScpDresserSquadLeaderFilled = { ent-DresserWardenFilled }
     .suffix = { ent-DresserWardenFilled.suffix }
     .desc = { ent-DresserWardenFilled.desc }
-ent-ScpDresserScp082Filled = { ent-DresserWardenFilled }
+
+ent-ScpDresserScp208Filled = { ent-ScpDresser }
+    .suffix = SCP-208
+    .desc = { ent-ScpDresser.desc }
+ent-ScpDresserScp082Filled = { ent-ScpDresser }
     .suffix = SCP-082
-    .desc = { ent-DresserWardenFilled.desc }
+    .desc = { ent-ScpDresser.desc }

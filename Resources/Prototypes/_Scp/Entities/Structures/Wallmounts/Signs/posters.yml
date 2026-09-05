@@ -638,6 +638,15 @@
 
 - type: entity
   parent: PosterScpContainmentRoomBase
+  id: PosterSCP007
+  name: SCP-007 poster
+  description: Information poster for SCP-007.
+  components:
+  - type: Sprite
+    state: scp007
+
+- type: entity
+  parent: PosterScpContainmentRoomBase
   id: PosterScp012
   name: SCP-012 poster
   description: Information poster for SCP-012.
@@ -782,6 +791,15 @@
 
 - type: entity
   parent: PosterScpContainmentRoomBase
+  id: PosterScp208
+  name: SCP-208 poster
+  description: Information poster for SCP-208.
+  components:
+  - type: Sprite
+    state: scp208
+
+- type: entity
+  parent: PosterScpContainmentRoomBase
   id: PosterSCP247
   name: SCP-247 poster
   description: Information poster for SCP-247.
@@ -827,12 +845,30 @@
 
 - type: entity
   parent: PosterScpContainmentRoomBase
+  id: PosterSCP492
+  name: SCP-492 poster
+  description: Information poster for SCP-492.
+  components:
+  - type: Sprite
+    state: scp492
+
+- type: entity
+  parent: PosterScpContainmentRoomBase
   id: PosterSCP500
   name: SCP-500 poster
   description: Information poster for SCP-500.
   components:
   - type: Sprite
     state: scp500
+
+- type: entity
+  parent: PosterScpContainmentRoomBase
+  id: PosterSCP527
+  name: SCP-527 poster
+  description: Information poster for SCP-527.
+  components:
+  - type: Sprite
+    state: scp527
 
 - type: entity
   parent: PosterScpContainmentRoomBase
@@ -899,6 +935,15 @@
 
 - type: entity
   parent: PosterScpContainmentRoomBase
+  id: PosterSCP2020
+  name: SCP-2020 poster
+  description: Information poster for SCP-2020.
+  components:
+  - type: Sprite
+    state: scp2020
+
+- type: entity
+  parent: PosterScpContainmentRoomBase
   id: PosterSCP2022
   name: SCP-2022 poster
   description: Information poster for SCP-2022.
@@ -923,6 +968,15 @@
   components:
   - type: Sprite
     state: scp2908
+
+- type: entity
+  parent: PosterScpContainmentRoomBase
+  id: PosterSCP4449
+  name: SCP-4449 poster
+  description: Information poster for SCP-4449.
+  components:
+  - type: Sprite
+    state: scp4449
 
 # Длинные плакаты
 

@@ -1,0 +1,83 @@
+﻿- type: entity
+  id: Scp492
+  name: ???
+  suffix: SCP-492
+  parent:
+  - BaseScpFriendlySapient
+  - MobCombat
+  - InventoryBase
+  - StripableInventoryBase
+  - AppearanceScpHands
+  components:
+  - type: Hands
+    showInHands: false
+  - type: TTS
+    voice: batrider_dota_2
+  - type: AutoGhostRole
+    disconnectDelay: 600
+    pollDuration: 900
+    transferDelay: 180
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Scp/Mobs/Scp/scp-492.rsi
+    layers:
+    - state: scp-492
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      color: "#ffffff"
+      visible: false
+  - type: Scp
+    class: Safe
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: GhostPanelAntagonistMarker
+    name: ghost-panel-antagonist-scp-minor-name
+    description: ghost-panel-antagonist-scp-minor-description
+    priority: 0
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Critical
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-scp492-name
+    description: ghost-role-information-scp492-description
+    raffle:
+      settings: short
+    job: Scp492
+  - type: GhostTakeoverAvailable
+  - type: GuideHelp
+    guides:
+    - ScpResearch
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepWood
+  - type: Loadout
+    prototypes: [ Scp492Gear ]
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.4,0.25,0.4"
+        density: 10
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Cuffable
+  - type: Body
+  - type: PirateAccent
+
+- type: startingGear
+  id: Scp492Gear
+  equipment:
+    id: KeyCardServicePersonnel
+    head: ClothingHeadBandSkull
+    jumpsuit: UniformSecurityShortsRed
+    belt: ClothingBeltStorageWaistbag
+    bra: ClothingBraTshirtBlack

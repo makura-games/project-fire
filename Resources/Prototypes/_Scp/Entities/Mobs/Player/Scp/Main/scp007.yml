@@ -1,0 +1,100 @@
+﻿- type: entity
+  id: Scp007
+  name: ???
+  suffix: SCP-007
+  parent:
+  - BaseScpFriendlySapient
+  - MobCombat
+  - MobBloodstream
+  - InventoryBase
+  - StripableInventoryBase
+  - AppearanceScpHands
+  components:
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      80: 0.9
+      130: 0.8
+      160: 0.7
+  - type: TTS
+    voice: DeathNoteYagami
+  - type: Mood
+#  - type: Blinkable
+  - type: AutoGhostRole
+    disconnectDelay: 600
+    pollDuration: 900
+    transferDelay: 180
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Scp/Mobs/Scp/scp-007.rsi
+    layers:
+    - state: scp-007
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      color: "#ffffff"
+      visible: false
+  - type: Scp
+    class: Euclid
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 5
+  - type: GhostPanelAntagonistMarker
+    name: ghost-panel-antagonist-scp-minor-name
+    description: ghost-panel-antagonist-scp-minor-description
+    priority: 0
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-scp007-name
+    description: ghost-role-information-scp007-description
+    raffle:
+      settings: short
+    job: Scp007
+  - type: GhostTakeoverAvailable
+  - type: GuideHelp
+    guides:
+    - ScpResearch
+    - ScpResearchAdvanced
+  - type: Loadout
+    prototypes: [ Scp007Gear ]
+  - type: Cuffable
+  - type: Tag
+    tags:
+    - FootstepSound
+    - CannotSuicide
+    - DoorBumpOpener
+    - Scp007
+  - type: Body
+  - type: Paws
+    screamInterval: 3
+    thresholdDamage: 5
+    coughInterval: 5
+    emotesTakeDamage:
+    - Pain
+  - type: Fear
+    phobias:
+    - Exoremophobia
+    - Necrophobia
+  - type: ProximityTarget
+  - type: ComponentToggler
+    components:
+    - type: FearSource
+      phobiaType: Necrophobia
+      uponComeCloser: None
+    - type: WatchingTarget
+
+- type: startingGear
+  id: Scp007Gear
+  equipment:
+    id: KeyCardPassEmpty
+    shoes: ClothingShoesBootsLaceup
+    jumpsuit: ClothingUniformJumpsuitSecBlue
+    belt: ClothingBeltStorageWaistbag
+    pants: ClothingPantsManStripe
+    socks: ClothingKneeWhite
