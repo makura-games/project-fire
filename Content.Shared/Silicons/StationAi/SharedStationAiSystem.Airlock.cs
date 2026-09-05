@@ -40,6 +40,22 @@ public abstract partial class SharedStationAiSystem
             return;
         }
 
+        // Fire edit start
+        if (!TryGetCore(args.User, out var core) ||
+            core.Comp == null)
+            return;
+
+        if (_battery.GetCharge(core.Owner) < core.Comp.ControlDoorChargeCost)
+        {
+            ShowNotChargeEnoughPopup(args.User);
+            return;
+        }
+
+        if (_net.IsServer)
+            if (!_battery.TryUseCharge(core.Owner, core.Comp.ControlDoorChargeCost))
+                return;
+        // Fire edit end
+
         var setResult = _doors.TrySetBoltDown((ent, component), args.Bolted, args.User, predicted: true);
         if (!setResult)
         {
@@ -75,6 +91,22 @@ public abstract partial class SharedStationAiSystem
             return;
         }
 
+        // Fire edit start
+        if (!TryGetCore(args.User, out var core) ||
+            core.Comp == null)
+            return;
+
+        if (_battery.GetCharge(core.Owner) < core.Comp.ControlDoorChargeCost)
+        {
+            ShowNotChargeEnoughPopup(args.User);
+            return;
+        }
+
+        if (_net.IsServer)
+            if (!_battery.TryUseCharge(core.Owner, core.Comp.ControlDoorChargeCost))
+                return;
+        // Fire edit end
+
         _airlocks.SetEmergencyAccess((ent, component), args.EmergencyAccess, args.User, predicted: true);
         _adminLogger.Add(LogType.Action, $"{args.User} set emergency access status on {ent} to [{args.EmergencyAccess}] using the Station AI radial.");
     }
@@ -103,6 +135,22 @@ public abstract partial class SharedStationAiSystem
                 $"{args.User} was unable to change electrified status on {ent} to [{args.Electrified}] using the Station AI radial because they had no access.");
             return;
         }
+
+        // Fire edit start
+        if (!TryGetCore(args.User, out var core) ||
+            core.Comp == null)
+            return;
+
+        if (_battery.GetCharge(core.Owner) < core.Comp.ControlDoorChargeCost)
+        {
+            ShowNotChargeEnoughPopup(args.User);
+            return;
+        }
+
+        if (_net.IsServer)
+            if (!_battery.TryUseCharge(core.Owner, core.Comp.ControlDoorChargeCost))
+                return;
+        // Fire edit end
 
         _adminLogger.Add(LogType.Action, $"{args.User} set electrified status on {ent} to [{args.Electrified}] using the Station AI radial.");
         _electrify.SetElectrified((ent, component), args.Electrified);

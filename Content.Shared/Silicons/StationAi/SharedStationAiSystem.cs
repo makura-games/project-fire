@@ -33,6 +33,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Whitelist; // Fire edit
 
 namespace Content.Shared.Silicons.StationAi;
 
@@ -61,6 +62,8 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     [Dependency] private readonly SharedPowerReceiverSystem PowerReceiver = default!;
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!; // Fire edit
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // Fire edit
     [Dependency] private readonly StationAiVisionSystem _vision = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
