@@ -86,3 +86,10 @@
   description: This one says 'BLAST DONGER'.
   components:
   - type: BunkerMarker
+
+# Scp Cage Blast Door
+- type: entity
+  id: ScpCageBlastDoor
+  parent: ScpBlastDoor
+  components:
+  - type: ScpCageBlastDoor

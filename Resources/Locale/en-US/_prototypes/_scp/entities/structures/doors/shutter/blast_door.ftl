@@ -5,3 +5,6 @@ ent-ScpBlastDoorOpen = { ent-ScpBlastDoor }
     .desc = { ent-ScpBlastDoor.desc }
 ent-ScpBlastDoorFrame = blast door frame
     .desc = This one says 'BLAST DONGER'.
+ent-ScpCageBlastDoor = { ent-ScpBlastDoor }
+    .desc = { ent-ScpBlastDoor.desc }
+	.suffix = SCP CAGE
