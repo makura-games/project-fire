@@ -1,0 +1,75 @@
+﻿- type: entity
+  id: Scp2263Base
+  abstract: true
+  parent: BaseScpArtifactMinor
+  name: skeleton sculpture
+  description: Unusual model of a human skeleton.
+  suffix: SCP-2263
+  components:
+  - type: Sprite
+    sprite: _Scp/Objects/Scp/scp-2263.rsi
+  - type: Physics
+    bodyType: Dynamic
+  - type: Transform
+    anchored: false
+    noRot: true
+  - type: Pullable
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Damageable
+  - type: DamageOverlay
+    damagePopupType: SmallFloating
+    isStructure: true
+  - type: Scp
+    class: Safe
+  - type: GuideHelp
+    guides:
+    - ScpResearch
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.45,0.25,0.45"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+        density: 200
+
+- type: entity
+  id: Scp226362
+  parent: Scp2263Base
+  suffix: SCP-2263-62
+  components:
+  - type: Sprite
+    state: scp2263-62
+  - type: PointLight
+    color: LightGreen
+    radius: 5
+    energy: 5
+    netsync: false
+  - type: RadiationSource
+    intensity: 3
+
+- type: entity
+  id: Scp226360
+  parent: Scp2263Base
+  suffix: SCP-2263-60
+  components:
+  - type: Sprite
+    state: scp2263-60
+  - type: AnyDamageSound
+    sound:
+      collection: ArcadeNoise
+      params:
+        volume: 4
+        maxDistance: 8
+
+- type: entity
+  id: Scp226318
+  parent: Scp2263Base
+  suffix: SCP-2263-18
+  components:
+  - type: Sprite
+    state: scp2263-18
