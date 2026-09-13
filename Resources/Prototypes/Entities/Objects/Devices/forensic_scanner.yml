@@ -5,7 +5,7 @@
   description: A handheld device that can scan objects for fingerprints and fibers.
   components:
   - type: Sprite
-    sprite: _Scp/Objects/Tools/scp_scaner.rsi # fire edit
+    sprite: _Scp/Objects/Tools/scp_scaner.rsi # Fire edit
     state: icon
   - type: Item
     size: Small
