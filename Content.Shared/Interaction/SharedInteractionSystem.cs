@@ -711,6 +711,11 @@ namespace Content.Shared.Interaction
             var ev = new InRangeOverrideEvent(origin, other);
             RaiseLocalEvent(origin, ref ev);
 
+            // Fire added start - разрешаем target-компонентам переопределять дальность взаимодействия
+            if (!ev.Handled && origin.Owner != other.Owner)
+                RaiseLocalEvent(other, ref ev);
+            // Fire added end
+
             if (ev.Handled)
             {
                 return ev.InRange;
