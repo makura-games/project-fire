@@ -257,7 +257,7 @@
     - type: Item
       sprite: _Scp/Objects/Weapons/Melee/shields.rsi # Fire edit
       size: Ginormous # Sunrise-Edit Я не ебу почему он стал маленьким
-      heldPrefix: riot_bul
+      heldPrefix: riot_bul # Fire edit
     - type: Blocking
       passiveBlockModifier:
         coefficients:
