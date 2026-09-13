@@ -11,7 +11,7 @@
     size: Small
     storedRotation: 90
   - type: Clothing
-    sprite: _Scp/Objects/Tools/scp_scaner.rsi # fire edit
+    sprite: _Scp/Objects/Tools/scp_scaner.rsi # Fire edit
     quickEquip: false
     slots:
     - Belt
