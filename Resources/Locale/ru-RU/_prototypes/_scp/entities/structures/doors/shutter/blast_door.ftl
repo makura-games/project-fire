@@ -5,3 +5,6 @@ ent-ScpBlastDoorOpen = { ent-BlastDoor }
     .desc = { ent-BlastDoor.desc }
 ent-ScpBlastDoorFrame = каркас гермозатвора
     .desc = { ent-BlastDoor.desc }
+ent-ScpCageBlastDoor = { ent-ScpBlastDoor }
+    .desc = { ent-ScpBlastDoor.desc }
+	.suffix = Камера SCP

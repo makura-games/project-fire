@@ -9,3 +9,6 @@ ent-ScpDoubleBlastDoorNoSound = { ent-ScpDoubleBlastDoor }
 ent-ScpDoubleBlastDoorOpenNoSound = { ent-ScpDoubleBlastDoor }
     .suffix = Открытый | Без звука
     .desc = { ent-ScpDoubleBlastDoor.desc }
+ent-ScpCageDoubleBlastDoor = { ent-ScpDoubleBlastDoor }
+    .desc = { ent-ScpDoubleBlastDoor.desc }
+    .suffix = Камера SCP
