@@ -88,13 +88,15 @@
   id: RiotShield
   description: A large tower shield. Good for controlling crowds.
   components:
-    - type: Sprite # Fire edit
-      sprite: _Scp/Objects/Weapons/Melee/shields.rsi # Fire edit
-      state: riot_bullet-icon # Fire edit
-    - type: Item # Fire edit
-      sprite: _Scp/Objects/Weapons/Melee/shields.rsi # Fire edit
-      size: Ginormous # Fire edit
-      heldPrefix: riot_bullet # Fire edit
+    # Fire edit start
+    - type: Sprite
+      sprite: _Scp/Objects/Weapons/Melee/shields.rsi
+      state: riot_bullet-icon
+    - type: Item
+      sprite: _Scp/Objects/Weapons/Melee/shields.rsi
+      size: Ginormous
+      heldPrefix: riot_bullet
+      # Fire edit end
     - type: MeleeThrowOnHit #Sunrise-Start
       distance: 0.7
       speed: 7
