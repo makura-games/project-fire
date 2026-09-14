@@ -1,0 +1,131 @@
+﻿- type: entity
+  id: Scp208
+  suffix: SCP-208
+  name: ???
+  parent:
+  - BaseScpFriendlySapient
+  - MobCombat
+  - MobBloodstream
+  - InventoryBase
+  - StripableInventoryBase
+  - AppearanceScpHands
+  components:
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      200: 0.9
+      300: 0.8
+      350: 0.7
+  - type: TTS
+    voice: Kopatich
+  - type: Mood
+#  - type: Blinkable
+  - type: AutoGhostRole
+    disconnectDelay: 600
+    pollDuration: 900
+    transferDelay: 180
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Scp/Mobs/Scp/scp-208.rsi
+    layers:
+    - state: scp-208
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      color: "#ffffff"
+      visible: false
+  - type: Scp
+    class: Safe
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 5
+  - type: GhostPanelAntagonistMarker
+    name: ghost-panel-antagonist-scp-minor-name
+    description: ghost-panel-antagonist-scp-minor-description
+    priority: 0
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Dead
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-scp208-name
+    description: ghost-role-information-scp208-description
+    raffle:
+      settings: short
+    job: Scp208
+  - type: GhostTakeoverAvailable
+  - type: GuideHelp
+    guides:
+    - ScpResearch
+    - ScpResearchAdvanced
+  - type: Loadout
+    prototypes: [ Scp208Gear ]
+  - type: ActionGrant
+    actions:
+    - Scp208Shield
+  - type: Cuffable
+  - type: Tag
+    tags:
+    - Scp208
+    - FootstepSound
+    - CannotSuicide
+    - DoorBumpOpener
+  - type: Body
+  - type: Paws
+    screamInterval: 3
+    thresholdDamage: 5
+    coughInterval: 5
+    emotesTakeDamage:
+    - Pain
+  - type: Fear
+    phobias:
+    - Exoremophobia
+    - Necrophobia
+  - type: ProximityTarget
+  - type: ComponentToggler
+    components:
+    - type: FearSource
+      phobiaType: Necrophobia
+      uponComeCloser: None
+    - type: WatchingTarget
+  - type: Inventory
+    templateId: scp208
+  - type: Pacified
+  - type: ActiveTimerTrigger
+  - type: SmokeOnTrigger
+    duration: 3
+    spreadAmount: 5
+    smokePrototype: Scp208Foam
+  - type: RepeatingTrigger
+  - type: Scp208
+    damage:
+      types:
+        Blunt: -3.5
+        Slash: -3.5
+        Piercing: -3.5
+        Cellular: -4
+        Cold: -2
+        Radiation: -2
+        Caustic: -2
+        Heat: -3
+    stopBleeding: true
+    bloodlossModifier: -1.0
+    delay: 5
+    healingBeginSound:
+      path: "/Audio/Effects/radpulse6.ogg"
+      params:
+        volume: -5
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Effects/radpulse4.ogg"
+      params:
+        volume: -5
+        variation: 0.125
+
+- type: startingGear
+  id: Scp208Gear
+  equipment:
+    neck: KeyCardHospitalIntern

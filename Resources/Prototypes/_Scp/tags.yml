@@ -98,6 +98,9 @@
   id: Scp173Shard
 
 - type: Tag
+  id: ScpDirtLump
+
+- type: Tag
   id: Scp019GlassShard
 
 - type: Tag
@@ -177,6 +180,12 @@
 
 - type: Tag
   id: LavenderFlower
+
+- type: Tag
+  id: Scp007
+
+- type: Tag
+  id: Scp208
 
 - type: Tag
   id: ScpCageDoor173

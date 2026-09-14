@@ -186,3 +186,67 @@
   - BaseFriendlyScpArtifactMajor
   id: BaseScpFriendly
 
+- type: entity # Для человекоподобных SCP: 007, 527 и т.д.
+  abstract: true
+  parent: BaseScpFriendly
+  id: BaseScpFriendlySapient
+  components:
+  - type: CanJump
+    isOnlyEmotion: false
+  - type: CanFall
+  - type: Pullable
+  - type: Puller
+    needsHands: true
+  - type: Vocal
+    sounds:
+      Male: MaleHuman
+      Female: MaleHuman
+      Unsexed: MaleHuman
+  - type: Speech
+  - type: TTS
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: Buckle
+  - type: Strippable
+  - type: Stripping
+  - type: FieldOfView
+    angle: 240
+  - type: Crawler
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 5
+  - type: Hands
+  - type: ComplexInteraction
+  - type: ScpRestriction
+    canBeDisarmed: true
+    canBePulled: true
+    canPull: true
+    canStandingState: true
+    canMobCollide: true
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: StandingState
+  - type: StatusEffects
+    allowed:
+    - Electrocution
+    - RatvarianLanguage
+    - PressureImmunity
+    - Muted
+    - TemporaryBlindness
+    - Pacified
+    - Flashed
+    - RadiationProtection
+    - Adrenaline
+    - LoveEffect
+    - Flip
+  - type: Climbing
+  - type: DamageForceSay
+  - type: Blindable
