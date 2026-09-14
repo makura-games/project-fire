@@ -1,3 +1,4 @@
+using Content.Shared.Whitelist; // Fire edit
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -47,6 +48,24 @@ public sealed partial class StationAiCoreComponent : Component
     /// Name of the container slot that holds the 'brain' used to construct the AI core
     /// </summary>
     public const string BrainContainer = "station_ai_brain_slot";
+
+    // Fire edit start
+
+    [DataField]
+    public float ControlDoorChargeCost = 7500f; // Joule's
+
+    [DataField]
+    public float IncreasedInteractionChargeCost = 10000f; // Joule's
+
+    [DataField]
+    public float OtherInteractionsChargeCost = 1500f; // Joule's
+
+    [DataField]
+    public EntityWhitelist IncreasedChargeCostWhitelist = new()
+    {
+        Components = ["SignalSwitch"]
+    };
+    // Fire edit end
 }
 
 /// <summary>
