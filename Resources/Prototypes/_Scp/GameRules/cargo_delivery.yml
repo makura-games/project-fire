@@ -1,0 +1,61 @@
+﻿- type: entity
+  id: CargoScpDeliveryBase
+  parent: BaseGameRule
+  abstract: true
+  components:
+  - type: GameRule
+    delay:
+      min: 10
+      max: 10
+  - type: StationEvent
+    startColor: "#18abf5"
+  - type: CargoGiftsRule
+    sender: cargo-delivery-sender
+    announce: cargo-delivery-event-announcement
+
+- type: entityTable
+  id: ScpCargoDeliveryTable
+  table: !type:GroupSelector
+    children:
+    - id: DeliveryScp2263
+    - id: DeliveryScp124
+    - id: DeliveryScp427
+
+- type: entity
+  id: DeliveryScp2263
+  parent: CargoScpDeliveryBase
+  components:
+  - type: StationEvent
+    weight: 3
+    duration: 120
+    earliestStart: 20
+  - type: CargoGiftsRule
+    description: cargo-delivery-description-scp2263
+    gifts:
+      cargoScp2263: 1
+
+- type: entity
+  id: DeliveryScp124
+  parent: CargoScpDeliveryBase
+  components:
+  - type: StationEvent
+    weight: 3
+    duration: 120
+    earliestStart: 20
+  - type: CargoGiftsRule
+    description: cargo-delivery-description-scp124
+    gifts:
+      cargoScp124: 1
+
+- type: entity
+  id: DeliveryScp427
+  parent: CargoScpDeliveryBase
+  components:
+  - type: StationEvent
+    weight: 3
+    duration: 120
+    earliestStart: 20
+  - type: CargoGiftsRule
+    description: cargo-delivery-description-scp427
+    gifts:
+      cargoScp427: 1
