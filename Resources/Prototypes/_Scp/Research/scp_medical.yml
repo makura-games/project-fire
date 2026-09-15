@@ -1,0 +1,470 @@
+# Tier 1
+
+- type: technology
+  id: scp_SurgeryTech
+  name: research-technology-basic-surgery
+  icon:
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    state: scalpel
+  discipline: scp_medical
+  tier: 1
+  cost: 2000
+  defaultToScpScale: 0.0 # Fire Edit
+  recipeUnlocks:
+    - BoneSetter
+    - BoneGel
+    - Scalpel
+    - Retractor
+    - Cautery
+    - Saw
+    - Hemostat
+    - BorgModuleSurgical
+
+- type: technology
+  id: scp_CyberLimbsTech
+  name: research-technology-basic-cyberlimbs
+  icon:
+    sprite: _Sunrise/Mobs/Species/Cyberlimbs/parts.rsi
+    state: icon
+  discipline: scp_medical
+  tier: 1
+  cost: 2000
+  defaultToScpScale: 0.0
+  recipeUnlocks:
+    - LeftArmCyber
+    - LeftHandCyber
+    - LeftLegCyber
+    - LeftFootCyber
+
+# Tier 2
+- type: technology
+  id: scp_ImplantExtractor
+  name: research-technology-implant-extractor
+  icon:
+    sprite: Objects/Specific/Medical/implanter.rsi
+    state: implanter0
+  discipline: scp_medical
+  tier: 2
+  cost: 4000
+  defaultToScpScale: 0.0
+  recipeUnlocks:
+  - ImplanterExtractor
+
+- type: technology
+  id: scp_MedicalAssembler
+  name: research-technology-medical-assembler
+  icon:
+    sprite: _Sunrise/Structures/Machines/medical_assembler.rsi
+    state: icon
+  discipline: scp_medical
+  tier: 2
+  cost: 3500
+  defaultToScpScale: 0.1
+  recipeUnlocks:
+  - MedicalAssemblerMachineCircuitboard
+  - BlankMediPen
+
+- type: technology
+  id: scp_SurgeryTechAdvanced
+  name: research-technology-advanced-surgery
+  icon:
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    state: advanced
+  discipline: scp_medical
+  tier: 2
+  cost: 3000
+  defaultToScpScale: 0.1
+  recipeUnlocks:
+    - Drill
+    - SawAdvanced
+    - ScalpelAdvanced
+    - BoneSetterAdvanced
+    - RetractorAdvanced
+    - HemostatAdvanced
+  technologyPrerequisites:
+    - scp_SurgeryTech
+
+- type: technology
+  id: scp_DnaInjectorTech
+  name: research-technology-dna-injector
+  icon:
+    sprite: Objects/Specific/Medical/implanter.rsi
+    state: implanter0
+  discipline: scp_medical
+  tier: 2
+  cost: 4500
+  defaultToScpScale: 0.1
+  recipeUnlocks:
+    - DnaInjector
+  technologyPrerequisites:
+    - scp_SurgeryTechAdvanced
+    - scp_ImplantExtractor
+
+- type: technology
+  id: scp_HandheldEmergencyCrewMonitorTech
+  name: research-technology-hanheld-crew-monitor
+  icon:
+    sprite: _Sunrise/Objects/Specific/Medical/handheld_emergency_crewmonitor.rsi
+    state: scanner
+  discipline: scp_medical
+  tier: 2
+  cost: 4500
+  defaultToScpScale: 0.0
+  recipeUnlocks:
+    - HandheldEmergencyCrewMonitor
+  technologyPrerequisites:
+    - scp_SurgeryTech
+
+- type: technology
+  id: scp_CyberImplantsTech
+  name: research-technology-basic-eye-implants
+  icon:
+    sprite: _Starlight/Objects/Specific/Medical/implants.rsi
+    state: eye_implant_welding
+  discipline: scp_medical
+  tier: 2
+  cost: 5000
+  defaultToScpScale: 0.1
+  recipeUnlocks:
+    - ImplantCaseImplantWelding
+    - ImplantCaseImplantMedical
+    - ImplantCaseImplantChemical
+    - ImplantCaseImplantSecurity
+  technologyPrerequisites:
+    - scp_CyberLimbsTech
+  radioChannels:
+  - Security
+  - Medical
+
+- type: technology
+  id: scp_medicalImplantsTech
+  name: research-technology-scp_medical-implants
+  icon:
+    sprite: _Sunrise/Entities/Objects/Implants/implants.rsi
+    state: inject_implant_blue
+  discipline: scp_medical
+  tier: 2
+  cost: 3500
+  defaultToScpScale: 0.1
+  recipeUnlocks:
+    - SadTromboneImplant
+    - BikeHornImplant
+    - LightImplant
+    - TrackingImplant
+    - CreepyLaughImplant # EMAG
+  technologyPrerequisites:
+    - scp_CyberImplantsTech
+  radioChannels:
+  - Medical
+
+# Sunrise, moved from civilian to medical. Ave Starlight!
+- type: technology
+  id: scp_medicalStasis
+  name: research-technology-scp_medical-stasis
+  icon:
+    sprite: Structures/Machines/stasis_bed.rsi
+    state: icon
+  discipline: scp_medical
+  tier: 2
+  cost: 3500
+  defaultToScpScale: 0.0
+  recipeUnlocks:
+  - StasisBedMachineCircuitboard
+  - CryoPodMachineCircuitboard
+  - CryostasisBeaker
+  - SyringeCryostasis
+  radioChannels:
+  - Medical
+
+- type: technology
+  id: scp_MechanizedMedicalTreatment
+  name: research-technology-mechanized-medical-treatment
+  icon:
+    sprite: Mobs/Silicon/chassis.rsi
+    state: medical
+  discipline: scp_medical
+  tier: 2
+  cost: 2500
+  defaultToScpScale: 0.1
+  recipeUnlocks:
+  - BorgModuleAdvancedChemical
+  radioChannels:
+  - Medical
+
+- type: technology
+  id: scp_FunctionalCyberLimbsTech
+  name: research-technology-functional-cyberlimbs
+  icon:
+    sprite: _Starlight/Interface/Actions/actions_cyber.rsi
+    state: cyber-hand-left
+  discipline: scp_medical
+  tier: 2
+  cost: 7000
+  defaultToScpScale: 0.1
+  recipeUnlocks:
+    - ImplantCaseReaper
+    - ImplantCaseMechwright
+    - ImplantCaseRobust
+  technologyPrerequisites:
+    - scp_CyberLimbsTech
+  radioChannels:
+  - Medical
+  - Engineering
+  - Service
+
+- type: technology
+  id: scp_AtmosCyberLimbsTech
+  name: research-technology-atmos-cyberlimbs
+  icon:
+    sprite: _Starlight/Interface/Actions/actions_cyber.rsi
+    state: cyber-hand-left
+  discipline: scp_medical
+  tier: 2
+  cost: 2500
+  defaultToScpScale: 0.1
+  recipeUnlocks:
+    - ImplantCaseAtmos
+  technologyPrerequisites:
+    - scp_FunctionalCyberLimbsTech
+    - scp_AtmosphericTech
+  radioChannels:
+  - Medical
+  - Engineering
+
+- type: technology
+  id: scp_JanitorialCyberLimbsTech
+  name: research-technology-jani-cyberlimbs
+  icon:
+    sprite: _Sunrise/Objects/Tools/cyber_advmop.rsi
+    state: advmop
+  discipline: scp_medical
+  tier: 2
+  cost: 1984
+  defaultToScpScale: 0.1
+  recipeUnlocks:
+    - ImplantCaseJani
+  technologyPrerequisites:
+    - scp_FunctionalCyberLimbsTech
+    - scp_AdvancedCleaning
+  radioChannels:
+  - Medical
+  - Service
+
+- type: technology
+  id: scp_CompactDefibrillation
+  name: research-technology-compact-defibrilation
+  icon:
+    sprite: Objects/Specific/Medical/defibsmall.rsi
+    state: icon
+  discipline: scp_medical
+  tier: 2
+  cost: 4000
+  defaultToScpScale: 0.1
+  recipeUnlocks:
+    - DefibrillatorCompact
+  technologyPrerequisites:
+    - scp_SurgeryTech
+  radioChannels:
+  - Medical
+
+- type: technology
+  id: scp_AdvancedCompactDefibrillation
+  name: research-technology-advanced-compact-defibrilation
+  icon:
+    sprite: _Sunrise/Entities/Objects/Specific/Medical/advanced_defibsmall.rsi
+    state: icon
+  discipline: scp_medical
+  tier: 2
+  cost: 7500
+  defaultToScpScale: 0.1
+  recipeUnlocks:
+    - AdvancedDefibrillatorCompact
+  technologyPrerequisites:
+    - scp_CompactDefibrillation
+  radioChannels:
+  - Medical
+
+# Tier 3
+- type: technology
+  id: scp_HackCyberLimbsTech
+  name: research-technology-hack-cyberlimbs
+  icon:
+    sprite: _Starlight/Interface/Actions/actions_cyber.rsi
+    state: cyber-hand-left
+  discipline: scp_medical
+  tier: 3
+  cost: 404 # ERROR #ERR*?*%!
+  defaultToScpScale: 0.1
+  recipeUnlocks:
+    - ImplantCaseHack
+  technologyPrerequisites:
+    - scp_FunctionalCyberLimbsTech
+    - scp_AdvancedToolsTechnology
+    - scp_BasicXenoArcheology
+  radioChannels:
+  - Medical
+  - Engineering
+  - Service
+
+- type: technology
+  id: scp_ImplantExtractorSafety
+  name: research-technology-implant-extractor-safety
+  icon:
+    sprite: _Sunrise/Structures/Machines/interrogator.rsi
+    state: open
+  discipline: scp_medical
+  tier: 3
+  cost: 6000
+  defaultToScpScale: 0.1
+  recipeUnlocks:
+  - InterrogatorMachineCircuitboard
+  technologyPrerequisites:
+    - scp_ImplantExtractor
+
+- type: technology
+  id: scp_AutoMenders
+  name: research-technology-autoMenders
+  icon:
+    sprite: _Starlight/Objects/Specific/Medical/medical.rsi
+    state: mender
+  discipline: scp_medical
+  tier: 3
+  cost: 3500
+  defaultToScpScale: 0.2
+  recipeUnlocks:
+  - AutoMenderBrute
+  - AutoMenderBurn
+  # technologyPrerequisites: # Sunrise-todo Привязать JetInjectors
+  # - MedicalHyposprays
+  radioChannels:
+  - Medical
+
+- type: technology
+  id: scp_ScienceCyberLimbsTech
+  name: research-technology-science-cyberlimbs
+  icon:
+    sprite: Objects/Weapons/Melee/gorilla.rsi
+    state: storage
+  discipline: scp_medical
+  tier: 3
+  cost: 3500
+  defaultToScpScale: 0.2
+  recipeUnlocks:
+    - ImplantCaseGorilla
+  technologyPrerequisites:
+    - scp_FunctionalCyberLimbsTech
+  radioChannels:
+  - Security
+  - Medical
+  - Science
+
+- type: technology
+  id: scp_SecurityMeleeCyberLimbsTech
+  name: research-technology-secmelee-cyberlimbs
+  icon:
+    sprite: _Starlight/Objects/Weapons/Melee/cybermantisblade.rsi
+    state: cybermantisbladesec
+  discipline: scp_medical
+  tier: 3
+  cost: 4000
+  defaultToScpScale: 0.2
+  recipeUnlocks:
+    - ImplantCaseMantisBladeMaxGuard
+    - ImplantCaseBulwark
+    - ImplantCaseBonesaw
+  technologyPrerequisites:
+    - scp_FunctionalCyberLimbsTech
+    - scp_CombatEquipment
+  radioChannels:
+  - Security
+  - Medical
+
+- type: technology
+  id: scp_CyberEyeNightVision
+  name: research-technology-nightvision-eyes
+  icon:
+    sprite: _Starlight/Objects/Specific/Medical/implants.rsi
+    state: eyes_night
+  discipline: scp_medical
+  tier: 3
+  cost: 3500
+  defaultToScpScale: 0.2
+  recipeUnlocks:
+    - ImplantCaseNightVision
+  technologyPrerequisites:
+    - scp_CyberImplantsTech
+  radioChannels:
+  - Security
+  - Medical
+
+- type: technology
+  id: scp_CyberEyeThermalVision
+  name: research-technology-thermalvision-eyes
+  icon:
+    sprite: _Starlight/Objects/Specific/Medical/implants.rsi
+    state: eyes_thermal
+  discipline: scp_medical
+  tier: 3
+  cost: 4500
+  defaultToScpScale: 0.2
+  recipeUnlocks:
+    - ImplantCaseThermal
+  technologyPrerequisites:
+    - scp_CyberEyeNightVision
+  radioChannels:
+  - Security
+  - Medical
+
+- type: technology
+  id: scp_AdvancedImplantsTech
+  name: research-technology-advanced-implants
+  icon:
+    sprite: _Sunrise/Entities/Objects/Implants/implants.rsi
+    state: reviver_implant
+  discipline: scp_medical
+  tier: 3
+  cost: 6000
+  defaultToScpScale: 0.2
+  recipeUnlocks:
+    - ReviverImplant
+    - NutrimentImplant
+    - ProtoAdrenalImplant # EMAG
+    - ScramImplantProto # EMAG
+  technologyPrerequisites:
+    - scp_medicalImplantsTech
+    - scp_SurgeryTechAdvanced
+  radioChannels:
+  - Medical
+  - Security
+
+- type: technology
+  id: scp_LauncherSyringe
+  name: research-technology-launcher-syringe
+  icon:
+    sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    state: syringe_gun
+  discipline: scp_medical
+  tier: 3
+  cost: 5000
+  defaultToScpScale: 0.2
+  recipeUnlocks:
+  - LauncherSyringe
+  - MiniSyringe
+  radioChannels:
+  - Medical
+
+- type: technology
+  id: scp_CloningSystems
+  name: research-technology-cloning
+  icon:
+    sprite: Structures/Machines/cloning.rsi
+    state: pod_0
+  discipline: scp_medical
+  tier: 3
+  cost: 5000
+  recipeUnlocks:
+  - CloningConsoleComputerCircuitboard
+  - CloningPodMachineCircuitboard
+  - MedicalScannerMachineCircuitboard
+  radioChannels:
+  - Medical

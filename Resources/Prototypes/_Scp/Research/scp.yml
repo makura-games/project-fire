@@ -125,23 +125,6 @@
 # Tier 3
 
 - type: technology
-  id: AnomalousResonanceLaser
-  name: research-technology-anomalous-resonance-laser
-  icon:
-    sprite: _Sunrise/Objects/Weapons/Guns/Battery/EG_MG/big.rsi
-    state: base
-  discipline: SCP
-  tier: 3
-  costList:
-    Scp: 20000
-  recipeUnlocks:
-  - WeaponEarthGovLaserPistol
-  - WeaponEarthGovLaserRifle
-  - WeaponEarthGovLaserCarbine
-  - WeaponEarthGovLaserMG
-  - WeaponARLSniper
-
-- type: technology
   id: AnomalousOpticalDestructor
   name: research-technology-anomalous-optical-destructor
   icon:
@@ -150,6 +133,6 @@
   discipline: SCP
   tier: 3
   costList:
-    Scp: 35000
+    Scp: 17500
   recipeUnlocks:
   - WeaponGodlikeXRay

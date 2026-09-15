@@ -1,0 +1,123 @@
+# Часть санрайза
+
+
+# Tier 3
+- type: technology
+  id: scp_IndustrialRobotic
+  name: research-technology-industrial-robotics
+  icon:
+    sprite: _Sunrise/Structures/Machines/hyper_exosuit_fabricator.rsi
+    state: fab-idle
+  discipline: scp_experimental
+  tier: 3
+  cost: 7500
+  defaultToScpScale: 0.3 # Fire Edit
+  recipeUnlocks:
+  - ExosuitFabricatorHyperConvectionMachineCircuitboard
+# Часть оффов
+
+# Tier 1
+
+- type: technology
+  id: scp_BasicRobotics
+  name: research-technology-basic-robotics
+  icon:
+    sprite: Structures/Machines/exosuit_fabricator.rsi
+    state: fab-idle
+  discipline: scp_experimental
+  tier: 1
+  cost: 2500
+  defaultToScpScale: 0.0 # Fire Edit
+  recipeUnlocks:
+  - ProximitySensor
+  # Sunrise-Edit-Start
+  - Nanopaste
+  - HandheldRoboAnalyzer
+  - BorgModuleRobotics
+  # Sunrise-Edit-End
+
+- type: technology
+  id: scp_BasicXenoArcheology
+  name: research-technology-basic-xenoarcheology
+  icon:
+    sprite: Structures/Machines/artifact_analyzer.rsi
+    state: display
+  discipline: scp_experimental
+  tier: 1
+  cost: 2500
+  defaultToScpScale: 0.0 # Fire Edit
+  recipeUnlocks:
+  - NodeScanner
+  - AnalysisComputerCircuitboard
+  - ArtifactAnalyzerMachineCircuitboard
+
+- type: technology
+  id: scp_AlternativeResearch
+  name: research-technology-alternative-research
+  icon:
+    sprite: Structures/Machines/tech_disk_printer.rsi
+    state: display
+  discipline: scp_experimental
+  tier: 1
+  cost: 2500
+  defaultToScpScale: 0.1 # Fire Edit
+  recipeUnlocks:
+  - TechDiskComputerCircuitboard
+
+- type: technology
+  id: scp_MagnetsTech
+  name: research-technology-magnets-tech
+  icon:
+    sprite: Clothing/Shoes/Boots/magboots-science.rsi
+    state: icon
+  discipline: scp_experimental
+  tier: 1
+  cost: 3500
+  defaultToScpScale: 0.1
+  recipeUnlocks:
+  - ClothingShoesBootsMagSci
+  - ClothingShoesBootsMagSec #Sunrise-Add
+  - ClothingShoesBootsMoon
+
+# Tier 2
+
+- type: technology
+  id: scp_AbnormalArtifactManipulation
+  name: research-technology-abnormal-artifact-manipulation
+  icon:
+    sprite: Structures/Machines/artifact_crusher.rsi
+    state: icon
+  discipline: scp_experimental
+  tier: 2
+  cost: 2500
+  defaultToScpScale: 0.1
+  recipeUnlocks:
+  - ArtifactCrusherMachineCircuitboard
+
+- type: technology
+  id: scp_DeterrenceTechnologies
+  name: research-technology-deterrence
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/particle_decelerator.rsi
+    state: base
+  discipline: scp_experimental
+  tier: 2
+  cost: 3500
+  defaultToScpScale: 0.1
+  recipeUnlocks:
+  - WeaponParticleDecelerator
+  - HoloprojectorField
+
+- type: technology
+  id: scp_GravityManipulation
+  name: research-technology-gravity-manipulation
+  icon:
+    sprite: Objects/Weapons/Guns/Launchers/tether_gun.rsi
+    state: base
+  discipline: scp_experimental
+  tier: 2
+  cost: 5000
+  defaultToScpScale: 0.1
+  recipeUnlocks:
+    - WeaponForceGun
+    - WeaponTetherGun

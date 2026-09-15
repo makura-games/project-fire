@@ -1,0 +1,151 @@
+
+# От санрайзов
+
+# Tier 1
+
+- type: technology
+  id: scp_SlopDispenserTech
+  name: research-technology-slop-dispenser
+  icon:
+    sprite: _Sunrise/Structures/Machines/slop_machine.rsi
+    state: icon
+  discipline: scp_civilianservices
+  tier: 1
+  cost: 2500
+  defaultToScpScale: 0.0 # Fire Edit
+  recipeUnlocks:
+    - SlopDispenserMachineCircuitboard
+
+# От оффов
+
+# Tier 1
+
+- type: technology
+  id: scp_Hydroponics
+  name: research-technology-basic-hydroponics
+  icon:
+    sprite: Structures/Machines/seed_extractor.rsi
+    state: seedextractor
+  discipline: scp_civilianservices
+  tier: 1
+  cost: 2500
+  defaultToScpScale: 0.0 # Fire Edit
+  recipeUnlocks:
+  - SeedExtractorMachineCircuitboard
+  - HydroponicsTrayMachineCircuitboard
+  - ReagentGrinderIndustrialMachineCircuitboard
+
+- type: technology
+  id: scp_AudioVisualCommunication
+  name: research-technology-audio-visual-communication
+  icon:
+    sprite: Structures/Wallmounts/camera.rsi
+    state: cameracase
+  discipline: scp_civilianservices
+  tier: 1
+  cost: 2500
+  defaultToScpScale: 0.0 # Fire Edit
+  recipeUnlocks:
+  - SurveillanceCameraRouterCircuitboard
+  - SurveillanceCameraWirelessRouterCircuitboard
+  - SurveillanceWirelessCameraMovableCircuitboard
+  - SurveillanceWirelessCameraAnchoredCircuitboard
+  - SurveillanceCameraMonitorCircuitboard
+  - SurveillanceWirelessCameraMonitorCircuitboard
+  - TelecomServerCircuitboard
+  - HolopadMachineCircuitboard
+
+- type: technology
+  id: scp_AdvancedEntertainment
+  name: research-technology-advanced-entertainment
+  icon:
+    sprite: Structures/Machines/computers.rsi
+    state: television
+  discipline: scp_civilianservices
+  tier: 1
+  cost: 3500
+  defaultToScpScale: 0.0 # Fire Edit
+  recipeUnlocks:
+    - ComputerTelevisionCircuitboard
+    - SynthesizerInstrument
+    # sunrise-start
+    - TapeRecorder
+    - TapeCassetteOneMinute
+    - TapeCassetteTwoMinutes
+    - TapeCassetteThreeMinutes
+    # sunrise-end
+    - DawInstrumentMachineCircuitboard
+    - MassMediaCircuitboard
+    - JukeboxCircuitBoard
+
+- type: technology
+  id: scp_MeatManipulation
+  name: research-technology-meat-manipulation
+  icon:
+    sprite: Structures/Machines/fat_sucker.rsi
+    state: display
+  discipline: scp_civilianservices
+  tier: 1
+  cost: 3500
+  defaultToScpScale: 0.0 # Fire Edit
+  recipeUnlocks:
+  - FatExtractorMachineCircuitboard
+  # - BiofabricatorMachineCircuitboard #Sunrise-edit
+  - BiomassReclaimerMachineCircuitboard
+
+# Tier 2
+
+- type: technology
+  id: scp_FauxAstroTiles
+  name: research-technology-faux-astro-tiles
+  icon:
+    sprite: Objects/Tiles/tile.rsi
+    state: astroice
+  discipline: scp_civilianservices
+  tier: 2
+  cost: 2500
+  defaultToScpScale: 0.0 # Fire Edit
+  recipeUnlocks:
+  - FauxTileAstroGrass
+  - FauxTileMowedAstroGrass
+  - FauxTileJungleAstroGrass
+  - FauxTileDarkAstroGrass
+  - FauxTileLightAstroGrass
+  - FauxTileAstroIce
+  - FauxTileAstroSnow
+  - FauxTileAstroAsteroidSand
+  - FauxTileDesertAstroSand
+  - FauxTileAstroIronsand
+  - FauxTileAstroIronsandBorderless
+
+- type: technology
+  id: scp_AdvancedCleaning
+  name: research-technology-advanced-cleaning
+  icon:
+    sprite: Objects/Specific/Janitorial/advmop.rsi
+    state: advmop
+  discipline: scp_civilianservices
+  tier: 2
+  cost: 5000
+  defaultToScpScale: 0.0 # Fire Edit
+  recipeUnlocks:
+  - AdvMopItem
+  - MegaSprayBottle
+  - BorgModuleAdvancedCleaning
+
+
+
+- type: technology
+  id: scp_AdvancedSpray
+  name: research-technology-advanced-spray
+  icon:
+    sprite: Objects/Weapons/Guns/Basic/spraynozzle.rsi
+    state: icon
+  discipline: scp_civilianservices
+  tier: 2
+  cost: 5000
+  defaultToScpScale: 0.0 # Fire Edit
+  recipeUnlocks:
+  - WeaponSprayNozzle
+  - ClothingBackpackWaterTank
+

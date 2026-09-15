@@ -9,3 +9,63 @@
     1: 0
     2: 0.75
     3: 0.75
+
+- type: techDiscipline
+  id: scp_arsenal
+  name: research-discipline-arsenal
+  color: "#dc373b"
+  icon:
+    sprite: Interface/Misc/research_disciplines.rsi
+    state: arsenal
+  tierPrerequisites:
+    1: 0
+    2: 0.75
+    3: 0.75
+    4: 0.75
+
+- type: techDiscipline
+  id: scp_medical
+  name: research-discipline-biochemical
+  color: "#09aaf5"
+  icon:
+    sprite: Interface/Misc/research_disciplines.rsi
+    state: biochemical
+  tierPrerequisites:
+    1: 0
+    2: 0.75
+    3: 0.75
+
+- type: techDiscipline
+  id: scp_civilianservices
+  name: research-discipline-civilian-services
+  color: "#4eaa19"
+  icon:
+    sprite: Interface/Misc/research_disciplines.rsi
+    state: civilianservices
+  tierPrerequisites:
+    1: 0
+    2: 0.75
+
+- type: techDiscipline
+  id: scp_experimental
+  name: research-discipline-experimental
+  color: "#b312e4"
+  icon:
+    sprite: Interface/Misc/research_disciplines.rsi
+    state: experimental
+  tierPrerequisites:
+    1: 0
+    2: 0.75
+    3: 0.75
+
+- type: techDiscipline
+  id: scp_industrial
+  name: research-discipline-industrial
+  color: "#ff7300"
+  icon:
+    sprite: Interface/Misc/research_disciplines.rsi
+    state: industrial
+  tierPrerequisites:
+    1: 0
+    2: 0.75
+    3: 0.75

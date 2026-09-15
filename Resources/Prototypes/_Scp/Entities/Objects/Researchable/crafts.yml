@@ -126,8 +126,8 @@
   result: WeaponGodlikeXRay
   completetime: 120
   materials:
-    Steel: 50000
-    Glass: 10000
-    Gold: 12000
-    Silver: 24000
-    Uranium: 12000
+    Steel: 10000
+    Glass: 2000
+    Gold: 60
+    Silver: 60
+    Uranium: 60
