@@ -151,6 +151,31 @@
     },
     {
       "name": "monroe-asleep"
+    },
+    {
+      "name": "glasses",
+      "directions": 4
+    },
+    {
+      "name": "icon-glasses"
+    },
+    {
+      "name": "icon-hair"
+    },
+    {
+      "name": "hair1",
+      "directions": 4
+    },
+    {
+      "name": "hair2",
+      "directions": 4
+    },
+    {
+      "name": "icon-mask"
+    },
+    {
+      "name": "mask1",
+      "directions": 4
     }
   ]
 }
