@@ -5,13 +5,13 @@
   description: A handheld device that can scan objects for fingerprints and fibers.
   components:
   - type: Sprite
-    sprite: Objects/Devices/forensic_scanner.rsi
+    sprite: _Scp/Objects/Tools/scp_scaner.rsi # Fire edit
     state: icon
   - type: Item
     size: Small
     storedRotation: 90
   - type: Clothing
-    sprite: Objects/Devices/forensic_scanner.rsi
+    sprite: _Scp/Objects/Tools/scp_scaner.rsi # Fire edit
     quickEquip: false
     slots:
     - Belt

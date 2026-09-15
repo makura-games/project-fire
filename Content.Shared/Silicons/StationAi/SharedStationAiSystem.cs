@@ -209,6 +209,11 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
     private void OnAiInRange(Entity<StationAiOverlayComponent> ent, ref InRangeOverrideEvent args)
     {
+        // Fire added start - target-side InRangeOverrideEvent не должен давать дальность не-AI пользователям
+        if (args.User != ent.Owner)
+            return;
+        // Fire added end
+
         args.Handled = true;
         // Starlight-surgery start
         var target = args.Target;

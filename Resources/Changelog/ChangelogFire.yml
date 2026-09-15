@@ -5739,3 +5739,27 @@
     message: Исправлен баг со спавном клонов в раунде
   id: 533
   url: https://github.com/makura-games/project-fire/pull/1152
+- author: Data_deleted
+  time: '2026-09-13T14:04:48.0000000+00:00'
+  changes:
+  - type: Fix
+    message: Удален лазерный пистолет из лодаута Ню-7
+  - type: Tweak
+    message: Респрайт противо-пулевого щита
+  - type: Tweak
+    message: Спрайт противо-ударного щита теперь корректен
+  - type: Tweak
+    message: Респрайт криминалистичесткого сканера
+  id: 534
+  url: https://github.com/makura-games/project-fire/pull/1153
+- author: Wardex
+  time: '2026-09-13T14:36:06.0000000+00:00'
+  changes:
+  - type: Fix
+    message: Лицо Scp-096 теперь нормально лечится
+  - type: Fix
+    message: Пробирки амнезиака более не пустые с начала раунда
+  - type: Fix
+    message: Игроки теперь могут таскать других игроков
+  id: 535
+  url: https://github.com/makura-games/project-fire/pull/1154

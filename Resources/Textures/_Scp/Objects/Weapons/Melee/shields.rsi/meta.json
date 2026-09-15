@@ -28,6 +28,17 @@
         {
             "name": "buckler-inhand-left",
             "directions": 4
+        },
+        {
+            "name": "riot_bul-icon"
+        },
+        {
+            "name": "riot_bul-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "riot_bul-inhand-left",
+            "directions": 4
         }
     ]
 }

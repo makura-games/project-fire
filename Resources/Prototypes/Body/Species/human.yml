@@ -103,6 +103,15 @@
   - type: Interactions
   - type: FootprintEmitter
   # Sunrise end
+  # Fire edit start
+  - type: ScpHolder
+    holdableWhitelist:
+      components:
+      - HumanoidProfile
+    holdableBlacklist:
+      components:
+      - Scp
+  # Fire edit end
 
 - type: entity
   parent: OrganBase

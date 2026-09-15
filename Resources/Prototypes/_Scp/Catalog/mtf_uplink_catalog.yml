@@ -1030,6 +1030,9 @@
     - ScpUplinkMtfUnlockPistols
   - !type:BuyerJobCondition
     blacklist:
+    - HDLeader # Ню-7
+    - HDSpecialist
+    - HDCadet
     - MHLeader # Б-7
     - MHSpecialist
     - MHCadet
