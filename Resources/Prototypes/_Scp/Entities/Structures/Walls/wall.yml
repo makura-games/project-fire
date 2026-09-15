@@ -150,8 +150,8 @@
   - type: Tag
     tags:
     - Wall
-    - MetaGarbageSavable
-    - MetaGarbageReplace
+#    - MetaGarbageSavable спавнилось в раунде открученным, из-за чего закрывало дверные проёмы
+#    - MetaGarbageReplace спавнилось в раунде открученным, из-за чего закрывало дверные проёмы
 
 - type: entity
   parent: WallShuttleDiagonal
