@@ -45,10 +45,7 @@ public abstract partial class SharedScp096System
         if (!_mobThreshold.TryGetThresholdForState(ent, MobState.Alive, out var aliveThreshold))
             return;
 
-        if (args.DamageDelta == null)
-            return;
-
-        if (args.DamageDelta.GetTotal() == aliveThreshold)
+        if (_damageable.GetTotalDamage(ent.Owner) == aliveThreshold)
             HealFace(ent);
     }
 
