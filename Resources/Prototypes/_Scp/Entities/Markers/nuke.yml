@@ -1,0 +1,8 @@
+- type: entity
+  id: NukeDoorCloseMarker
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: green
+  - type: NukeCloseDoor

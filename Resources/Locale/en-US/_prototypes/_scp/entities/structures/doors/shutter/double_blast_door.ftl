@@ -9,6 +9,3 @@ ent-ScpDoubleBlastDoorNoSound = { ent-ScpDoubleBlastDoor }
 ent-ScpDoubleBlastDoorOpenNoSound = { ent-ScpDoubleBlastDoorOpen }
     .suffix = Open | NoSound
     .desc = { ent-ScpDoubleBlastDoorOpen.desc }
-ent-ScpCageDoubleBlastDoor = { ent-ScpDoubleBlastDoor }
-    .desc = { ent-ScpDoubleBlastDoor.desc }
-    .suffix = SCP CAGE

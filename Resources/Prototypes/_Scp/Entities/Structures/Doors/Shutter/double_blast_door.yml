@@ -85,10 +85,3 @@
   - type: Door
     openSound:
     closeSound:
-
-# Scp Cage Blast Door
-- type: entity
-  id: ScpCageDoubleBlastDoor
-  parent: ScpDoubleBlastDoor
-  components:
-  - type: ScpCageBlastDoor

@@ -25,13 +25,15 @@ using Robust.Shared.Timing;
 using Content.Server.Doors.Systems; // Fire edit
 using Content.Shared.Doors.Components; // Fire edit
 using Content.Shared.Access.Components; // Fire edit
-using Content.Shared._Scp.Other.Components; // Fire edit
+using Content.Shared._Scp.Other.Components;
+using System.Numerics; // Fire edit
 
 namespace Content.Server.Nuke;
 
 public sealed class NukeSystem : EntitySystem
 {
     [Dependency] private readonly DoorSystem _door = default!; // Fire edit
+    [Dependency] private readonly EntityLookupSystem _lookup = default!; // Fire edit
     [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly ExplosionSystem _explosions = default!;
@@ -521,32 +523,36 @@ public sealed class NukeSystem : EntitySystem
             ("location", nearestBeacon));
         var sender = Loc.GetString("nuke-component-announcement-sender");
 
-        // Fire edit start - объявление о взводе + автооткрытие всех шлюзов
+        // Fire edit start - объявление о взводе + закрытие помеченный шлюзов
         _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender, playDefault: false, colorOverride: Color.Red, announcementSound: _nukeArmSound);
 
-        var doorQuery = EntityQueryEnumerator<DoorComponent>();
-        while (doorQuery.MoveNext(out var doorId, out _))
+        var markerQuery = EntityQueryEnumerator<NukeCloseDoorComponent>();
+        while (markerQuery.MoveNext(out var markerId, out _))
         {
-            if (Transform(doorId).ParentUid != nukeXform.ParentUid)
+            if (Transform(markerId).GridUid is not { Valid: true } gridUid ||
+                !TryComp<MapGridComponent>(gridUid, out var grid))
                 continue;
 
-            if (!HasComp<AccessReaderComponent>(doorId))
-                continue; // Для исключения обычных дверей (деревянные, стальные и т.д.)
+            if (Transform(markerId).ParentUid != nukeXform.ParentUid)
+                continue;
 
-            if (HasComp<ScpCageBlastDoorComponent>(doorId))
-                continue; // Что бы не открывать КС объектов
+            var tileIndices = _map.TileIndicesFor(gridUid, grid, Transform(markerId).Coordinates);
+            var tileBox = Box2.FromTwoPoints(
+                (Vector2)tileIndices * grid.TileSize,
+                (Vector2)(tileIndices + Vector2i.One) * grid.TileSize
+            );
+            var entitiesOnTile = _lookup.GetEntitiesIntersecting(gridUid, tileBox);
 
-            if (!TryComp<DoorBoltComponent>(doorId, out var doorBoltComp))
+            foreach (var entity in entitiesOnTile)
             {
-                _door.TryOpen(doorId);
-                continue;
+                if (!HasComp<DoorComponent>(entity) || !HasComp<AccessReaderComponent>(entity))
+                    continue;
+
+                _door.TryClose(entity);
+
+                if (TryComp<DoorBoltComponent>(entity, out var doorBoltComp))
+                    _door.TrySetBoltDown((entity, doorBoltComp), true);
             }
-
-            if (_door.IsBolted(doorId))
-                _door.TrySetBoltDown((doorId, doorBoltComp), false);
-
-            _door.TryOpen(doorId);
-            _door.TrySetBoltDown((doorId, doorBoltComp), true);
         }
         // Fire edit end
 
@@ -607,15 +613,32 @@ public sealed class NukeSystem : EntitySystem
         component.PlayedAlertSound = false;
         component.AlertAudioStream = _audio.Stop(component.AlertAudioStream);
 
-        // Fire edit start - разболтирование всех шлюзов после их болтирования при взводе
-        var doorQuery = EntityQueryEnumerator<DoorComponent>();
-        while (doorQuery.MoveNext(out var doorId, out _))
+        // Fire edit start - разболтирование выбранных шлюзов после их болтирования при взводе
+        var markerQuery = EntityQueryEnumerator<NukeCloseDoorComponent>();
+        while (markerQuery.MoveNext(out var markerId, out _))
         {
-            if (Transform(doorId).ParentUid != Transform(uid).ParentUid)
+            if (Transform(markerId).GridUid is not { Valid: true } gridUid ||
+                !TryComp<MapGridComponent>(gridUid, out var grid))
                 continue;
 
-            if (TryComp<DoorBoltComponent>(doorId, out var doorBoltComp))
-                _door.TrySetBoltDown((doorId, doorBoltComp), false);
+            if (Transform(markerId).ParentUid != Transform(uid).ParentUid)
+                continue;
+
+            var tileIndices = _map.TileIndicesFor(gridUid, grid, Transform(markerId).Coordinates);
+            var tileBox = Box2.FromTwoPoints(
+                (Vector2)tileIndices * grid.TileSize,
+                (Vector2)(tileIndices + Vector2i.One) * grid.TileSize
+            );
+            var entitiesOnTile = _lookup.GetEntitiesIntersecting(gridUid, tileBox);
+
+            foreach (var entity in entitiesOnTile)
+            {
+                if (!HasComp<DoorComponent>(entity) || !HasComp<AccessReaderComponent>(entity) ||
+                    !TryComp<DoorBoltComponent>(entity, out var doorBoltComp))
+                    continue;
+
+                _door.TrySetBoltDown((entity, doorBoltComp), false);
+            }
         }
         // Fire edit end
 
