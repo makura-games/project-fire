@@ -33,7 +33,6 @@ namespace Content.Server.Nuke;
 public sealed class NukeSystem : EntitySystem
 {
     [Dependency] private readonly DoorSystem _door = default!; // Fire edit
-    [Dependency] private readonly EntityLookupSystem _lookup = default!; // Fire edit
     [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly ExplosionSystem _explosions = default!;
@@ -533,25 +532,21 @@ public sealed class NukeSystem : EntitySystem
                 !TryComp<MapGridComponent>(gridUid, out var grid))
                 continue;
 
-            if (Transform(markerId).ParentUid != nukeXform.ParentUid)
+            if (gridUid != nukeXform.GridUid)
                 continue;
 
             var tileIndices = _map.TileIndicesFor(gridUid, grid, Transform(markerId).Coordinates);
-            var tileBox = Box2.FromTwoPoints(
-                (Vector2)tileIndices * grid.TileSize,
-                (Vector2)(tileIndices + Vector2i.One) * grid.TileSize
-            );
-            var entitiesOnTile = _lookup.GetEntitiesIntersecting(gridUid, tileBox);
+            var anchoredEntities = _map.GetAnchoredEntities(gridUid, grid, tileIndices);
 
-            foreach (var entity in entitiesOnTile)
+            foreach (var doorEnt in anchoredEntities)
             {
-                if (!HasComp<DoorComponent>(entity) || !HasComp<AccessReaderComponent>(entity))
+                if (!HasComp<DoorComponent>(doorEnt) || !HasComp<AccessReaderComponent>(doorEnt))
                     continue;
 
-                _door.TryClose(entity);
+                _door.TryClose(doorEnt);
 
-                if (TryComp<DoorBoltComponent>(entity, out var doorBoltComp))
-                    _door.TrySetBoltDown((entity, doorBoltComp), true);
+                if (TryComp<DoorBoltComponent>(doorEnt, out var doorBoltComp))
+                    _door.TrySetBoltDown((doorEnt, doorBoltComp), true);
             }
         }
         // Fire edit end
@@ -621,23 +616,21 @@ public sealed class NukeSystem : EntitySystem
                 !TryComp<MapGridComponent>(gridUid, out var grid))
                 continue;
 
-            if (Transform(markerId).ParentUid != Transform(uid).ParentUid)
+            if (gridUid != Transform(uid).GridUid)
                 continue;
 
             var tileIndices = _map.TileIndicesFor(gridUid, grid, Transform(markerId).Coordinates);
-            var tileBox = Box2.FromTwoPoints(
-                (Vector2)tileIndices * grid.TileSize,
-                (Vector2)(tileIndices + Vector2i.One) * grid.TileSize
-            );
-            var entitiesOnTile = _lookup.GetEntitiesIntersecting(gridUid, tileBox);
+            var anchoredEntities = _map.GetAnchoredEntities(gridUid, grid, tileIndices);
 
-            foreach (var entity in entitiesOnTile)
+            foreach (var doorEnt in anchoredEntities)
             {
-                if (!HasComp<DoorComponent>(entity) || !HasComp<AccessReaderComponent>(entity) ||
-                    !TryComp<DoorBoltComponent>(entity, out var doorBoltComp))
+                if (!HasComp<DoorComponent>(doorEnt) || !HasComp<AccessReaderComponent>(doorEnt))
                     continue;
 
-                _door.TrySetBoltDown((entity, doorBoltComp), false);
+                if (TryComp<DoorBoltComponent>(doorEnt, out var doorBoltComp))
+                    _door.TrySetBoltDown((doorEnt, doorBoltComp), false);
+                else
+                    _door.TryOpen(doorEnt);
             }
         }
         // Fire edit end
