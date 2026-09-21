@@ -2,7 +2,7 @@
   id: Scp247
   suffix: SCP-247
   parent:
-  - BaseScp
+  - BaseScpFriendly
   - SimpleMobBase
   - MobCombat
   components:

@@ -101,3 +101,22 @@
     whitelist:
       components:
       - MobState
+  - type: SpeakOnAction
+    sentence: scp-035-action-stun
+
+- type: entity
+  parent: BaseAction
+  id: ActionScp035Tentacles
+  name: Summon Tentacles
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 180
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: spell_default
+  - type: InstantAction
+    event: !type:InstantSpawnSpellEvent
+      prototype: EffectGoliathTentacleSpawn # TODO: собственные щупальца для 035
+      posData: !type:TargetInFront

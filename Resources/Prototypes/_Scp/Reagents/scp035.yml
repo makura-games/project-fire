@@ -1,0 +1,58 @@
+- type: reagent
+  parent: Blood
+  id: Scp035Reagent
+  name: reagent-scp-035-name
+  group: Biological
+  desc: reagent-scp035-desc
+  color: "#1A1C1A"
+  flavor: horrible
+  recognizable: false
+  physicalDesc: reagent-physical-desc-slimy
+  synthesisable: true
+  absorbCooldownPerUnit: 0.4
+  viscosity: 0.6
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 3
+      - !type:Vomit
+        probability: 0.3
+      - !type:GenericStatusEffect
+        key: TemporaryBlindness
+        component: TemporaryBlindness
+        conditions:
+        - !type:ReagentCondition
+          reagent: Scp106Reagent
+          min: 10
+      - !type:MovementSpeedModifier
+        conditions:
+        - !type:ReagentCondition
+          reagent: Scp106Reagent
+          min: 20
+        walkSpeedModifier: 0.8
+        sprintSpeedModifier: 0.8
+      - !type:ModifyBleed
+        amount: 0.3
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 8
+      - !type:MovementSpeedModifier
+        conditions:
+        - !type:ReagentCondition
+          reagent: Scp106Reagent
+          min: 15
+        walkSpeedModifier: 0.7
+        sprintSpeedModifier: 0.7
+      - !type:ModifyBleed
+        amount: 0.5
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: 5
+  - !type:PlantAdjustWater
+    amount: 0.3
+  - !type:PlantAdjustHealth
+    amount: -2

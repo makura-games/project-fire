@@ -1,674 +1,8 @@
-- type: cargoBounty
-  id: BountyBaseballBat
-  reward: 4000
-  description: scp-bounty-description-baseball-bat
-  idPrefix: CC
-  entries:
-  - name: scp-bounty-item-baseball-bat
-    amount: 5
-    whitelist:
-      tags:
-      - BaseballBat
-
-- type: cargoBounty
-  id: BountyBrain
-  reward: 12500
-  description: scp-bounty-description-brain
-  entries:
-  - name: scp-bounty-item-brain
-    amount: 1
-    whitelist:
-      components:
-      - Brain
-
-- type: cargoBounty
-  id: BountyBread
-  reward: 2000
-  description: scp-bounty-description-bread
-  entries:
-  - name: scp-bounty-item-bread
-    amount: 1
-    whitelist:
-      tags:
-      - Bread
-    blacklist:
-      tags:
-      - Slice
-
-- type: cargoBounty
-  id: BountyCarrot
-  reward: 7500
-  description: scp-bounty-description-carrot
-  idPrefix: SS15-
-  entries:
-  - name: scp-bounty-item-carrot
-    amount: 10
-    whitelist:
-      tags:
-      - Carrot
-
-- type: cargoBounty
-  id: BountyCarrotFries
-  reward: 7000
-  description: scp-bounty-description-carrot-fries
-  entries:
-  - name: scp-bounty-item-carrot-fries
-    amount: 3
-    whitelist:
-      tags:
-      - CarrotFries
-
-- type: cargoBounty
-  id: BountyCorn
-  reward: 10000
-  description: scp-bounty-description-corn
-  entries:
-  - name: scp-bounty-item-corn
-    amount: 10
-    whitelist:
-      tags:
-      - Corn
-
-- type: cargoBounty
-  id: BountyCrayon
-  reward: 1500
-  description: scp-bounty-description-crayon
-  entries:
-  - name: scp-bounty-item-crayon
-    amount: 24
-    whitelist:
-      tags:
-      - Crayon
-
-- type: cargoBounty
-  id: BountyDonut
-  reward: 6000
-  description: scp-bounty-description-donut
-  entries:
-  - name: scp-bounty-item-donut
-    amount: 10
-    whitelist:
-      tags:
-      - Donut
-
-- type: cargoBounty
-  id: BountyFigurine
-  reward: 3500
-  description: scp-bounty-description-figurine
-  entries:
-  - name: scp-bounty-item-figurine
-    amount: 5
-    whitelist:
-      tags:
-      - Figurine
-
-- type: cargoBounty
-  id: BountyFlower
-  reward: 2000
-  description: scp-bounty-description-flower
-  idPrefix: CC
-  entries:
-  - name: scp-bounty-item-flower
-    amount: 3
-    whitelist:
-      tags:
-      - Flower
-
-- type: cargoBounty
-  id: BountyGalaxyThistle
-  reward: 12000
-  description: scp-bounty-description-galaxythistle
-  entries:
-  - name: scp-bounty-item-galaxythistle
-    amount: 10
-    whitelist:
-      tags:
-      - Galaxythistle
-
-- type: cargoBounty
-  id: BountyHandcuffs
-  reward: 1000
-  description: scp-bounty-description-handcuffs
-  idPrefix: CC
-  entries:
-  - name: scp-bounty-item-handcuffs
-    amount: 5
-    whitelist:
-      components:
-      - Handcuff
-
-- type: cargoBounty
-  id: BountyInstrument
-  reward: 1900
-  description: scp-bounty-description-instrument
-  entries:
-  - name: scp-bounty-item-instrument
-    amount: 5
-    whitelist:
-      components:
-      - Instrument
-
-- type: cargoBounty
-  id: BountyKnife
-  reward: 2000
-  description: scp-bounty-description-knife
-  entries:
-  - name: scp-bounty-item-knife
-    amount: 5
-    whitelist:
-      components:
-      - Sharp
-      tags:
-      - UtilityKnife # required because retracted utility knives are not Sharp
-
-- type: cargoBounty
-  id: BountyLemon
-  reward: 10000
-  description: scp-bounty-description-lemon
-  idPrefix: CC
-  entries:
-  - name: scp-bounty-item-lemon
-    amount: 7
-    whitelist:
-      tags:
-      - Lemon
-
-- type: cargoBounty
-  id: BountyLime
-  reward: 10000
-  description: scp-bounty-description-lime
-  idPrefix: CC
-  entries:
-  - name: scp-bounty-item-lime
-    amount: 7
-    whitelist:
-      tags:
-      - Lime
-
-- type: cargoBounty
-  id: BountyLung
-  reward: 2000
-  description: scp-bounty-description-lung
-  entries:
-  - name: scp-bounty-item-lung
-    amount: 3
-    whitelist:
-      components:
-      - Lung
-
-- type: cargoBounty
-  id: BountyMonkeyCube
-  reward: 2000
-  description: scp-bounty-description-monkey-cube
-  idPrefix: CC
-  entries:
-  - name: scp-bounty-item-monkey-cube
-    amount: 3
-    whitelist:
-      tags:
-      - MonkeyCube
-
-- type: cargoBounty
-  id: BountyMouse
-  reward: 2400
-  description: scp-bounty-description-mouse
-  idPrefix: SS13-
-  entries:
-  - name: scp-bounty-item-mouse
-    amount: 5
-    whitelist:
-      tags:
-      - Mouse
-
-- type: cargoBounty
-  id: BountyPancake
-  reward: 10000
-  description: scp-bounty-description-pancake
-  entries:
-  - name: scp-bounty-item-pancake
-    amount: 13
-    whitelist:
-      tags:
-      - Pancake
-
-- type: cargoBounty
-  id: BountyPen
-  reward: 8000
-  description: scp-bounty-description-pen
-  entries:
-  - name: scp-bounty-item-pen
-    amount: 5
-    whitelist:
-      tags:
-      - Pen
-
-- type: cargoBounty
-  id: BountyPercussion
-  reward: 2500
-  description: scp-bounty-description-percussion
-  entries:
-  - name: scp-bounty-item-percussion
-    amount: 4
-    whitelist:
-      tags:
-      - PercussionInstrument
-
-- type: cargoBounty
-  id: BountyPie
-  reward: 3141
-  description: scp-bounty-description-pie
-  entries:
-  - name: scp-bounty-item-pie
-    amount: 1
-    whitelist:
-      tags:
-      - Pie
-    blacklist:
-      tags:
-      - Slice
-
-- type: cargoBounty
-  id: BountyPrisonUniform
-  reward: 8000
-  description: scp-bounty-description-dclass-uniform
-  idPrefix: PZ
-  entries:
-  - name: scp-bounty-item-dclass-uniform
-    amount: 4
-    whitelist:
-      tags:
-      - PrisonUniform
-
-- type: cargoBounty
-  id: BountyRadio
-  reward: 6500
-  description: scp-bounty-description-radio
-  entries:
-  - name: scp-bounty-item-radio
-    amount: 7
-    whitelist:
-      components:
-      - Headset
-      - RadioMicrophone
-      tags:
-      - Radio
-
-- type: cargoBounty
-  id: BountyShiv
-  reward: 4000
-  description: scp-bounty-description-shiv
-  idPrefix: CI
-  entries:
-  - name: scp-bounty-item-shiv
-    amount: 5
-    whitelist:
-      tags:
-      - Shiv
-
-- type: cargoBounty
-  id: BountySoap
-  reward: 4000
-  description: scp-bounty-description-soap
-  entries:
-  - name: scp-bounty-item-soap
-    amount: 3
-    whitelist:
-      tags:
-      - Soap
-
-- type: cargoBounty
-  id: BountySoup
-  reward: 6000
-  description: scp-bounty-description-soup
-  entries:
-  - name: scp-bounty-item-soup
-    amount: 3
-    whitelist:
-      tags:
-      - Soup
-
-- type: cargoBounty
-  id: BountySpear
-  reward: 8000
-  description: scp-bounty-description-spear
-  entries:
-  - name: scp-bounty-item-spear
-    amount: 5
-    whitelist:
-      tags:
-      - Spear
-
-- type: cargoBounty
-  id: BountySyringe
-  reward: 5000
-  description: scp-bounty-description-syringe
-  entries:
-  - name: scp-bounty-item-syringe
-    amount: 10
-    whitelist:
-      tags:
-      - Syringe
-
-- type: cargoBounty
-  id: BountyTechDisk
-  reward: 25000
-  description: scp-bounty-description-tech-disk
-  idPrefix: SCPCB-
-  entries:
-  - name: scp-bounty-item-tech-disk
-    amount: 5
-    whitelist:
-      components:
-      - TechnologyDisk
-
-- type: cargoBounty
-  id: BountyToolbox
-  reward: 8000
-  description: scp-bounty-description-toolbox
-  idPrefix: CC
-  entries:
-  - name: scp-bounty-item-toolbox
-    amount: 6
-    whitelist:
-      tags:
-      - Toolbox
-
-- type: cargoBounty
-  id: BountyTrash
-  reward: 500
-  description: scp-bounty-description-trash
-  entries:
-  - name: scp-bounty-item-trash
-    amount: 10
-    whitelist:
-      tags:
-      - Trash
-
-- type: cargoBounty
-  id: BountyBorgModule
-  reward: 3500
-  description: scp-bounty-description-borg-module
-  entries:
-  - name: scp-bounty-item-borg-module
-    amount: 3
-    whitelist:
-      components:
-      - BorgModule
-
-- type: cargoBounty
-  id: BountyOrgans
-  reward: 2000
-  description: scp-bounty-description-organs
-  idPrefix: DZ
-  entries:
-  - name: scp-bounty-item-organs
-    amount: 8
-    whitelist:
-      components:
-      - Organ
-
-- type: cargoBounty
-  id: BountyLabeler
-  reward: 6660
-  description: scp-bounty-description-labeler
-  entries:
-  - name: scp-bounty-item-labeler
-    amount: 5
-    whitelist:
-      components:
-      - HandLabeler
-
-- type: cargoBounty
-  id: BountyWarmCloth
-  reward: 2000
-  description: scp-bounty-description-warm-cloth
-  entries:
-  - name: scp-bounty-item-warm-cloth
-    amount: 8
-    whitelist:
-      components:
-      - TemperatureProtection
-      tags:
-      - Scarf
-    blacklist:
-      components:
-      - ToggleableClothing
-
-- type: cargoBounty
-  id: BountyBattery
-  reward: 15000
-  description: scp-bounty-description-battery
-  entries:
-  - name: scp-bounty-item-battery
-    amount: 15
-    whitelist:
-      components:
-      - Battery
-
-- type: cargoBounty
-  id: BountyLaserGun
-  reward: 9600
-  description: scp-bounty-description-lasergun
-  idPrefix: MTF
-  entries:
-  - name: scp-bounty-item-lasergun
-    amount: 6
-    whitelist:
-      components:
-      - BatteryAmmoProvider
-    blacklist:
-      components:
-      - PowerCell
-
-- type: cargoBounty
-  id: BountyFood
-  reward: 4000
-  description: scp-bounty-description-food
-  entries:
-  - name: scp-bounty-item-food
-    amount: 30
-    whitelist:
-      tags:
-      - Meat
-    blacklist:
-      components:
-      - SliceableFood
-
-- type: cargoBounty
-  id: BountyFruit
-  reward: 5000
-  description: scp-bounty-description-fruit
-  entries:
-  - name: scp-bounty-item-fruit
-    amount: 12
-    whitelist:
-      tags:
-      - Fruit
-    blacklist:
-      tags:
-      - Slice
-      - Cake
-      - Pie
-      - Bread
-      - Pistachios
-      - Creamsicle
-
-- type: cargoBounty
-  id: BountyVegetable
-  reward: 6000
-  description: scp-bounty-description-vegetable
-  entries:
-  - name: scp-bounty-item-vegetable
-    amount: 14
-    whitelist:
-      tags:
-      - Vegetable
-    blacklist:
-      tags:
-      - Slice
-      - Cake
-      - Pie
-      - Bread
-
-- type: cargoBounty
-  id: BountyChili
-  reward: 5555
-  description: scp-bounty-description-chili
-  entries:
-  - name: scp-bounty-item-chili
-    amount: 3
-    whitelist:
-      tags:
-      - ChiliBowl
-
-- type: cargoBounty
-  id: BountyBedsheet
-  reward: 4100
-  description: scp-bounty-description-bedsheet
-  entries:
-  - name: scp-bounty-item-bedsheet
-    amount: 5
-    whitelist:
-      tags:
-      - Bedsheet
-
-- type: cargoBounty
-  id: BountyBandana
-  reward: 4000
-  description: scp-bounty-description-bandana
-  idPrefix: CI
-  entries:
-  - name: scp-bounty-item-bandana
-    amount: 7
-    whitelist:
-      tags:
-      - Bandana
-
-- type: cargoBounty
-  id: BountySteak
-  reward: 3200
-  description: scp-bounty-description-steak
-  entries:
-  - name: scp-bounty-item-steak
-    amount: 4
-    whitelist:
-      tags:
-      - Steak
-
-- type: cargoBounty
-  id: BountyBanana
-  reward: 6009
-  description: scp-bounty-description-banana
-  entries:
-  - name: scp-bounty-item-banana
-    amount: 9
-    whitelist:
-      tags:
-      - Banana
-
-- type: cargoBounty
-  id: BountyBeer
-  reward: 3100
-  description: scp-bounty-description-beer
-  entries:
-  - name: scp-bounty-item-beer
-    amount: 6
-    whitelist:
-      tags:
-      - Beer
-
-- type: cargoBounty
-  id: BountyHiVizVest
-  reward: 3030
-  description: scp-bounty-description-hi-viz-vest
-  entries:
-  - name: scp-bounty-item-hi-viz-vest
-    amount: 3
-    whitelist:
-      tags:
-      - HiViz
-
-- type: cargoBounty
-  id: BountyTorch
-  reward: 2220
-  description: scp-bounty-description-torch
-  entries:
-  - name: scp-bounty-item-torch
-    amount: 6
-    whitelist:
-      tags:
-      - Torch
-
-- type: cargoBounty
-  id: BountyMedkitBox
-  reward: 2300
-  description: scp-bounty-description-medkit-box
-  entries:
-  - name: scp-bounty-item-medkit-box
-    amount: 4
-    whitelist:
-      tags:
-      - Medkit
-
-- type: cargoBounty
-  id: BountyCardboardBox
-  reward: 1500
-  description: scp-bounty-description-cardboard-box
-  entries:
-  - name: scp-bounty-item-cardboard-box
-    amount: 12
-    whitelist:
-      tags:
-      - BoxCardboard
-
-- type: cargoBounty
-  id: BountyWine
-  reward: 1500
-  description: scp-bounty-description-wine
-  entries:
-  - name: scp-bounty-item-wine
-    amount: 2
-    whitelist:
-      tags:
-      - Wine
-
-- type: cargoBounty
-  id: BountyCottonBoll
-  reward: 8600
-  description: scp-bounty-description-cotton-boll
-  entries:
-  - name: scp-bounty-item-cotton-boll
-    amount: 9
-    whitelist:
-      tags:
-      - CottonBoll
-
-- type: cargoBounty
-  id: BountyMicrowaveMachineBoard
-  reward: 4000
-  description: scp-bounty-description-microwave-machine-board
-  entries:
-  - name: scp-bounty-item-microwave-machine-board
-    amount: 2
-    whitelist:
-      tags:
-      - MicrowaveMachineBoard
-
-- type: cargoBounty
-  id: BountyFlashes
-  reward: 5500
-  description: scp-bounty-description-flashes
-  entries:
-  - name: scp-bounty-item-flash
-    amount: 6
-    whitelist:
-      components:
-      - Flash
 
 # SCP Items
 - type: cargoBounty
   id: BountyScp330Candy
-  reward: 9000
+  reward: 12000
   description: scp-bounty-description-scp-330-candy
   idPrefix: SCI
   entries:
@@ -680,7 +14,7 @@
 
 - type: cargoBounty
   id: BountyPlushieScp999
-  reward: 2500
+  reward: 4500
   description: scp-bounty-description-plushie-scp-999
   entries:
   - name: scp-bounty-item-plushie-scp-999
@@ -691,7 +25,7 @@
 
 - type: cargoBounty
   id: BountyScp999Jelly
-  reward: 3500
+  reward: 5500
   description: scp-bounty-description-jelly-scp-999
   idPrefix: SCI
   entries:
@@ -702,8 +36,32 @@
       - Scp999jelly
 
 - type: cargoBounty
+  id: BountyScpUniversalCloth
+  reward: 6500
+  description: scp-bounty-description-universal-cloth
+  idPrefix: SCI
+  entries:
+  - name: scp-bounty-item-universal-cloth
+    amount: 3
+    whitelist:
+      tags:
+      - ScpUniversalCloth
+
+- type: cargoBounty
+  id: Scp2295Fiber1
+  reward: 5500
+  description: scp-bounty-description-fiber-scp-2295
+  idPrefix: SCI
+  entries:
+  - name: scp-bounty-item-fiber-scp-2295
+    amount: 2
+    whitelist:
+      tags:
+      - Scp2295Fiber
+
+- type: cargoBounty
   id: BountyScp173PaintBall
-  reward: 7000
+  reward: 7500
   description: scp-bounty-description-scp-173-paint-ball
   idPrefix: SCI
   entries:
@@ -715,7 +73,7 @@
 
 - type: cargoBounty
   id: BountyScp173Shard
-  reward: 6500
+  reward: 8000
   description: scp-bounty-description-scp-173-shard
   idPrefix: SCI
   entries:
@@ -727,7 +85,7 @@
 
 - type: cargoBounty
   id: BountyScp096PhotoDeveloped
-  reward: 4000
+  reward: 8000
   description: scp-bounty-description-scp-096-photo
   idPrefix: SCI
   entries:
@@ -739,7 +97,7 @@
 
 - type: cargoBounty
   id: BountyEyeDroplets
-  reward: 3500
+  reward: 8500
   description: scp-bounty-description-scp-173-eye-droplets
   idPrefix: MTF
   entries:
@@ -751,7 +109,7 @@
 
 - type: cargoBounty
   id: BountyReinforcedMaskScp096
-  reward: 4000
+  reward: 8000
   description: scp-bounty-description-scp-096-reinforced-mask
   entries:
   - name: scp-bounty-item-scp-096-reinforced-mask
@@ -762,7 +120,7 @@
 
 - type: cargoBounty
   id: BountyClothingOuterAntiTeleportation
-  reward: 6000
+  reward: 8000
   description: scp-bounty-description-scp-106-anti-teleportation
   idPrefix: MTF
   entries:
@@ -774,7 +132,7 @@
 
 - type: cargoBounty
   id: BountyClothingHeadHelmetAiPowered
-  reward: 12000
+  reward: 14500
   description: scp-bounty-description-scp-096-helmet-ai
   entries:
   - name: scp-bounty-item-scp-096-helmet-ai
@@ -785,7 +143,7 @@
 
 - type: cargoBounty
   id: BountyClothingShoesSilent
-  reward: 4500
+  reward: 8000
   description: scp-bounty-description-scp-939-shoes-silent
   idPrefix: MTF
   entries:
@@ -797,7 +155,7 @@
 
 - type: cargoBounty
   id: BountyHeadAwareness
-  reward: 1500
+  reward: 8000
   description: scp-bounty-description-scp-head-awareness
   idPrefix: MTF
   entries:

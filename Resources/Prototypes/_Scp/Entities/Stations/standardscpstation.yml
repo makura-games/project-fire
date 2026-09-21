@@ -36,6 +36,17 @@
   categories: [ HideSpawnMenu ]
 
 - type: entity
+  id: ScpComplexSector02
+  parent: StandardScpStation
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomPlanet
+    data:
+    - biome: ScpComplexWater
+      weather:
+      - ScpWeatherSunny
+
+- type: entity
   id: ScpComplexStandard
   parent: StandardScpStation
   categories: [ HideSpawnMenu ]

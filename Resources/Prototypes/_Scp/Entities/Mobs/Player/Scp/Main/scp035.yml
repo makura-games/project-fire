@@ -36,6 +36,9 @@
     guides:
     - ScpResearch
     - ScpFear
+  - type: ClothingAddActions
+    actions:
+    - ActionScp035Tentacles
 
 - type: entity
   id: MobServant035

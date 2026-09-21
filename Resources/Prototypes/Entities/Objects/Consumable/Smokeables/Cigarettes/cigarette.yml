@@ -23,6 +23,15 @@
   - type: Construction
     graph: smokeableCigarette
     node: cigarette
+# Fire edit start
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 40
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 10
+# Fire edit end
 
 - type: entity
   id: SoakedCigarette
@@ -48,6 +57,15 @@
   - type: Construction
     graph: smokeableCigarette
     node: cigarette
+# Fire edit start
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 40
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 10
+# Fire edit end
 
 - type: entity
   id: CigaretteSpent

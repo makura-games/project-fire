@@ -6,6 +6,7 @@
   - SimpleMobBase
   suffix: SCP-3199
   components:
+  - type: SoundWhileAlive
   - type: AutoGhostRole
     disconnectDelay: 600
     pollDuration: 900
@@ -117,6 +118,7 @@
   - SimpleMobBase
   suffix: SCP-3199
   components:
+  - type: SoundWhileAlive
   - type: AutoGhostRole
     disconnectDelay: 600
     pollDuration: 900

@@ -62,6 +62,7 @@
   parent: BaseMobScp106Monster
   id: Scp106MonsterRespirator
   components:
+  - type: SoundWhileAlive
   - type: Sprite
     sprite: _Scp/Mobs/Scp106Servants/respirator.rsi
     state: icon

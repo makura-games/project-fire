@@ -1,0 +1,99 @@
+- type: gameMap
+  id: ScpComplexSector02
+  mapName: 'Комплекс типа - Sector No02'
+  mapPath: /Maps/_Scp/scp_complex_sector02.yml
+  maxRandomOffset: 0
+  randomRotation: false
+  minPlayers: 10
+  maxPlayers: 60
+  stations:
+    ScpComplexSector02:
+      stationProto: ScpComplexSector02
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Участок-{0} тип - Sector No02'
+          nameGenerator:
+            !type:ScpSiteNameGenerator
+            prefixCreator: '15'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_Scp/Shuttles/emergency_complex.yml
+        - type: StationJobs
+          availableJobs:
+            # SCP
+            Scp049: [ 1, 1 ]
+            Scp082: [ 1, 1 ]
+            Scp096: [ 1, 1 ]
+            Scp939: [ 1, 1 ]
+            Scp173: [ 1, 1 ]
+            # Scp106: [ 0, 0 ] # Под него нету камеры на секторе
+            Scp247: [ 1, 1 ]
+            Scp457: [ 1, 1 ]
+            Scp999: [ 1, 1 ]
+            # Администрация
+            Director: [ 1, 1 ]
+            ScientificServiceDirector: [ 1, 1 ]
+            SecurityCommander: [ 1, 1 ]
+            ChiefTechnicalSpecialist: [ 1, 1 ]
+            PersonnelOfficer: [ 1, 1 ]
+            HeadOfMedicalSector: [ 1, 1 ]
+            SeniorLogisticsOfficer: [ 1, 1 ]
+            # Отдел внутренней безопасности
+            #MentalControlOfficer: [ 1, 1 ]
+            #InternalSecurityOperative: [ 1, 1 ] # выводим до лучших времен
+            # Комитет по этике
+            EthicsCommitteeRepresentative: [ 1, 1 ]
+            # Служба внутреннего трибунала
+            #JudicialInspector: [ 1, 1 ]
+            # TribunalOfficer: [ 1, 1 ]
+            # Служба безопасности тяжелой зоны
+            HeavyContainmentZoneCommandant: [ 1, 1 ]
+            SeniorHeavyContainmentZoneOfficer: [ 1, 1 ]
+            HeavyContainmentZoneOfficer: [ 6, 6 ]
+            JuniorHeavyContainmentZoneOfficer: [ 5, -1 ]
+            # Служба безопасности внешней-административной зоны
+            ExternalAdministrativeZoneCommandant: [ 1, 1 ]
+            SeniorExternalAdministrativeZoneOfficer: [ 1, 1 ]
+            ExternalAdministrativeZoneOfficer: [ 6, 6 ]
+            JuniorExternalAdministrativeZoneOfficer: [ 5, -1 ]
+            FieldMedicalSpecialist: [ 2, 2 ]
+            # Научная служба
+            LeadResearcher: [ 1, 1 ]
+            AnomarchologyResearcher: [ 8, 10 ]
+            ProductionSpecialist: [ 2, 2 ]
+            JuniorResearcher: [ 5, -1 ]
+            # Медицинская служба
+            SeniorMedicalSpecialist: [ 1, 1 ]
+            PharmaceuticalSpecialist: [ 3, 3 ]
+            MedicalSpecialist: [ 4, 5 ]
+            Psychotherapist: [ 1, 1 ]
+            HospitalIntern: [ 5, -1 ]
+            # Инженерно-техническая служба
+            LeadTechnicalSpecialist: [ 1, 1 ]
+            ElectricalTechnicalSpecialist: [ 3, 3 ]
+            GeneralTechnicalSpecialist: [ 4, 5 ]
+            TechnicalTrainee: [ 5, -1 ]
+            # Логистическая служба
+            LogisticsOfficer: [ 2, 2 ]
+            # Департамент продовольственного и санитарного обслуживания
+            GastronomicSpecialist: [ 2, 2 ]
+            BotanistPhytogeneticist: [ 2, 2 ]
+            ServicePersonnel: [ 5, -1 ]
+            # Класс Д
+            ClassD: [ 1, 1 ]
+            ClassDCook: [ 2, 2 ]
+            ClassDBotanist: [ 2, 2 ]
+            ClassDJanitor: [ 1, 1 ]
+            # Система безопасности комплекса
+            StationAi: [ 1, 1 ]
+        - type: RelativeJobsCount
+          jobs:
+          - targetJob: ClassD
+            dependency:
+              SecurityCommander: 2
+              ExternalAdministrativeZoneCommandant: 2
+              SeniorExternalAdministrativeZoneOfficer: 1
+              ExternalAdministrativeZoneOfficer: 1
+              JuniorExternalAdministrativeZoneOfficer: 1
+            maxSlots: 16
+          totalMaxCount:
+            ClassD: 16

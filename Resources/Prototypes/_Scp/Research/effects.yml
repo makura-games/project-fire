@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: BaseScpArtifactEffect
   parent: BaseXenoArtifactEffect
   abstract: true
@@ -92,23 +92,23 @@
       components:
       - type: LightningArcShooter
 
-- type: entity
-  id: ScpEffectSpawn2054X
-  parent: BaseScpArtifactEffect
-  description: artifact-effect-hint-data-deleted
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: XenoArtifactNode
-    maxDurability: 1
-    maxDurabilityCanDecreaseBy:
-      min: 0
-      max: 0
-    triggerDecreasesDurability: true
-  - type: ArtifactStartGameRule
-    rules:
-      Scp2054X: 1
-
-
+#- type: entity
+#  id: ScpEffectSpawn2054X
+#  parent: BaseScpArtifactEffect
+#  description: artifact-effect-hint-data-deleted
+#  categories: [ HideSpawnMenu ]
+#  components:
+#  - type: XenoArtifactNode
+#    maxDurability: 1
+#    maxDurabilityCanDecreaseBy:
+#      min: 0
+#      max: 0
+#    triggerDecreasesDurability: true
+#  - type: ArtifactStartGameRule
+#    rules:
+#      Scp2054X: 1
+#
+#
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣤⣤⣤⣤⣴⡶⠶⠶⠶⠶⠶⠶⠶⠶⠤⠤⢤⣤⣤⣤⣤⣤⣄⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⠟⠋⠀⠀⠀⠀⢀⣀⠤⠖⠚⢉⣉⣉⣉⣉⣀⠀⠀⠀⠀⠀⠀⠈⠉⠩⠛⠛⠛⠻⠷⣦⣄⡀⠀⠀⠀⠀⠀⠀
 #  ⠀⠀⠀⠀⠀⠀⠀⣠⡿⠋⠀⠀⠀⣀⠤⠒⣉⠤⢒⣊⡉⠠⠤⠤⢤⡄⠈⠉⠉⠀⠂⠀⠀⠐⠂⠀⠉⠉⠉⠉⠂⠀⠙⠻⣶⣄⠀⠀⠀⠀
@@ -241,7 +241,7 @@
   - type: XAEApplyComponents
     components:
     - type: GravityWell
-      maxRange: 10
+      maxRange: 5
       baseRadialAcceleration: 90
     - type: TimedRemoveComponents
       components:

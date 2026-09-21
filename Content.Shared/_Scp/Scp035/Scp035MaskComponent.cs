@@ -25,7 +25,7 @@ public sealed partial class Scp035MaskComponent : Component
     public List<LocId> Messages = [];
 
     [DataField]
-    public ProtoId<ReagentPrototype> ReagentName = "PoisonWine";
+    public ProtoId<ReagentPrototype> ReagentName = "Scp035Reagent";
 
     [DataField]
     public float ReagentRangeAvailable = 5;
@@ -61,10 +61,10 @@ public sealed partial class Scp035MaskComponent : Component
     public SoundSpecifier? EquipSound = new SoundCollectionSpecifier("EquipScp035");
 
     [DataField]
-    public TimeSpan EquippedParalyzeDuration = TimeSpan.FromSeconds(5);
+    public TimeSpan EquippedParalyzeDuration = TimeSpan.FromSeconds(2);
 
     [DataField]
-    public TimeSpan EquipAttemptParalyzeDuration = TimeSpan.FromSeconds(10);
+    public TimeSpan EquipAttemptParalyzeDuration = TimeSpan.FromSeconds(5);
 
     [DataField]
     public EntProtoId SpawnWeaponProto = "Chainsaw";
@@ -84,9 +84,9 @@ public sealed partial class Scp035MaskComponent : Component
     [DataField]
     public GhostRoleRaffleSettings GhostSettings = new GhostRoleRaffleSettings()
     {
-        InitialDuration = 10,
-        JoinExtendsDurationBy = 10,
-        MaxDuration = 30
+        InitialDuration = 5,
+        JoinExtendsDurationBy = 2,
+        MaxDuration = 10
     };
 
     [DataField]

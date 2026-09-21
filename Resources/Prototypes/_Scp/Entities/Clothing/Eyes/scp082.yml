@@ -1,0 +1,29 @@
+﻿- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesBaseScp082
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Scp/Mobs/Scp/scp-082.rsi
+  - type: Clothing
+    sprite: _Scp/Mobs/Scp/scp-082.rsi
+  - type: Tag
+    tags:
+    - Scp082Clothing
+  - type: ItemEquipWhitelist
+    whitelist:
+      components:
+      - Scp082
+  - type: Item
+    size: Huge
+
+- type: entity
+  parent: ClothingEyesBaseScp082
+  id: ClothingEyesGlassesScp082
+  components:
+  - type: Sprite
+    state: icon-glasses
+  - type: Clothing
+    clothingVisuals:
+      eyes:
+      - state: glasses

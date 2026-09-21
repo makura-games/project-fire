@@ -65,7 +65,7 @@
   - type: StationEvent
     weight: 2
   - type: SpawnInEntityStorageRule
-    probability: 0.001
+    probability: 0.005
     entities:
     - id: Scp3199EggFirst
 

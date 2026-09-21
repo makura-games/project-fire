@@ -12,8 +12,8 @@
       weight: 2
     - id: ScpArtifactShatterWindows
       weight: 2
-    - id: ScpEffectBoltAirlocks
-      weight: 3
+#    - id: ScpEffectBoltAirlocks
+#      weight: 3
     - id: ScpEffectTeslaDischarge
       weight: 1
 #    - id: ScpEffectSpawn2054X
@@ -42,8 +42,8 @@
       #    - id: ScpEffectPolyTable
       #      weight: 2
       # Сломано TODO: вернём после фикса
-    - id: ScpEffectSwap
-      weight: 2
+#    - id: ScpEffectSwap
+#      weight: 2
 #    - id: ScpEffectCreateArtifacts
 #      weight: 1
 # Пока не работает
@@ -138,8 +138,8 @@
       weight: 2
     - id: ScpArtifactShatterWindows
       weight: 2
-    - id: ScpEffectBoltAirlocks
-      weight: 3
+#    - id: ScpEffectBoltAirlocks
+#      weight: 3
     - id: ScpEffectTeslaDischarge
       weight: 0.02
 #    - id: ScpEffectSpawn2054X
@@ -151,8 +151,8 @@
     children:
     - id: ScpEffectShuffleUltra
       weight: 0.01
-    - id: ScpEffectSwap
-      weight: 2
+#    - id: ScpEffectSwap
+#      weight: 2
     - id: EffectMagnetUltra
       weight: 1
     - id: ScpEffectShiftedAsciiTableAccent

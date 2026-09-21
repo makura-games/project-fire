@@ -1,0 +1,30 @@
+- type: entity
+  name: black cane
+  parent: Cane
+  id: Scp049Cane
+  description: Black old-fashioned cane.
+  suffix: SCP-049
+  components:
+  - type: Sprite
+    sprite: _Scp/Objects/Weapons/Melee/049_cane.rsi
+  - type: Item
+    sprite: _Scp/Objects/Weapons/Melee/049_cane.rsi
+  - type: MeleeWeapon
+    angle: 0
+    wideAnimationRotation: 45
+    damage:
+      types:
+        Blunt: 5
+        Structural: 6
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 5
+        Structural: 7
+  - type: Tag
+    tags:
+      - Scp049Cane
+  - type: Tool
+    qualities:
+      - Prying
+  - type: Prying

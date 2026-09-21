@@ -252,6 +252,10 @@
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5
+  # Fire edit start
+  - !type:CalmDownEffect
+    speedUpBy: 5
+  # Fire edit end
 
 # TODO: Replace these nonstandardized effects with generic brain damage
 - type: reagent

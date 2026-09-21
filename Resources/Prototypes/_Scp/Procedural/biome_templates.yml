@@ -101,7 +101,7 @@
   id: ScpComplexWater
   layers:
     - !type:BiomeTileLayer
-      tile: FloorAsteroidSand
+      tile: FloorDesert
       threshold: -1.0
       noise:
         seed: 0
@@ -109,7 +109,7 @@
         fractalType: None
     - !type:BiomeEntityLayer
       allowedTiles:
-        - FloorAsteroidSand
+        - FloorDesert
       threshold: -1.0
       noise:
         seed: 0

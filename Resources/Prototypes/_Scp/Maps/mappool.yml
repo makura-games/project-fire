@@ -2,5 +2,6 @@
   id: FireStationMapPool
   maps:
   - ScpComplexCompact
+  - ScpComplexSector02
   - ScpComplexStandard
   - ScpComplexModular

@@ -12,3 +12,5 @@ scp-035-reject-you = The mask rejects you!
 scp-035-reject-target = Works only on people.
 scp-035-stun-effect = Your body is numb!
 scp-035-paralyze-effect = You are stunned!
+
+scp-035-action-stun = You should lie down.

@@ -12,3 +12,5 @@ scp-035-reject-you = Маска отвергает вас!
 scp-035-reject-target = Работает только на людей.
 scp-035-stun-effect = Ваше тело онемело!
 scp-035-paralyze-effect = Вы ошеломлены!
+
+scp-035-action-stun = Вам стоит прилечь.

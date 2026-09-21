@@ -10,3 +10,5 @@ ent-ActionScp035OrderLoose = Order of Freedom
     .desc = The mask orders the mannequin to be free.
 ent-ActionScp035Stun = Hypnosis
     .desc = The mask forces its victim to stop for a certain period of time.
+ent-ActionScp035Tentacles = Summon Tentacles
+    .desc = The mask summons knockdown tentacles in front of it.

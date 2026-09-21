@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: ScpModeNeutralized
   parent: BaseGameRule
   components:
@@ -349,8 +349,8 @@
       tableId: ScpBasicCalmEventsTable
     - !type:NestedSelector
       tableId: ScpEventsTable
-    - !type:NestedSelector
-      tableId: ScpAntagEventsTable
+#    - !type:NestedSelector
+#      tableId: ScpAntagEventsTable
     - !type:NestedSelector
       tableId: CargoGiftsTable
     - !type:NestedSelector

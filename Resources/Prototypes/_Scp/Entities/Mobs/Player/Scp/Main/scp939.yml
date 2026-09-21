@@ -8,6 +8,7 @@
   - MobBloodstream
   - InventoryBase
   components:
+  - type: SoundWhileAlive
   - type: AutoGhostRole
     disconnectDelay: 600
     pollDuration: 900

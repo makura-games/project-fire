@@ -4,7 +4,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _Scp/Mobs/Scp//scp-082.rsi
+    sprite: _Scp/Mobs/Scp/scp-082.rsi
     state: clothing
   - type: Clothing
     sprite: _Scp/Mobs/Scp/scp-082.rsi

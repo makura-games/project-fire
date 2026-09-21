@@ -610,3 +610,57 @@
       - id: PouchAmmo
       - id: ClothingMaskSecurityBalaklava
       - id: ClothingMaskMtfMilitary
+
+- type: entity
+  parent: BaseMtfStorageCrateWeapon
+  id: MtfStorageCrateRifleAK103
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Storage
+    grid:
+    - 0,0,13,3
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleAK103
+      - id: ClothingBeltMtfAmmoAK103
+
+- type: entity
+  parent: BaseMtfStorageCrateWeapon
+  id: MtfStorageCrateWeaponRifleAsh12
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Storage
+    grid:
+    - 0,0,13,3
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleAsh12
+      - id: ClothingBeltMtfAmmoRifleAsh12
+
+- type: entity
+  parent: BaseMtfStorageCrateWeapon
+  id: MtfStorageCrateWeaponSubMachineGunNewVector
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Storage
+    grid:
+    - 0,0,13,3
+  - type: StorageFill
+    contents:
+      - id: WeaponSubMachineGunNewVector
+      - id: ClothingBeltMtfAmmoWeaponSubMachineGunNewVector
+
+- type: entity
+  parent: BaseMtfStorageCrateWeapon
+  id: MtfStorageCrateWeaponWeaponRifleAR18M
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Storage
+    grid:
+    - 0,0,13,3
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleAR18M
+      - id: ClothingBeltMtfAmmoWeaponRifleAR18M
+
+

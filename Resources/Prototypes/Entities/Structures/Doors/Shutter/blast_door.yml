@@ -26,6 +26,7 @@
         layer:
         - WallLayer
   - type: Door
+    canPry: false # Fire edit
     closeTimeOne: 0.4
     closeTimeTwo: 0.4
     openTimeOne: 0.4
