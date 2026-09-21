@@ -3,6 +3,9 @@
   parent: MarkerBase
   components:
   - type: Sprite
-    sprite: Markers/jobs.rsi
-    state: green
+    layers:
+    - sprite: Markers/cross.rsi
+      state: red
+    - sprite: Interface/Actions/actions_ai.rsi
+      state: bolt_door
   - type: NukeCloseDoor
