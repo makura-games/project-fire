@@ -76,7 +76,7 @@ public sealed class ChaosSleepSpyRuleSystem : GameRuleSystem<ChaosSleepSpyRuleCo
             if (!_mind.TryGetMind(uid, out var thisMindId, out var mindComp))
                 continue;
 
-            if(_mobState.IsDead(uid))
+            if (_mobState.IsDead(uid))
                 continue;
 
             var count = mindComp.Objectives.Count;

@@ -24,6 +24,7 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.Zombies;
 using Robust.Shared.Audio;
 using Robust.Shared.Timing;
+using Content.Server._Scp.MetaGarbage;
 
 namespace Content.Server._Scp.GameTicking.Rules;
 
@@ -71,6 +72,14 @@ public sealed class ChaosRaidRuleSystem : GameRuleSystem<ChaosRaidRuleComponent>
             return;
 
         component.TargetComplex = eligible[0];
+
+        // Выключаем перенос мусора из этого раунда (иначе будет очень много мусора от рейдеров)
+        if (TryComp<MetaGarbageTargetComponent>(component.TargetComplex, out var metaGarbageTargetComp))
+        {
+            metaGarbageTargetComp.SpawnPercent = 0f;
+            metaGarbageTargetComp.ReagentSaveModifiers.Clear();
+        }
+
         AddRaidHelpObjectiveToExistingSpies();
     }
 
