@@ -529,15 +529,17 @@
   objectType: Item
   description: crafting-menu-text-FVT
 
-- type: construction
-  name: crafting-menu-name-PVT
-  id: ClothingOuterArmorPaladin
-  graph: ClothingOuterArmorPaladinGraph
-  startNode: start
-  targetNode: vest
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-PVT
+# Fire edit start
+# - type: construction
+#  name: crafting-menu-name-PVT
+#  id: ClothingOuterArmorPaladin
+#  graph: ClothingOuterArmorPaladinGraph
+#  startNode: start
+#  targetNode: vest
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-PVT
+# Fire edit end
 
 - type: construction
   name: crafting-menu-name-MVTH
@@ -569,12 +571,14 @@
   objectType: Item
   description: crafting-menu-text-FVTH
 
-- type: construction
-  name: crafting-menu-name-PVTH
-  id: ClothingHeadHelmetPaladin
-  graph: ClothingHeadHelmetPaladinGraph
-  startNode: start
-  targetNode: helmet
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-PVTH
+# Fire edit start
+# - type: construction
+#  name: crafting-menu-name-PVTH
+#  id: ClothingHeadHelmetPaladin
+#  graph: ClothingHeadHelmetPaladinGraph
+#  startNode: start
+#  targetNode: helmet
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-PVTH
+# Fire edit end

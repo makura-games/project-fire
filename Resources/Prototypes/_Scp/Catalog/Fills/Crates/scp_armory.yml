@@ -1,0 +1,55 @@
+- type: entity
+  parent: [CrateWeaponSecure]
+  id: CrateArmoryP90
+  name: CrateArmoryP90
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponSubMachineGunP90
+          amount: 2
+        - id: MagazineP90
+          amount: 8
+
+- type: entity
+  parent: [CrateWeaponSecure]
+  id: CrateArmoryM16A4sak
+  name: CrateArmoryM16A4sak
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponRifleM16A4
+          amount: 2
+        - id: MagazineRifleSP
+          amount: 8
+
+- type: entity
+  parent: [CrateWeaponSecure]
+  id: CrateArmoryAR-18
+  name: CrateArmoryAR-18
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponRifleAR18M
+          amount: 2
+        - id: MagazineRifleHeavySP
+          amount: 8
+
+- type: entity
+  parent: [CrateWeaponSecure]
+  id: CrateArmoryAK-103
+  name: CrateArmoryAK-103
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponRifleAK103
+          amount: 2
+        - id: MagazineLightRifleSP
+          amount: 8

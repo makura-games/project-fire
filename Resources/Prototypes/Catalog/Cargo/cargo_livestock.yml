@@ -228,12 +228,14 @@
   category: cargoproduct-category-name-livestock
   group: market
 
-- type: cargoProduct
-  id: LivestockMothroach
-  icon:
-    sprite: Mobs/Animals/mothroach/mothroach.rsi
-    state: mothroach
-  product: CrateNPCMothroach
-  cost: 5000
-  category: cargoproduct-category-name-livestock
-  group: market
+# Fire edit start
+# - type: cargoProduct
+#  id: LivestockMothroach
+#  icon:
+#    sprite: Mobs/Animals/mothroach/mothroach.rsi
+#    state: mothroach
+#  product: CrateNPCMothroach
+#  cost: 5000
+#  category: cargoproduct-category-name-livestock
+#  group: market
+# Fire edit end

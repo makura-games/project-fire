@@ -14,7 +14,9 @@
     # - id: PinpointerNuclear
     - id: RubberStampDirector
     - id: SpaceCash1000
-    - id: WeaponDisabler
+    - id: WeaponPistolDeagle
+    - id: MagazineMagnum
+    - id: MagazineMagnum
     - id: ClothingEyesGlassesCommand
     - id: FlippoLighterSunriseCap
 

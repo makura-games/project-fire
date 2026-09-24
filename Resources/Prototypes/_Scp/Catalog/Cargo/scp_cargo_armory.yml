@@ -1,0 +1,51 @@
+# fire edit start
+# - type: cargoProduct
+#  id: ArmorySmg
+#  icon:
+#    sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
+#    state: icon
+#  product: CrateArmorySMG
+#  cost: 9000
+#  category: cargoproduct-category-name-armory
+#  group: market
+
+- type: cargoProduct
+  id: scpArmoryp90
+  icon:
+    sprite: _Sunrise/Objects/Weapons/Guns/SMGs/p90.rsi
+    state: base
+  product: CrateArmoryP90
+  cost: 9000
+  category: cargoproduct-category-name-armory
+  group: market
+
+- type: cargoProduct
+  id: scpArmorypM16A4
+  icon:
+    sprite: _Sunrise/Objects/Weapons/Guns/SMGs/p90.rsi
+    state: base
+  product: CrateArmoryM16A4sak
+  cost: 5000
+  category: cargoproduct-category-name-armory
+  group: market
+
+- type: cargoProduct
+  id: scpArmorypAR-18
+  icon:
+    sprite: _Sunrise/Objects/Weapons/Guns/SMGs/p90.rsi
+    state: base
+  product: CrateArmoryAR-18
+  cost: 12000
+  category: cargoproduct-category-name-armory
+  group: market
+
+- type: cargoProduct
+  id: scpArmorypAK-103
+  icon:
+    sprite: _Sunrise/Objects/Weapons/Guns/SMGs/p90.rsi
+    state: base
+  product: CrateArmoryAK-103
+  cost: 12000
+  category: cargoproduct-category-name-armory
+  group: market
+

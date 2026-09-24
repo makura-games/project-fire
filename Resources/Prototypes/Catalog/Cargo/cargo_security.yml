@@ -8,6 +8,7 @@
   category: cargoproduct-category-name-security
   group: market
 
+
 - type: cargoProduct
   id: SecurityHelmet
   icon:
@@ -18,15 +19,17 @@
   category: cargoproduct-category-name-security
   group: market
 
-- type: cargoProduct
-  id: SecurityNonLethal
-  icon:
-    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
-    state: base
-  product: CrateSecurityNonlethal
-  cost: 4000
-  category: cargoproduct-category-name-security
-  group: market
+# Fire edit start
+# - type: cargoProduct
+#  id: SecurityNonLethal
+#  icon:
+#    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+#    state: base
+#  product: CrateSecurityNonlethal
+#  cost: 4000
+#  category: cargoproduct-category-name-security
+#  group: market
+# Fire edit end
 
 - type: cargoProduct
   id: SecuritySupplies

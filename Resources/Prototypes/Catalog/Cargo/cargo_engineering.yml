@@ -68,25 +68,29 @@
   category: cargoproduct-category-name-engineering
   group: market
 
-- type: cargoProduct
-  id: EngineeringJetpack
-  icon:
-    sprite: Objects/Tanks/Jetpacks/blue.rsi
-    state: icon
-  product: CrateEngineeringJetpack
-  cost: 1000
-  category: cargoproduct-category-name-engineering
-  group: market
+# fire edit start
+# - type: cargoProduct
+#  id: EngineeringJetpack
+#  icon:
+#    sprite: Objects/Tanks/Jetpacks/blue.rsi
+#    state: icon
+#  product: CrateEngineeringJetpack
+#  cost: 1000
+#  category: cargoproduct-category-name-engineering
+#  group: market
+# fire edit end
 
-- type: cargoProduct
-  id: EngineeringMiniJetpack
-  icon:
-    sprite: Objects/Tanks/Jetpacks/mini.rsi
-    state: icon
-  product: CrateEngineeringMiniJetpack
-  cost: 750
-  category: cargoproduct-category-name-engineering
-  group: market
+# fire edit start
+# - type: cargoProduct
+#  id: EngineeringMiniJetpack
+#  icon:
+#    sprite: Objects/Tanks/Jetpacks/mini.rsi
+#    state: icon
+#  product: CrateEngineeringMiniJetpack
+#  cost: 750
+#  category: cargoproduct-category-name-engineering
+#  group: market
+# fire edit end
 
 - type: cargoProduct
   id: AirlockKit
@@ -97,16 +101,17 @@
   cost: 1100
   category: cargoproduct-category-name-engineering
   group: market
-
-- type: cargoProduct
-  id: EvaKit
-  icon:
-    sprite: Clothing/Head/Helmets/eva.rsi
-    state: icon
-  product: CrateEvaKit
-  cost: 5000
-  category: cargoproduct-category-name-engineering
-  group: market
+# fire edit start
+# - type: cargoProduct
+#  id: EvaKit
+#  icon:
+#    sprite: Clothing/Head/Helmets/eva.rsi
+#    state: icon
+#  product: CrateEvaKit
+#  cost: 5000
+#  category: cargoproduct-category-name-engineering
+#  group: market
+# fire edit end
 
 - type: cargoProduct
   id: EngineeringRCDAmmo
@@ -128,15 +133,17 @@
   category: cargoproduct-category-name-engineering
   group: market
 
-- type: cargoProduct
-  id: EngineeringParticleDecelerators
-  icon:
-    sprite: Objects/Weapons/Guns/Battery/particle_decelerator.rsi
-    state: base
-  product: CrateParticleDecelerators
-  cost: 15000
-  category: cargoproduct-category-name-engineering
-  group: market
+# fire edit start
+# - type: cargoProduct
+#  id: EngineeringParticleDecelerators
+#  icon:
+#    sprite: Objects/Weapons/Guns/Battery/particle_decelerator.rsi
+#    state: base
+#  product: CrateParticleDecelerators
+# cost: 15000
+#  category: cargoproduct-category-name-engineering
+#  group: market
+# fire edit end
 
 - type: cargoProduct
   id: EngineeringSpaceHeater

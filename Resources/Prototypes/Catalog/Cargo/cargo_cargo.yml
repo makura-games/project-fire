@@ -8,16 +8,17 @@
   category: cargoproduct-category-name-cargo
   group: market
 
-- type: cargoProduct
-  id: CargoLuxuryHardsuit
-  icon:
-    sprite: Clothing/Head/Hardsuits/luxury.rsi
-    state: icon
-  product: CrateCargoLuxuryHardsuit
-  cost: 15000
-  category: cargoproduct-category-name-cargo
-  group: market
-
+# fire edit start
+# - type: cargoProduct
+#  id: CargoLuxuryHardsuit
+#  icon:
+#    sprite: Clothing/Head/Hardsuits/luxury.rsi
+#    state: icon
+#  product: CrateCargoLuxuryHardsuit
+#  cost: 15000
+#  category: cargoproduct-category-name-cargo
+#  group: market
+# fire edit end
 - type: cargoProduct
   id: CargoParcelWrap
   icon:
@@ -28,15 +29,17 @@
   category: cargoproduct-category-name-cargo
   group: market
 
-- type: cargoProduct
-  id: CargoCrusherDagger
-  icon:
-    sprite: Objects/Weapons/Melee/crusher_dagger.rsi
-    state: icon
-  product: CrateCrusherDagger
-  cost: 2500
-  category: cargoproduct-category-name-cargo
-  group: market
+# fire edit start
+# - type: cargoProduct
+#  id: CargoCrusherDagger
+#  icon:
+#    sprite: Objects/Weapons/Melee/crusher_dagger.rsi
+#    state: icon
+#  product: CrateCrusherDagger
+#  cost: 2500
+#  category: cargoproduct-category-name-cargo
+#  group: market
+# fire edit end
 
 - type: cargoProduct
   id: CargoMailCart

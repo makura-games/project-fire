@@ -1,9 +1,11 @@
-- type: cargoProduct
-  id: ResearchServer
-  icon:
-    sprite: _Sunrise/Structures/Machines/server.rsi
-    state: icon
-  product: CrateResearchServer
-  cost: 45000
-  category: cargoproduct-category-name-science
-  group: market
+# fire edit start
+# - type: cargoProduct
+#  id: ResearchServer
+#  icon:
+#    sprite: _Sunrise/Structures/Machines/server.rsi
+#    state: icon
+#  product: CrateResearchServer
+#  cost: 45000
+#  category: cargoproduct-category-name-science
+#  group: market
+# fire edit end

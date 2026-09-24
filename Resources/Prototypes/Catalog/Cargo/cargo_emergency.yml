@@ -18,25 +18,29 @@
   category: cargoproduct-category-name-emergency
   group: market
 
-- type: cargoProduct
-  id: EmergencyInternals
-  icon:
-    sprite: Clothing/Mask/breath.rsi
-    state: icon
-  product: CrateEmergencyInternals
-  cost: 600
-  category: cargoproduct-category-name-emergency
-  group: market
+# fire edit start
+# - type: cargoProduct
+#  id: EmergencyInternals
+#  icon:
+#    sprite: Clothing/Mask/breath.rsi
+#    state: icon
+#  product: CrateEmergencyInternals
+#  cost: 600
+#  category: cargoproduct-category-name-emergency
+#  group: market
+# fire edit end
 
-- type: cargoProduct
-  id: EmergencyInternalsLarge
-  icon:
-    sprite: Clothing/Mask/breath.rsi
-    state: icon
-  product: CrateEmergencyInternalsLarge
-  cost: 1200
-  category: cargoproduct-category-name-emergency
-  group: market
+# fire edit start
+# - type: cargoProduct
+#  id: EmergencyInternalsLarge
+#  icon:
+#    sprite: Clothing/Mask/breath.rsi
+#    state: icon
+#  product: CrateEmergencyInternalsLarge
+#  cost: 1200
+#  category: cargoproduct-category-name-emergency
+#  group: market
+# fire edit end
 
 - type: cargoProduct
   id: EmergencyRadiation

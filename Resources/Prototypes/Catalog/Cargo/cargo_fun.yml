@@ -151,15 +151,17 @@
   category: cargoproduct-category-name-fun
   group: market
 
-- type: cargoProduct
-  id: FunSadTromboneImplants
-  icon:
-    sprite: Objects/Specific/Medical/implanter.rsi
-    state: implanter0
-  product: CrateFunSadTromboneImplants
-  cost: 1000
-  category: cargoproduct-category-name-fun
-  group: market
+# fire edit start
+# - type: cargoProduct
+#  id: FunSadTromboneImplants
+#  icon:
+#    sprite: Objects/Specific/Medical/implanter.rsi
+#    state: implanter0
+#  product: CrateFunSadTromboneImplants
+#  cost: 1000
+#  category: cargoproduct-category-name-fun
+#  group: market
+# fire edit end
 
 - type: cargoProduct
   id: FunLightImplants
@@ -201,15 +203,17 @@
   category: cargoproduct-category-name-fun
   group: market
 
-- type: cargoProduct
-  id: FunBikeHornImplants
-  icon:
-    sprite: Objects/Specific/Medical/implanter.rsi
-    state: implanter0
-  product: CrateFunBikeHornImplants
-  cost: 1000
-  category: cargoproduct-category-name-fun
-  group: market
+# fire edit start
+# - type: cargoProduct
+#  id: FunBikeHornImplants
+#  icon:
+#    sprite: Objects/Specific/Medical/implanter.rsi
+#    state: implanter0
+#  product: CrateFunBikeHornImplants
+#  cost: 1000
+#  category: cargoproduct-category-name-fun
+#  group: market
+# fire edit end
 
 - type: cargoProduct
   id: FunMysteryFigurines
@@ -230,6 +234,7 @@
   cost: 900
   category: cargoproduct-category-name-fun
   group: market
+
 # Fire edit start
 #- type: cargoProduct
 #  id: HydratedScurret
@@ -241,15 +246,18 @@
 #  category: cargoproduct-category-name-fun
 #  group: market
 # Fire edit end
-- type: cargoProduct
-  id: FunCrateGambling
-  icon:
-    sprite: Objects/Economy/cash.rsi
-    state: cash_1000000
-  product: CrateCargoGambling
-  cost: 10000
-  category: cargoproduct-category-name-fun
-  group: market
+
+# Fire edit start
+#- type: cargoProduct
+#  id: FunCrateGambling
+#  icon:
+#    sprite: Objects/Economy/cash.rsi
+#    state: cash_1000000
+#  product: CrateCargoGambling
+#  cost: 10000
+#  category: cargoproduct-category-name-fun
+#  group: market
+# Fire edit end
 
 - type: cargoProduct
   id: ChurchOrganInstrument
