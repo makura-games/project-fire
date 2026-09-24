@@ -194,10 +194,10 @@
     dest: cargo-gift-dest-sec
     gifts:
       SecurityArmor: 3
-      ArmorySmg: 1
-      ArmoryShotgun: 1
-      ArmoryLaser: 1
-      ArmoryRifle: 1
+    #  ArmorySmg: 1 fire edit
+    #  ArmoryShotgun: 1 fire edit
+    #  ArmoryLaser: 1 fire edit
+    #  ArmoryRifle: 1 fire edit
 
 - type: entity
   id: GiftsSecurityRiot
@@ -214,5 +214,5 @@
     gifts:
       SecurityRiot: 2
       SecurityRestraints: 2
-      SecurityNonLethal: 2
-      SecurityNonlethalThrowables: 1
+#      SecurityNonLethal: 2 fire edit
+#      SecurityNonlethalThrowables: 1 fire edit
