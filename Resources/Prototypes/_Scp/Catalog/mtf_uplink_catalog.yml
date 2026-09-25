@@ -943,7 +943,7 @@
     whitelist:
     - ScpUplinkMtfUnlockPistols
 
-- type: listing
+ - type: listing ВРЕМЕННО УДАЛЕН ИЗ АПЛИНКА ДО ОБНОВЛЕНИЯ
   id: ScpUplinkMtfStorageCratePistolG22
   productEntity: MtfStorageCratePistolG22
   name: shop-name-glock22box
@@ -958,8 +958,8 @@
     - ScpUplinkMtfStorageCratePistolG22
     - ScpUplinkMtfStorageCratePistolVP78
     - ScpUplinkMtfStorageCrateRevolverSpearhead
-    - ScpUplinkWeaponEarthGovLaserPistol
-    - ScpUplinkWeaponPulsePistolScp
+   - ScpUplinkWeaponEarthGovLaserPistol
+   - ScpUplinkWeaponPulsePistolScp
     whitelist:
     - ScpUplinkMtfUnlockPistols
 
