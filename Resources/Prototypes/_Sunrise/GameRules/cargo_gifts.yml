@@ -11,6 +11,6 @@
     description: cargo-gift-security-guns
     dest: cargo-gift-dest-sec
     gifts:
-      SecurityMosin: 3
+#      SecurityMosin: 3 fire edit
       SecurityArmor: 4
-      SecurityAmmunitionSmallLightRifle: 2
+#      SecurityAmmunitionSmallLightRifle: 2 fire edit
