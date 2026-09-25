@@ -97,6 +97,10 @@ public sealed partial class MetaGarbageSystem : EntitySystem
             // Вычищаем прошлые данные о мусоре на данной карте и собираем их заново
             CachedGarbage.Remove(stationPrototype);
 
+            // Нам не нужен перенос мусора при нулевом коэфициенте
+            if (metaGarbage.SpawnPercent <= 0f)
+                continue;
+
             // Сохраняем новые данные
             CollectGarbage((uid, metaGarbage), stationPrototype);
             PrintDebugInfo(uid);

@@ -59,7 +59,7 @@ namespace Content.Server.Voting.Managers
         private readonly StandardVoteType[] _standardVoteTypeValues = Enum.GetValues<StandardVoteType>();
 
         private readonly SoundSpecifier _voteAudio = new SoundPathSpecifier("/Audio/_Sunrise/voting.ogg");
-        private EntityUid? _voteAudioStream;
+        // private EntityUid? _voteAudioStream; // Fire edit - отключение музыки голосования
 
         public void Initialize()
         {
@@ -492,7 +492,7 @@ namespace Content.Server.Voting.Managers
 
             if (activeVotes < 1)
             {
-                _entityManager.System<SharedAudioSystem>().Stop(_voteAudioStream);
+                // _entityManager.System<SharedAudioSystem>().Stop(_voteAudioStream); // Fire edit - отключение музыки голосования
                 if (_entityManager.System<GameTicker>().RunLevel == GameRunLevel.PreRoundLobby)
                 {
                     if (_cfg.GetCVar(SunriseCCVars.VotePause))
