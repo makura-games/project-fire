@@ -19,11 +19,13 @@ namespace Content.IntegrationTests.Tests;
 [TestFixture]
 public sealed class CargoTest
 {
-//    private static readonly HashSet<ProtoId<CargoProductPrototype>> Ignored =
-//    [
+    // Fire edit start
+    private static readonly HashSet<ProtoId<CargoProductPrototype>> Ignored = new(); 
+    //[
         // This is ignored because it is explicitly intended to be able to sell for more than it costs.
-//        new("FunCrateGambling")
-//    ];
+    //    new("FunCrateGambling")
+    //];
+    // Fire edit end
 
     [Test]
     public async Task NoCargoOrderArbitrage()
