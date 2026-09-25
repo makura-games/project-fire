@@ -943,25 +943,25 @@
     whitelist:
     - ScpUplinkMtfUnlockPistols
 
-# - type: listing ВРЕМЕННО УДАЛЕН ИЗ АПЛИНКА ДО ОБНОВЛЕНИЯ
-#  id: ScpUplinkMtfStorageCratePistolG22
-#  productEntity: MtfStorageCratePistolG22
-#  name: shop-name-glock22box
-#  description: shop-desc-glock22box
-#  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: g22 }
-#  categories:
-#  - ScpPistols
-#  conditions:
-#  - !type:BuyBeforeCondition
-#    blacklist:
-#    - ScpUplinkMtfStorageCratePistolACP14
-#    - ScpUplinkMtfStorageCratePistolG22
-#    - ScpUplinkMtfStorageCratePistolVP78
-#    - ScpUplinkMtfStorageCrateRevolverSpearhead
-#   - ScpUplinkWeaponEarthGovLaserPistol
-#   - ScpUplinkWeaponPulsePistolScp
-#    whitelist:
-#    - ScpUplinkMtfUnlockPistols
+ - type: listing ВРЕМЕННО УДАЛЕН ИЗ АПЛИНКА ДО ОБНОВЛЕНИЯ
+  id: ScpUplinkMtfStorageCratePistolG22
+  productEntity: MtfStorageCratePistolG22
+  name: shop-name-glock22box
+  description: shop-desc-glock22box
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: g22 }
+  categories:
+  - ScpPistols
+  conditions:
+  - !type:BuyBeforeCondition
+    blacklist:
+    - ScpUplinkMtfStorageCratePistolACP14
+    - ScpUplinkMtfStorageCratePistolG22
+    - ScpUplinkMtfStorageCratePistolVP78
+    - ScpUplinkMtfStorageCrateRevolverSpearhead
+   - ScpUplinkWeaponEarthGovLaserPistol
+   - ScpUplinkWeaponPulsePistolScp
+    whitelist:
+    - ScpUplinkMtfUnlockPistols
 
 - type: listing
   id: ScpUplinkMtfStorageCratePistolVP78

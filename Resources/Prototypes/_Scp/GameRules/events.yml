@@ -119,7 +119,6 @@
     - id: BureaucraticError
     - id: ClericalError
     - id: ScpCockroachMigration
-    - id: GasLeak
     - id: GreytideVirus
     - id: IonStorm
     - id: MassHallucinations
