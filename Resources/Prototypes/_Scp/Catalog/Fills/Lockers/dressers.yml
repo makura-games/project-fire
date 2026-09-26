@@ -120,6 +120,20 @@
   - ScpBaseDresserComponents
   - DresserWardenFilled
 
+- type: entity
+  id: ScpDresserScp208Filled
+  parent: 
+  - ScpBaseDresserComponents
+  - ScpDresser
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatBeretSalvageMercGreen
+        - id: Scp208MilitaryClothing
+        - id: ClothingShoesBootsCombat
+
 - type: entity # TODO: спрайт шкафа
   id: ScpDresserScp082Filled
   parent: ScpDresser

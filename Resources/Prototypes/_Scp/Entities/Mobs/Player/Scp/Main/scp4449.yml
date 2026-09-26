@@ -1,0 +1,94 @@
+﻿- type: entity
+  id: Scp4449
+  name: ???
+  suffix: SCP-4449
+  parent:
+  - BaseScpFriendlySapient
+  - MobCombat
+  - InventoryBase
+  - StripableInventoryBase
+  - AppearanceScpHands
+  components:
+  - type: Hands
+    showInHands: false
+  - type: TTS
+    voice: phantom_lancer_dota_2
+  - type: AutoGhostRole
+    disconnectDelay: 600
+    pollDuration: 900
+    transferDelay: 180
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Scp/Mobs/Scp/scp-4449.rsi
+    state: scp-4449
+  - type: Scp
+    class: Safe
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0.25
+    baseSprintSpeed: 0.5 # в основном передвигается способкой (прыжками)
+  - type: GhostPanelAntagonistMarker
+    name: ghost-panel-antagonist-scp-minor-name
+    description: ghost-panel-antagonist-scp-minor-description
+    priority: 0
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      300: Critical
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-scp4449-name
+    description: ghost-role-information-scp4449-description
+    raffle:
+      settings: short
+    job: Scp4449
+  - type: GhostTakeoverAvailable
+  - type: GuideHelp
+    guides:
+    - ScpResearch
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.5
+        Piercing: 0.6
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepWood
+      params:
+        volume: 6
+  - type: Inventory
+    templateId: scp4449
+  - type: JumpAbility
+    action: ActionScp4449Jump
+    collideKnockdown: 0
+    jumpDistance: 0.5
+    jumpThrowSpeed: 25
+    jumpSound: /Audio/Effects/Footsteps/wood3.ogg
+  - type: Body
+  - type: Loadout
+    prototypes: [ Scp4449Gear ]
+  - type: Prying # типо своей палочкой шурудит
+  - type: Damageable
+    damageModifierSet: SCP-4449
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.4,0.25,0.4"
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: DamageOnHighSpeedImpact
+    minimumSpeed: 30
+
+- type: startingGear
+  id: Scp4449Gear
+  equipment:
+    neck: KeyCardPassEmpty
+    belt: ClothingBeltStorageWaistbag

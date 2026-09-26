@@ -1,0 +1,20 @@
+﻿- type: entity
+  id: Scp208MilitaryClothing
+  parent: ClothingUniformBase
+  suffix: SCP-208
+  name: military uniform
+  components:
+  - type: Sprite
+    sprite: _Scp/Clothing/Uniforms/scp208-uniform.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Scp/Clothing/Uniforms/scp208-uniform.rsi
+  - type: Item
+    size: Normal
+  - type: Tag
+    tags:
+    - Scp208Clothing
+  - type: ItemEquipWhitelist
+    whitelist:
+      components:
+      - Scp208

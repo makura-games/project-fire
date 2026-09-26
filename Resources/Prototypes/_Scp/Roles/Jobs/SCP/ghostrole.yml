@@ -35,7 +35,43 @@
   alwaysShowInBanPanel: true
   setPreference: false
   applyTraits: false
-  
+
+- type: job
+  id: Scp208
+  name: job-name-scp208
+  description: job-description-scp208
+  playTimeTracker: JobScp208
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 432000 # 120h
+  weight: 968
+  #icon: TODO
+  joinNotifyCrew: false
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  jobEntity: Scp208
+  alwaysShowInBanPanel: true
+  setPreference: false
+  applyTraits: false
+
+- type: job
+  id: Scp492
+  name: job-name-scp492
+  description: job-description-scp492
+  playTimeTracker: JobScp492
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 108000 # 30h
+  weight: 965
+  #icon: TODO
+  joinNotifyCrew: false
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  jobEntity: Scp492
+  alwaysShowInBanPanel: true
+  setPreference: false
+  applyTraits: false
+
 - type: job
   id: Scp1508
   name: job-name-scp1508
@@ -72,7 +108,61 @@
   setPreference: false
   applyTraits: false
 
+- type: job
+  id: Scp4449
+  name: job-name-scp4449
+  description: job-description-scp4449
+  playTimeTracker: JobScp4449
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 108000 # 30h
+  weight: 965
+  #icon: TODO
+  joinNotifyCrew: false
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  jobEntity: Scp4449
+  alwaysShowInBanPanel: true
+  setPreference: false
+  applyTraits: false
+
 # Евклид
+
+- type: job
+  id: Scp007
+  name: job-name-scp007
+  description: job-description-scp007
+  playTimeTracker: JobScp007
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 108000 # 30h
+  weight: 965
+  #icon: TODO
+  joinNotifyCrew: false
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  jobEntity: Scp007
+  alwaysShowInBanPanel: true
+  setPreference: false
+  applyTraits: false
+
+- type: job
+  id: Scp527
+  name: job-name-scp527
+  description: job-description-scp527
+  playTimeTracker: JobScp527
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 108000 # 30h
+  weight: 965
+  #icon: TODO
+  joinNotifyCrew: false
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  jobEntity: Scp527
+  alwaysShowInBanPanel: true
+  setPreference: false
+  applyTraits: false
 
 - type: job
   id: Scp1589
@@ -88,6 +178,24 @@
   overrideConsoleVisibility: false
   canBeAntag: false
   jobEntity: Scp1589
+  alwaysShowInBanPanel: true
+  setPreference: false
+  applyTraits: false
+
+- type: job
+  id: Scp2020
+  name: job-name-scp2020
+  description: job-description-scp2020
+  playTimeTracker: JobScp2020
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 108000 # 30h
+  weight: 965
+  #icon: TODO
+  joinNotifyCrew: false
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  jobEntity: Scp2020
   alwaysShowInBanPanel: true
   setPreference: false
   applyTraits: false
