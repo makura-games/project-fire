@@ -13,18 +13,15 @@
       path: /Audio/_Scp/Effects/Radio/static.ogg
       params:
         volume: -8
-        range: 5
     soundDeactivate:
       path: /Audio/_Scp/Effects/Radio/toggle.ogg
       params:
         volume: -10
-        range: 5
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/_Scp/Effects/vintage_song.ogg
       params:
         volume: -8
-        range: 5
   - type: TriggerOnActivate
   - type: ItemToggleOnTrigger
   - type: UseDelay
