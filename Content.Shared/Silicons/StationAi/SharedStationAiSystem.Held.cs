@@ -164,6 +164,40 @@ public abstract partial class SharedStationAiSystem
         {
             ShowDeviceNotRespondingPopup(ent.Owner);
         }
+
+        // Fire edit start
+        // TODO: Сейчас при нажатии Alt + по шлюзу энергия списывается дважды, за взаимодействие + использование открытой панельки, нужно будет это исправить
+        if (args.Cancelled || args.Target == null)
+            return;
+
+        if (!TryGetCore(ent, out var core) ||
+            core.Comp == null)
+            return;
+
+        if (_whitelist.IsWhitelistPass(core.Comp.IncreasedChargeCostWhitelist, args.Target.Value))
+        {
+            if (_battery.GetCharge(core.Owner) < core.Comp.IncreasedInteractionChargeCost)
+            {
+                ShowNotChargeEnoughPopup(ent);
+                args.Cancelled = true;
+                return;
+            }
+
+            if (!_battery.TryUseCharge(core.Owner, core.Comp.IncreasedInteractionChargeCost))
+                args.Cancelled = true;
+            return;
+        }
+
+        if (_battery.GetCharge(core.Owner) < core.Comp.OtherInteractionsChargeCost)
+        {
+            ShowNotChargeEnoughPopup(ent);
+            args.Cancelled = true;
+            return;
+        }
+
+        if (!_battery.TryUseCharge(core.Owner, core.Comp.OtherInteractionsChargeCost))
+            args.Cancelled = true;
+        // Fire edit end
     }
 
     private void OnTargetVerbs(Entity<StationAiWhitelistComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
@@ -211,6 +245,13 @@ public abstract partial class SharedStationAiSystem
     {
         _popup.PopupClient(Loc.GetString("ai-device-no-access"), toEntity, PopupType.MediumCaution);
     }
+
+    // Fire edit start
+    private void ShowNotChargeEnoughPopup(EntityUid toEntity)
+    {
+        _popup.PopupClient(Loc.GetString("ai-not-charge-enough"), toEntity, PopupType.MediumCaution);
+    }
+    // Fire edit end
 }
 
 /// <summary>
