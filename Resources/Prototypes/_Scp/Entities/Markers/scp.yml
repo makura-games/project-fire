@@ -16,6 +16,7 @@
   - type: PreferredSpawn
     preferredSpawnTypes: [ Job ]
   - type: Scp173BlockStructureDamage
+  - type: ScpBlindAllower
 
 - type: entity # Для особых случаев
   name: SCP-173 structure damage blocker
@@ -28,6 +29,7 @@
     - sprite: _Scp/Mobs/Scp/scp-173.rsi
       state: scp-173
   - type: Scp173BlockStructureDamage
+  - type: ScpBlindBlocker
 
 - type: entity
   name: SCP-096 spawner

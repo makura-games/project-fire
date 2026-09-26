@@ -1,4 +1,4 @@
-﻿using Content.Server._Scp.Scp173;
+﻿using Content.Shared._Scp.Other.ScpBlind;
 using Content.Shared.Xenoarchaeology.Artifact;
 using Content.Shared.Xenoarchaeology.Artifact.XAE;
 
@@ -6,10 +6,10 @@ namespace Content.Server._Scp.Research.Artifacts.Effects._ScpSpecific.Scp173.Bli
 
 public sealed class ArtifactScp173BlindEveryoneInRangeSystem : BaseXAESystem<ArtifactScp173BlindEveryoneInRangeComponent>
 {
-    [Dependency] private readonly Scp173System _scp173 = default!;
+    [Dependency] private readonly SharedScpBlindSystem _scpBlind = default!;
 
     protected override void OnActivated(Entity<ArtifactScp173BlindEveryoneInRangeComponent> ent, ref XenoArtifactNodeActivatedEvent args)
     {
-        _scp173.BlindEveryoneInRange(ent, ent.Comp.Time, false);
+        _scpBlind.BlindEveryoneInRange(ent, ent.Comp.Time, false);
     }
 }

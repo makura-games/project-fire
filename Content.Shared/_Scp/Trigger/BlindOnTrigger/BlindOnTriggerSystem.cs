@@ -1,11 +1,11 @@
-﻿using Content.Shared._Scp.Scp173;
+﻿using Content.Shared._Scp.Other.ScpBlind;
 using Content.Shared.Trigger;
 
 namespace Content.Shared._Scp.Trigger.BlindOnTrigger;
 
 public sealed class BlindOnTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedScp173System _scp173 = default!;
+    [Dependency] private readonly SharedScpBlindSystem _scpBlind = default!;
 
     public override void Initialize()
     {
@@ -19,6 +19,6 @@ public sealed class BlindOnTriggerSystem : EntitySystem
         if (args.Key != null && !ent.Comp.KeysIn.Contains(args.Key))
             return;
 
-        _scp173.BlindEveryoneInRange(ent, ent.Comp.Time, false);
+        _scpBlind.BlindEveryoneInRange(ent, ent.Comp.Time, false);
     }
 }

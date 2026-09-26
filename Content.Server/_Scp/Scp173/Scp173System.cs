@@ -2,9 +2,6 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.Doors.Systems;
-using Content.Server.Examine;
-using Content.Server.Explosion.EntitySystems;
-using Content.Server.Fluids.EntitySystems;
 using Content.Server.Ghost;
 using Content.Server.Interaction;
 using Content.Server.Popups;
@@ -14,13 +11,11 @@ using Content.Shared._Scp.Other.BunkerMarker;
 using Content.Shared._Scp.Other.DamageOnCollide;
 using Content.Shared._Scp.Proximity;
 using Content.Shared._Scp.Scp173;
-using Content.Shared.Chemistry.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Doors.Components;
 using Content.Shared.Examine;
-using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Light.Components;
 using Content.Shared.Lock;
 using Content.Shared.Physics;
@@ -43,20 +38,16 @@ public sealed partial class Scp173System : SharedScp173System
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly PuddleSystem _puddle = default!;
     [Dependency] private readonly LockSystem _lock = default!;
     [Dependency] private readonly DoorSystem _door = default!;
-    [Dependency] private readonly ExamineSystem _examine = default!;
     [Dependency] private readonly InteractionSystem _interaction = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly AudioSystem _audio= default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly ScpHelpers _helpers = default!;
     [Dependency] private readonly ScpDamageOnCollideSystem _damageOnCollide = default!;
 
     private readonly SoundSpecifier _storageOpenSound = new SoundCollectionSpecifier("MetalBreak");
-    private readonly SoundSpecifier _clogSound = new SoundPathSpecifier("/Audio/_Scp/Scp173/clog.ogg");
 
     private const float ToggleDoorStuffChance = 0.5f;
 
@@ -67,7 +58,7 @@ public sealed partial class Scp173System : SharedScp173System
         base.Initialize();
 
         SubscribeLocalEvent<Scp173Component, Scp173DamageStructureAction>(OnStructureDamage);
-        SubscribeLocalEvent<Scp173Component, Scp173ClogAction>(OnClog);
+
         SubscribeLocalEvent<Scp173Component, Scp173FastMovementAction>(OnFastMovement);
     }
 
@@ -169,61 +160,6 @@ public sealed partial class Scp173System : SharedScp173System
         }
 
         // TODO: Sound.
-
-        args.Handled = true;
-    }
-
-    private void OnClog(Entity<Scp173Component> ent, ref Scp173ClogAction args)
-    {
-        if (args.Handled)
-            return;
-
-        if (IsInScpCage(ent, out var storage))
-        {
-            var message = Loc.GetString("scp-cage-suppress-ability", ("container", Name(storage.Value)));
-            _popup.PopupEntity(message, ent, ent, PopupType.LargeCaution);
-
-            return;
-        }
-
-        if (Watching.IsWatchedByAny(ent))
-        {
-            var message = Loc.GetString("scp173-fast-movement-too-many-watchers");
-            _popup.PopupEntity(message, ent, ent, PopupType.LargeCaution);
-            return;
-        }
-
-        var coords = Transform(ent).Coordinates;
-
-        var tempSol = new Solution();
-        tempSol.AddReagent(Scp173Component.Reagent, 25);
-        _puddle.TrySpillAt(coords, tempSol, out _, false);
-
-        _audio.PlayPvs(_clogSound, ent);
-
-        var total = _helpers.GetAroundSolutionVolume(ent, Scp173Component.Reagent, LineOfSightBlockerLevel.None);
-
-        if (total >= Scp173Component.MinTotalSolutionVolume)
-        {
-            var lookup = _lookup.GetEntitiesInRange(coords, ContainmentRoomSearchRadius, flags: LookupFlags.Dynamic | LookupFlags.Static)
-                .Where(target => _examine.InRangeUnOccluded(ent, target, ContainmentRoomSearchRadius));
-
-            foreach (var target in lookup)
-            {
-                if (TryComp<DoorBoltComponent>(target, out var doorBoltComp) && doorBoltComp.BoltsDown)
-                    _door.SetBoltsDown((target, doorBoltComp), false, predicted: true);
-
-                if (TryComp<LockComponent>(target, out var lockComp) && lockComp.Locked)
-                    _lock.Unlock(target, args.Performer, lockComp);
-
-                if (TryComp<DoorComponent>(target, out var doorComp) && doorComp.State is not DoorState.Open && !HasComp<BunkerMarkerComponent>(target))
-                    _door.StartOpening(target);
-            }
-        }
-        if (total >= Scp173Component.ExtraMinTotalSolutionVolume)
-        {
-            _explosion.QueueExplosion(_transform.GetMapCoordinates(ent), SharedExplosionSystem.DefaultExplosionPrototypeId, 300f, 0.6f, 50f, ent);
-        }
 
         args.Handled = true;
     }
