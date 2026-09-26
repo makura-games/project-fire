@@ -14,7 +14,7 @@
     range: 75
     volume: -13
     sound:
-      path: /Audio/_Scp/Events/Scp3008/IKEA.ogg
+      path: /Audio/_Scp/Scp3008/IKEA.ogg
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot
@@ -99,7 +99,7 @@
     sound:
       params:
         variation: 0.5
-      path: /Audio/_Scp/Events/Scp3008/VOICE.ogg
+      path: /Audio/_Scp/Scp3008/VOICE.ogg
 
 
 - type: entity
@@ -151,7 +151,7 @@
     sound:
       params:
         variation: 0.15
-      path: /Audio/_Scp/Events/Scp3008/VOICE.ogg
+      path: /Audio/_Scp/Scp3008/VOICE.ogg
 
 
 - type: entity
@@ -205,4 +205,4 @@
     sound:
       params:
         variation: 0.15
-      path: /Audio/_Scp/Events/Scp3008/VOICE.ogg
+      path: /Audio/_Scp/Scp3008/VOICE.ogg
