@@ -1,0 +1,20 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by timur",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "scp2263-62"
+        },
+        {
+            "name": "scp2263-18"
+        },
+        {
+            "name": "scp2263-60"
+        }
+    ]
+}
