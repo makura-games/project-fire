@@ -23,8 +23,8 @@
   id: ScpArtifactEffectsUltraFunnyTable
   table: !type:GroupSelector
     children:
-    - id: ScpEffectShuffleUltra
-      weight: 2
+#    - id: ScpEffectShuffleUltra
+#      weight: 2
     - id: ScpEffectPolyWatermelon
       weight: 2
     - id: ScpEffectPolyAppendix
@@ -80,8 +80,8 @@
       weight: 1
     - id: ScpArtifactEmp
       weight: 1
-    - id: ScpArtifactShuffle
-      weight: 1
+#    - id: ScpArtifactShuffle
+#      weight: 1
     - id: ScpArtifactScp106Teleport
       weight: 1
     - id: ScpArtifactGenerateEnergy
@@ -149,8 +149,8 @@
   id: ScpArtifactEffectsUltraFunnyFriendlyTable
   table: !type:GroupSelector
     children:
-    - id: ScpEffectShuffleUltra
-      weight: 0.01
+#    - id: ScpEffectShuffleUltra
+#      weight: 0.01
 #    - id: ScpEffectSwap
 #      weight: 2
     - id: EffectMagnetUltra
