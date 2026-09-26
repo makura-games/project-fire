@@ -163,7 +163,7 @@
     prototypes: [ Scp082Gear ]
   - type: StandingState
   - type: RotationVisuals
-    defaultRotation: 90
+    defaultRotation: 0
     horizontalRotation: 90
 
 - type: startingGear

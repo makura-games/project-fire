@@ -48,13 +48,20 @@
         conditions:
         - !type:ReagentCondition
           reagent: Scp2022Reagent
-          min: 30
+          min: 20
       - !type:PopupMessage
         conditions:
         - !type:ReagentCondition
           reagent: Scp2022Reagent
-          min: 30
+          min: 20
         visualType: Large
         messages: ["reagent-effect-scp2022-heat-burn"]
         probability: 0.7
         type: Local
+      - !type:Glow
+        conditions:
+        - !type:ReagentCondition
+          reagent: Scp2022Reagent
+          min: 40
+        radius: 2.0
+        color: "#FFFF00"

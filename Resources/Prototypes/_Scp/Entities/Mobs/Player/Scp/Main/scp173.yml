@@ -114,8 +114,6 @@
         volume: -5
         maxDistance: 5
   - type: SpeedModifierContactCapClothing
-    maxContactSprintSlowdown: 1
-    maxContactWalkSlowdown: 1
   - type: ActionGrant
     actions:
     - Scp173Blind

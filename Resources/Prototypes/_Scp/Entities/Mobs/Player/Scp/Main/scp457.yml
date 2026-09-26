@@ -187,11 +187,6 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Damageable
-  - type: AmbientSound
-    range: 6
-    volume: -3
-    sound:
-      path: /Audio/Ambience/Objects/fireplace.ogg
   - type: Physics
   - type: TriggerOnCollide
     fixtureID: ignition
@@ -203,3 +198,4 @@
     energy: 4.5
     color: "#ff8484"
     castShadows: false
+  - type: SpeedModifierContactCapClothing

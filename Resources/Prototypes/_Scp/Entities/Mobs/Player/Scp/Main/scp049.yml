@@ -106,3 +106,6 @@
   - type: Appearance
   - type: Perishable
   - type: HoldToFace
+  - type: RotationVisuals
+    defaultRotation: 0
+    horizontalRotation: 90

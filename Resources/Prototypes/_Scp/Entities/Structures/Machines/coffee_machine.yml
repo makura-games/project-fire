@@ -9,6 +9,7 @@
   suffix: Filled, Decorative
   components:
   - type: Sprite
+    drawdepth: LargeObjects
     sprite: _Scp/Structures/Machines/coffee_machine.rsi
     state: icon
   - type: GuideHelp

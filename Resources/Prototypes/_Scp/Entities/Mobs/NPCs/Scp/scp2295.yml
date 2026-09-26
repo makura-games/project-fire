@@ -108,7 +108,7 @@
     - ActionScp2295Fiber
     - ActionOpenStorageImplant
   - type: RotationVisuals
-    defaultRotation: 90
+    defaultRotation: 0
     horizontalRotation: 90
   - type: StandingState
   - type: Storage
