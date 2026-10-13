@@ -6,7 +6,7 @@ namespace Content.Client._Scp.Other.ShowMessageOnSpawn;
 
 public sealed partial class ShowMessageOnSpawnSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
     private ShowMessageOnSpawnWindow? _window;
 
     public override void Initialize()

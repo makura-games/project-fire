@@ -13,10 +13,10 @@ namespace Content.Shared.Interaction
     /// Doesn't really fit with SharedInteractionSystem so it's not there.
     /// </summary>
     [UsedImplicitly]
-    public sealed class RotateToFaceSystem : EntitySystem
+    public sealed partial class RotateToFaceSystem : EntitySystem
     {
-        [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
-        [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private ActionBlockerSystem _actionBlockerSystem = default!;
+        [Dependency] private SharedTransformSystem _transform = default!;
 
         // Fire edit start - для осматривания на стульях
         private EntityQuery<StrapComponent> _strapQuery;

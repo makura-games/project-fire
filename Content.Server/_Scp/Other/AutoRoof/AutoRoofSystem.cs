@@ -8,10 +8,10 @@ namespace Content.Server._Scp.Other.AutoRoof;
 /// <summary>
 /// Система, автоматически покрывающая станцию крышей при инициализации на ней специальной сущности
 /// </summary>
-public sealed class AutoRoofSystem : EntitySystem
+public sealed partial class AutoRoofSystem : EntitySystem
 {
-    [Dependency] private readonly RoofSystem _roof = default!;
-    [Dependency] private readonly MapSystem _map = default!;
+    [Dependency] private RoofSystem _roof = default!;
+    [Dependency] private MapSystem _map = default!;
 
     public override void Initialize()
     {

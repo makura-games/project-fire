@@ -17,7 +17,6 @@
   supervisors: job-supervisors-director
   radioBold: true
   displayWeight: 70
-  canBeAntag: true
   accessGroups:
   - ChiefTechnicalSpecialist
   special:

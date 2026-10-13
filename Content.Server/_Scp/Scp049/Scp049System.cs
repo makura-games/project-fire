@@ -11,10 +11,10 @@ namespace Content.Server._Scp.Scp049;
 
 public sealed partial class Scp049System : SharedScp049System
 {
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SunriseHumanoidBodySystem _sunriseBody = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private ActionsSystem _actions = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SunriseHumanoidBodySystem _sunriseBody = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

@@ -14,7 +14,7 @@ namespace Content.Client._Scp.Options.UI.Tabs;
 [GenerateTypedNameReferences]
 public sealed partial class ScpTab : Control
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     public ScpTab()
     {

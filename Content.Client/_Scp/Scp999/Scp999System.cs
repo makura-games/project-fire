@@ -3,9 +3,9 @@ using Robust.Client.GameObjects;
 
 namespace Content.Client._Scp.Scp999;
 
-public sealed class Scp999System : SharedScp999System
+public sealed partial class Scp999System : SharedScp999System
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {

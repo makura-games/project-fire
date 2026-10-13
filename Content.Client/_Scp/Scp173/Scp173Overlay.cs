@@ -18,13 +18,13 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._Scp.Scp173;
 
-public sealed class Scp173Overlay : Overlay
+public sealed partial class Scp173Overlay : Overlay
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
-    [Dependency] private readonly IEyeManager _eyeManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IEntityManager _entity = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IInputManager _inputManager = default!;
+    [Dependency] private IEyeManager _eyeManager = default!;
 
     private readonly SharedTransformSystem _transform;
     private readonly ActionUIController _controller;

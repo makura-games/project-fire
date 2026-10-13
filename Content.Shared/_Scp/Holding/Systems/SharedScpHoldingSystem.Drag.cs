@@ -13,7 +13,7 @@ public abstract partial class SharedScpHoldingSystem
      * Drag-local dependencies, aggregate holder movement, and helper calculations.
      */
 
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 

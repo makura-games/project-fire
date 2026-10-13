@@ -11,7 +11,6 @@
   startingGear: HDLeaderGear
   icon: JobIconHDleader
   supervisors: ghost-role-information-mtf-leader-supervisors
-  canBeAntag: false
   radioBold: true
   weight: 920
   overrideConsoleVisibility: false
@@ -58,7 +57,6 @@
   startingGear: HDSpecialistGear
   icon: JobIconHD
   supervisors: ghost-role-information-mtf-specialist-supervisors
-  canBeAntag: false
   weight: 915
   overrideConsoleVisibility: false
   alwaysShowInBanPanel: true
@@ -94,7 +92,6 @@
   startingGear: HDCadetGear
   icon: JobIconHD
   supervisors: ghost-role-information-mtf-cadet-supervisors
-  canBeAntag: false
   weight: 910
   overrideConsoleVisibility: false
   alwaysShowInBanPanel: true

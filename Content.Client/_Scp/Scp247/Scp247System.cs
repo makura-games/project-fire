@@ -11,15 +11,15 @@ using Robust.Shared.Timing;
 namespace Content.Client._Scp.Scp247;
 
 // TODO: Анхардкод
-public sealed class Scp247System : SharedScp247System
+public sealed partial class Scp247System : SharedScp247System
 {
     private const string CatState = "scp-247";
     private const string TigerState = "angry";
     private const string DeadState = "dead";
 
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private readonly Dictionary<EntityUid, Observation> _observations = new();
 

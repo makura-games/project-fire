@@ -29,7 +29,6 @@
     baseWalkSpeed: 7
     baseSprintSpeed: 4
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Scale
   - type: GhostPanelAntagonistMarker
     name: ghost-panel-antagonist-scp-minor-name

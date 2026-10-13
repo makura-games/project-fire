@@ -7,9 +7,9 @@ using Robust.Client.Graphics;
 namespace Content.Client._Scp.BodyTakeover;
 
 [UsedImplicitly]
-public sealed class BodyTakeoverPollEui : BaseEui
+public sealed partial class BodyTakeoverPollEui : BaseEui
 {
-    [Dependency] private readonly IClyde _clyde = default!;
+    [Dependency] private IClyde _clyde = default!;
 
     private BodyTakeoverPollWindow? _window;
     private bool _responded;

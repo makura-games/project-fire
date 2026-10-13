@@ -24,13 +24,13 @@ namespace Content.Server._Scp.Scp049;
 
 public sealed partial class Scp049System
 {
-    [Dependency] private readonly MobStateSystem _mob = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-    [Dependency] private readonly ZombieSystem _zombie = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private MobStateSystem _mob = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private RejuvenateSystem _rejuvenate = default!;
+    [Dependency] private ZombieSystem _zombie = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private void InitializeActions()
     {

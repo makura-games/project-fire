@@ -4,9 +4,9 @@ using Content.Shared.Xenoarchaeology.Artifact.XAE;
 
 namespace Content.Server._Scp.Research.Artifacts.Effects._ScpSpecific.Scp173.Blind;
 
-public sealed class ArtifactScp173BlindEveryoneInRangeSystem : BaseXAESystem<ArtifactScp173BlindEveryoneInRangeComponent>
+public sealed partial class ArtifactScp173BlindEveryoneInRangeSystem : BaseXAESystem<ArtifactScp173BlindEveryoneInRangeComponent>
 {
-    [Dependency] private readonly Scp173System _scp173 = default!;
+    [Dependency] private Scp173System _scp173 = default!;
 
     protected override void OnActivated(Entity<ArtifactScp173BlindEveryoneInRangeComponent> ent, ref XenoArtifactNodeActivatedEvent args)
     {

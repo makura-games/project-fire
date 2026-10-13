@@ -11,7 +11,7 @@ namespace Content.Server._Scp.Fear;
 
 public sealed partial class FearSystem : SharedFearSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private static readonly TimeSpan CalmDownCheckCooldown = TimeSpan.FromSeconds(1f);
     private TimeSpan _nextCalmDownCheck = TimeSpan.Zero;

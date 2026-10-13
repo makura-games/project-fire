@@ -7,9 +7,9 @@ using Robust.Shared.Enums;
 
 namespace Content.Client._Scp.Scp096.Overlays;
 
-public sealed class Scp096TargetsOverlay : Overlay
+public sealed partial class Scp096TargetsOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _ent = default!;
+    [Dependency] private IEntityManager _ent = default!;
 
     private readonly TransformSystem _transform;
     private readonly SpriteSystem _sprite;

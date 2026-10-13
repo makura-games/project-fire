@@ -4,7 +4,7 @@ using Content.Client.Stylesheets.Palette;
 // НЕ МЕНЯТЬ
 namespace Content.Client.Stylesheets.Stylesheets;
 
-public sealed partial class NanotrasenStylesheet
+public partial class NanotrasenStylesheet
 {
     // Sunrise-Edit: Замена стандартных палитр на SCP/Grimdark
     public override ColorPalette PrimaryPalette => ScpPalettes.Primary;

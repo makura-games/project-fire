@@ -40,10 +40,9 @@
     sprite: Structures/Machines/server.rsi
     state: server
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrongScp
   - type: Anchorable
-    flags: 
+    flags:
     - None
   - type: Destructible
     thresholds:

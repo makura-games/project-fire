@@ -4,9 +4,9 @@ using Content.Shared.GameTicking.Components;
 
 namespace Content.Server._Scp.GameTicking.Rules.MetaGarbageSpawn;
 
-public sealed class MetaGarbageSpawnRule : GameRuleSystem<MetaGarbageSpawnRuleComponent>
+public sealed partial class MetaGarbageSpawnRule : GameRuleSystem<MetaGarbageSpawnRuleComponent>
 {
-    [Dependency] private readonly MetaGarbageSystem _metaGarbage = default!;
+    [Dependency] private MetaGarbageSystem _metaGarbage = default!;
 
     protected override void Started(EntityUid uid,
         MetaGarbageSpawnRuleComponent component,

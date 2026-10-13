@@ -1,0 +1,39 @@
+- type: entity
+  id: MagazineMP5
+  name: MP5 magazine
+  parent: BaseItem
+  components:
+  - type: Tag
+    tags:
+    - MagazineMP5
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    proto: CartridgePistolSP
+    whitelist:
+      tags:
+      - CartridgePistol
+    capacity: 30
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Scp/Objects/Weapons/Guns/Ammunition/Magazines/mp5.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: MagazineMP5
+  id: MagazineMP5Extended
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 42

@@ -13,7 +13,6 @@
   icon: JobDirector
   joinNotifyCrew: true
   supervisors: job-supervisors-O5-command
-  canBeAntag: false
   displayWeight: 100
   radioBold: true
   accessGroups:

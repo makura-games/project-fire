@@ -6,12 +6,12 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Scp.Misc.LiquidParticlesGenerator;
 
-public sealed class LiquidParticlesGeneratorSystem : EntitySystem
+public sealed partial class LiquidParticlesGeneratorSystem : EntitySystem
 {
-    [Dependency] private readonly BloodSplatterSystem _bloodSplatter = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private BloodSplatterSystem _bloodSplatter = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

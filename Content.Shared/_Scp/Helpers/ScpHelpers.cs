@@ -7,9 +7,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Scp.Helpers;
 
-public sealed class ScpHelpers : EntitySystem
+public sealed partial class ScpHelpers : EntitySystem
 {
-    [Dependency] private readonly EyeWatchingSystem _watching = default!;
+    [Dependency] private EyeWatchingSystem _watching = default!;
 
     /// <summary>
     /// Получает суммарное количество реагента в зоне видимости сущности.

@@ -51,7 +51,6 @@
         collection: GlassSmack
   - type: Appearance
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Glass
   - type: InteractionOutline
   - type: Lock

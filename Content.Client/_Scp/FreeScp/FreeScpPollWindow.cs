@@ -7,7 +7,7 @@ namespace Content.Client._Scp.FreeScp;
 [GenerateTypedNameReferences]
 public sealed partial class FreeScpPollWindow : DefaultWindow
 {
-    [Dependency] private readonly ILocalizationManager _loc = default!;
+    [Dependency] private ILocalizationManager _loc = default!;
 
     public FreeScpPollWindow()
     {

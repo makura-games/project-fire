@@ -16,7 +16,6 @@
   joinNotifyCrew: true
   radioBold: true
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   setPreference: false # Fire added
   alternativeTitles:
   - job-alt-title-nt-diplomat

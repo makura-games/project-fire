@@ -3,10 +3,10 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Scp.Research.SwapReagentOnSpawn;
 
-public sealed class SwapReagentOnSpawnSystem : EntitySystem
+public sealed partial class SwapReagentOnSpawnSystem : EntitySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

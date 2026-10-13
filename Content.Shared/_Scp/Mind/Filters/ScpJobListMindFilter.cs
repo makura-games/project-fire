@@ -17,7 +17,7 @@ public sealed partial class ScpJobListMindFilter : MindFilter
     [DataField(required: true)]
     public List<ProtoId<JobPrototype>> Jobs = [];
 
-    protected override bool ShouldRemove(Entity<MindComponent> mind, EntityUid? exclude, IEntityManager entMan, SharedMindSystem mindSys)
+    protected override bool ShouldRemove(Entity<MindComponent> mind, EntityUid? exclude, IEntityManager entMan)
     {
         var jobSys = entMan.System<SharedJobSystem>();
 

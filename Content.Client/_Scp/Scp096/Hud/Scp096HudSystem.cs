@@ -7,10 +7,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Scp.Scp096.Hud;
 
-public sealed class Scp096HudSystem : EquipmentHudSystem<Scp096Component>
+public sealed partial class Scp096HudSystem : EquipmentHudSystem<Scp096Component>
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     private EntityQuery<Scp096Component> _scp096Query;
 

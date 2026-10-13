@@ -13,15 +13,15 @@ using Content.Server.Doors.Systems;
 
 namespace Content.Server._Scp.ComplexElevator;
 
-public sealed class ComplexElevatorSystem : EntitySystem
+public sealed partial class ComplexElevatorSystem : EntitySystem
 {
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly DoorSystem _doorSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly PointLightSystem _pointLight = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private DoorSystem _doorSystem = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private PointLightSystem _pointLight = default!;
 
     private static readonly Color ElevatorButtonGreen = Color.FromHex("#00FF00");
     private static readonly Color ElevatorButtonYellow = Color.FromHex("#FFFF00");

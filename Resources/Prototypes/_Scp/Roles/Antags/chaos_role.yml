@@ -53,6 +53,102 @@
 
 #regionend
 
+#region SPECIFIER
+
+- type: antagSpecifier
+  abstract: true
+  parent: RestrictedAntag
+  id: BaseChaosRaiderSpecifier
+  prefRoles:
+  - GenericTeamAntagonist
+  roleLoadout:
+  - RoleSurvivalNukie
+  components:
+  - type: MobChaosRaider
+  - type: NpcFactionMember
+    factions:
+    - Chaos
+  - type: GhostPanelAntagonistMarker
+    name: ghost-panel-antagonist-chaos-raider-leader-name
+    description: ghost-panel-antagonist-chaos-raider-leader-description
+    priority: 10
+
+- type: antagSpecifier
+  parent: BaseChaosRaiderSpecifier
+  id: ChaosRaiderLeader
+  prefRoles:
+  - ChaosRaiderLeader
+  fallbackRoles:
+  - ChaosRaiderFighter
+  - ChaosRaiderMedic
+  spawnerPrototype: SpawnPointChaosRaiderLeader
+  startingGear: ChaosLeaderGear
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesChaosLeader
+    - LastNamesChaos
+    nameFormat: name-format-ert
+  - type: ShowMessageOnSpawn
+    message: chaos-raid-rules-window
+  - type: GhostPanelAntagonistMarker
+    name: ghost-panel-antagonist-chaos-raider-leader-name
+    description: ghost-panel-antagonist-chaos-raider-leader-description
+    priority: 10
+  mindRoles:
+  - MindRoleChaosRaiderLeader
+
+- type: antagSpecifier
+  parent: BaseChaosRaiderSpecifier
+  id: ChaosRaiderMedic
+  prefRoles:
+  - ChaosRaiderMedic
+  fallbackRoles:
+  - ChaosRaiderFighter
+  - ChaosRaiderMedic
+  spawnerPrototype: SpawnPointChaosRaiderMedic
+  startingGear: ChaosMedicGear
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesChaosMedic
+    - LastNamesChaos
+    nameFormat: name-format-ert
+  - type: ShowMessageOnSpawn
+    message: chaos-raid-rules-window
+  - type: GhostPanelAntagonistMarker
+    name: ghost-panel-antagonist-chaos-raider-medic-name
+    description: ghost-panel-antagonist-chaos-raider-medic-description
+    priority: 10
+  mindRoles:
+  - MindRoleChaosRaiderMedic
+
+- type: antagSpecifier
+  parent: BaseChaosRaiderSpecifier
+  id: ChaosRaiderFighter
+  prefRoles:
+  - ChaosRaiderFighter
+  fallbackRoles:
+  - ChaosRaiderFighter
+  - ChaosRaiderMedic
+  spawnerPrototype: SpawnPointChaosRaiderFighter
+  startingGear: ChaosGear
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesChaos
+    - LastNamesChaos
+    nameFormat: name-format-ert
+  - type: ShowMessageOnSpawn
+    message: chaos-raid-rules-window
+  - type: GhostPanelAntagonistMarker
+    name: ghost-panel-antagonist-chaos-raider-fighter-name
+    description: ghost-panel-antagonist-chaos-raider-fighter-description
+    priority: 10
+  mindRoles:
+  - MindRoleChaosRaiderFighter
+
+#regionend
 
 #дефиб ПХ медика
 - type: entity

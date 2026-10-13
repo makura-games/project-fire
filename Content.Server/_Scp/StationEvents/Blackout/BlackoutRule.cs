@@ -10,10 +10,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._Scp.StationEvents.Blackout;
 
-public sealed class BlackoutRule : StationEventSystem<BlackoutRuleComponent>
+public sealed partial class BlackoutRule : StationEventSystem<BlackoutRuleComponent>
 {
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly ApcSystem _apc = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private ApcSystem _apc = default!;
 
     private readonly SoundSpecifier _apcShutdownSound = new SoundPathSpecifier("/Audio/_Scp/Effects/Blackout/apc.ogg");
 

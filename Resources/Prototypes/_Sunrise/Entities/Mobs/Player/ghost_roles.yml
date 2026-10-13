@@ -92,7 +92,7 @@
     ears: ClothingHeadsetAltERT
     belt: ClothingBeltMilitaryWebbingERT
     pocket1: DoubleEmergencyOxygenTankFilled
-    pocket2: PouchAmmo
+    pocket2: PouchAmmoLarge
   inhand:
   - WeaponPistolM1911
   - WeaponRifleLecterXL8
@@ -302,7 +302,7 @@
     ears: ClothingHeadsetAltERT
     belt: ClothingBeltChiefEngineerFilled
     pocket1: DoubleEmergencyOxygenTankFilled
-    pocket2: CableHVStack
+    pocket2: PouchMaterial
   inhand:
   - ClothingHandsPowerGlovesNoUplink
   - RCD
@@ -320,6 +320,7 @@
     - CableDetStack
     - MiningDrillDiamond
     - CyberGrenadeThrowerAtmos
+    - CableHVStack
 
 - type: startingGear
   id: ERTEngineerGearGamma
@@ -334,7 +335,7 @@
     ears: ClothingHeadsetAltERT
     belt: ClothingBeltChiefEngineerFilled
     pocket1: DoubleEmergencyOxygenTankFilled
-    pocket2: CableHVStack
+    pocket2: PouchMaterial
   inhand:
   - ClothingHandsPowerGlovesUplinkNTERTRed
   - RCDRecharging
@@ -351,6 +352,7 @@
     - CableDetStack
     - MiningDrillDiamond
     - CyberGrenadeThrowerAtmos
+    - CableHVStack
 # Medical
 
 - type: startingGear
@@ -381,10 +383,11 @@
     - JugDexPlusSaline
     - JugTrico
     - BeakerSmallArith
-    - DefibrillatorCompact
     - MedkitCombatFilled
     - ChemistryBottleOmnizine
     - CrowbarRed
+    - PowerCellHigh
+    - MedipenCaseERTMedic
 
 - type: startingGear
   id: ERTMedicalGearGamma
@@ -415,6 +418,7 @@
     - MedkitCombatFilled
     - ChemistryBottleOmnizine
     - CrowbarRed
+    - MedipenCaseERTMedic
 
 # Janitor
 

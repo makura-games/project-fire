@@ -28,7 +28,6 @@
   - type: Lock
   - type: LockVisuals
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic
   - type: Transform
     anchored: true

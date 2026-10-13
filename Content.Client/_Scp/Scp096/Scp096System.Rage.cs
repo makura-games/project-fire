@@ -7,7 +7,7 @@ namespace Content.Client._Scp.Scp096;
 
 public sealed partial class Scp096System
 {
-    [Dependency] private readonly CompatibilityModeActiveWarningSystem _compatibility = default!;
+    [Dependency] private CompatibilityModeActiveWarningSystem _compatibility = default!;
 
     private Scp096RageOverlay? _rageOverlay;
 

@@ -6,10 +6,10 @@ using Robust.Shared.Player;
 
 namespace Content.Client._Scp.Shaders.RetroMonitor;
 
-public sealed class RetroMonitorOverlaySystem : ComponentOverlaySystem<RetroMonitorOverlay, RetroMonitorViewComponent>
+public sealed partial class RetroMonitorOverlaySystem : ComponentOverlaySystem<RetroMonitorOverlay, RetroMonitorViewComponent>
 {
-    [Dependency] private readonly GrainOverlaySystem _grain = default!;
-    [Dependency] private readonly VignetteOverlaySystem _vignette = default!;
+    [Dependency] private GrainOverlaySystem _grain = default!;
+    [Dependency] private VignetteOverlaySystem _vignette = default!;
 
     public override void Initialize()
     {

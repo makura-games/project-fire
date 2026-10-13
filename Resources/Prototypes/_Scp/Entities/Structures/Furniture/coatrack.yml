@@ -34,7 +34,6 @@
       storagebase: !type:Container
   - type: Damageable
     damageModifierSet: Wood
-    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

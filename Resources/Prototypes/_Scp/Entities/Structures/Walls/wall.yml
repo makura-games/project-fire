@@ -122,7 +122,6 @@
   - type: Icon
     sprite: _Scp/Structures/Walls/solid.rsi
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicScp
   - type: ScpRepairable
     graph: ScpWallRepair
@@ -141,7 +140,6 @@
   - type: Icon
     sprite: _Scp/Structures/Walls/solid_rust.rsi
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicScp
   - type: DamageVisuals
     damageDivisor: 7
@@ -175,7 +173,6 @@
     sprite: _Scp/Structures/Walls/solid_diagonal.rsi
     state: state0
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicScp
 
 # Деревянная стена
@@ -194,7 +191,6 @@
   - type: Icon
     sprite: _Scp/Structures/Walls/wood.rsi
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Wood
   - type: ScpRepairable
     graph: ScpWallWoodRepair
@@ -214,7 +210,6 @@
   - type: Icon
     sprite: _Scp/Structures/Walls/solid.rsi
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrongScp
   - type: DamageVisuals
     damageDivisor: 90
@@ -254,7 +249,6 @@
   - type: Icon
     sprite: _Scp/Structures/Walls/solid_rust.rsi
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrongScp
   - type: DamageVisuals
     damageDivisor: 70
@@ -310,7 +304,6 @@
     sprite: _Scp/Structures/Walls/reinforced_diagonal.rsi
     state: state0
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrongScp
   - type: Destructible
     thresholds:
@@ -344,7 +337,6 @@
   abstract: true
   components:
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicScp
   - type: ScpRepairable
     graph: ScpWallConcreteRepair
@@ -411,7 +403,6 @@
     sprite: _Scp/Structures/Walls/concrete_diagonal.rsi
     state: state0
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicScp
   - type: Construction
     graph: concreteWallDiagonal
@@ -593,7 +584,6 @@
     key: walls
     base: metall_hard_contaiment
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicHardCellsScp
   - type: ScpRepairable
     graph: ScpWallMetalHardRepair
@@ -640,7 +630,6 @@
     key: walls
     base: state
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicHardCellsScp
   - type: Destructible
     thresholds:
@@ -751,7 +740,6 @@
     key: walls
     base: cavewall
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrongScp
   - type: RadiationBlocker
     resistance: 5
@@ -803,7 +791,6 @@
     key: walls
     base: cavewall
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Rock
   - type: Destructible
     thresholds:
@@ -873,7 +860,6 @@
     key: walls
     base: flesh
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrongScp
 
 # Камера содержания SCP-096
@@ -882,7 +868,6 @@
   abstract: true
   components:
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicScp
   - type: Destructible
     thresholds:

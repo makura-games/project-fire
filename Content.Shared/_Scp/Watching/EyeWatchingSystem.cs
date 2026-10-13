@@ -11,8 +11,8 @@ namespace Content.Shared._Scp.Watching;
 /// </summary>
 public sealed partial class EyeWatchingSystem : EntitySystem
 {
-    [Dependency] private readonly ProximitySystem _proximity = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private ProximitySystem _proximity = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     /// <summary>
     /// Радиус, в котором сущности могут увидеть друг друга.

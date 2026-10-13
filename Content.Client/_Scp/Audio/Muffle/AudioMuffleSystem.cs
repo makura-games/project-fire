@@ -12,10 +12,10 @@ namespace Content.Client._Scp.Audio.Muffle;
 
 public sealed partial class AudioMuffleSystem : EntitySystem
 {
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly AudioEffectStateSystem _effectState = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private AudioEffectStateSystem _effectState = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private static readonly ProtoId<AudioPresetPrototype> MufflingEffectPreset = "ScpBehindWalls";
 

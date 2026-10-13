@@ -11,7 +11,6 @@
   startingGear: LLHLeaderGear
   icon: JobIconLLHleader
   supervisors: ghost-role-information-mtf-LLH-leader-supervisors
-  canBeAntag: false
   radioBold: true
   weight: 890
   overrideConsoleVisibility: false
@@ -59,7 +58,6 @@
   startingGear: LLHSpecialistGear
   icon: JobIconLLH
   supervisors: ghost-role-information-mtf-LLH-specialist-supervisors
-  canBeAntag: false
   weight: 885
   overrideConsoleVisibility: false
   alwaysShowInBanPanel: true

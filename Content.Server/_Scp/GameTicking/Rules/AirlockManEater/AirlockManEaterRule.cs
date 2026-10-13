@@ -12,12 +12,12 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Scp.GameTicking.Rules.AirlockManEater;
 
-public sealed class AirlockManEaterRule : StationEventSystem<AirlockManEaterRuleComponent>
+public sealed partial class AirlockManEaterRule : StationEventSystem<AirlockManEaterRuleComponent>
 {
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SunriseHelpersSystem _helpers = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private SunriseHelpersSystem _helpers = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private static readonly List<ProtoId<TagPrototype>> BlacklistedTags =
     [

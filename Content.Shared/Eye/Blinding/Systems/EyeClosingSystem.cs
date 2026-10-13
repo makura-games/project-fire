@@ -8,14 +8,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Eye.Blinding.Systems;
 
-public sealed class EyeClosingSystem : EntitySystem
+public sealed partial class EyeClosingSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly BlindableSystem _blindableSystem = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private BlindableSystem _blindableSystem = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
 
     /* Fire edit - вся логика перемещена в BlinkingSystem. Там это тут не нужно
     public override void Initialize()

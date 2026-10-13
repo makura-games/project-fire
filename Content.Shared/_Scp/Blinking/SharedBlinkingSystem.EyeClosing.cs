@@ -11,9 +11,9 @@ namespace Content.Shared._Scp.Blinking;
 
 public abstract partial class SharedBlinkingSystem
 {
-    [Dependency] private readonly BlindableSystem _blindable = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SunriseHumanoidBodySystem _sunriseBody = default!;
+    [Dependency] private BlindableSystem _blindable = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SunriseHumanoidBodySystem _sunriseBody = default!;
 
     private void InitializeEyeClosing()
     {

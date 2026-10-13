@@ -6,9 +6,9 @@ using Content.Shared.Xenoarchaeology.Artifact.XAE;
 
 namespace Content.Server._Scp.Research.Artifacts.Effects.CreateSmoke;
 
-public sealed class ArtifactCreateSmokeSystem : BaseXAESystem<ArtifactCreateSmokeComponent>
+public sealed partial class ArtifactCreateSmokeSystem : BaseXAESystem<ArtifactCreateSmokeComponent>
 {
-    [Dependency] private readonly SmokeSystem _smokeSystem = default!;
+    [Dependency] private SmokeSystem _smokeSystem = default!;
 
     protected override void OnActivated(Entity<ArtifactCreateSmokeComponent> ent, ref XenoArtifactNodeActivatedEvent args)
     {

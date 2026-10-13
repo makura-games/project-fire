@@ -23,3 +23,56 @@
   - !type:AgeRequirement
     requiredAge: 18
   playTimeTracker: AntagChaosSleepSpy
+
+- type: antagSpecifier
+  abstract: true
+  parent: RestrictedAntag
+  id: BaseChaosSpySpecifier
+  prefRoles:
+  - GenericTeamAntagonist
+  roleLoadout:
+  - RoleSurvivalNukie
+  components:
+  - type: ChaosSpyMob
+
+- type: antagSpecifier
+  parent: BaseChaosSpySpecifier
+  id: ChaosSpyLow
+  prefRoles:
+  - ChaosSpy
+  blacklist:
+    components:
+    - AntagImmune
+    - ChaosSpySelectionBlacklist
+  whitelist:
+    components:
+    - LowPositionStaff
+  pickCommandStaff: false
+  mindRoles:
+  - MindRoleChaosSpy
+
+- type: antagSpecifier
+  parent: BaseChaosSpySpecifier
+  id: ChaosSpyHigh
+  prefRoles:
+  - ChaosSpy
+  blacklist:
+    components:
+    - AntagImmune
+    - ChaosSpySelectionBlacklist
+  pickCommandStaff: true
+  mindRoles:
+  - MindRoleChaosSpy
+
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: ChaosSleepSpy
+  prefRoles:
+  - ChaosSleepSpy
+  pickCommandStaff: true
+  multiAntagSetting: NotExclusive
+  blacklist:
+    components:
+    - AntagImmune
+    - ChaosSpyRole
+    - ChaosSpySelectionBlacklist

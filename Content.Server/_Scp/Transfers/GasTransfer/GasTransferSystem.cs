@@ -5,13 +5,13 @@ using Content.Shared.Atmos.Components;
 
 namespace Content.Server._Scp.Transfers.GasTransfer;
 
-public sealed class GasTransferSystem : EntitySystem
+public sealed partial class GasTransferSystem : EntitySystem
 {
     private const float BalanceThreshold = 0.001f;
     private const float SmallTransferThreshold = 0.1f;
 
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
+    [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private NodeContainerSystem _nodeContainer = default!;
 
     public override void Initialize()
     {

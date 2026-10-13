@@ -16,10 +16,10 @@ namespace Content.Client._Scp.Audio.Muffle;
 
 public sealed partial class AudioMuffleSystem
 {
-    [Dependency] private readonly Robust.Client.Physics.PhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private Robust.Client.Physics.PhysicsSystem _physics = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     /// <summary>
     /// Maximum distance that the custom occlusion ray is allowed to travel.

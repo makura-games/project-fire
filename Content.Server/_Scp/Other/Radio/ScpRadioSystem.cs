@@ -21,16 +21,16 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Scp.Other.Radio;
 
-public sealed class ScpRadioSystem : SharedScpRadioSystem
+public sealed partial class ScpRadioSystem : SharedScpRadioSystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private RadioSystem _radio = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
+    [Dependency] private BatterySystem _battery = default!;
+    [Dependency] private ContainerSystem _container = default!;
 
     public override void Initialize()
     {

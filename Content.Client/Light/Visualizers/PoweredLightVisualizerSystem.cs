@@ -7,10 +7,10 @@ using Robust.Shared.Random;
 
 namespace Content.Client.Light.Visualizers;
 
-public sealed class PoweredLightVisualizerSystem : VisualizerSystem<PoweredLightVisualsComponent>
+public sealed partial class PoweredLightVisualizerSystem : VisualizerSystem<PoweredLightVisualsComponent>
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    // [Dependency] private readonly SharedAudioSystem _audio = default!; // Fire edit
+    [Dependency] private IRobustRandom _random = default!;
+    // [Dependency] private SharedAudioSystem _audio = default!; // Fire edit
 
     public override void Initialize()
     {

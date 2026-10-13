@@ -15,12 +15,12 @@ namespace Content.Server._Scp.BodyTakeover;
 /// Polls ghosts first, then living players if no ghost accepts.
 /// Used by Free SCP, Auto Ghost Role, and future MTF auto-call systems.
 /// </summary>
-public sealed class BodyTakeoverPollSystem : EntitySystem
+public sealed partial class BodyTakeoverPollSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPlayerManager _players = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EuiManager _eui = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPlayerManager _players = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private EuiManager _eui = default!;
 
     private EntityQuery<BodyTakeoverPollStateComponent> _pollQuery;
     private EntityQuery<GhostComponent> _ghostQuery;

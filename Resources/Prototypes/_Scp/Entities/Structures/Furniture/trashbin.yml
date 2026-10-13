@@ -53,7 +53,6 @@
   - type: PlaceableSurface
     isPlaceable: false
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic
   - type: EntityStorageVisuals
     stateDoorOpen: trashbin_open

@@ -19,11 +19,11 @@ namespace Content.Shared._Scp.Blinking;
 // Вместо этого разделить систему на апдейт + обработку ивентов | API + хелперы + ивенты
 public abstract partial class SharedBlinkingSystem : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly EyeWatchingSystem _watching = default!;
-    [Dependency] private readonly RandomPredictedSystem _random = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private EyeWatchingSystem _watching = default!;
+    [Dependency] private RandomPredictedSystem _random = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
 
     private const float ReducedBlinkingToleranceDecayPerSecond = 0.05f;
 

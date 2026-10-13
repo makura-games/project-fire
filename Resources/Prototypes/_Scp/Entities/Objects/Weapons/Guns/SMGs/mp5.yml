@@ -1,0 +1,72 @@
+- type: entity
+  name: MP5
+  parent: BaseWeaponSubMachineGun
+  id: WeaponSubMachineGunMP5
+  components:
+  - type: Sprite
+    sprite: _Scp/Objects/Weapons/Guns/SMGs/mp5/big.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Scp/Objects/Weapons/Guns/SMGs/mp5/tiny.rsi
+  - type: Item
+    size: Large
+    sprite: _Scp/Objects/Weapons/Guns/SMGs/mp5/tiny.rsi
+    storedOffset: 0,-2
+  - type: GunWieldBonus
+    minAngle: -3
+    maxAngle: -10
+  - type: Gun
+    minAngle: 5
+    maxAngle: 20
+    angleIncrease: 1.9
+    angleDecay: 18.5
+    fireRate: 6.2
+    burstFireRate: 8
+    selectedMode: FullAuto
+    availableModes:
+    - Burst
+    - FullAuto
+    shotsPerBurst: 3
+    burstCooldown: 0.15
+    soundGunshot:
+      collection: mp5
+      params:
+        volume: -1
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolSubMachineGunSP
+        insertSound: /Audio/_Scp/Weapons/Guns/SMGs/mp5/mp5_reload.ogg
+        ejectSound: /Audio/_Scp/Weapons/Guns/SMGs/mp5/mp5_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineMP5
+          - MagazinePistolSubMachineGun
+          - MagazinePistolHighCapacity
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistolSP
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgePistol
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Wieldable
+  - type: UseDelay
+    delay: 0.5
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/_Scp/Weapons/Guns/SMGs/mp5/mp5_cocked.ogg
+  - type: Tag
+    tags:
+    - LockerGun4x3

@@ -17,12 +17,12 @@ namespace Content.Server._Scp.Misc.KillGlobalSound;
 /// TODO: Рассмотреть вариант реализации на видимость убитой сущности и убившего сцп вместо радиусов
 /// Это будет менее производительно, но тут это допустимо.
 /// </remarks>
-public sealed class KillGlobalSoundSystem : EntitySystem
+public sealed partial class KillGlobalSoundSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private EntityWhitelistSystem _entityWhitelist = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private const float ExceptRange = 16f;
 

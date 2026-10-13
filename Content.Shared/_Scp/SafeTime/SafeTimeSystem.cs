@@ -8,12 +8,12 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._Scp.SafeTime;
 
-public abstract class SharedSafeTimeSystem : EntitySystem
+public abstract partial class SharedSafeTimeSystem : EntitySystem
 {
-    [Dependency] private readonly SharedGameTicker _gameTicker = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private SharedGameTicker _gameTicker = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     /// <summary>
     /// Включена ли механика безопасного времени в настройках сервера?

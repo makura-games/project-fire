@@ -9,9 +9,9 @@ namespace Content.Client._Scp.Shaders.FieldOfView.ComponentTree;
 /// <summary>
 ///     Handles gathering sprites to modify alpha in the viewcone overlays
 /// </summary>
-public sealed class FieldOfViewOccludableTreeSystem : ComponentTreeSystem<FieldOfViewOccludableTreeComponent, FieldOfViewOccludableComponent>
+public sealed partial class FieldOfViewOccludableTreeSystem : ComponentTreeSystem<FieldOfViewOccludableTreeComponent, FieldOfViewOccludableComponent>
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     protected override bool DoFrameUpdate => true;
     protected override bool DoTickUpdate => false;

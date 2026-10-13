@@ -10,12 +10,12 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Scp.Other.BreakDoorOnCollide;
 
-public sealed class BreakDoorOnCollideSystem : EntitySystem
+public sealed partial class BreakDoorOnCollideSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly WiresSystem _wires = default!;
-    [Dependency] private readonly DoorSystem _door = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private WiresSystem _wires = default!;
+    [Dependency] private DoorSystem _door = default!;
+    [Dependency] private AudioSystem _audio = default!;
 
     public override void Initialize()
     {

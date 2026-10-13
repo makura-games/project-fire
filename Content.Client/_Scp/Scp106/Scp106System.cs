@@ -5,9 +5,9 @@ using Robust.Client.GameObjects;
 
 namespace Content.Client._Scp.Scp106;
 
-public sealed class Scp106System : SharedScp106System
+public sealed partial class Scp106System : SharedScp106System
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private const int MaxEssence = 100;
 

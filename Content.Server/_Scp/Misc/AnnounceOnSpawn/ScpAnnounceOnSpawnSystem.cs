@@ -13,17 +13,17 @@ using Robust.Shared.Player;
 
 namespace Content.Server._Scp.Misc.AnnounceOnSpawn;
 
-public sealed class ScpAnnounceOnSpawnSystem : EntitySystem
+public sealed partial class ScpAnnounceOnSpawnSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly SunriseHelpersSystem _helpers = default!;
-    [Dependency] private readonly JobSystem _job = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private RadioSystem _radio = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private SunriseHelpersSystem _helpers = default!;
+    [Dependency] private JobSystem _job = default!;
+    [Dependency] private MindSystem _mind = default!;
 
     public override void Initialize()
     {

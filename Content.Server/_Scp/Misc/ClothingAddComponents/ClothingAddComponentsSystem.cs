@@ -23,7 +23,7 @@ public sealed class ClothingAddComponentsSystem : EntitySystem
     /// <param name="args">Ивент надевания</param>
     private void OnEquip(Entity<ClothingAddComponentsComponent> entity, ref GotEquippedEvent args)
     {
-        var target = args.Equipee;
+        var target = args.Equipment;
         EntityManager.AddComponents(target, entity.Comp.Components);
     }
 
@@ -34,7 +34,7 @@ public sealed class ClothingAddComponentsSystem : EntitySystem
     /// <param name="args">Ивент снятия</param>
     private void OnUnequip(Entity<ClothingAddComponentsComponent> entity, ref GotUnequippedEvent args)
     {
-        var target = args.Equipee;
+        var target = args.Equipment;
         EntityManager.RemoveComponents(target, entity.Comp.Components);
     }
 }

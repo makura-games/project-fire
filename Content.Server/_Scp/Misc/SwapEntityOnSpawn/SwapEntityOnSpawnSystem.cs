@@ -2,9 +2,9 @@
 
 namespace Content.Server._Scp.Misc.SwapEntityOnSpawn;
 
-public sealed class SwapEntityOnSpawnSystem : EntitySystem
+public sealed partial class SwapEntityOnSpawnSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

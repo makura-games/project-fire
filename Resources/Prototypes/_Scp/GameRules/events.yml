@@ -98,17 +98,9 @@
   - type: AntagRandomSpawn
   - type: AntagSelection
     agentName: ghost-role-information-scp-2054-x-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostScp2054X
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: ParadoxCloneGear
-      briefing:
-        text: scp-2054-x-role-greeting
-        color: lightblue
-      mindRoles:
-      - MindRoleScp2054X
+    antags:
+    - !type:FixedAntagCount
+      proto: Scp2054X
   - type: DynamicRuleCost
     cost: 50
 

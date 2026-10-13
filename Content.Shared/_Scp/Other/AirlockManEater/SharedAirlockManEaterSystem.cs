@@ -8,13 +8,13 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Scp.Other.AirlockManEater;
 
-public abstract class SharedAirlockManEaterSystem : EntitySystem
+public abstract partial class SharedAirlockManEaterSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDoorSystem _door = default!;
-    [Dependency] private readonly MobStateSystem _mob = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedDoorSystem _door = default!;
+    [Dependency] private MobStateSystem _mob = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private const float VictimSearchRadiusOpen = 5f;
     private const float VictimSearchRadiusClose = 2.3f;

@@ -6,10 +6,10 @@ using Content.Shared.Popups;
 
 namespace Content.Server._Scp.Misc.Deployable;
 
-public sealed class DeployableSystem : SharedDeployableSystem
+public sealed partial class DeployableSystem : SharedDeployableSystem
 {
-    [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private EntityStorageSystem _entityStorage = default!;
+    [Dependency] private PopupSystem _popup = default!;
 
     protected override void DoServerShit(Entity<DeployableComponent> ent, EntityUid user)
     {

@@ -7,10 +7,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Scp.Other.AutoOpenCharacterMenu;
 
-public sealed class AutoOpenCharacterMenuSystem : SharedAutoOpenCharacterMenuSystem
+public sealed partial class AutoOpenCharacterMenuSystem : SharedAutoOpenCharacterMenuSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _playtime = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private PlayTimeTrackingManager _playtime = default!;
 
     private bool _enabled;
 

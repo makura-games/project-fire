@@ -21,11 +21,11 @@ public abstract partial class SharedScp096System
      * Часть системы, отвечающая за целей скромника и их обработку.
      */
 
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedFearSystem _fear = default!;
-    [Dependency] private readonly FieldOfViewSystem _fov = default!;
-    [Dependency] private readonly EyeWatchingSystem _watching = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedFearSystem _fear = default!;
+    [Dependency] private FieldOfViewSystem _fov = default!;
+    [Dependency] private EyeWatchingSystem _watching = default!;
+    [Dependency] private INetManager _net = default!;
 
     protected EntityQuery<Scp096ProtectionComponent> ProtectionQuery;
 

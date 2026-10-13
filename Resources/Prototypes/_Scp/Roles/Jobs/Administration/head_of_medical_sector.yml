@@ -18,7 +18,6 @@
   weight: 945
   icon: JobHeadOfMedicalSector
   supervisors: job-supervisors-director
-  canBeAntag: true
   radioBold: true
   displayWeight: 60
   accessGroups:

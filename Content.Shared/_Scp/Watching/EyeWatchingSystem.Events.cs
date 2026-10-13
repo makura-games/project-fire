@@ -5,7 +5,7 @@ namespace Content.Shared._Scp.Watching;
 
 public sealed partial class EyeWatchingSystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private void InitializeEvents()
     {

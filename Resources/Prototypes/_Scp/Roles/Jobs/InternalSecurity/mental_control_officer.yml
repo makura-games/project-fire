@@ -6,7 +6,6 @@
   startingGear: MentalControlOfficerGear
   icon: JobMentalControlOfficer
   supervisors: job-supervisors-director
-  canBeAntag: false
   weight: 860
   displayWeight: 40
   setPreference: false # TODO: После добавления вайт-листа убрать

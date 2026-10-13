@@ -17,8 +17,8 @@ public sealed partial class AdminFaxWindow : DefaultWindow
     public Action<(NetEntity entity, string title, string stampedBy, string message, string stampSprite, Color stampColor, bool locked)>? OnMessageSend;
     public Action<NetEntity>? OnFollowFax;
 
-    [Dependency] private readonly IResourceCache _resCache = default!;
-    [Dependency] private readonly ILocalizationManager _loc = default!; // Fire added
+    [Dependency] private IResourceCache _resCache = default!;
+    [Dependency] private ILocalizationManager _loc = default!; // Fire added
 
     public AdminFaxWindow()
     {

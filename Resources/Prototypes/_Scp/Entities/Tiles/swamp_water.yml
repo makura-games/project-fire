@@ -17,7 +17,6 @@
         - ReagentId: DirtyWater
           Quantity: 10000
   - type: SolutionRegeneration
-    solution: pool
     generated:
       reagents:
       - ReagentId: DirtyWater

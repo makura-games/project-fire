@@ -621,7 +621,7 @@
   productEntity: MtfStorageCrateSubMachineGunMP5
   name: shop-name-mp5box
   description: shop-desc-mp5box
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mp5 }
+  icon: { sprite: _Scp/Interface/Misc/mtf_store_icon.rsi, state: mp5 }
   categories:
   - ScpPrimaryArms
   conditions:

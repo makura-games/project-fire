@@ -14,7 +14,6 @@
   icon: "JobIconComMaid"
   supervisors: job-supervisors-captain
   setPreference: false # Fire added
-  canBeAntag: false
   displayWeight: 0
   weight: 5
   alternativeTitles:

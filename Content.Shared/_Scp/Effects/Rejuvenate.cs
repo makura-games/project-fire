@@ -8,7 +8,7 @@ namespace Content.Shared._Scp.Effects;
 
 public sealed partial class RejuvenateEntityEffectSystem : EntityEffectSystem<MobStateComponent, Rejuvenate>
 {
-    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
+    [Dependency] private RejuvenateSystem _rejuvenate = default!;
 
     protected override void Effect(Entity<MobStateComponent> entity, ref EntityEffectEvent<Rejuvenate> args)
     {

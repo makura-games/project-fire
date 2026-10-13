@@ -12,7 +12,6 @@
   #icon: TODO
   joinNotifyCrew: false
   overrideConsoleVisibility: false
-  canBeAntag: false
   jobEntity: Scp131A
   alwaysShowInBanPanel: true
   setPreference: false
@@ -30,12 +29,11 @@
   #icon: TODO
   joinNotifyCrew: false
   overrideConsoleVisibility: false
-  canBeAntag: false
   jobEntity: Scp131B
   alwaysShowInBanPanel: true
   setPreference: false
   applyTraits: false
-  
+
 - type: job
   id: Scp1508
   name: job-name-scp1508
@@ -48,7 +46,6 @@
   #icon: TODO
   joinNotifyCrew: false
   overrideConsoleVisibility: false
-  canBeAntag: false
   jobEntity: Scp1508
   alwaysShowInBanPanel: true
   setPreference: false
@@ -66,7 +63,6 @@
   #icon: TODO
   joinNotifyCrew: false
   overrideConsoleVisibility: false
-  canBeAntag: false
   jobEntity: Scp2295
   alwaysShowInBanPanel: true
   setPreference: false
@@ -86,7 +82,6 @@
   #icon: TODO
   joinNotifyCrew: false
   overrideConsoleVisibility: false
-  canBeAntag: false
   jobEntity: Scp1589
   alwaysShowInBanPanel: true
   setPreference: false
@@ -106,7 +101,6 @@
   #icon: TODO
   joinNotifyCrew: false
   overrideConsoleVisibility: false
-  canBeAntag: false
   jobEntity: Scp019MonsterSapient
   alwaysShowInBanPanel: true
   setPreference: false
@@ -124,7 +118,6 @@
   #icon: TODO
   joinNotifyCrew: false
   overrideConsoleVisibility: false
-  canBeAntag: false
   jobEntity: Scp3199Adult
   alwaysShowInBanPanel: true
   setPreference: false
@@ -142,7 +135,6 @@
   #icon: TODO
   joinNotifyCrew: false
   overrideConsoleVisibility: false
-  canBeAntag: false
   jobEntity: Scp3288Servant
   alwaysShowInBanPanel: true
   setPreference: false
@@ -160,7 +152,6 @@
   #icon: TODO
   joinNotifyCrew: false
   overrideConsoleVisibility: false
-  canBeAntag: false
   jobEntity: Scp3288Aristocrat
   alwaysShowInBanPanel: true
   setPreference: false
@@ -178,7 +169,6 @@
   #icon: TODO
   joinNotifyCrew: false
   overrideConsoleVisibility: false
-  canBeAntag: false
   jobEntity: Scp3288Knight
   alwaysShowInBanPanel: true
   setPreference: false

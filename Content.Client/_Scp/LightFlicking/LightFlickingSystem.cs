@@ -7,10 +7,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._Scp.LightFlicking;
 
-public sealed class LightFlickingSystem : SharedLightFlickingSystem
+public sealed partial class LightFlickingSystem : SharedLightFlickingSystem
 {
-    [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedPointLightSystem _pointLight = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private const float RadiusVariationPercentage = 0.2f;
     private const float EnergyVariationPercentage = 0.2f;

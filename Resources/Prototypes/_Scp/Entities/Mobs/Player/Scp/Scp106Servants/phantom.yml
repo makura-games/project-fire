@@ -9,7 +9,6 @@
     - map: [ "base" ]
       state: icon
   - type: Damageable
-    damageContainer: Biological
   - type: MobState
     allowedStates:
     - Alive

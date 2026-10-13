@@ -15,7 +15,6 @@
   weight: 935
   icon: JobSeniorLogisticsOfficer
   supervisors: job-supervisors-director
-  canBeAntag: true
   radioBold: true
   displayWeight: 40
   accessGroups:

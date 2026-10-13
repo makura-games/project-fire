@@ -20,10 +20,10 @@ namespace Content.Server._Scp.Blood;
 /// </summary>
 public sealed partial class BloodSplatterSystem : SharedBloodSplatterSystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private TransformSystem _transform = default!;
 
     private const string SolutionName = "blood";
 

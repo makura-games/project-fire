@@ -6,7 +6,7 @@ namespace Content.Shared._Scp.Holding.Systems;
 
 public abstract partial class SharedScpHoldingSystem
 {
-    [Dependency] private readonly SharedCuffableSystem _cuffable = default!;
+    [Dependency] private SharedCuffableSystem _cuffable = default!;
 
     private bool IsBreakoutBlockedByCuffs(EntityUid heldUid)
     {

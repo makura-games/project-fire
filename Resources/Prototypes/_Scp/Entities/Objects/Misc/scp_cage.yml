@@ -81,7 +81,6 @@
     resistance: 5
   - type: ScpCage
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:

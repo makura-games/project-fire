@@ -112,7 +112,7 @@
   id: scp_Durand
   name: research-technology-durand
   icon:
-    sprite: Objects/Specific/Mech/durand.rsi
+    sprite: _Sunrise/Objects/Specific/Mech/durand.rsi
     state: base
   discipline: scp_arsenal
   tier: 3

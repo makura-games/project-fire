@@ -10,12 +10,12 @@ using Content.Shared.Whitelist;
 
 namespace Content.Shared._Scp.Mobs.Systems;
 
-public sealed class ScpPossibilitiesSystem : EntitySystem
+public sealed partial class ScpPossibilitiesSystem : EntitySystem
 {
-    [Dependency] private readonly RandomPredictedSystem _random = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedEntityStorageSystem _entityStorage = default!;
+    [Dependency] private RandomPredictedSystem _random = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedEntityStorageSystem _entityStorage = default!;
     public override void Initialize()
     {
         base.Initialize();

@@ -18,11 +18,11 @@ namespace Content.Shared._Scp.Audio;
 /// This system deduplicates them so multiple sounds that request the same preset can share one auxiliary instead of
 /// creating redundant OpenAL state for every source.
 /// </remarks>
-public sealed class AudioEffectsManagerSystem : EntitySystem
+public sealed partial class AudioEffectsManagerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private INetManager _net = default!;
 
     /// <summary>
     /// Cached auxiliary entity for each preset already materialized by this system.

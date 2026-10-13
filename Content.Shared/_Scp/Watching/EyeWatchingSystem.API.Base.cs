@@ -13,10 +13,10 @@ namespace Content.Shared._Scp.Watching;
 
 public sealed partial class EyeWatchingSystem
 {
-    [Dependency] private readonly SharedBlinkingSystem _blinking = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly FieldOfViewSystem _fov = default!;
+    [Dependency] private SharedBlinkingSystem _blinking = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private FieldOfViewSystem _fov = default!;
 
     private const float MinVisibilityRange = 2f;
     private const float BlurryVisionRangeMultiplier = 2.5f;

@@ -5,9 +5,9 @@ using Robust.Shared.Enums;
 
 namespace Content.Client._Scp.Scp939;
 
-public sealed class Scp939SetAlphaOverlay : Overlay
+public sealed partial class Scp939SetAlphaOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _ent = default!;
+    [Dependency] private IEntityManager _ent = default!;
 
     private readonly Scp939HudSystem _hud;
     private readonly TransformSystem _transform;

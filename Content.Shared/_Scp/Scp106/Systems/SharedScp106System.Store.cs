@@ -6,7 +6,7 @@ namespace Content.Shared._Scp.Scp106.Systems;
 
 public abstract partial class SharedScp106System
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     private void InitializeStore()
     {

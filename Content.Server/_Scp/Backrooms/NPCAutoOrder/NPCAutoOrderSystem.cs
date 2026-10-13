@@ -9,11 +9,11 @@ namespace Content.Server._Scp.Backrooms.NPCAutoOrder;
 
 // TODO: Избавиться от этого, когда питомцы будут вмержены в мастер санрайза
 
-public sealed class NpcAutoOrderSystem : EntitySystem
+public sealed partial class NpcAutoOrderSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly HTNSystem _htn = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private HTNSystem _htn = default!;
+    [Dependency] private NPCSystem _npc = default!;
 
     public override void Initialize()
     {

@@ -3,6 +3,7 @@ station-map-user-interface-flavor-left = Не паникуй
 station-map-user-interface-flavor-right = v1.42
 station-map-filter-placeholder = Поиск по имени
 nav-beacon-window-title = Маяк комплекса
+station-map-unknown-station = Неизвестное Учреждение
 nav-beacon-toggle-visible = Видимый
 nav-beacon-toggle-invisible = Невидимый
 nav-beacon-text-label = Метка:
@@ -16,4 +17,3 @@ nav-beacon-pos-no-beacons = неизвестно где
 nav-beacon-pos-format = [color={ $color }]около { $marker }[/color]
 nav-beacon-pos-format-direction = [color={ $color }]{ $modifier } к { $direction }у от { $marker }[/color]
 nav-beacon-pos-format-direction-mod-far = далеко{ "" }
-station-map-unknown-station = Неизвестная станция

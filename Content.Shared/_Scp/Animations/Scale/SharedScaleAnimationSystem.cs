@@ -7,9 +7,9 @@ namespace Content.Shared._Scp.Animations.Scale;
 /// Система, обрабатывающая анимацию увеличения размера спрайта при появлении сущности.
 /// Основывается на <see cref="ScaleAnimationComponent"/>
 /// </summary>
-public abstract class SharedScaleAnimationSystem : EntitySystem
+public abstract partial class SharedScaleAnimationSystem : EntitySystem
 {
-    [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected IGameTiming Timing = default!;
 }
 
 [Serializable, NetSerializable]

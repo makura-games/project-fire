@@ -13,9 +13,9 @@ namespace Content.Client._Scp.Shaders.FieldOfView.Overlays;
 ///
 ///     This alpha pass only works because of <see cref="FieldOfViewResetAlphaOverlay"/>, which resets in a later stage of rendering.
 /// </summary>
-public sealed class FieldOfViewSetAlphaOverlay : Overlay
+public sealed partial class FieldOfViewSetAlphaOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _ent = default!;
+    [Dependency] private IEntityManager _ent = default!;
 
     private readonly FieldOfViewOverlayManagementSystem _fovManagement;
     private readonly FieldOfViewOccludableTreeSystem _tree;

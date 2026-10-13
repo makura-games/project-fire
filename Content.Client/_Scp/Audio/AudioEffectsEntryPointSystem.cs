@@ -3,9 +3,9 @@ using Robust.Shared.Audio.Components;
 
 namespace Content.Client._Scp.Audio;
 
-public sealed class AudioEffectsEntryPointSystem : EntitySystem
+public sealed partial class AudioEffectsEntryPointSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override void Initialize()
     {

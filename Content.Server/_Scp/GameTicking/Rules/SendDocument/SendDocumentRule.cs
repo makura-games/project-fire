@@ -15,11 +15,12 @@ namespace Content.Server._Scp.GameTicking.Rules.SendDocument;
 /// Унифицированный легковесный геймрул для создания факсов.
 /// Поддерживает возможность склеивать документы, позволяя собирать их как лего.
 /// </summary>
-public sealed class SendDocumentRule : GameRuleSystem<SendDocumentRuleComponent>
+public sealed partial class SendDocumentRule : GameRuleSystem<SendDocumentRuleComponent>
 {
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly FaxSystem _fax = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private FaxSystem _fax = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     protected override void Started(EntityUid uid, SendDocumentRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

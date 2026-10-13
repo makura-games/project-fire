@@ -22,6 +22,7 @@
       - Tile
   # Sunrise-end
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -1671,7 +1672,7 @@
     - ScpPlating # Fire Edit
     - FloorMowedAstroGrass
   - type: Stack
-    stackType: FloorTileAstroGrass
+    stackType: FloorTileMowedAstroGrass
 
 - type: entity
   id: FloorTileItemJungleAstroGrass
@@ -1688,7 +1689,7 @@
     - ScpPlating # Fire Edit
     - FloorJungleAstroGrass
   - type: Stack
-    stackType: FloorTileAstroGrass
+    stackType: FloorTileJungleAstroGrass
 
 - type: entity
   parent: FloorTileItemBase

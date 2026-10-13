@@ -10,9 +10,9 @@ namespace Content.Client._Scp.Scp096;
 
 public sealed partial class Scp096System : SharedScp096System
 {
-    [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private Scp096TargetsOverlay? _targetsOverlay;
 

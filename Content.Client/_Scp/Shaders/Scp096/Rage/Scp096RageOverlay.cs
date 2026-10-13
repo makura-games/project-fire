@@ -8,11 +8,11 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._Scp.Shaders.Scp096.Rage;
 
-public sealed class Scp096RageOverlay : Overlay
+public sealed partial class Scp096RageOverlay : Overlay
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private readonly SpriteSystem _sprite;
     private readonly TransformSystem _transform;

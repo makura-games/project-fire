@@ -13,13 +13,13 @@ using Robust.Shared.Map;
 
 namespace Content.Server.Storage.EntitySystems;
 
-public sealed class EntityStorageSystem : SharedEntityStorageSystem
+public sealed partial class EntityStorageSystem : SharedEntityStorageSystem
 {
-    [Dependency] private readonly ConstructionSystem _construction = default!;
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly IMapManager _map = default!;
-    [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly AudioSystem _audio = default!; // Fire
+    [Dependency] private ConstructionSystem _construction = default!;
+    [Dependency] private AtmosphereSystem _atmos = default!;
+    [Dependency] private IMapManager _map = default!;
+    [Dependency] private MapSystem _mapSystem = default!;
+    [Dependency] private AudioSystem _audio = default!; // Fire
 
     public override void Initialize()
     {

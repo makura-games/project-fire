@@ -4,5 +4,5 @@ ent-StationMapBroken = карта комплекса
 ent-StationMap = карта комплекса
     .desc = { ent-StationMapBroken.desc }
     .suffix = Настенный
-ent-StationMapAssembly = каркас карты комплекса
-    .desc = Каркас карты комплекса.
+ent-StationMapAssembly = каркас карты станции
+    .desc = Каркас карты станции.

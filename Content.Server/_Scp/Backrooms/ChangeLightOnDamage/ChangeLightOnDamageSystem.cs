@@ -3,9 +3,9 @@ using Content.Shared.FixedPoint;
 
 namespace Content.Server._Scp.Backrooms.ChangeLightOnDamage;
 
-public sealed class ChangeLightOnDamageSystem : EntitySystem
+public sealed partial class ChangeLightOnDamageSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
+    [Dependency] private SharedPointLightSystem _pointLight = default!;
 
     private ISawmill _sawmill = default!;
 

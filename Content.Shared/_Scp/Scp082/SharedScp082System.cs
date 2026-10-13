@@ -11,9 +11,9 @@ using Content.Shared.Body;
 namespace Content.Shared._Scp.Scp082;
 
 // TODO: Анхардкод
-public abstract class SharedScp082System : EntitySystem
+public abstract partial class SharedScp082System : EntitySystem
 {
-    [Dependency] private readonly BodySystem _body = default!;
+    [Dependency] private BodySystem _body = default!;
 
     public override void Initialize()
     {

@@ -12,7 +12,6 @@
   weight: 960
   icon: JobScientificServiceDirector
   supervisors: job-supervisors-director
-  canBeAntag: true
   radioBold: true
   displayWeight: 50
   accessGroups:

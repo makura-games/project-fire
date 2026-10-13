@@ -42,6 +42,7 @@
       containers:
         entity_storage: !type:Container
     - type: Damageable
+    - type: Injurable
       damageContainer: Box
     - type: Sprite
       noRot: true

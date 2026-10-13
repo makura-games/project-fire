@@ -3,10 +3,10 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Scp.ClassDAppearance;
 
-public sealed class ClassDAppearanceSystem : EntitySystem
+public sealed partial class ClassDAppearanceSystem : EntitySystem
 {
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

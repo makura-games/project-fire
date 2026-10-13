@@ -3,9 +3,9 @@ using Robust.Shared.Containers;
 
 namespace Content.Shared._Scp.Scp035.Scp035MindProtection;
 
-public sealed class Scp035MindProtectionSystem : EntitySystem
+public sealed partial class Scp035MindProtectionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

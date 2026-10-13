@@ -13,11 +13,11 @@ namespace Content.Shared._Scp.Fear.Systems;
 
 public abstract partial class SharedFearSystem
 {
-    [Dependency] private readonly StatusEffectsSystem _effects = default!;
-    [Dependency] private readonly SharedJitteringSystem _jittering = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly RandomPredictedSystem _random = default!;
+    [Dependency] private StatusEffectsSystem _effects = default!;
+    [Dependency] private SharedJitteringSystem _jittering = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private RandomPredictedSystem _random = default!;
 
     private const float BaseJitteringAmplitude = 1f;
     private const float BaseJitteringFrequency = 4f;

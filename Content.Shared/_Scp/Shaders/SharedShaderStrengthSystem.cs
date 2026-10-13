@@ -3,9 +3,9 @@ using Robust.Shared.Network;
 
 namespace Content.Shared._Scp.Shaders;
 
-public sealed class SharedShaderStrengthSystem : EntitySystem
+public sealed partial class SharedShaderStrengthSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private INetManager _net = default!;
 
     /// <summary>
     /// Устанавливает базовую силу шейдера.

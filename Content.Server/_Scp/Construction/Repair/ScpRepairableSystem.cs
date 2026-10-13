@@ -24,18 +24,18 @@ namespace Content.Server._Scp.Construction.Repair;
 /// <summary>
 /// Система ремонта структур с использованием <see cref="ConstructionGraphPrototype"/>.
 /// </summary>
-public sealed class ScpRepairableSystem : EntitySystem
+public sealed partial class ScpRepairableSystem : EntitySystem
 {
-    [Dependency] private readonly ConstructionSystem _construction = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly RulesSystem _rules = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
-    [Dependency] private readonly ToolSystem _tool = default!;
-    [Dependency] private readonly InteractionSystem _interaction = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private ConstructionSystem _construction = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private RulesSystem _rules = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private StackSystem _stack = default!;
+    [Dependency] private ToolSystem _tool = default!;
+    [Dependency] private InteractionSystem _interaction = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private const int ExaminePriority = SharedScpExaminableDamageSystem.Priority - 3;
 

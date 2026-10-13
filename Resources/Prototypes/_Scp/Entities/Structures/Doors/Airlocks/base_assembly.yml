@@ -28,7 +28,6 @@
     anchored: true
     # noRot: true # Sunrise
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
   - type: RCDDeconstructable
     cost: 6

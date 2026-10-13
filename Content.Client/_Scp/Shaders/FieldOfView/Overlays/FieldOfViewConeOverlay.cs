@@ -12,13 +12,13 @@ namespace Content.Client._Scp.Shaders.FieldOfView.Overlays;
 /// <summary>
 /// Рисует конус видимости и небольшой круг вокруг персонажа
 /// </summary>
-public sealed class FieldOfViewConeOverlay : Overlay
+public sealed partial class FieldOfViewConeOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IClyde _clyde = default!;
-    [Dependency] private readonly IEyeManager _eye = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _ent = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IClyde _clyde = default!;
+    [Dependency] private IEyeManager _eye = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private readonly FieldOfViewOverlayManagementSystem _fovManagement;
     private readonly TransformSystem _transform;

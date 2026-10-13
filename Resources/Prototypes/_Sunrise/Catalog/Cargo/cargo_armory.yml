@@ -41,23 +41,12 @@
 # category: cargoproduct-category-name-armory
 #  group: market
 
-# - type: cargoProduct
-#  id: SecurityAmmunitionSmallLightRifle
-#  icon:
-#    sprite: _Sunrise/Structures/Storage/Crates/woodcrate_ussp_small.rsi
-#    state: icon
-#  product: CrateAmmunitionSmallLightRifle
-#  cost: 1200
-#  category: cargoproduct-category-name-armory
-#  group: market
-# Fire edit end
-
 - type: cargoProduct
-  id: ArmoryShotgunCombat
+  id: SecurityAmmunitionSmallLightRifle
   icon:
-    sprite: _Starlight/Objects/Weapons/Guns/Shotguns/cshotgun.rsi
+    sprite: _Sunrise/Structures/Storage/Crates/woodcrate_ussp_small.rsi
     state: icon
-  product: CrateArmoryCombatShotgun
-  cost: 9900
+  product: CrateAmmunitionSmallLightRifle
+  cost: 1200
   category: cargoproduct-category-name-armory
   group: market

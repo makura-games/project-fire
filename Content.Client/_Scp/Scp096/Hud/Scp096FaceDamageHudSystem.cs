@@ -7,10 +7,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Client._Scp.Scp096.Hud;
 
-public sealed class Scp096FaceDamageHudSystem : EquipmentHudSystem<ShowScp096FaceDamageHudComponent>
+public sealed partial class Scp096FaceDamageHudSystem : EquipmentHudSystem<ShowScp096FaceDamageHudComponent>
 {
-    [Dependency] private readonly Scp096System _scp096 = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private Scp096System _scp096 = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {

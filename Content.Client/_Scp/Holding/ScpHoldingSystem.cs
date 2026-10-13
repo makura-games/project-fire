@@ -18,11 +18,11 @@ namespace Content.Client._Scp.Holding;
 
 public sealed partial class ScpHoldingSystem : SharedScpHoldingSystem
 {
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly Robust.Client.Physics.PhysicsSystem _physics = default!;
-    [Dependency] private readonly VirtualItemSystem _virtualItem = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private Robust.Client.Physics.PhysicsSystem _physics = default!;
+    [Dependency] private VirtualItemSystem _virtualItem = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private EntityUid? _trackedHolderTarget;
     private readonly List<EntityUid> _authoritativeBlockers = [];

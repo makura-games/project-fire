@@ -90,7 +90,7 @@
     scpPurple:
       announcement: alert-level-scpPurple-announcement
       sound:
-        path: /Audio/Misc/delta_alt.ogg
+        path: /Audio/_Scp/Misc/delta_alt.ogg
         params:
           volume: -3
       disableSelection: true
@@ -102,7 +102,7 @@
     scpBlack:
       announcement: alert-level-scpBlack-announcement
       sound:
-        path: /Audio/Misc/delta_alt.ogg
+        path: /Audio/_Scp/Misc/delta_alt.ogg
         params:
           volume: -5
       color: DarkSlateGray

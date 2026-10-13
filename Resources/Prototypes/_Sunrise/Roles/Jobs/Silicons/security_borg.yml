@@ -11,7 +11,6 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 18000 #5 hrs # Sunrise-RoleTime
-  canBeAntag: false
   setPreference: false # Fire edit
   displayWeight: -10  # Sunrise
   jobEntity: PlayerBorgSecurityBattery

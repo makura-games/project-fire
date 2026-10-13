@@ -12,7 +12,7 @@ public abstract partial class SharedScp096System
      * Часть системы, отвечающая за внешность скромника и его анимации.
      */
 
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     private readonly Dictionary<EntityUid, TimeSpan> _pendingJitteringRemoval = new ();
     private readonly Dictionary<Entity<Scp096Component>, TimeSpan> _pendingAnimations = new ();

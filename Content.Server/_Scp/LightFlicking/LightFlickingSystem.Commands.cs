@@ -8,7 +8,7 @@ namespace Content.Server._Scp.LightFlicking;
 
 public sealed partial class LightFlickingSystem
 {
-    [Dependency] private readonly IConsoleHost _console = default!;
+    [Dependency] private IConsoleHost _console = default!;
 
     private EntityQuery<ActiveLightFlickingComponent> _active;
 

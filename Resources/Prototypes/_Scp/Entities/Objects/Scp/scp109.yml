@@ -15,7 +15,6 @@
   - type: Item
     size: Small
   - type: SolutionRegeneration
-    solution: drink
     generated:
       reagents:
       - ReagentId: Water
@@ -72,7 +71,6 @@
       drink:
         maxVol: 10
   - type: SolutionRegeneration
-    solution: drink
     generated:
       reagents:
       - ReagentId: DirtyWater

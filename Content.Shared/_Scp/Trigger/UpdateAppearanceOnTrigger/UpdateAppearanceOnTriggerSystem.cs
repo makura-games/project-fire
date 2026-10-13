@@ -3,10 +3,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Scp.Trigger.UpdateAppearanceOnTrigger;
 
-public sealed class UpdateAppearanceOnTriggerSystem : XOnTriggerSystem<UpdateAppearanceOnTriggerComponent>
+public sealed partial class UpdateAppearanceOnTriggerSystem : XOnTriggerSystem<UpdateAppearanceOnTriggerComponent>
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

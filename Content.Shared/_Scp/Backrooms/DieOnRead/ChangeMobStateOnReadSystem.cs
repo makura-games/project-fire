@@ -2,9 +2,9 @@
 
 namespace Content.Shared._Scp.Backrooms.DieOnRead;
 
-public sealed class ChangeMobStateOnReadSystem : EntitySystem
+public sealed partial class ChangeMobStateOnReadSystem : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {

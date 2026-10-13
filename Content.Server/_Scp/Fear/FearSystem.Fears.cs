@@ -17,10 +17,10 @@ namespace Content.Server._Scp.Fear;
 
 public sealed partial class FearSystem
 {
-    [Dependency] private readonly HighlightSystem _highlight = default!;
-    [Dependency] private readonly EyeWatchingSystem _watching = default!;
-    [Dependency] private readonly ScpHelpers _helpers = default!;
-    [Dependency] private readonly MobStateSystem _mob = default!;
+    [Dependency] private HighlightSystem _highlight = default!;
+    [Dependency] private EyeWatchingSystem _watching = default!;
+    [Dependency] private ScpHelpers _helpers = default!;
+    [Dependency] private MobStateSystem _mob = default!;
 
     private const string MoodSomeoneDiedOnMyEyes = "FearSomeoneDiedOnMyEyes";
     private const string MoodHemophobicBleeding = "FearHemophobicBleeding";

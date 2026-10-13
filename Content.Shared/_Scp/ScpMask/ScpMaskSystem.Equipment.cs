@@ -14,7 +14,7 @@ namespace Content.Shared._Scp.ScpMask;
 
 public sealed partial class ScpMaskSystem
 {
-    [Dependency] private readonly MobStateSystem _mob = default!;
+    [Dependency] private MobStateSystem _mob = default!;
 
     private void InitializeEquipment()
     {
@@ -170,13 +170,13 @@ public sealed partial class ScpMaskSystem
         if (args.Cancelled)
             return;
 
-        if (!CanEquip(ent, args.EquipTarget, args.Equipee, out _, false))
+        if (!CanEquip(ent, args.EquipTarget, args.Equipment, out _, false))
         {
             args.Cancel();
             return;
         }
 
-        DoEquipmentStuff(ent, args.EquipTarget, args.Equipee);
+        DoEquipmentStuff(ent, args.EquipTarget, args.Equipment);
     }
 
     private void OnUnequip(Entity<ScpMaskComponent> ent, ref BeingUnequippedAttemptEvent args)
@@ -184,7 +184,7 @@ public sealed partial class ScpMaskSystem
         if (args.Cancelled)
             return;
 
-        if (args.UnEquipTarget == args.Unequipee && IsInSafeTime(ent, args.Unequipee))
+        if (args.UnEquipTarget == args.Equipment && IsInSafeTime(ent, args.Equipment))
             args.Cancel();
     }
 

@@ -9,7 +9,7 @@ namespace Content.Client._Scp.Scp173.UI;
 [GenerateTypedNameReferences]
 public sealed partial class Scp173ReagentBar : PanelContainer
 {
-    [Dependency] private readonly ILocalizationManager _loc = default!;
+    [Dependency] private ILocalizationManager _loc = default!;
 
     private static readonly StyleBoxFlat BloatedColor = new()
     {

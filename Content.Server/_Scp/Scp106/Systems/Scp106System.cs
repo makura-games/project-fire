@@ -31,20 +31,20 @@ namespace Content.Server._Scp.Scp106.Systems;
 
 public sealed partial class Scp106System : SharedScp106System
 {
-    [Dependency] private readonly StairsSystem _stairs = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly SunriseHelpersSystem _helpers = default!;
-    [Dependency] private readonly StoreSystem _store = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly FearSystem _fear = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private StairsSystem _stairs = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private SunriseHelpersSystem _helpers = default!;
+    [Dependency] private StoreSystem _store = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private StunSystem _stun = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
+    [Dependency] private FearSystem _fear = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private static readonly FixedPoint2 EssenceRate = 1f;
     private static readonly TimeSpan AddEssenceCooldown = TimeSpan.FromSeconds(1);

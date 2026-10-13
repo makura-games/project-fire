@@ -6,9 +6,9 @@ using Robust.Client.Graphics;
 namespace Content.Client._Scp.FreeScp;
 
 [UsedImplicitly]
-public sealed class FreeScpPollEui : BaseEui
+public sealed partial class FreeScpPollEui : BaseEui
 {
-    [Dependency] private readonly IClyde _clyde = default!;
+    [Dependency] private IClyde _clyde = default!;
 
     private readonly FreeScpPollWindow _window;
     private bool _responded;

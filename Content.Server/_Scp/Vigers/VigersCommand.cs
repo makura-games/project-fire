@@ -7,9 +7,9 @@ using Robust.Shared.Console;
 namespace Content.Server._Scp.Vigers;
 
 [AdminCommand(AdminFlags.Ban)]
-public sealed class VigersCommand : LocalizedCommands
+public sealed partial class VigersCommand : LocalizedCommands
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
     private static readonly string[] Modes = ["autokick", "autodeadmin"];
 
     public override string Command => "vigers";

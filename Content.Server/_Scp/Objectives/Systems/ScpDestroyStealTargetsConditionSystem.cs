@@ -6,12 +6,12 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Scp.Objectives.Systems;
 
-public sealed class ScpDestroyStealTargetsConditionSystem : EntitySystem
+public sealed partial class ScpDestroyStealTargetsConditionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private SharedObjectivesSystem _objectives = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
 
     public override void Initialize()
     {

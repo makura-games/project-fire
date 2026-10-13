@@ -16,11 +16,11 @@ public abstract partial class SharedScp096System
      * Часть системы, отвечающая за состояние ярости и пред-яростное состояние скромника.
      */
 
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedJitteringSystem _jittering = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedJitteringSystem _jittering = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
 
     private static readonly EntProtoId StunnedEffect = "StatusEffectStunned";
 

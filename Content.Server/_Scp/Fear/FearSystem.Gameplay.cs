@@ -10,8 +10,8 @@ namespace Content.Server._Scp.Fear;
 
 public sealed partial class FearSystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private static readonly ProtoId<EmotePrototype> ScreamProtoId = "Scream";
 

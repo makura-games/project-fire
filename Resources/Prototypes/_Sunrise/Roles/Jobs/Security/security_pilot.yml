@@ -10,7 +10,6 @@
   startingGear: SecurityPilotGear
   icon: JobIconSecurityPilot
   supervisors: job-supervisors-hos
-  canBeAntag: false
   displayWeight: 50
   overrideConsoleVisibility: false # Fire added
   setPreference: false # Fire added

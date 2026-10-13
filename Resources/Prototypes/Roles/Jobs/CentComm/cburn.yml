@@ -8,7 +8,6 @@
   icon: "JobIconCBURN"
   supervisors: job-supervisors-centcom
   overrideConsoleVisibility: false # Fire added
-  canBeAntag: false
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security

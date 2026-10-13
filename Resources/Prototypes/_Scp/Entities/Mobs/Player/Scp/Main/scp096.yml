@@ -204,7 +204,6 @@
       - ReagentId: Scp096Blood
         Quantity: 300
   - type: SolutionRegeneration
-    solution: bloodstream
     generated:
       reagents:
       - ReagentId: Scp096Blood
@@ -231,7 +230,6 @@
   # TODO: Алерт с лицом скромника, отображающий его состояние
   - type: Scp096Face
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Scp096FaceSet
   - type: MobState
     allowedStates:
@@ -263,7 +261,6 @@
         Bloodloss:
           -0.25
   - type: SolutionRegeneration
-    solution: bloodstream
     generated:
       reagents:
       - ReagentId: Scp096Tears

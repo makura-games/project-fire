@@ -6,17 +6,19 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Random.Rules;
 using Content.Shared.Storage;
 using Content.Shared.Storage.Components;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Scp.GameTicking.Rules.SpawnInEntityStorage;
 
-public sealed class SpawnInEntityStorageRule : StationEventSystem<SpawnInEntityStorageRuleComponent>
+public sealed partial class SpawnInEntityStorageRule : StationEventSystem<SpawnInEntityStorageRuleComponent>
 {
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly EntityStorageSystem _storage = default!;
-    [Dependency] private readonly RulesSystem _rules = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private EntityStorageSystem _storage = default!;
+    [Dependency] private RulesSystem _rules = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private readonly List<PendingClose> _pendingStorageClosing = [];
 

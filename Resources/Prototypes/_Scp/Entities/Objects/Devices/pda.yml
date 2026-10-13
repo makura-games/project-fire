@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: BasePDA
+  parent: [ BasePDA, StorePresetChaosRemoteUplink ]
   id: ScpBasePDA
   name: PDA
   description: Personal Data Assistant.
@@ -46,6 +46,12 @@
     quickEquip: false
     slots:
     - Belt
+
+- type: entity
+  id: StorePresetChaosRemoteUplink
+  categories: [ HideSpawnMenu ]
+  abstract: true
+  components:
   - type: Store
     name: store-preset-name-ChaosUplink
     categories:

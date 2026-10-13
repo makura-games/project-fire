@@ -4,11 +4,11 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Scp.Other.EmitSoundRandomly;
 
-public sealed class EmitSoundRandomlySystem : EntitySystem
+public sealed partial class EmitSoundRandomlySystem : EntitySystem
 {
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

@@ -13,8 +13,8 @@ namespace Content.Server._Scp.Scp939;
 
 public sealed partial class Scp939System
 {
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private static readonly TimeSpan VisibilityRefreshInterval = TimeSpan.FromSeconds(0.2f);
 

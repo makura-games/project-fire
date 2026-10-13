@@ -5,10 +5,10 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Scp.Research.Artifacts.Effects._ScpSpecific.Scp106.Teleport;
 
-public sealed class ArtifactScp106TeleportSystem : BaseXAESystem<ArtifactScp106TeleportComponent>
+public sealed partial class ArtifactScp106TeleportSystem : BaseXAESystem<ArtifactScp106TeleportComponent>
 {
-    [Dependency] private readonly Scp106System _scp106 = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private Scp106System _scp106 = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     protected override void OnActivated(Entity<ArtifactScp106TeleportComponent> ent, ref XenoArtifactNodeActivatedEvent args)
     {

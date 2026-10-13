@@ -9,10 +9,10 @@ namespace Content.Client._Scp.Shaders.Highlighting;
 /// <summary>
 /// Система, регулирующая добавление шейдера подсвечивания.
 /// </summary>
-public sealed class HighlightSystem : SharedHighlightSystem
+public sealed partial class HighlightSystem : SharedHighlightSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
 
     private static readonly ProtoId<ShaderPrototype> ShaderProtoId = "HighlightWave";
 

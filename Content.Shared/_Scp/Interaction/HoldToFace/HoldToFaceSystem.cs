@@ -5,9 +5,9 @@ using Robust.Shared.Player;
 
 namespace Content.Shared._Scp.Interaction.HoldToFace;
 
-public sealed class HoldToFaceSystem : EntitySystem
+public sealed partial class HoldToFaceSystem : EntitySystem
 {
-    [Dependency] private readonly SharedCombatModeSystem _combat = default!;
+    [Dependency] private SharedCombatModeSystem _combat = default!;
 
     public override void Initialize()
     {

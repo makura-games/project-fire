@@ -3,10 +3,10 @@ using Content.Shared.Inventory.Events;
 
 namespace Content.Shared._Scp.Other.ClothingAddActions;
 
-public sealed class ClothingAddActionsSystem : EntitySystem
+public sealed partial class ClothingAddActionsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private ActionContainerSystem _actionContainer = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -25,7 +25,7 @@ public sealed class ClothingAddActionsSystem : EntitySystem
         foreach (var action in ent.Comp.Actions)
         {
             EntityUid? actionEnt = null;
-            _actions.AddAction(args.Equipee, ref actionEnt, action);
+            _actions.AddAction(args.Equipment, ref actionEnt, action);
 
             if (actionEnt != null)
                 ent.Comp.ActionEntities.Add(actionEnt.Value);
@@ -34,7 +34,7 @@ public sealed class ClothingAddActionsSystem : EntitySystem
         if (ent.Comp.ActionEntities.Count == 0)
             return;
 
-        ent.Comp.ActionsOwner = args.Equipee;
+        ent.Comp.ActionsOwner = args.Equipment;
     }
 
     /// <summary>

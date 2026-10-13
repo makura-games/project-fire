@@ -19,15 +19,15 @@ using Robust.Shared.Timing;
 namespace Content.Client._Scp.Scp173;
 
 // TODO: Единая система для управления виджетами вместе с SafeTimeSystem
-public sealed class Scp173System : SharedScp173System
+public sealed partial class Scp173System : SharedScp173System
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IUserInterfaceManager _ui = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly ChargesSystem _charges = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IUserInterfaceManager _ui = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private ChargesSystem _charges = default!;
 
     private Scp173Overlay _overlay = default!;
     private Scp173UiWidget? _widget;

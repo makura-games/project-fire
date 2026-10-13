@@ -5,10 +5,10 @@ using Robust.Shared.Player;
 
 namespace Content.Client._Scp.Shaders.Common.Vignette;
 
-public sealed class VignetteOverlaySystem : ComponentOverlaySystem<VignetteOverlay, VignetteOverlayComponent>
+public sealed partial class VignetteOverlaySystem : ComponentOverlaySystem<VignetteOverlay, VignetteOverlayComponent>
 {
-    [Dependency] private readonly SharedShaderStrengthSystem _shaderStrength = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private SharedShaderStrengthSystem _shaderStrength = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override void Initialize()
     {

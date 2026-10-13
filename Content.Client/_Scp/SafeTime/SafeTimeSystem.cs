@@ -10,11 +10,11 @@ using Robust.Shared.Timing;
 namespace Content.Client._Scp.SafeTime;
 
 // TODO: Единая система для управления виджетами вместе с Scp173System
-public sealed class SafeTimeSystem : SharedSafeTimeSystem
+public sealed partial class SafeTimeSystem : SharedSafeTimeSystem
 {
-    [Dependency] private readonly IUserInterfaceManager _ui = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IUserInterfaceManager _ui = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private SafeTimeWidget? _widget;
 

@@ -7,7 +7,7 @@ namespace Content.Client._Scp.FreeScp;
 [GenerateTypedNameReferences]
 public sealed partial class FreeScpTransferWindow : DefaultWindow
 {
-    [Dependency] private readonly ILocalizationManager _loc = default!;
+    [Dependency] private ILocalizationManager _loc = default!;
 
     public FreeScpTransferWindow(string scpName)
     {

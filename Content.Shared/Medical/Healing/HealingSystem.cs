@@ -4,7 +4,6 @@ using Content.Shared.Body.Systems;
 using System.Linq;
 using Content.Shared._Scp.Other.Events;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
@@ -28,19 +27,19 @@ using Content.Shared.Damage.Prototypes;
 
 namespace Content.Shared.Medical.Healing;
 
-public sealed class HealingSystem : EntitySystem
+public sealed partial class HealingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodstreamSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedStackSystem _stacks = default!;
-    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;//Sunrise-Edit
-    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedBloodstreamSystem _bloodstreamSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedStackSystem _stacks = default!;
+    [Dependency] private SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private MobThresholdSystem _mobThresholdSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -60,9 +59,12 @@ public sealed class HealingSystem : EntitySystem
         if (!TryComp(args.Used, out HealingComponent? healing))
             return;
 
+        if (!TryComp<InjurableComponent>(target, out var injurable))
+            return;
+
         if (healing.DamageContainers is not null &&
-            target.Comp.DamageContainerID is not null &&
-            !healing.DamageContainers.Contains(target.Comp.DamageContainerID.Value))
+            injurable.DamageContainer is not null &&
+            !healing.DamageContainers.Contains(injurable.DamageContainer.Value))
         {
             return;
         }
@@ -105,7 +107,7 @@ public sealed class HealingSystem : EntitySystem
                 dontRepeat = true;
         }
         // Starlight start
-        else if (healing.SolutionDrain && TryComp<SolutionContainerManagerComponent>(args.Used, out var solutionManager))
+        else if (healing.SolutionDrain)
         {
             Entity<SolutionComponent>? solutionEntity = null;
             if (_solutionContainerSystem.ResolveSolution(args.Used.Value, "injector", ref solutionEntity, out var solution))
@@ -220,9 +222,12 @@ public sealed class HealingSystem : EntitySystem
         if (!Resolve(target, ref target.Comp, false))
             return false;
 
+        if (!TryComp<InjurableComponent>(target, out var injurable))
+            return false;
+
         if (healing.Comp.DamageContainers is not null &&
-            target.Comp.DamageContainerID is not null &&
-            !healing.Comp.DamageContainers.Contains(target.Comp.DamageContainerID.Value))
+            injurable.DamageContainer is not null &&
+            !healing.Comp.DamageContainers.Contains(injurable.DamageContainer.Value))
         {
             return false;
         }
@@ -244,13 +249,13 @@ public sealed class HealingSystem : EntitySystem
         //Sunrise-Start
         if (TryComp<MobStateComponent>(target.Owner, out var state))
         {
-            if (!healing.Comp.WorksOnTheDead && _mobStateSystem.IsDead(target.Owner, state))
+            if (!healing.Comp.WorksOnTheDead && _mobState.IsDead(target.Owner, state))
                 return false;
         }
         //Sunrise-End
 
         // Starlight start
-        if (healing.Comp.SolutionDrain && TryComp<SolutionContainerManagerComponent>(healing.Owner, out var solutionManager))
+        if (healing.Comp.SolutionDrain)
         {
             Entity<SolutionComponent>? solutionEntity = null;
             if (_solutionContainerSystem.ResolveSolution(healing.Owner, "injector", ref solutionEntity, out var solution))
