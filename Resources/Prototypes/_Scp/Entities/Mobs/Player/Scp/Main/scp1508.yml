@@ -40,7 +40,6 @@
     baseWalkSpeed: 2
     baseSprintSpeed: 3
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Scale
   - type: Repairable
     doAfterDelay: 2

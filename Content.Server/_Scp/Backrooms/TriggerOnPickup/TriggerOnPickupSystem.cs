@@ -3,9 +3,9 @@ using Content.Shared.Trigger.Systems;
 
 namespace Content.Server._Scp.Backrooms.TriggerOnPickup;
 
-public sealed class TriggerOnPickupSystem : EntitySystem
+public sealed partial class TriggerOnPickupSystem : EntitySystem
 {
-    [Dependency] private readonly TriggerSystem _trigger = default!;
+    [Dependency] private TriggerSystem _trigger = default!;
 
     public override void Initialize()
     {

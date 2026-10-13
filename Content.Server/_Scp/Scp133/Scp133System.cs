@@ -5,10 +5,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Scp.Scp133;
 
-public sealed class Scp133System : EntitySystem
+public sealed partial class Scp133System : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
     public override void Initialize()
     {

@@ -9,13 +9,13 @@ using Robust.Server.GameObjects;
 
 namespace Content.Server._Scp.Backrooms.SpawnOnUse;
 
-public sealed class SpawnOnUseSystem : EntitySystem
+public sealed partial class SpawnOnUseSystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
 
     public override void Initialize()
     {

@@ -10,10 +10,10 @@ namespace Content.Shared._Scp.Weapons.Ranged;
 /// Система, позволяющая задавать параметры стрельбы.
 /// Нужна, чтобы реализовать компонент у стрелка, увеличивающий разброса стрельбы.
 /// </summary>
-public sealed class DispersingShotSystem : EntitySystem
+public sealed partial class DispersingShotSystem : EntitySystem
 {
-    [Dependency] private readonly SharedGunSystem _gunSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private SharedGunSystem _gunSystem = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
 
     public override void Initialize()
     {

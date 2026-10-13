@@ -3,10 +3,10 @@ using Content.Shared.Trigger.Systems;
 
 namespace Content.Server._Scp.Trigger.ScpTriggerOnSpawn;
 
-public sealed class ScpTriggerOnSpawnSystem : EntitySystem
+public sealed partial class ScpTriggerOnSpawnSystem : EntitySystem
 {
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly TriggerSystem _trigger = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private TriggerSystem _trigger = default!;
 
     public override void Initialize()
     {

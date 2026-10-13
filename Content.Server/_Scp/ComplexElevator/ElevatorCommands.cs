@@ -8,9 +8,9 @@ using Robust.Shared.Localization;
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Mapping)]
-public sealed class ElevatorManageFloorsCommand : IConsoleCommand
+public sealed partial class ElevatorManageFloorsCommand : IConsoleCommand
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     private Dictionary<string, Entity<ComplexElevatorComponent>> _elevatorCache = new();
 

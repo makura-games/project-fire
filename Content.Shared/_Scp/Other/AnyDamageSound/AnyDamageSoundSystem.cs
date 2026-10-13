@@ -5,10 +5,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Scp.Other.AnyDamageSound;
 
-public sealed class AnyDamageSoundSystem : EntitySystem
+public sealed partial class AnyDamageSoundSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

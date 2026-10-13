@@ -11,11 +11,11 @@ namespace Content.Client._Scp.Shaders.Common;
 /// Система, отвечающая за оповещение игрока о включенном режиме совместимости.
 /// Также выключает все шейдеры, которые ведут себя неправильно при включенном режиме совместимости, пока игрок не выключит режим.
 /// </summary>
-public sealed class CompatibilityModeActiveWarningSystem : EntitySystem
+public sealed partial class CompatibilityModeActiveWarningSystem : EntitySystem
 {
-    [Dependency] private readonly GrainOverlaySystem _grain = default!;
-    [Dependency] private readonly FieldOfViewOverlayManagementSystem _fovManagement = default!;
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
+    [Dependency] private GrainOverlaySystem _grain = default!;
+    [Dependency] private FieldOfViewOverlayManagementSystem _fovManagement = default!;
+    [Dependency] private IConfigurationManager _configuration = default!;
 
     /// <summary>
     /// Окно с предупреждением о режиме совместимости.

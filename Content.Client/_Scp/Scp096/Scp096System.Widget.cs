@@ -7,7 +7,7 @@ namespace Content.Client._Scp.Scp096;
 
 public sealed partial class Scp096System
 {
-    [Dependency] private readonly IUserInterfaceManager _ui = default!;
+    [Dependency] private IUserInterfaceManager _ui = default!;
 
     private Scp096UiWidget? _widget;
 

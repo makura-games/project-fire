@@ -7,7 +7,7 @@ namespace Content.Client._Scp.BodyTakeover;
 [GenerateTypedNameReferences]
 public sealed partial class BodyTakeoverTransferWindow : DefaultWindow
 {
-    [Dependency] private readonly ILocalizationManager _loc = default!;
+    [Dependency] private ILocalizationManager _loc = default!;
 
     public BodyTakeoverTransferWindow(string entityName, TimeSpan transferDelay, Action onNow, Action onWait, Action onDecline)
     {

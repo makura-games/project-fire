@@ -14,16 +14,16 @@ namespace Content.Shared._Scp.Blinking.ReducedBlinking;
 // TODO: Переделать на химикат и дать возможно варить, используя реагент 173 и нечто из синтезатора реагентов.
 // TODO: Добавить звук закапывания капель.
 // TODO: Анхардкод: Перенос значений в компоненты
-public abstract class SharedReducedBlinkingSystem : EntitySystem
+public abstract partial class SharedReducedBlinkingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBlinkingSystem _blinking = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly RandomPredictedSystem _random = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] private SharedBlinkingSystem _blinking = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private RandomPredictedSystem _random = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] protected IGameTiming Timing = default!;
 
     private const float ToleranceReduceUseLimit = 90.0f;
     private const float MinReducedBlinkingEffectiveness = 0.15f;

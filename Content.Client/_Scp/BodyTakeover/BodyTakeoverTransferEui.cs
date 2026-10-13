@@ -7,9 +7,9 @@ using Robust.Client.Graphics;
 namespace Content.Client._Scp.BodyTakeover;
 
 [UsedImplicitly]
-public sealed class BodyTakeoverTransferEui : BaseEui
+public sealed partial class BodyTakeoverTransferEui : BaseEui
 {
-    [Dependency] private readonly IClyde _clyde = default!;
+    [Dependency] private IClyde _clyde = default!;
 
     private BodyTakeoverTransferWindow? _window;
     private bool _responded;

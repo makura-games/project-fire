@@ -30,7 +30,6 @@
         pipeDirection: Longitudinal
   - type: AtmosDevice
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrongScp
   - type: Destructible
     thresholds:

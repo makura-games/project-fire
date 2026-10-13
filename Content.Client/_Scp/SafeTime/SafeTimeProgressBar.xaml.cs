@@ -11,8 +11,8 @@ namespace Content.Client._Scp.SafeTime;
 [GenerateTypedNameReferences]
 public sealed partial class SafeTimeProgressBar : BoxContainer
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ILocalizationManager _loc = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private ILocalizationManager _loc = default!;
 
     private static readonly StyleBoxFlat SafeTimeColor = new()
     {

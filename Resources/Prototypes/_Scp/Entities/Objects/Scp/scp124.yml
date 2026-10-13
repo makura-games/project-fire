@@ -31,7 +31,6 @@
     damagePopupType: SmallFloating
     isStructure: true
   - type: SolutionRegeneration
-    solution: soil
     generated:
       reagents:
       - ReagentId: Water

@@ -9,7 +9,7 @@ namespace Content.Client._Scp.Scp939;
 
 public sealed partial class Scp939HudSystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private void InitializeVisibility()
     {

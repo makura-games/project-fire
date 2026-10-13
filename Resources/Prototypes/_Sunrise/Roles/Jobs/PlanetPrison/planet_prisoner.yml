@@ -9,7 +9,6 @@
   startingGear: PlanetPrisonerGear
   weight: 9
   alwaysUseSpawner: true
-  canBeAntag: false
   setPreference: false # Fire edit
   icon: "JobIconPrisoner"
   overrideConsoleVisibility: false

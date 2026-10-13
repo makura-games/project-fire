@@ -11,7 +11,6 @@
   startingGear: NTFLeaderGear
   icon: JobIconNTFleader
   supervisors: ghost-role-information-mtf-leader-supervisors
-  canBeAntag: false
   radioBold: true
   weight: 880
   overrideConsoleVisibility: false
@@ -58,7 +57,6 @@
   startingGear: NTFSpecialistGear
   icon: JobIconNTF
   supervisors: ghost-role-information-mtf-specialist-supervisors
-  canBeAntag: false
   weight: 875
   overrideConsoleVisibility: false
   alwaysShowInBanPanel: true
@@ -95,7 +93,6 @@
   startingGear: NTFCadetGear
   icon: JobIconNTF
   supervisors: ghost-role-information-mtf-cadet-supervisors
-  canBeAntag: false
   overrideConsoleVisibility: false
   alwaysShowInBanPanel: true
   weight: 870

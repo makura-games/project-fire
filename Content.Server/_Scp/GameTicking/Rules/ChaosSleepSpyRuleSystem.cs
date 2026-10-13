@@ -18,14 +18,14 @@ using Robust.Shared.Player;
 
 namespace Content.Server._Scp.GameTicking.Rules;
 
-public sealed class ChaosSleepSpyRuleSystem : GameRuleSystem<ChaosSleepSpyRuleComponent>
+public sealed partial class ChaosSleepSpyRuleSystem : GameRuleSystem<ChaosSleepSpyRuleComponent>
 {
-    [Dependency] private readonly RoleCodewordSystem _roleCodeword = default!;
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly ObjectivesSystem _objectives = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private RoleCodewordSystem _roleCodeword = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private ObjectivesSystem _objectives = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {

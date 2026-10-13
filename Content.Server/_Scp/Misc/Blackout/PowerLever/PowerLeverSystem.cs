@@ -11,12 +11,12 @@ using Robust.Shared.Player;
 
 namespace Content.Server._Scp.Misc.Blackout.PowerLever;
 
-public sealed class PowerLeverSystem : EntitySystem
+public sealed partial class PowerLeverSystem : EntitySystem
 {
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly ApcSystem _apc = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private ApcSystem _apc = default!;
 
     private readonly SoundSpecifier _powerRestoredSound =
         new SoundPathSpecifier("/Audio/_Scp/Effects/Blackout/after_lever_toggled.ogg");

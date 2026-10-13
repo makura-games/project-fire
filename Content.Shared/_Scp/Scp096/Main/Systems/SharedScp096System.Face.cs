@@ -19,7 +19,7 @@ public abstract partial class SharedScp096System
      * Обрабатывает лечение лица и переход в спокойное состояние, если лицо вылечено.
      */
 
-    [Dependency] private readonly SharedScpExaminableDamageSystem _examinableDamage = default!;
+    [Dependency] private SharedScpExaminableDamageSystem _examinableDamage = default!;
 
     private void InitializeFace()
     {

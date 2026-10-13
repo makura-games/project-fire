@@ -7,11 +7,11 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Scp.Trigger.RandomDamageOnTrigger;
 
-public sealed class RandomDamageOnTriggerSystem : EntitySystem
+public sealed partial class RandomDamageOnTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly DestructibleSystem _destructible = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private DestructibleSystem _destructible = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private readonly DamageSpecifier _tempDamage = new ();
     private const double Lambda = 3d;

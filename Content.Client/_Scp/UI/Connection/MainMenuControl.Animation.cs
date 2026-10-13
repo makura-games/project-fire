@@ -16,8 +16,8 @@ namespace Content.Client.MainMenu.UI;
 
 public sealed partial class MainMenuControl
 {
-    [Dependency] private readonly IResourceCache _resource = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IResourceCache _resource = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private const string AnimationId = "DeepFacility";
 

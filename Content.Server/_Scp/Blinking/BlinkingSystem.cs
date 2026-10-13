@@ -5,9 +5,9 @@ using Robust.Shared.Player;
 
 namespace Content.Server._Scp.Blinking;
 
-public sealed class BlinkingSystem : SharedBlinkingSystem
+public sealed partial class BlinkingSystem : SharedBlinkingSystem
 {
-    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private ActionsSystem _actions = default!;
 
     public override void Initialize()
     {

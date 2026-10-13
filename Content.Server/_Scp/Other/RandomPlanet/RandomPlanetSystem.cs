@@ -13,13 +13,13 @@ namespace Content.Server._Scp.Other.RandomPlanet;
 /// <summary>
 /// Система, позволяющая создавать случайные биомы для комплексов.
 /// </summary>
-public sealed class RandomPlanetSystem : EntitySystem
+public sealed partial class RandomPlanetSystem : EntitySystem
 {
-    [Dependency] private readonly BiomeSystem _biome = default!;
-    [Dependency] private readonly WeatherSystem _weather = default!;
-    [Dependency] private readonly AutoRoofSystem _autoRoof = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private BiomeSystem _biome = default!;
+    [Dependency] private WeatherSystem _weather = default!;
+    [Dependency] private AutoRoofSystem _autoRoof = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {

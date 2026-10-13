@@ -10,14 +10,14 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Scp.Objectives.Systems;
 
-public sealed class ScpActivateSleepSpyConditionSystem : EntitySystem
+public sealed partial class ScpActivateSleepSpyConditionSystem : EntitySystem
 {
-    [Dependency] private readonly CodeConditionSystem _condition = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedJobSystem _job = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private CodeConditionSystem _condition = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedJobSystem _job = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

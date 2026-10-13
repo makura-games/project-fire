@@ -8,7 +8,7 @@ namespace Content.Server._Scp.Fear;
 
 public sealed partial class FearSystem
 {
-    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private AudioSystem _audio = default!;
 
     private static readonly SoundSpecifier FearIncreaseSound =
         new SoundPathSpecifier("/Audio/_Scp/Effects/Fear/increase.ogg", AudioParams.Default.WithVolume(5f));

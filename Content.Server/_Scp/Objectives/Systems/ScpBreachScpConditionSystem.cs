@@ -10,12 +10,12 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Scp.Objectives.Systems;
 
-public sealed class ScpBreachScpConditionSystem : EntitySystem
+public sealed partial class ScpBreachScpConditionSystem : EntitySystem
 {
-    [Dependency] private readonly CodeConditionSystem _condition = default!;
-    [Dependency] private readonly Scp173System _scp173 = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private CodeConditionSystem _condition = default!;
+    [Dependency] private Scp173System _scp173 = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

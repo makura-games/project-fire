@@ -14,7 +14,6 @@
     inverted: true
   icon: JobSeniorExternalAdministrativeZoneOfficer
   supervisors: job-supervisors-external-administrative-zone-commandant
-  canBeAntag: false
   displayWeight: 60
   weight: 820
   accessGroups:

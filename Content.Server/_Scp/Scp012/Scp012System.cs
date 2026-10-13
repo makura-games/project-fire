@@ -17,15 +17,15 @@ namespace Content.Server._Scp.Scp012;
 // TODO: Переделать систему притягивания под pathfinding, чтобы обходить препятствия
 public sealed partial class Scp012System : SharedScp012System
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly ProximitySystem _proximity = default!;
-    [Dependency] private readonly FearSystem _fear = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private ProximitySystem _proximity = default!;
+    [Dependency] private FearSystem _fear = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private EntityQuery<Scp012Component> _scpQuery;
     private EntityQuery<Scp012VictimComponent> _victimQuery;

@@ -54,7 +54,6 @@
   - type: PolymorphOnTrigger
     polymorph: Egg3Scp3199
   - type: Damageable
-    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger
@@ -74,7 +73,6 @@
   - type: PolymorphOnTrigger
     polymorph: Egg4Scp3199
   - type: Damageable
-    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger
@@ -94,7 +92,6 @@
   - type: PolymorphOnTrigger
     polymorph: ChildScp3199
   - type: Damageable
-    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger

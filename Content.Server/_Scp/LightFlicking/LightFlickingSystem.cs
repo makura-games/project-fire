@@ -11,9 +11,9 @@ namespace Content.Server._Scp.LightFlicking;
 
 public sealed partial class LightFlickingSystem : SharedLightFlickingSystem
 {
-    [Dependency] private readonly PointLightSystem _pointLight = default!;
-    [Dependency] private readonly LightBulbSystem _bulb = default!;
-    [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
+    [Dependency] private PointLightSystem _pointLight = default!;
+    [Dependency] private LightBulbSystem _bulb = default!;
+    [Dependency] private PoweredLightSystem _poweredLight = default!;
 
     private const float FlickingStartChance = 0.1f;
 

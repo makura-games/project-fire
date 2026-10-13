@@ -6,10 +6,10 @@ using Robust.Shared.Timing;
 namespace Content.Server._Scp.Backrooms.DogAccent;
 
 // TODO: Перенести в Shared
-public sealed class DogAccentSystem : EntitySystem
+public sealed partial class DogAccentSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private readonly TimeSpan _cooldown = TimeSpan.FromSeconds(10);
     private TimeSpan _nextTrigger = TimeSpan.Zero;

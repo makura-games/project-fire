@@ -9,9 +9,9 @@ namespace Content.Shared._Scp.Holding.Systems;
 
 public abstract partial class SharedScpHoldingSystem
 {
-    [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private SharedCombatModeSystem _combatMode = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     private void InitializeRestrictions()
     {

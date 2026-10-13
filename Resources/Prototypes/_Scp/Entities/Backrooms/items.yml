@@ -257,7 +257,6 @@
   suffix: SCP Item
   components:
   - type: SolutionRegeneration
-    solution: drink
     generated:
       reagents:
       - ReagentId: Coffee
@@ -393,17 +392,17 @@
     slots:
     - neck
 
-- type: entity
-  parent: BaseItem
-  id: ScpBackroomsScull
-  name: strange scull
-  suffix: SCP Item
-  components:
-  - type: Sprite
-    sprite: Mobs/Species/Terminator/parts.rsi
-    state: skull_icon
-  - type: Item
-    size: Normal
+#- type: entity
+#  parent: BaseItem
+#  id: ScpBackroomsScull
+#  name: strange scull
+#  suffix: SCP Item
+#  components:
+#  - type: Sprite
+#    sprite: Mobs/Species/Terminator/parts.rsi
+#    state: skull_icon
+#  - type: Item
+#    size: Normal
 
 - type: entity
   parent: ClothingHeadHatFancyCrown

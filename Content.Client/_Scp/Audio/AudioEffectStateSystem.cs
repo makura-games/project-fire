@@ -9,10 +9,10 @@ namespace Content.Client._Scp.Audio;
 /// <summary>
 /// Reconciles client-side audio effects from desired state rather than one-shot effect application attempts.
 /// </summary>
-public sealed class AudioEffectStateSystem : EntitySystem
+public sealed partial class AudioEffectStateSystem : EntitySystem
 {
-    [Dependency] private readonly AudioEffectsManagerSystem _effectsManager = default!;
-    [Dependency] private readonly AudioMuffleSystem _muffle = default!;
+    [Dependency] private AudioEffectsManagerSystem _effectsManager = default!;
+    [Dependency] private AudioMuffleSystem _muffle = default!;
 
     private EntityQuery<AudioEffectStateComponent> _audioStateQuery;
 

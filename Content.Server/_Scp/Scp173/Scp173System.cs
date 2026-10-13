@@ -37,23 +37,23 @@ namespace Content.Server._Scp.Scp173;
 
 public sealed partial class Scp173System : SharedScp173System
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
-    [Dependency] private readonly GhostSystem _ghost = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly PuddleSystem _puddle = default!;
-    [Dependency] private readonly LockSystem _lock = default!;
-    [Dependency] private readonly DoorSystem _door = default!;
-    [Dependency] private readonly ExamineSystem _examine = default!;
-    [Dependency] private readonly InteractionSystem _interaction = default!;
-    [Dependency] private readonly PhysicsSystem _physics = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly AudioSystem _audio= default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly ScpHelpers _helpers = default!;
-    [Dependency] private readonly ScpDamageOnCollideSystem _damageOnCollide = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private EntityStorageSystem _entityStorage = default!;
+    [Dependency] private GhostSystem _ghost = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private PuddleSystem _puddle = default!;
+    [Dependency] private LockSystem _lock = default!;
+    [Dependency] private DoorSystem _door = default!;
+    [Dependency] private ExamineSystem _examine = default!;
+    [Dependency] private InteractionSystem _interaction = default!;
+    [Dependency] private PhysicsSystem _physics = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private ScpHelpers _helpers = default!;
+    [Dependency] private ScpDamageOnCollideSystem _damageOnCollide = default!;
 
     private readonly SoundSpecifier _storageOpenSound = new SoundCollectionSpecifier("MetalBreak");
     private readonly SoundSpecifier _clogSound = new SoundPathSpecifier("/Audio/_Scp/Scp173/clog.ogg");

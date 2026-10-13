@@ -15,11 +15,11 @@ namespace Content.Server._Scp.Scp939;
 
 public sealed partial class Scp939System
 {
-    [Dependency] private readonly ExamineSystem _examine = default!;
-    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly ScpMaskSystem _scpMask = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private ExamineSystem _examine = default!;
+    [Dependency] private EntityLookupSystem _entityLookup = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private ScpMaskSystem _scpMask = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private static readonly EntProtoId StatusEffect = "StatusEffectForcedSleeping";
 

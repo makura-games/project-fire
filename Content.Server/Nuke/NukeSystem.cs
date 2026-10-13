@@ -25,32 +25,31 @@ using Robust.Shared.Timing;
 using Content.Server.Doors.Systems; // Fire edit
 using Content.Shared.Doors.Components; // Fire edit
 using Content.Shared.Access.Components; // Fire edit
-using Content.Shared._Scp.Other.Components;
-using System.Numerics; // Fire edit
+using Content.Shared._Scp.Other.Components; // Fire edit
 
 namespace Content.Server.Nuke;
 
-public sealed class NukeSystem : EntitySystem
+public sealed partial class NukeSystem : EntitySystem
 {
-    [Dependency] private readonly DoorSystem _door = default!; // Fire edit
-    [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly ExplosionSystem _explosions = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly NavMapSystem _navMap = default!;
-    [Dependency] private readonly PointLightSystem _pointLight = default!;
-    [Dependency] private readonly PopupSystem _popups = default!;
-    [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private DoorSystem _door = default!; // Fire edit
+    [Dependency] private AlertLevelSystem _alertLevel = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
+    [Dependency] private ExplosionSystem _explosions = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private NavMapSystem _navMap = default!;
+    [Dependency] private PointLightSystem _pointLight = default!;
+    [Dependency] private PopupSystem _popups = default!;
+    [Dependency] private ServerGlobalSoundSystem _sound = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private TurfSystem _turf = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     /// <summary>
     ///     Used to calculate when the nuke song should start playing for maximum kino with the nuke sfx

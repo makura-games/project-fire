@@ -18,6 +18,7 @@
     - Chaos
   - type: Loadout
     prototypes: [ ChaosLeaderGear ]
+    roleLoadout: [ RoleSurvivalNukie ]
   - type: RandomHumanoidAppearance
     randomizeName: false
   - type: ZombieImmune

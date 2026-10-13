@@ -21,7 +21,6 @@
   weight: 950
   icon: JobPersonnelOfficer
   supervisors: job-supervisors-director
-  canBeAntag: false
   radioBold: true
   displayWeight: 90
   accessGroups:

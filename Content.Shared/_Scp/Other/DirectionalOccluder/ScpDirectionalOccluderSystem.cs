@@ -1,8 +1,8 @@
 namespace Content.Shared._Scp.Other.DirectionalOccluder;
 
-public sealed class ScpDirectionalOccluderSystem : EntitySystem
+public sealed partial class ScpDirectionalOccluderSystem : EntitySystem
 {
-    [Dependency] private readonly OccluderSystem _occluder = default!;
+    [Dependency] private OccluderSystem _occluder = default!;
 
     public override void Initialize()
     {

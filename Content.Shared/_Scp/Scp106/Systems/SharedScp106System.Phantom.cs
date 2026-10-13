@@ -12,8 +12,8 @@ namespace Content.Shared._Scp.Scp106.Systems;
 
 public abstract partial class SharedScp106System
 {
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly EyeWatchingSystem _watching = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private EyeWatchingSystem _watching = default!;
 
     private void InitializePhantom()
     {

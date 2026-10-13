@@ -15,10 +15,10 @@ namespace Content.Client._Scp.Shaders.Common;
 /// <seealso cref="OverlayManager"/>
 /// <br/> TODO: Поддержка nullability для <see cref="Overlay"/>
 /// <br/> TODO: Базовый класс для всех оверлеев, использующих эту систему.
-public abstract class BaseOverlaySystem<T> : EntitySystem where T : Overlay
+public abstract partial class BaseOverlaySystem<T> : EntitySystem where T : Overlay
 {
-    [Dependency] protected readonly IOverlayManager OverlayManager = default!;
-    [Dependency] protected readonly CompatibilityModeActiveWarningSystem Compatibility = default!;
+    [Dependency] protected IOverlayManager OverlayManager = default!;
+    [Dependency] protected CompatibilityModeActiveWarningSystem Compatibility = default!;
 
     protected T Overlay = default!;
     public bool Enabled = true;

@@ -5,10 +5,10 @@ using Content.Shared.Popups;
 
 namespace Content.Shared._Scp.Scp049;
 
-public abstract class SharedScp049System : EntitySystem
+public abstract partial class SharedScp049System : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mob = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private MobStateSystem _mob = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

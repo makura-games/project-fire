@@ -8,12 +8,12 @@ using Robust.Shared.Configuration;
 
 namespace Content.Server._Scp.Objectives.Systems;
 
-public sealed class ScpEscapeTargetConditionSystem : EntitySystem
+public sealed partial class ScpEscapeTargetConditionSystem : EntitySystem
 {
-    [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
-    [Dependency] private readonly TargetObjectiveSystem _target = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private EmergencyShuttleSystem _emergencyShuttle = default!;
+    [Dependency] private TargetObjectiveSystem _target = default!;
+    [Dependency] private IConfigurationManager _config = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
     public override void Initialize()
     {

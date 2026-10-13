@@ -6,10 +6,10 @@ using Robust.Shared.Player;
 
 namespace Content.Client._Scp.Other.DeathSound;
 
-public sealed class DeathSoundSystem : EntitySystem
+public sealed partial class DeathSoundSystem : EntitySystem
 {
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private readonly SoundSpecifier _sound = new SoundPathSpecifier("/Audio/_Scp/Effects/die.ogg");
 

@@ -10,15 +10,15 @@ using Robust.Server.GameObjects;
 
 namespace Content.Server._Scp.Other.Radio;
 
-public sealed class RadioCallButtonSystem : EntitySystem
+public sealed partial class RadioCallButtonSystem : EntitySystem
 {
     private const string RadioCallUseDelayId = "RadioCall";
 
-    [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly UseDelaySystem _delay = default!;
+    [Dependency] private RadioSystem _radio = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private UseDelaySystem _delay = default!;
 
     public override void Initialize()
     {

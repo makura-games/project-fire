@@ -120,85 +120,19 @@
     maxDifficulty: 3
   - type: AntagSelection
     selectionTime: PrePlayerSpawn
-    definitions:
-    - prefRoles: [ ChaosRaiderLeader ]
-      fallbackRoles: [ ChaosRaiderFighter, ChaosRaiderMedic ]
-      spawnerPrototype: SpawnPointChaosRaiderLeader
-      startingGear: ChaosLeaderGear
-      max: 1
-      roleLoadout:
-      - RoleSurvivalNukie
-      components:
-      - type: ShowMessageOnSpawn
-        message: chaos-raid-rules-window
-      - type: GhostPanelAntagonistMarker
-        name: ghost-panel-antagonist-chaos-raider-leader-name
-        description: ghost-panel-antagonist-chaos-raider-leader-description
-        priority: 10
-      - type: MobChaosRaider
-      - type: RandomMetadata
-        nameSegments:
-        - NamesChaosLeader
-        - LastNamesChaos
-        nameFormat: name-format-ert
-      - type: NpcFactionMember
-        factions:
-        - Chaos
-      mindRoles:
-      - MindRoleChaosRaiderLeader
-    - prefRoles: [ ChaosRaiderMedic ]
-      fallbackRoles: [ ChaosRaiderFighter, ChaosRaiderLeader ]
-      spawnerPrototype: SpawnPointChaosRaiderMedic
-      startingGear: ChaosMedicGear
-      min: 1
-      max: 3
-      roleLoadout:
-      - RoleSurvivalNukie
-      components:
-      - type: ShowMessageOnSpawn
-        message: chaos-raid-rules-window
-      - type: GhostPanelAntagonistMarker
-        name: ghost-panel-antagonist-chaos-raider-medic-name
-        description: ghost-panel-antagonist-chaos-raider-medic-description
-        priority: 10
-      - type: MobChaosRaider
-      - type: RandomMetadata
-        nameSegments:
-        - NamesChaosMedic
-        - LastNamesChaos
-        nameFormat: name-format-ert
-      - type: NpcFactionMember
-        factions:
-        - Chaos
-      mindRoles:
-      - MindRoleChaosRaiderMedic
-    - prefRoles: [ ChaosRaiderFighter ]
-      fallbackRoles: [ ChaosRaiderLeader, ChaosRaiderMedic ]
-      spawnerPrototype: SpawnPointChaosRaiderFighter
-      min: 4
-      max: 8
-      playerRatio: 5
-      startingGear: ChaosGear
-      roleLoadout:
-      - RoleSurvivalNukie
-      components:
-      - type: ShowMessageOnSpawn
-        message: chaos-raid-rules-window
-      - type: GhostPanelAntagonistMarker
-        name: ghost-panel-antagonist-chaos-raider-fighter-name
-        description: ghost-panel-antagonist-chaos-raider-fighter-description
-        priority: 10
-      - type: MobChaosRaider
-      - type: RandomMetadata
-        nameSegments:
-        - NamesChaos
-        - LastNamesChaos
-        nameFormat: name-format-ert
-      - type: NpcFactionMember
-        factions:
-        - Chaos
-      mindRoles:
-      - MindRoleChaosRaiderFighter
+    antags:
+    - !type:FixedAntagCount
+      proto: ChaosRaiderLeader
+    - !type:LinearAntagCount
+      proto: ChaosRaiderMedic
+      range:
+        min: 1
+        max: 3
+    - !type:LinearAntagCount
+      proto: ChaosRaiderFighter
+      range:
+        min: 4
+        max: 8
   - type: DynamicRuleCost
     cost: 200
 
@@ -228,23 +162,13 @@
     maxDifficulty: 4
   - type: AntagSelection
     agentName: chaos-spy-round-end-agent-name
-    selectionTime: PostPlayerSpawn
-    definitions:
-    - prefRoles: [ ChaosSpy ]
-      min: 2
-      max: 4
-      playerRatio: 10
-      pickCommandStaff: true
-      ignoreCanBeAntag: true
-      components:
-      - type: ChaosSpyMob
-      blacklist:
-        components:
-        - AntagImmune
-        - ChaosSpySelectionBlacklist
-      lateJoinAdditional: false
-      mindRoles:
-      - MindRoleChaosSpy
+    selectionTime: RuleStarted
+    antags:
+    - !type:LinearAntagCount
+      proto: ChaosSpyHigh
+      range:
+        min: 2
+        max: 4
 
 - type: entity
   parent: BaseGameRule
@@ -262,25 +186,13 @@
     maxDifficulty: 4
   - type: AntagSelection
     agentName: chaos-spy-round-end-agent-name
-    selectionTime: PostPlayerSpawn
-    definitions:
-    - prefRoles: [ ChaosSpy ]
-      min: 3
-      max: 5
-      playerRatio: 10
-      pickCommandStaff: false
-      components:
-      - type: ChaosSpyMob
-      blacklist:
-        components:
-        - AntagImmune
-        - ChaosSpySelectionBlacklist
-      whitelist:
-        components:
-        - LowPositionStaff
-      lateJoinAdditional: false
-      mindRoles:
-      - MindRoleChaosSpy
+    selectionTime: RuleStarted
+    antags:
+    - !type:LinearAntagCount
+      proto: ChaosSpyLow
+      range:
+        min: 3
+        max: 5
 
 - type: entity
   parent: BaseGameRule
@@ -290,22 +202,14 @@
     minPlayers: 25
   - type: ChaosSleepSpyRule
   - type: AntagSelection
-    selectionTime: PostPlayerSpawn
+    selectionTime: RuleStarted
     removeUponFailedSpawn: false
-    definitions:
-    - prefRoles: [ ChaosSleepSpy ]
-      min: 3
-      max: 4
-      playerRatio: 10
-      pickCommandStaff: true
-      ignorePrefCheck: true
-      multiAntagSetting: NotExclusive
-      blacklist:
-        components:
-        - AntagImmune
-        - ChaosSpyRole
-        - ChaosSpySelectionBlacklist
-      lateJoinAdditional: false
+    antags:
+    - !type:LinearAntagCount
+      proto: ChaosSleepSpy
+      range:
+        min: 3
+        max: 4
 
 - type: entity
   id: ScpMetaGarbageSpawn

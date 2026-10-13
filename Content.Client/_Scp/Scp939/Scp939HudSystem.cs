@@ -16,9 +16,9 @@ namespace Content.Client._Scp.Scp939;
 
 public sealed partial class Scp939HudSystem : EquipmentHudSystem<Scp939Component>
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     internal readonly List<(Entity<SpriteComponent> Ent, float BaseAlpha)> CachedBaseAlphas = new(64);
 

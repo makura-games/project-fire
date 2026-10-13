@@ -5,9 +5,9 @@ using Robust.Shared.Containers;
 
 namespace Content.Shared._Scp.Scp330;
 
-public abstract class SharedScp330System : EntitySystem
+public abstract partial class SharedScp330System : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
     private const int ExaminePriority = -50;
 

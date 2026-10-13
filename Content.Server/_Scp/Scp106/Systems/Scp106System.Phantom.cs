@@ -14,10 +14,10 @@ namespace Content.Server._Scp.Scp106.Systems;
 
 public sealed partial class Scp106System
 {
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private ActionsSystem _actions = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private static readonly EntProtoId PhantomRemains = "Ash";
 

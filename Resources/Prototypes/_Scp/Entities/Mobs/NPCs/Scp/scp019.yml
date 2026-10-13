@@ -12,7 +12,6 @@
       effect: ScpEffectNightVision
     - type: Climbing
     - type: Damageable
-      damageContainer: Biological
       damageModifierSet: FleshMob
     - type: HTN
       rootTask:

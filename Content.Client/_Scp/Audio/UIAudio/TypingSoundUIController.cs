@@ -13,11 +13,11 @@ namespace Content.Client._Scp.Audio.UIAudio;
 
 public sealed partial class TypingSoundUIController : UIController, IOnStateChanged<State>
 {
-    [Dependency] private readonly IAudioManager _audio = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IResourceCache _resource = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IAudioManager _audio = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IResourceCache _resource = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private const float BaseGain = 0.08f;
 

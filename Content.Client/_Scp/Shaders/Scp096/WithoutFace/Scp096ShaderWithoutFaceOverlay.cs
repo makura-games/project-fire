@@ -4,9 +4,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Scp.Shaders.Scp096.WithoutFace;
 
-public sealed class Scp096ShaderWithoutFaceOverlay : Overlay
+public sealed partial class Scp096ShaderWithoutFaceOverlay : Overlay
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     public override bool RequestScreenTexture => true;

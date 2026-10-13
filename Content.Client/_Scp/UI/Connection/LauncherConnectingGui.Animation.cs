@@ -13,7 +13,7 @@ namespace Content.Client.Launcher;
 
 public sealed partial class LauncherConnectingGui
 {
-    [Dependency] private readonly IResourceCache _resource = default!;
+    [Dependency] private IResourceCache _resource = default!;
 
     private const string AnimationId = "DeepFacility";
 

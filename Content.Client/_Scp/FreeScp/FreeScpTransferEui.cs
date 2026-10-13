@@ -7,9 +7,9 @@ using Robust.Client.Graphics;
 namespace Content.Client._Scp.FreeScp;
 
 [UsedImplicitly]
-public sealed class FreeScpTransferEui : BaseEui
+public sealed partial class FreeScpTransferEui : BaseEui
 {
-    [Dependency] private readonly IClyde _clyde = default!;
+    [Dependency] private IClyde _clyde = default!;
 
     private FreeScpTransferWindow? _window;
     private bool _responded;

@@ -6,7 +6,7 @@ namespace Content.Shared._Scp.Watching.FOV;
 
 public sealed partial class FieldOfViewSystem
 {
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private INetManager _net = default!;
 
     /// <summary>
     ///     Spawns the given effect entity at the player source, and sets relevant variables

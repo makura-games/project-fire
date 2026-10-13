@@ -5,9 +5,9 @@ using Robust.Shared.Audio;
 
 namespace Content.Server._Scp.Other.PlayerSpawnSound;
 
-public sealed class PlayerSpawnSoundSystem : EntitySystem
+public sealed partial class PlayerSpawnSoundSystem : EntitySystem
 {
-    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private AudioSystem _audio = default!;
 
     private static readonly SoundSpecifier SpawnSound = new SoundCollectionSpecifier("SpawnSound");
 

@@ -15,14 +15,15 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._Scp.GameTicking.Rules.DifficultyModes;
 
-public sealed class ScpDifficultyModeRule : GameRuleSystem<ScpDifficultyModeRuleComponent>
+public sealed partial class ScpDifficultyModeRule : GameRuleSystem<ScpDifficultyModeRuleComponent>
 {
-    [Dependency] private readonly StationJobsSystem _stationJobs = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly SunriseHelpersSystem _helpers = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private StationJobsSystem _stationJobs = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private SunriseHelpersSystem _helpers = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private GameTicker _ticker = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {

@@ -17,11 +17,11 @@ public abstract partial class SharedScp096System
      * Часть системы, отвечающая за способности скромника и их применение.
      */
 
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly ProximitySystem _proximity = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private ProximitySystem _proximity = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
 
     private void InitializeActions()
     {

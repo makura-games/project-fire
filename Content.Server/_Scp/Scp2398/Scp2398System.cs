@@ -11,12 +11,12 @@ using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server._Scp.Scp2398;
 
-public sealed class Scp2398System : EntitySystem
+public sealed partial class Scp2398System : EntitySystem
 {
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mob = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MobStateSystem _mob = default!;
 
     public override void Initialize()
     {

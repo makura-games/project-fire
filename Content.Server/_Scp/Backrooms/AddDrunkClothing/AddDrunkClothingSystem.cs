@@ -5,10 +5,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Scp.Backrooms.AddDrunkClothing;
 
-public sealed class AddDrunkClothingSystem : EntitySystem
+public sealed partial class AddDrunkClothingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDrunkSystem _drunkSystem = default!;
-    [Dependency] private readonly StatusEffectsSystem _effects = default!;
+    [Dependency] private SharedDrunkSystem _drunkSystem = default!;
+    [Dependency] private StatusEffectsSystem _effects = default!;
 
     private static readonly EntProtoId DrunkEffect = "StatusEffectDrunk";
 

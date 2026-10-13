@@ -18,10 +18,8 @@
   - type: StatusEffects
     allowed:
     - Electrocution
-    - TemporaryBlindness
     - Pacified
     - Flashed
-    - RadiationProtection
     - Adrenaline
     - Flip # Sunrise-Edit
   - type: EmoteAnimation # Sunrise-Edit
@@ -94,10 +92,8 @@
   - type: StatusEffects
     allowed:
     - Electrocution
-    - TemporaryBlindness
     - Pacified
     - Flashed
-    - RadiationProtection
     - Adrenaline
     - Flip # Sunrise-Edit
   - type: EmoteAnimation # Sunrise-Edit

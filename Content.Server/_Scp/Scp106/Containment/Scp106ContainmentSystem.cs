@@ -13,14 +13,14 @@ using Robust.Shared.Player;
 
 namespace Content.Server._Scp.Scp106.Containment;
 
-public sealed class Scp106ContainmentSystem : SharedScp106ContainmentSystem
+public sealed partial class Scp106ContainmentSystem : SharedScp106ContainmentSystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
-    [Dependency] private readonly SunriseHelpersSystem _helpers = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private GibbingSystem _gibbing = default!;
+    [Dependency] private SunriseHelpersSystem _helpers = default!;
 
     private static readonly SoundSpecifier ContainSound = new SoundPathSpecifier("/Audio/_Scp/scp106_contained_sound.ogg");
 

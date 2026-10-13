@@ -10,7 +10,6 @@
     offset: 0.5,0
     state: table
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
@@ -39,7 +38,6 @@
         - ReagentId: Water
           Quantity: 500
   - type: SolutionRegeneration
-    solution: tank
     generated:
       reagents:
       - ReagentId: Water

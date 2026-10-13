@@ -10,10 +10,10 @@ namespace Content.Client._Scp.Other;
 /// Если он выставит слишком большой размер Viewport(который по умолчанию большой)
 /// а затем выставит разделенный чат, то часть Viewport просто будет неиспользуема, зря сжирая его фпс и портя картинку.
 /// </summary>
-public sealed class AutoSetViewportSizeSystem : EntitySystem
+public sealed partial class AutoSetViewportSizeSystem : EntitySystem
 {
-    [Dependency] private readonly IUserInterfaceManager _ui = default!;
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
+    [Dependency] private IUserInterfaceManager _ui = default!;
+    [Dependency] private IConfigurationManager _configuration = default!;
 
     private const int SeparatedScreenDefaultViewportSize = 21;
 

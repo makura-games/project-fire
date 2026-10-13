@@ -11,11 +11,11 @@ namespace Content.Server._Scp.Other.SpeakOnEyeStateChange;
 /// Система, реализующая автоматическое проигрывание фразы при изменении состояния глаз.
 /// Персонаж игрока будет выдавать заданные фразы при закрытии и открытии глаз.
 /// </summary>
-public sealed class SpeakOnEyeStateChangeSystem : EntitySystem
+public sealed partial class SpeakOnEyeStateChangeSystem : EntitySystem
 {
-    [Dependency] private readonly ProximitySystem _proximity = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private ProximitySystem _proximity = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

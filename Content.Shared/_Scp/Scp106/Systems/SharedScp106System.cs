@@ -20,14 +20,14 @@ namespace Content.Shared._Scp.Scp106.Systems;
 
 public abstract partial class SharedScp106System : EntitySystem
 {
-	[Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-	[Dependency] private readonly SharedPopupSystem _popup = default!;
-	[Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly MobStateSystem _mob = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+	[Dependency] private SharedDoAfterSystem _doAfter = default!;
+	[Dependency] private SharedPopupSystem _popup = default!;
+	[Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private MobStateSystem _mob = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private static readonly SoundSpecifier TeleportSound = new SoundPathSpecifier("/Audio/_Scp/Scp106/return.ogg");
 

@@ -7,7 +7,7 @@ namespace Content.Client._Scp.Other.ShowMessageOnSpawn;
 [GenerateTypedNameReferences]
 public sealed partial class ShowMessageOnSpawnWindow : DefaultWindow
 {
-    [Dependency] private readonly ILocalizationManager _loc = default!;
+    [Dependency] private ILocalizationManager _loc = default!;
 
     public ShowMessageOnSpawnWindow(LocId message)
     {

@@ -1,0 +1,182 @@
+﻿- type: antagSpecifier
+  abstract: true
+  id: BaseAntagSpecifier
+  jobBlacklist:
+  - CentralCommandOfficial
+  - DeathSquad
+  - ERTLeader
+  - ERTChaplain
+  - ERTEngineer
+  - ERTSecurity
+  - ERTMedical
+  - ERTJanitor
+  - CBURN
+  # Fire edit start
+  - RRHLeader
+  - RRHSpecialist
+  - NTFLeader
+  - NTFSpecialist
+  - NTFCadet
+  - LLHLeader
+  - LLHSpecialist
+  - MHLeader
+  - MHSpecialist
+  - MHCadet
+  - HDLeader
+  - HDSpecialist
+  - HDCadet
+  - FondSeniorSecurityOfficer
+  - FondSecurityOfficer
+  - SeniorHeavyContainmentZoneOfficer
+  - JuniorHeavyContainmentZoneOfficer
+  - HeavyContainmentZoneOfficer
+  - HeavyContainmentZoneCommandant
+  - TribunalOfficer
+  - JudicialInspector
+  - MentalControlOfficer
+  - InternalSecurityOperative
+  - SeniorExternalAdministrativeZoneOfficer
+  - JuniorExternalAdministrativeZoneOfficer
+  - FieldMedicalSpecialist
+  - ExternalAdministrativeZoneOfficer
+  - ExternalAdministrativeZoneCommandant
+  - SecurityCommander
+  - PersonnelOfficer
+  - Director
+  - Scp0192
+  - Scp049
+  - Scp082
+  - Scp096
+  - Scp106
+  - Scp131A
+  - Scp131B
+  - Scp173
+  - Scp247
+  - Scp457
+  - Scp939
+  - Scp999
+  - Scp1508
+  - Scp1589
+  - Scp2295
+  - Scp3199
+  - Scp3288Servant
+  - Scp3288Aristocrat
+  - Scp3288Knight
+  - Scp3288Alpha
+  # Fire edit end
+  # Sunrise edit start - роли, ранее защищённые общим canBeAntag
+  - BlueShieldEnsign
+  - BlueShieldOfficer
+  - BlueShieldOperative
+  - Borg
+  - Brigmedic
+  - Captain
+  - CBURNAgentEVA
+  - CBURNLeader
+  - CentCommOfficial
+  - CentCommOperator
+  - ClownBorg
+  - Detective
+  - EngineerBorg
+  - HeadOfPersonnel
+  - HeadOfPrison
+  - HeadOfSecurity
+  - IAA
+  - JanitorBorg
+  - Lawyer
+  - Magistrat
+  - MedicalBorg
+  - MedicalIntern
+  - MiningBorg
+  - NanoTrasenRepresentative
+  - NtrGuard
+  - NtrLeader
+  - NtrOfficer
+  - PeaceBorg
+  - PlanetPrisoner
+  - PrisonChef
+  - PrisonDoctor
+  - PrisonEngineer
+  - PrisonInspector
+  - PrisonPilot
+  - PrisonScientist
+  - PrisonTrainee
+  - PrisonWorker
+  - ResearchAssistant
+  - SecurityBorg
+  - SecurityCadet
+  - SecurityOfficer
+  - SecurityPilot
+  - SeniorOfficer
+  - ServiceBorg
+  - StationAi
+  - TechnicalAssistant
+  - TSFMarine
+  - USSPCaptain
+  - USSPCrew
+  - USSPOfficer
+  - USSPOfficerAlt
+  - USSPSoldier
+  - Visitor
+  - Warden
+  # Sunrise edit end
+  blacklist:
+    components:
+    - AntagImmune
+
+# Command
+- type: antagSpecifier
+  abstract: true
+  parent: BaseAntagSpecifier
+  id: CommandBlacklistedAntag
+  jobBlacklist:
+  - Captain
+  - HeadOfPersonnel
+  - HeadOfSecurity
+  - ChiefMedicalOfficer
+  - ResearchDirector
+  - ChiefEngineer
+  - Quartermaster
+
+# Borgs
+- type: antagSpecifier
+  abstract: true
+  parent: BaseAntagSpecifier
+  id: CyborgBlacklistedAntag
+  jobBlacklist:
+  - StationAi
+  - Borg
+
+# Learner Roles
+- type: antagSpecifier
+  abstract: true
+  parent: BaseAntagSpecifier
+  id: InternBlacklistedAntag
+  jobBlacklist:
+  - SecurityCadet
+  - MedicalIntern
+  - ResearchAssistant
+  - TechnicalAssistant
+  - Visitor
+
+# Security
+- type: antagSpecifier
+  abstract: true
+  parent: BaseAntagSpecifier
+  id: SecurityBlacklistedAntag
+  jobBlacklist:
+  - HeadOfSecurity
+  - Warden
+  - Detective
+  - SecurityOfficer
+  - SecurityCadet
+
+- type: antagSpecifier
+  abstract: true
+  parent: [ CommandBlacklistedAntag, SecurityBlacklistedAntag ]
+  id: MindshieldRestrictedAntag
+
+- type: antagSpecifier
+  abstract: true
+  parent: [ MindshieldRestrictedAntag, CyborgBlacklistedAntag, InternBlacklistedAntag ]
+  id: RestrictedAntag

@@ -9,12 +9,12 @@ using Robust.Shared.Player;
 
 namespace Content.Server._Scp.Vigers;
 
-public sealed class VigersSystem : EntitySystem
+public sealed partial class VigersSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IAdminManager _adminManager = default!;
-    [Dependency] private readonly IServerNetManager _netManager = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IAdminManager _adminManager = default!;
+    [Dependency] private IServerNetManager _netManager = default!;
 
     private ConfigurationMultiSubscriptionBuilder _cfgSubs = default!;
 

@@ -8,9 +8,9 @@ namespace Content.Client._Scp.Blinking;
 /// <summary>
 /// Оверлей, отвечающий за графику и анимации моргания персонажа.
 /// </summary>
-public sealed class BlinkingOverlay : Overlay
+public sealed partial class BlinkingOverlay : Overlay
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public override bool RequestScreenTexture => true; // _blinkingProgress > 0f || IsAnimating
     public override OverlaySpace Space => OverlaySpace.WorldSpace;

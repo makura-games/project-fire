@@ -15,8 +15,8 @@ public abstract partial class SharedScpHoldingSystem
      * Hand-local dependencies, caches, placeholders, virtual blockers, and held-status visuals.
      */
 
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedVirtualItemSystem _virtualItem = default!;
 
     private readonly List<EntityUid> _placeholderIcons = [];
     private readonly HashSet<EntityUid> _holdersSuppressingVirtualItemSync = [];

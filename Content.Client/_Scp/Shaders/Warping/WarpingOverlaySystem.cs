@@ -7,12 +7,12 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._Scp.Shaders.Warping;
 
-public sealed class WarpingOverlaySystem : EntitySystem
+public sealed partial class WarpingOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly VignetteOverlaySystem _vignette = default!;
-    [Dependency] private readonly GrainOverlaySystem _grain = default!;
-    [Dependency] private readonly IOverlayManager _overlayManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private VignetteOverlaySystem _vignette = default!;
+    [Dependency] private GrainOverlaySystem _grain = default!;
+    [Dependency] private IOverlayManager _overlayManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private WarpOverlay? _overlay;
 

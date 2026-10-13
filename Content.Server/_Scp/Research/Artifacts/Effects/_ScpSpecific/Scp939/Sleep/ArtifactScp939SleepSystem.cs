@@ -6,10 +6,10 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Scp.Research.Artifacts.Effects._ScpSpecific.Scp939.Sleep;
 
-public sealed class ArtifactScp939SleepSystem : BaseXAESystem<ArtifactScp939SleepComponent>
+public sealed partial class ArtifactScp939SleepSystem : BaseXAESystem<ArtifactScp939SleepComponent>
 {
-    [Dependency] private readonly Scp939System _scp939 = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private Scp939System _scp939 = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     protected override void OnActivated(Entity<ArtifactScp939SleepComponent> ent, ref XenoArtifactNodeActivatedEvent args)
     {

@@ -7,12 +7,12 @@ using Robust.Shared.Player;
 
 namespace Content.Client._Scp.Shaders.Common.Grain;
 
-public sealed class GrainOverlaySystem : ComponentOverlaySystem<GrainOverlay, GrainOverlayComponent>
+public sealed partial class GrainOverlaySystem : ComponentOverlaySystem<GrainOverlay, GrainOverlayComponent>
 {
-    [Dependency] private readonly SharedShaderStrengthSystem _shaderStrength = default!;
-    [Dependency] private readonly CompatibilityModeActiveWarningSystem _compatibility = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private SharedShaderStrengthSystem _shaderStrength = default!;
+    [Dependency] private CompatibilityModeActiveWarningSystem _compatibility = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override void Initialize()
     {

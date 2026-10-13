@@ -1,0 +1,5 @@
+- type: soundCollection
+  id: mp5
+  files:
+  - /Audio/_Scp/Weapons/Guns/Gunshots/mp5-1.ogg
+  - /Audio/_Scp/Weapons/Guns/Gunshots/mp5-2.ogg

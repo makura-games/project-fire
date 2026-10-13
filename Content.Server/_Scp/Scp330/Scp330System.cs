@@ -22,15 +22,15 @@ namespace Content.Server._Scp.Scp330;
 // TODO: Добавить, что миску можно будет бросить. При этом конфеты высыпятся и приколиста кастрирует.
 public sealed partial class Scp330System : SharedScp330System
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly ProximitySystem _proximity = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private ProximitySystem _proximity = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private readonly HashSet<Entity<HandsComponent>> _cachedEntities = [];
 

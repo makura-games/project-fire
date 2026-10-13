@@ -6,9 +6,9 @@ using Robust.Shared.Animations;
 
 namespace Content.Client._Scp.Animations.Offset;
 
-public sealed class OffsetAnimationSystem : EntitySystem
+public sealed partial class OffsetAnimationSystem : EntitySystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _animation = default!;
+    [Dependency] private AnimationPlayerSystem _animation = default!;
 
     public override void Initialize()
     {

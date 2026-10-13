@@ -46,7 +46,6 @@
     state: assembly
   - type: InteractionOutline
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
   - type: Destructible
     thresholds:

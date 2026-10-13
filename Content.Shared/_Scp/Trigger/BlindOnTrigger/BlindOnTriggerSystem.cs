@@ -3,9 +3,9 @@ using Content.Shared.Trigger;
 
 namespace Content.Shared._Scp.Trigger.BlindOnTrigger;
 
-public sealed class BlindOnTriggerSystem : EntitySystem
+public sealed partial class BlindOnTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedScp173System _scp173 = default!;
+    [Dependency] private SharedScp173System _scp173 = default!;
 
     public override void Initialize()
     {

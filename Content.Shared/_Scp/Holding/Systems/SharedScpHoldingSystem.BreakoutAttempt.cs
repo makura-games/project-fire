@@ -12,7 +12,7 @@ public abstract partial class SharedScpHoldingSystem
      * Breakout-attempt query cache, event routing, semantic state, and do-after handle tracking.
      */
 
-    [Dependency] private readonly WorldAlertSystem _worldAlert = default!;
+    [Dependency] private WorldAlertSystem _worldAlert = default!;
 
     private EntityQuery<ScpBreakoutAttemptComponent> _breakoutAttemptQuery;
 

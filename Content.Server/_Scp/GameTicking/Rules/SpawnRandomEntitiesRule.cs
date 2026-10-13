@@ -8,9 +8,9 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Scp.GameTicking.Rules;
 
-public sealed class SpawnRandomEntitiesRule : StationEventSystem<SpawnRandomEntitiesRuleComponent>
+public sealed partial class SpawnRandomEntitiesRule : StationEventSystem<SpawnRandomEntitiesRuleComponent>
 {
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private StationSystem _station = default!;
 
     protected override void Started(EntityUid uid, SpawnRandomEntitiesRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

@@ -9,7 +9,7 @@ namespace Content.Server._Scp.Scp106.Systems;
 
 public sealed partial class Scp106System
 {
-    [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private HandsSystem _hands = default!;
 
     private void InitializeAbilities()
     {

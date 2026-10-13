@@ -15,8 +15,8 @@ namespace Content.Server._Scp.Blood;
 // + API для вызова из других систем.
 public sealed partial class BloodSplatterSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly PhysicsSystem _physics = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private PhysicsSystem _physics = default!;
 
     private EntityQuery<BloodParticleComponent> _particleQuery;
 

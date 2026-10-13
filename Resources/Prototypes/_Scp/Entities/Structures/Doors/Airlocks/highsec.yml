@@ -104,7 +104,6 @@
   - type: Airtight
   - type: Occluder
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StrongMetallicScp
   - type: Destructible
     thresholds:

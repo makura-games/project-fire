@@ -2,10 +2,10 @@
 
 namespace Content.Shared._Scp.Other.ScpBookVisuals;
 
-public sealed class ScpBookVisualsSystem : EntitySystem
+public sealed partial class ScpBookVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {

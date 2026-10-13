@@ -14,9 +14,9 @@ public abstract partial class SharedScp096System
      * Часть системы, отвечающая за руки скромника и взаимодействие с предметами.
      */
 
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
     private void InitializeHands()
     {

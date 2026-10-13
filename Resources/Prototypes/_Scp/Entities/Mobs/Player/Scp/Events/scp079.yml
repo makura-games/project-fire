@@ -1,419 +1,423 @@
-﻿- type: Tag
-  id: Scp079
+﻿# ВЫРЕЗАНО
+# ТРЕБУЕТ НОРМАЛЬНОЙ ДОРАБОТКИ
 
-- type: entity
-  id: Scp079Held
-  #parent: AiHeld    из-за этой херни дублируются законы, так что не надо нам это
-  categories: [ HideSpawnMenu ]
-  save: false
-  components:
-  - type: ShowScp096FaceDamageHud
-  - type: TTS
-    voice: SCP079
-  - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Binary
-    - Common
-    #- Administration    я думаю для 079 они не нужны как минимум пока что
-    #- EthicsCommittee
-    - HeavyContainmentSecurityService
-    - ExternalAdministrativeZoneSecurityService
-    - ScientificService
-    - MedicalService
-    - EngineeringTechnicalService
-    - LogisticsService
-    - FoodAndSanitationService
-  - type: ActiveRadio
-    channels:
-    - Binary
-    - Common
-    - HeavyContainmentSecurityService
-    - ExternalAdministrativeZoneSecurityService
-    - ScientificService
-    - MedicalService
-    - EngineeringTechnicalService
-    - LogisticsService
-    - FoodAndSanitationService
-  - type: IgnoreUIRange
-  - type: StationAiHeld
-  - type: StationAiOverlay
-  - type: ShowElectrocutionHUD
-  - type: ActionGrant
-    actions:
-    - ActionJumpToCore
-    - ActionSurvCameraLights
-    #- ActionAIViewLaws    пока для 079 нет кастом законов - увы, без них
-  - type: UserInterface
-    interfaces:
-      enum.RadarConsoleUiKey.Key:
-        type: RadarConsoleBoundUserInterface
-      enum.CrewMonitoringUIKey.Key:
-        type: CrewMonitoringBoundUserInterface
-      enum.GeneralStationRecordConsoleKey.Key:
-        type: GeneralStationRecordConsoleBoundUserInterface
-      #enum.SiliconLawsUiKey.Key:
-      #  type: SiliconLawBoundUserInterface     то же. Пока не будет кастом законов - увы
-      enum.CommunicationsConsoleUiKey.Key:
-        type: CommunicationsConsoleBoundUserInterface
-  - type: IntrinsicUI
-    uis:
-      enum.RadarConsoleUiKey.Key:
-        toggleAction: ActionAGhostShowRadar
-      enum.CrewMonitoringUIKey.Key:
-        toggleAction: ActionAGhostShowCrewMonitoring
-      enum.GeneralStationRecordConsoleKey.Key:
-        toggleAction: ActionAGhostShowStationRecords
-      enum.CommunicationsConsoleUiKey.Key:
-        toggleAction: ActionAGhostShowCommunications
-  - type: CrewMonitoringConsole
-  - type: GeneralStationRecordConsole
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    receiveFrequencyId: CrewMonitor
-    transmitFrequencyId: ShuttleTimer
-  - type: RadarConsole
-    followEntity: false
-  - type: CommunicationsConsole
-    canShuttle: false
-    title: str-079-CommunicationsConsole-title
-    color: "#5ed7aa"
-    announceVoice: SCP079
-    sound: /Audio/_Scp/Scp079/announcement.ogg
-  - type: HolographicAvatar
-    layerData:
-    - sprite: _Scp/Mobs/Scp/scp-079.rsi
-      state: hologram
-  - type: ShowJobIcons
-  - type: ShowThirstIcons
-  - type: ShowHungerIcons
-  - type: ShowHealthIcons
-  - type: ShowHealthBars
-    damageContainers:
-    - Biological
-    - Inorganic
-    - Silicon
-    - Mech
-  - type: Speech
-    speechVerb: Robotic
-
-
-- type: entity
-  id: PlayerScp079Empty
-  name: ???
-  description: Old 80s computer.
-  suffix: SCP-079
-  parent:
-  - BaseStructure
-  - AiHolder
-  components:
-  - type: WarpPoint
-    blacklist:
-      tags:
-      - GhostOnlyWarp
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.9,-0.5,0.9,0.5"
-        mask:
-        - MachineMask
-        layer:
-        - MachineLayer
-        density: 200
-  - type: ContainerComp
-    proto: Scp079Held
-    container: station_ai_mind_slot
-  - type: Damageable
-    damageModifierSet: StrongMetallic
-  - type: Repairable
-    doAfterDelay: 10
-    allowSelfRepair: false
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/_Scp/Effects/Blackout/apc.ogg
-      - !type:DoActsBehavior
-        acts: [ "Breakage" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          EffectSparks:
-            min: 1
-            max: 2
-          ShardGlassReinforced:
-            min: 0
-            max: 2
-          CableApcStack1:
-            min: 0
-            max: 3
-          CableMVStack1:
-            min: 0
-            max: 1
-    - trigger:
-        !type:DamageTrigger
-        damage: 2000
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          TreasureCDDrive:
-            min: 0
-            max: 1
-          ShardGlassReinforced:
-            min: 1
-            max: 2
-          SheetPlasteel:
-            min: 2
-            max: 2
-          CableApcStack1:
-            min: 0
-            max: 3
-          CableMVStack1:
-            min: 0
-            max: 1
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: DamageVisuals
-    thresholds: [25, 50, 75, 100, 200, 300, 400]
-    damageDivisor: 4
-    trackAllDamage: true
-    damageOverlay:
-      sprite: _Scp/Mobs/Scp/scp-079-cracks.rsi
-  - type: AmbientOnPowered
-  - type: AmbientSound
-    volume: -3
-    enabled: false
-    sound:
-      path: /Audio/_Scp/Ambience/Machines/Consoles/ost1.ogg
-      params:
-        maxDistance: 2
-        variation: 0.25
-  - type: ApcPowerReceiver
-    powerLoad: 500
-  - type: ExtensionCableReceiver
-  - type: Battery
-    netsync: false
-    maxCharge: 300000
-    startingCharge: 300000
-  - type: ApcPowerReceiverBattery
-    idleLoad: 500
-    batteryRechargeRate: 1000
-    batteryRechargeEfficiency: 0
-  - type: StationAiCore
-    remoteEntityProto: Scp079Holo
-  - type: StationAiVision
-  - type: InteractionOutline
-  - type: Sprite
-    sprite: _Scp/Mobs/Scp/scp-079.rsi
-    offset: 0,0.3
-    snapCardinals: true
-    layers:
-    - state: base
-    - state: ai_empty
-      map: ["enum.StationAiVisualLayers.Base"]
-      shader: unshaded
-    - state: ai
-      map: ["enum.StationAiVisualLayers.Icon"]
-      shader: unshaded
-      visible: false
-      scale: 0,0
-    - state: ai_unpowered
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-      visible: false
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.PowerDeviceVisuals.Powered:
-        enum.PowerDeviceVisualLayers.Powered:
-          False: { visible: true }
-          True: { visible: false }
-      enum.StationAiVisuals.Broken:
-        enum.StationAiVisualLayers.Base:
-          False: { state: ai_empty }
-          True: { state: ai_error }
-      #enum.StationAiState.Occupied:     не работает из-за офов
-      #  enum.StationAiVisualLayers.Icon:
-      #    False: { state: ai_empty }
-      #    True: { state: ai }
-  - type: InteractionPopup
-    interactSuccessString: petting-success-station-ai
-    interactFailureString: petting-failure-station-ai
-    messagePerceivedByOthers: petting-success-station-ai-others
-    interactSuccessSound:
-      path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: Telephone
-    compatibleRanges:
-    - Grid
-    - Map
-    - Unlimited
-    listeningRange: 0
-    speakerVolume: Speak
-    unlistedNumber: true
-  - type: Holopad
-  - type: StationAiWhitelist
-  - type: UserInterface
-    interfaces:
-      enum.HolopadUiKey.AiRequestWindow:
-        type: HolopadBoundUserInterface
-      enum.HolopadUiKey.AiActionWindow:
-        type: HolopadBoundUserInterface
-      #enum.StationAiCustomizationUiKey.Key:              мб в будущем
-      #  type: StationAiCustomizationBoundUserInterface
-  #- type: Construction                                   тоже мб в будущем
-  #  graph: StationAiCore
-  #  node: stationAiCore
-  - type: ContainerContainer
-    containers:
-      station_ai_brain_slot: !type:Container
-      station_ai_mind_slot: !type:ContainerSlot
-        showEnts: true
-
-
-# TODO: т.к. пока что смена лица для ИИ через GenericVisualizer сломано, то приходится использовать такой костыль в виде отдельной сущности. Когда оффы исправят - удалить и сделать нормально
-- type: entity
-  id: Scp079EnabledFace
-  name: 079 active
-  description: 079 is currently active and hears everything around him.
-  suffix: ONLY FACE
-  placement:
-    mode: SnapgridCenter
-  components:
-  - type: Sprite
-    sprite: _Scp/Mobs/Scp/scp-079.rsi
-    offset: 0,0.3
-    snapCardinals: true
-    layers:
-    - state: ai
-      shader: unshaded
-
-
-
-# мозг внутри 079. Пока что лежит мертвым грузом т.к. оффы захардкодили мозг для ИИ (и 079), так что даже законы не поменять.
-- type: entity
-  id: Scp079Brain
-  name: SCP 079 brain  #..LOC
-  parent: PositronicBrain
-  categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
-  components:
-  - type: Sprite
-    visible: false
-  - type: BlockMovement
-    blockInteraction: false
-  - type: SiliconLawProvider
-    laws: Crewsimov # поменять и сделать 079 свои законы когда оффы добавят возможность ставить кастомный мозг для ИИ
-  - type: SiliconLawBound
-  # буду делать законы для 079 - верну
-  #- type: ActionGrant
-  #  actions:
-  #  - ActionViewLaws
-  #- type: UserInterface
-  #  interfaces:
-  #    enum.SiliconLawsUiKey.Key:
-  #      type: SiliconLawBoundUserInterface
-  #      requireInputValidation: false
-  - type: ComplexInteraction
-  - type: Actions
-  - type: Access
-    groups:
-    - AllAccess
-  - type: Eye
-    drawFov: false
-  - type: Examiner
-  - type: InputMover
-  - type: Speech
-    speechVerb: Robotic
-    speechSounds: Borg
-  - type: Tag
-    tags:
-    - HideContextMenu
-    - Scp079
-    - NoConsoleSound
-  - type: StartingMindRole
-    mindRole: "MindRoleSiliconBrain"
-    silent: false
-
-# Глаз 079
-- type: entity
-  parent:
-  - Incorporeal
-  - BaseMob
-  id: Scp079Holo
-  name: SCP 079 eye
-  description: Big brother watching you.
-  categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
-  components:
-  - type: NoFTL
-  - type: Tag
-    tags:
-    - GhostOnlyWarp
-  - type: WarpPoint
-    location: str-079-eye-name
-    follow: true
-    blacklist:
-      tags:
-      - GhostOnlyWarp
-  - type: Eye
-    pvsScale: 1.5
-  - type: Visibility
-    layer: 2
-  - type: Sprite
-    sprite: _Scp/Mobs/Scp/scp-079.rsi
-    layers:
-    - state: ai_camera
-      shader: unshaded
-      map: ["base"]
-
-
-
-# 079 в голопаде
-- type: entity
-  id: Scp079HoloLocal
-  name: ???
-  description: Holographic representation... what is it anyway?
-  categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
-  components:
-  - type: Transform
-    anchored: true
-  - type: WarpPoint
-    follow: true
-    blacklist:
-      tags:
-      - GhostOnlyWarp
-  - type: Eye
-  - type: ContentEye
-  - type: Examiner
-  - type: Actions
-  - type: Alerts
-  - type: FTLSmashImmune
-  - type: CargoSellBlacklist
-  - type: StationAiVision
-    range: 20
-  - type: TTS
-    voice: SCP079
-
-
-
-# постер для КС
-- type: entity
-  parent: PosterScpContainmentRoomBase
-  id: PosterScp079
-  name: SCP-079 poster
-  description: Information poster for SCP-079.
-  suffix: SCP-079 poster
-  components:
-  - type: Sprite
-    state: scp079
+#- type: Tag
+#  id: Scp079
+#
+#- type: entity
+#  id: Scp079Held
+#  #parent: AiHeld    из-за этой херни дублируются законы, так что не надо нам это
+#  categories: [ HideSpawnMenu ]
+#  save: false
+#  components:
+#  - type: ShowScp096FaceDamageHud
+#  - type: TTS
+#    voice: SCP079
+#  - type: IntrinsicRadioReceiver
+#  - type: IntrinsicRadioTransmitter
+#    channels:
+#    - Binary
+#    - Common
+#    #- Administration    я думаю для 079 они не нужны как минимум пока что
+#    #- EthicsCommittee
+#    - HeavyContainmentSecurityService
+#    - ExternalAdministrativeZoneSecurityService
+#    - ScientificService
+#    - MedicalService
+#    - EngineeringTechnicalService
+#    - LogisticsService
+#    - FoodAndSanitationService
+#  - type: ActiveRadio
+#    channels:
+#    - Binary
+#    - Common
+#    - HeavyContainmentSecurityService
+#    - ExternalAdministrativeZoneSecurityService
+#    - ScientificService
+#    - MedicalService
+#    - EngineeringTechnicalService
+#    - LogisticsService
+#    - FoodAndSanitationService
+#  - type: IgnoreUIRange
+#  - type: StationAiHeld
+#  - type: StationAiOverlay
+#  - type: ShowElectrocutionHUD
+#  - type: ActionGrant
+#    actions:
+#    - ActionJumpToCore
+#    - ActionSurvCameraLights
+#    #- ActionAIViewLaws    пока для 079 нет кастом законов - увы, без них
+#  - type: UserInterface
+#    interfaces:
+#      enum.RadarConsoleUiKey.Key:
+#        type: RadarConsoleBoundUserInterface
+#      enum.CrewMonitoringUIKey.Key:
+#        type: CrewMonitoringBoundUserInterface
+#      enum.GeneralStationRecordConsoleKey.Key:
+#        type: GeneralStationRecordConsoleBoundUserInterface
+#      #enum.SiliconLawsUiKey.Key:
+#      #  type: SiliconLawBoundUserInterface     то же. Пока не будет кастом законов - увы
+#      enum.CommunicationsConsoleUiKey.Key:
+#        type: CommunicationsConsoleBoundUserInterface
+#  - type: IntrinsicUI
+#    uis:
+#      enum.RadarConsoleUiKey.Key:
+#        toggleAction: ActionAGhostShowRadar
+#      enum.CrewMonitoringUIKey.Key:
+#        toggleAction: ActionAGhostShowCrewMonitoring
+#      enum.GeneralStationRecordConsoleKey.Key:
+#        toggleAction: ActionAGhostShowStationRecords
+#      enum.CommunicationsConsoleUiKey.Key:
+#        toggleAction: ActionAGhostShowCommunications
+#  - type: CrewMonitoringConsole
+#  - type: GeneralStationRecordConsole
+#  - type: DeviceNetwork
+#    deviceNetId: Wireless
+#    receiveFrequencyId: CrewMonitor
+#    transmitFrequencyId: ShuttleTimer
+#  - type: RadarConsole
+#    followEntity: false
+#  - type: CommunicationsConsole
+#    canShuttle: false
+#    title: str-079-CommunicationsConsole-title
+#    color: "#5ed7aa"
+#    announceVoice: SCP079
+#    sound: /Audio/_Scp/Scp079/announcement.ogg
+#  - type: HolographicAvatar
+#    layerData:
+#    - sprite: _Scp/Mobs/Scp/scp-079.rsi
+#      state: hologram
+#  - type: ShowJobIcons
+#  - type: ShowThirstIcons
+#  - type: ShowHungerIcons
+#  - type: ShowHealthIcons
+#  - type: ShowHealthBars
+#    damageContainers:
+#    - Biological
+#    - Inorganic
+#    - Silicon
+#    - Mech
+#  - type: Speech
+#    speechVerb: Robotic
+#
+#
+#- type: entity
+#  id: PlayerScp079Empty
+#  name: ???
+#  description: Old 80s computer.
+#  suffix: SCP-079
+#  parent:
+#  - BaseStructure
+#  - AiHolder
+#  components:
+#  - type: WarpPoint
+#    blacklist:
+#      tags:
+#      - GhostOnlyWarp
+#  - type: Fixtures
+#    fixtures:
+#      fix1:
+#        shape:
+#          !type:PhysShapeAabb
+#          bounds: "-0.9,-0.5,0.9,0.5"
+#        mask:
+#        - MachineMask
+#        layer:
+#        - MachineLayer
+#        density: 200
+#  - type: ContainerComp
+#    proto: Scp079Held
+#    container: station_ai_mind_slot
+#  - type: Damageable
+#    damageModifierSet: StrongMetallic
+#  - type: Repairable
+#    doAfterDelay: 10
+#    allowSelfRepair: false
+#  - type: Destructible
+#    thresholds:
+#    - trigger:
+#        !type:DamageTrigger
+#        damage: 300
+#      behaviors:
+#      - !type:PlaySoundBehavior
+#        sound:
+#          path: /Audio/_Scp/Effects/Blackout/apc.ogg
+#      - !type:DoActsBehavior
+#        acts: [ "Breakage" ]
+#      - !type:PlaySoundBehavior
+#        sound:
+#          collection: MetalBreak
+#      - !type:SpawnEntitiesBehavior
+#        spawn:
+#          EffectSparks:
+#            min: 1
+#            max: 2
+#          ShardGlassReinforced:
+#            min: 0
+#            max: 2
+#          CableApcStack1:
+#            min: 0
+#            max: 3
+#          CableMVStack1:
+#            min: 0
+#            max: 1
+#    - trigger:
+#        !type:DamageTrigger
+#        damage: 2000
+#      behaviors:
+#      - !type:PlaySoundBehavior
+#        sound:
+#          collection: MetalBreak
+#      - !type:SpawnEntitiesBehavior
+#        spawn:
+#          TreasureCDDrive:
+#            min: 0
+#            max: 1
+#          ShardGlassReinforced:
+#            min: 1
+#            max: 2
+#          SheetPlasteel:
+#            min: 2
+#            max: 2
+#          CableApcStack1:
+#            min: 0
+#            max: 3
+#          CableMVStack1:
+#            min: 0
+#            max: 1
+#      - !type:DoActsBehavior
+#        acts: ["Destruction"]
+#  - type: DamageVisuals
+#    thresholds: [25, 50, 75, 100, 200, 300, 400]
+#    damageDivisor: 4
+#    trackAllDamage: true
+#    damageOverlay:
+#      sprite: _Scp/Mobs/Scp/scp-079-cracks.rsi
+#  - type: AmbientOnPowered
+#  - type: AmbientSound
+#    volume: -3
+#    enabled: false
+#    sound:
+#      path: /Audio/_Scp/Ambience/Machines/Consoles/ost1.ogg
+#      params:
+#        maxDistance: 2
+#        variation: 0.25
+#  - type: ApcPowerReceiver
+#    powerLoad: 500
+#  - type: ExtensionCableReceiver
+#  - type: Battery
+#    netsync: false
+#    maxCharge: 300000
+#    startingCharge: 300000
+#  - type: ApcPowerReceiverBattery
+#    idleLoad: 500
+#    batteryRechargeRate: 1000
+#    batteryRechargeEfficiency: 0
+#  - type: StationAiCore
+#    remoteEntityProto: Scp079Holo
+#  - type: StationAiVision
+#  - type: InteractionOutline
+#  - type: Sprite
+#    sprite: _Scp/Mobs/Scp/scp-079.rsi
+#    offset: 0,0.3
+#    snapCardinals: true
+#    layers:
+#    - state: base
+#    - state: ai_empty
+#      map: ["enum.StationAiVisualLayers.Base"]
+#      shader: unshaded
+#    - state: ai
+#      map: ["enum.StationAiVisualLayers.Icon"]
+#      shader: unshaded
+#      visible: false
+#      scale: 0,0
+#    - state: ai_unpowered
+#      map: ["enum.PowerDeviceVisualLayers.Powered"]
+#      visible: false
+#  - type: Appearance
+#  - type: GenericVisualizer
+#    visuals:
+#      enum.PowerDeviceVisuals.Powered:
+#        enum.PowerDeviceVisualLayers.Powered:
+#          False: { visible: true }
+#          True: { visible: false }
+#      enum.StationAiVisuals.Broken:
+#        enum.StationAiVisualLayers.Base:
+#          False: { state: ai_empty }
+#          True: { state: ai_error }
+#      #enum.StationAiState.Occupied:     не работает из-за офов
+#      #  enum.StationAiVisualLayers.Icon:
+#      #    False: { state: ai_empty }
+#      #    True: { state: ai }
+#  - type: InteractionPopup
+#    interactSuccessString: petting-success-station-ai
+#    interactFailureString: petting-failure-station-ai
+#    messagePerceivedByOthers: petting-success-station-ai-others
+#    interactSuccessSound:
+#      path: /Audio/Ambience/Objects/periodic_beep.ogg
+#  - type: Telephone
+#    compatibleRanges:
+#    - Grid
+#    - Map
+#    - Unlimited
+#    listeningRange: 0
+#    speakerVolume: Speak
+#    unlistedNumber: true
+#  - type: Holopad
+#  - type: StationAiWhitelist
+#  - type: UserInterface
+#    interfaces:
+#      enum.HolopadUiKey.AiRequestWindow:
+#        type: HolopadBoundUserInterface
+#      enum.HolopadUiKey.AiActionWindow:
+#        type: HolopadBoundUserInterface
+#      #enum.StationAiCustomizationUiKey.Key:              мб в будущем
+#      #  type: StationAiCustomizationBoundUserInterface
+#  #- type: Construction                                   тоже мб в будущем
+#  #  graph: StationAiCore
+#  #  node: stationAiCore
+#  - type: ContainerContainer
+#    containers:
+#      station_ai_brain_slot: !type:Container
+#      station_ai_mind_slot: !type:ContainerSlot
+#        showEnts: true
+#
+#
+## TODO: т.к. пока что смена лица для ИИ через GenericVisualizer сломано, то приходится использовать такой костыль в виде отдельной сущности. Когда оффы исправят - удалить и сделать нормально
+#- type: entity
+#  id: Scp079EnabledFace
+#  name: 079 active
+#  description: 079 is currently active and hears everything around him.
+#  suffix: ONLY FACE
+#  placement:
+#    mode: SnapgridCenter
+#  components:
+#  - type: Sprite
+#    sprite: _Scp/Mobs/Scp/scp-079.rsi
+#    offset: 0,0.3
+#    snapCardinals: true
+#    layers:
+#    - state: ai
+#      shader: unshaded
+#
+#
+#
+## мозг внутри 079. Пока что лежит мертвым грузом т.к. оффы захардкодили мозг для ИИ (и 079), так что даже законы не поменять.
+#- type: entity
+#  id: Scp079Brain
+#  name: SCP 079 brain  #..LOC
+#  parent: PositronicBrain
+#  categories: [ HideSpawnMenu ]
+#  suffix: DO NOT MAP
+#  components:
+#  - type: Sprite
+#    visible: false
+#  - type: BlockMovement
+#    blockInteraction: false
+#  - type: SiliconLawProvider
+#    laws: Crewsimov # поменять и сделать 079 свои законы когда оффы добавят возможность ставить кастомный мозг для ИИ
+#  - type: SiliconLawBound
+#  # буду делать законы для 079 - верну
+#  #- type: ActionGrant
+#  #  actions:
+#  #  - ActionViewLaws
+#  #- type: UserInterface
+#  #  interfaces:
+#  #    enum.SiliconLawsUiKey.Key:
+#  #      type: SiliconLawBoundUserInterface
+#  #      requireInputValidation: false
+#  - type: ComplexInteraction
+#  - type: Actions
+#  - type: Access
+#    groups:
+#    - AllAccess
+#  - type: Eye
+#    drawFov: false
+#  - type: Examiner
+#  - type: InputMover
+#  - type: Speech
+#    speechVerb: Robotic
+#    speechSounds: Borg
+#  - type: Tag
+#    tags:
+#    - HideContextMenu
+#    - Scp079
+#    - NoConsoleSound
+#  - type: StartingMindRole
+#    mindRole: "MindRoleSiliconBrain"
+#    silent: false
+#
+## Глаз 079
+#- type: entity
+#  parent:
+#  - Incorporeal
+#  - BaseMob
+#  id: Scp079Holo
+#  name: SCP 079 eye
+#  description: Big brother watching you.
+#  categories: [ HideSpawnMenu ]
+#  suffix: DO NOT MAP
+#  components:
+#  - type: NoFTL
+#  - type: Tag
+#    tags:
+#    - GhostOnlyWarp
+#  - type: WarpPoint
+#    location: str-079-eye-name
+#    follow: true
+#    blacklist:
+#      tags:
+#      - GhostOnlyWarp
+#  - type: Eye
+#    pvsScale: 1.5
+#  - type: Visibility
+#    layer: 2
+#  - type: Sprite
+#    sprite: _Scp/Mobs/Scp/scp-079.rsi
+#    layers:
+#    - state: ai_camera
+#      shader: unshaded
+#      map: ["base"]
+#
+#
+#
+## 079 в голопаде
+#- type: entity
+#  id: Scp079HoloLocal
+#  name: ???
+#  description: Holographic representation... what is it anyway?
+#  categories: [ HideSpawnMenu ]
+#  suffix: DO NOT MAP
+#  components:
+#  - type: Transform
+#    anchored: true
+#  - type: WarpPoint
+#    follow: true
+#    blacklist:
+#      tags:
+#      - GhostOnlyWarp
+#  - type: Eye
+#  - type: ContentEye
+#  - type: Examiner
+#  - type: Actions
+#  - type: Alerts
+#  - type: FTLSmashImmune
+#  - type: CargoSellBlacklist
+#  - type: StationAiVision
+#    range: 20
+#  - type: TTS
+#    voice: SCP079
+#
+#
+#
+## постер для КС
+#- type: entity
+#  parent: PosterScpContainmentRoomBase
+#  id: PosterScp079
+#  name: SCP-079 poster
+#  description: Information poster for SCP-079.
+#  suffix: SCP-079 poster
+#  components:
+#  - type: Sprite
+#    state: scp079
+#

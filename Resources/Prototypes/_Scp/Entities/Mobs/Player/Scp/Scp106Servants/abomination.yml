@@ -86,7 +86,6 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: Scp106Portal
     damageModifierSet: Infernal
   - type: AmbientSound
     range: 20

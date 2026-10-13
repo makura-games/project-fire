@@ -25,12 +25,12 @@ namespace Content.Shared._Scp.Fear.Systems;
 // TODO: Attempt-ивенты для страха
 public abstract partial class SharedFearSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHighlightSystem _highlight = default!;
-    [Dependency] private readonly EyeWatchingSystem _watching = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedShaderStrengthSystem _shaderStrength = default!;
-    [Dependency] private readonly ProximitySystem _proximity = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedHighlightSystem _highlight = default!;
+    [Dependency] private EyeWatchingSystem _watching = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedShaderStrengthSystem _shaderStrength = default!;
+    [Dependency] private ProximitySystem _proximity = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private const string MoodSourceClose = "FearSourceClose";
     private const string MoodFearSourceSeen = "FearSourceSeen";

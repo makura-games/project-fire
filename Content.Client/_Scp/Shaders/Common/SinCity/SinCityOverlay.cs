@@ -6,11 +6,11 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Scp.Shaders.Common.SinCity;
 
-public sealed class SinCityOverlay : Overlay
+public sealed partial class SinCityOverlay : Overlay
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     private const string SettingsScaleParameter = "settings_scale";
     private readonly EntityQuery<EyeComponent> _eyeQuery;

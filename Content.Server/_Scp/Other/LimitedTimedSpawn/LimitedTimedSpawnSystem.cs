@@ -9,9 +9,9 @@ namespace Content.Server._Scp.Other.LimitedTimedSpawn;
 
 public sealed partial class LimitedTimedSpawnSystem : EntitySystem
 {
-    [Dependency] private readonly PhysicsSystem _physics = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private PhysicsSystem _physics = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private readonly Dictionary<int, HashSet<EntityUid>> _savedHashes = new();
     private readonly List<(EntityCoordinates Coords, LimitedTimedSpawnComponent Comp)> _readyToSpawn = new();

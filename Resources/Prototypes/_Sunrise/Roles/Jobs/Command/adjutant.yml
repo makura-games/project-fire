@@ -17,7 +17,6 @@
   icon: JobIconAdjutant
   overrideConsoleVisibility: false # Fire added
   supervisors: job-supervisors-command
-  canBeAntag: true # Sunrise-Edit
   setPreference: false # Fire added
   alternativeTitles:
   - job-alt-title-secretary

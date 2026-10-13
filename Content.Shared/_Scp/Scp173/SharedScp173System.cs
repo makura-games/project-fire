@@ -19,14 +19,14 @@ using Robust.Shared.Timing;
 namespace Content.Shared._Scp.Scp173;
 
 // TODO: Выделить логику блокировки движения при смотрении в отдельную систему со своим компонентом.
-public abstract class SharedScp173System : EntitySystem
+public abstract partial class SharedScp173System : EntitySystem
 {
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private readonly SharedBlinkingSystem _blinking = default!;
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] protected readonly EyeWatchingSystem Watching = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] private SharedBlinkingSystem _blinking = default!;
+    [Dependency] private ActionBlockerSystem _blocker = default!;
+    [Dependency] protected EyeWatchingSystem Watching = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     protected static readonly TimeSpan ReagentCheckInterval = TimeSpan.FromSeconds(1f);
 

@@ -18,11 +18,11 @@ namespace Content.Server._Scp.Scp012;
 
 public sealed partial class Scp012System
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly PhysicsSystem _physics = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private PhysicsSystem _physics = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private void InitializeVictim()
     {

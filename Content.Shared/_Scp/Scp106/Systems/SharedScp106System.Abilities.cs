@@ -11,8 +11,8 @@ namespace Content.Shared._Scp.Scp106.Systems;
 
 public abstract partial class SharedScp106System
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedFearSystem _fear = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedFearSystem _fear = default!;
 
     private const float TerrifyRange = 23f;
 

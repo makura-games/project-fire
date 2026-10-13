@@ -2,7 +2,7 @@
 
 namespace Content.Client.Stylesheets.Stylesheets;
 
-public sealed partial class NanotrasenStylesheet
+public partial class NanotrasenStylesheet
 {
     /* Fire edit - вынесено в нашу папку и заменено нашими цветами
     public override ColorPalette PrimaryPalette => Palettes.Navy;

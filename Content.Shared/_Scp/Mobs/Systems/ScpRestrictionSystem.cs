@@ -17,11 +17,11 @@ using Content.Shared.Standing;
 
 namespace Content.Shared._Scp.Mobs.Systems;
 
-public sealed class ScpRestrictionSystem : EntitySystem
+public sealed partial class ScpRestrictionSystem : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedScpHoldingSystem _scpHolding = default!;
-    [Dependency] private readonly ScpMaskSystem _scpMask = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedScpHoldingSystem _scpHolding = default!;
+    [Dependency] private ScpMaskSystem _scpMask = default!;
 
     public override void Initialize()
     {

@@ -7,13 +7,13 @@ using Content.Shared.Whitelist;
 
 namespace Content.Shared._Scp.Containment.Cage;
 
-public sealed class ScpCageSystem : EntitySystem
+public sealed partial class ScpCageSystem : EntitySystem
 {
-    [Dependency] private readonly ProximitySystem _proximity = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly ScpHelpers _helpers = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private ProximitySystem _proximity = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private ScpHelpers _helpers = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

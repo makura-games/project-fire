@@ -24,7 +24,6 @@
   - type: Pullable
   - type: Rotatable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: RCDDeconstructable
     cost: 6

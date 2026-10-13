@@ -15,13 +15,13 @@ namespace Content.Client._Scp.Shaders.FieldOfView;
 /// Система для контроля всеми оверлеями поля зрения.
 /// Контролирует жизненный цикл оверлеев, держит кешированные значения прозрачности сущностей и т.п.
 /// </summary>
-public sealed class FieldOfViewOverlayManagementSystem : EntitySystem
+public sealed partial class FieldOfViewOverlayManagementSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly TransformSystem _xform = default!;
-    [Dependency] private readonly CompatibilityModeActiveWarningSystem _compatibilityMode = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private TransformSystem _xform = default!;
+    [Dependency] private CompatibilityModeActiveWarningSystem _compatibilityMode = default!;
 
     private FieldOfViewConeOverlay _coneOverlay = default!;
     private FieldOfViewSetAlphaOverlay _setAlphaOverlay = default!;

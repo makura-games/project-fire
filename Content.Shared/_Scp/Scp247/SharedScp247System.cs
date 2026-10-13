@@ -7,7 +7,7 @@ namespace Content.Shared._Scp.Scp247;
 
 public abstract partial class SharedScp247System : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     private EntityQuery<HumanoidProfileComponent> _humanoid;
 

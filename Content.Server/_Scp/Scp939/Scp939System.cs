@@ -14,13 +14,13 @@ namespace Content.Server._Scp.Scp939;
 
 public sealed partial class Scp939System : EntitySystem
 {
-    [Dependency] private readonly SmokeSystem _smokeSystem = default!;
-    [Dependency] private readonly SleepingSystem _sleepingSystem = default!;
-    [Dependency] private readonly ActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private SmokeSystem _smokeSystem = default!;
+    [Dependency] private SleepingSystem _sleepingSystem = default!;
+    [Dependency] private ActionsSystem _actionsSystem = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private AppearanceSystem _appearanceSystem = default!;
+    [Dependency] private AudioSystem _audio = default!;
 
     private readonly SoundSpecifier _critSound = new SoundPathSpecifier("/Audio/_Scp/Scp939/crit.ogg");
 

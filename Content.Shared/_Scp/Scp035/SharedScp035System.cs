@@ -24,22 +24,21 @@ using Robust.Shared.Random;
 
 namespace Content.Shared._Scp.Scp035;
 
-// TODO: Придумать что-то с акшенами, не очень смотрятся эти AddAction x6
-public abstract class SharedScp035System : EntitySystem
+public abstract partial class SharedScp035System : EntitySystem
 {
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedActionsSystem _action = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedActionsSystem _action = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
+    [Dependency] private MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -107,18 +106,18 @@ public abstract class SharedScp035System : EntitySystem
         if (!_mobState.IsAlive(ent))
             return;
 
-        if (!HasComp<HumanoidProfileComponent>(args.Equipee))
+        if (!HasComp<HumanoidProfileComponent>(args.Equipment))
         {
             args.Cancel();
 
-            _stun.TryAddParalyzeDuration(args.Equipee, ent.Comp.EquipAttemptParalyzeDuration);
+            _stun.TryAddParalyzeDuration(args.Equipment, ent.Comp.EquipAttemptParalyzeDuration);
 
             if (_net.IsServer)
             {
-                _popup.PopupEntity(Loc.GetString("scp-035-reject-you"), args.Equipee, args.Equipee, PopupType.LargeCaution);
+                _popup.PopupEntity(Loc.GetString("scp-035-reject-you"), args.Equipment, args.Equipment, PopupType.LargeCaution);
 
                 var impulse = _random.NextVector2() * ent.Comp.ImpulseModificator;
-                _physics.ApplyLinearImpulse(args.Equipee, impulse);
+                _physics.ApplyLinearImpulse(args.Equipment, impulse);
             }
         }
     }

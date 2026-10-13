@@ -12,10 +12,10 @@ namespace Content.Server._Scp.Scp096;
 
 public sealed partial class Scp096System
 {
-    [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private PvsOverrideSystem _pvsOverride = default!;
+    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private static readonly ProtoId<AmbientMusicPrototype> TargetAmbience = "Scp096Target";
 

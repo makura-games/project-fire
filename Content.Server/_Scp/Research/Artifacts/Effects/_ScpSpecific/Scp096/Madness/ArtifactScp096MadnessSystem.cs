@@ -11,13 +11,13 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Scp.Research.Artifacts.Effects._ScpSpecific.Scp096.Madness;
 
-public sealed class ArtifactScp096MadnessSystem : BaseXAESystem<ArtifactScp096MadnessComponent>
+public sealed partial class ArtifactScp096MadnessSystem : BaseXAESystem<ArtifactScp096MadnessComponent>
 {
-    [Dependency] private readonly ScpMaskSystem _scpMask = default!;
-    [Dependency] private readonly Scp096System _scp096 = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SunriseHelpersSystem _helpers = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private ScpMaskSystem _scpMask = default!;
+    [Dependency] private Scp096System _scp096 = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SunriseHelpersSystem _helpers = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     protected override void OnActivated(Entity<ArtifactScp096MadnessComponent> ent, ref XenoArtifactNodeActivatedEvent args)
     {

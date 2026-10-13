@@ -15,13 +15,13 @@ namespace Content.Server._Scp.AutoGhostRole;
 /// Monitors entities with <see cref="AutoGhostRoleComponent"/> for player disconnects
 /// and starts a body takeover poll after the configured delay
 /// </summary>
-public sealed class AutoGhostRoleSystem : EntitySystem
+public sealed partial class AutoGhostRoleSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly BodyTakeoverPollSystem _bodyTakeover = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private BodyTakeoverPollSystem _bodyTakeover = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private StationSystem _station = default!;
 
     private EntityQuery<SSDIndicatorComponent> _ssdQuery;
 

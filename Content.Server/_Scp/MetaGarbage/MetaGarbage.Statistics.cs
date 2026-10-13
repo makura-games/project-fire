@@ -6,7 +6,7 @@ namespace Content.Server._Scp.MetaGarbage;
 
 public sealed partial class MetaGarbageSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public string GetStatistics()
     {

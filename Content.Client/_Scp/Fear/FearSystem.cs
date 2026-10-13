@@ -8,11 +8,11 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._Scp.Fear;
 
-public sealed class FearSystem : SharedFearSystem
+public sealed partial class FearSystem : SharedFearSystem
 {
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private static readonly SoundSpecifier HeartbeatSound =
         new SoundPathSpecifier("/Audio/_Sunrise/Effects/heartbeat.ogg");

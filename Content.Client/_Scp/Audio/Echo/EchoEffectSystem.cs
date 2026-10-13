@@ -11,10 +11,10 @@ namespace Content.Client._Scp.Audio.Echo;
 /// Система, накладывающая эффект эхо каждому неглобальному звуку.
 /// Эффект может быть отключен игроком в настройках.
 /// </summary>
-public sealed class EchoEffectSystem : EntitySystem
+public sealed partial class EchoEffectSystem : EntitySystem
 {
-    [Dependency] private readonly AudioEffectStateSystem _effectState = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private AudioEffectStateSystem _effectState = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private static readonly ProtoId<AudioPresetPrototype> StandardEchoEffectPreset = "Bathroom";
     private static readonly ProtoId<AudioPresetPrototype> StrongEchoEffectPreset = "SewerPipe";

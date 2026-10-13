@@ -8,18 +8,20 @@ using Content.Shared.Random.Rules;
 using Content.Shared.Storage;
 using Robust.Server.Audio;
 using Robust.Server.Containers;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server._Scp.GameTicking.Rules.SpawnInPlayerInventory;
 
-public sealed class SpawnInPlayerInventoryRule : StationEventSystem<SpawnInPlayerInventoryRuleComponent>
+public sealed partial class SpawnInPlayerInventoryRule : StationEventSystem<SpawnInPlayerInventoryRuleComponent>
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly StorageSystem _storage = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly RulesSystem _rules = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private StorageSystem _storage = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private RulesSystem _rules = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private const string Pocket1Slot = "pocket1";
     private const string Pocket2Slot = "pocket2";

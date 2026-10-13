@@ -6,10 +6,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Scp.Blinking;
 
-public sealed class ShowBlinkIconSystem : EquipmentHudSystem<ShowBlinkableComponent>
+public sealed partial class ShowBlinkIconSystem : EquipmentHudSystem<ShowBlinkableComponent>
 {
-    [Dependency] private readonly BlinkingSystem _blinking = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private BlinkingSystem _blinking = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private static readonly ProtoId<BlinkIconPrototype> ClosedEyeIcon = "ClosedEyeIcon";
     private static BlinkIconPrototype _icon = default!;

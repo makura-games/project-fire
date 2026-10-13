@@ -23,13 +23,13 @@ namespace Content.Shared._Scp.Damage.ExaminableDamage;
 /// Для структуры требуется <see cref="DestructibleComponent"/>
 /// </remarks>
 // TODO: Написать больше описаний для различных объектов, вроде SCP-049, SCP-049-2
-public abstract class SharedScpExaminableDamageSystem : EntitySystem
+public abstract partial class SharedScpExaminableDamageSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly SharedJobSystem _job = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private SharedJobSystem _job = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public const int Priority = -99;
     public const double FullPercent = 1d;

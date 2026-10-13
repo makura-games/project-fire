@@ -11,9 +11,9 @@ namespace Content.Client._Scp.Shaders.Common;
 /// <typeparam name="T">Оверлей, которым будет оперировать система</typeparam>
 /// <typeparam name="TC">Компонент, который будет требоваться, чтобы получить оверлей <see cref="T"/></typeparam>
 /// <seealso cref="BaseOverlaySystem"/>
-public abstract class ComponentOverlaySystem<T, TC> : BaseOverlaySystem<T> where T : Overlay where TC : IComponent
+public abstract partial class ComponentOverlaySystem<T, TC> : BaseOverlaySystem<T> where T : Overlay where TC : IComponent
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override void Initialize()
     {

@@ -15,7 +15,6 @@
   overrideConsoleVisibility: false # Fire added
   setPreference: false # Fire added
   supervisors: job-supervisors-ntrg
-  canBeAntag: false
   displayWeight: 40
   access:
   - Command

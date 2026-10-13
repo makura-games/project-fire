@@ -8,9 +8,9 @@ namespace Content.Client._Scp.Shaders.FieldOfView.Overlays;
 ///     After <see cref="FieldOfViewSetAlphaOverlay"/> has run, resets the alpha of affected entities
 ///     back to normal.
 /// </summary>
-public sealed class FieldOfViewResetAlphaOverlay : Overlay
+public sealed partial class FieldOfViewResetAlphaOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _ent = default!;
+    [Dependency] private IEntityManager _ent = default!;
 
     private readonly FieldOfViewOverlayManagementSystem _cone;
     private readonly SpriteSystem _sprite;

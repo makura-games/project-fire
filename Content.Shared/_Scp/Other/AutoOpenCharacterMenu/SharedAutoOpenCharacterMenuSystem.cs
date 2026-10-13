@@ -3,9 +3,9 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._Scp.Other.AutoOpenCharacterMenu;
 
-public abstract class SharedAutoOpenCharacterMenuSystem : EntitySystem
+public abstract partial class SharedAutoOpenCharacterMenuSystem : EntitySystem
 {
-    [Dependency] protected readonly IConfigurationManager Configuration = default!;
+    [Dependency] protected IConfigurationManager Configuration = default!;
 }
 
 [Serializable, NetSerializable]

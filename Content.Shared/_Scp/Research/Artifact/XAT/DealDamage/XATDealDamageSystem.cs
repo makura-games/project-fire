@@ -6,9 +6,9 @@ using Content.Shared.Xenoarchaeology.Artifact.XAT;
 
 namespace Content.Shared._Scp.Research.Artifact.XAT.DealDamage;
 
-public sealed class XATDealDamageSystem : BaseXATSystem<XATDealDamageComponent>
+public sealed partial class XATDealDamageSystem : BaseXATSystem<XATDealDamageComponent>
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {

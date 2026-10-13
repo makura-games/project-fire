@@ -18,14 +18,14 @@ namespace Content.Shared._Scp.Proximity;
 /// Система позволяет настраивать требуемый уровень видимости между сущностями, расстояние.
 /// Настройка происходит в <see cref="ProximityTargetComponent"/>.
 /// </remarks>
-public sealed class ProximitySystem : EntitySystem
+public sealed partial class ProximitySystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private ExamineSystemShared _examine = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private static readonly TimeSpan ProximitySearchCooldown = TimeSpan.FromSeconds(0.05f);
     private TimeSpan _nextSearchTime = TimeSpan.Zero;

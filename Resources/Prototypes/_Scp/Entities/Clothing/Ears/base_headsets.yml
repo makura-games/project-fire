@@ -4,9 +4,6 @@
   id: BaseScpHeadset
   components:
   - type: EncryptionKeyHolder
-    keyBlacklist:
-      tags:
-      - PreventInsertingIntoHeadset
 
 - type: entity
   abstract: true
@@ -14,6 +11,3 @@
   id: BaseScpHeadsetAlt
   components:
   - type: EncryptionKeyHolder
-    keyBlacklist:
-      tags:
-      - PreventInsertingIntoHeadset

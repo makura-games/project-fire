@@ -32,22 +32,22 @@ using Timer = Robust.Shared.Timing.Timer;
 namespace Content.Server._Scp.GameTicking.Rules;
 
 // TODO: Разбить этот гигакод на партиалы
-public sealed class Scp106AscentRule : GameRuleSystem<Scp106AscentRuleComponent>
+public sealed partial class Scp106AscentRule : GameRuleSystem<Scp106AscentRuleComponent>
 {
-    [Dependency] private readonly JitteringSystem _jittering = default!;
-    [Dependency] private readonly StutteringSystem _stuttering = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
-    [Dependency] private readonly GhostSystem _ghost = default!;
-    [Dependency] private readonly NukeSystem _nuke = default!;
-    [Dependency] private readonly Scp106System _scp106 = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly AudioEffectsManagerSystem _effectsManager = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private JitteringSystem _jittering = default!;
+    [Dependency] private StutteringSystem _stuttering = default!;
+    [Dependency] private StunSystem _stun = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private AlertLevelSystem _alertLevel = default!;
+    [Dependency] private GhostSystem _ghost = default!;
+    [Dependency] private NukeSystem _nuke = default!;
+    [Dependency] private Scp106System _scp106 = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private AudioEffectsManagerSystem _effectsManager = default!;
+    [Dependency] private RoundEndSystem _roundEnd = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private static readonly TimeSpan AscentStunTime = TimeSpan.FromSeconds(10f);
     private static readonly TimeSpan AscentJitterTime = TimeSpan.FromSeconds(15f);

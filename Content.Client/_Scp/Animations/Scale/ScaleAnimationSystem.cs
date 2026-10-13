@@ -9,9 +9,9 @@ namespace Content.Client._Scp.Animations.Scale;
 /// Система, обрабатывающая анимацию увеличения размера спрайта при появлении сущности.
 /// Основывается на <see cref="ScaleAnimationComponent"/>
 /// </summary>
-public sealed class ScaleAnimationSystem : SharedScaleAnimationSystem
+public sealed partial class ScaleAnimationSystem : SharedScaleAnimationSystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _animation = default!;
+    [Dependency] private AnimationPlayerSystem _animation = default!;
 
     public override void Initialize()
     {

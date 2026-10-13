@@ -5,10 +5,10 @@ using Robust.Shared.Spawners;
 
 namespace Content.Shared._Scp.Other.WorldAlert;
 
-public sealed class WorldAlertSystem : EntitySystem
+public sealed partial class WorldAlertSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private INetManager _net = default!;
 
     private const float DefaultLifetimeSeconds = 1f;
 

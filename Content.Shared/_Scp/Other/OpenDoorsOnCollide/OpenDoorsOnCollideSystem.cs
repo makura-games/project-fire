@@ -4,9 +4,9 @@ using Robust.Shared.Physics.Events;
 
 namespace Content.Shared._Scp.Other.OpenDoorsOnCollide;
 
-public sealed class OpenDoorsOnCollideSystem : EntitySystem
+public sealed partial class OpenDoorsOnCollideSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDoorSystem _door = default!;
+    [Dependency] private SharedDoorSystem _door = default!;
 
     private EntityQuery<DoorComponent> _doorQuery;
 

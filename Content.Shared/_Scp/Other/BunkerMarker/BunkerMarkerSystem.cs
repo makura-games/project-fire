@@ -13,10 +13,10 @@ using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared._Scp.Other.BunkerMarker;
 
-public sealed class BunkerMarkerSystem : EntitySystem
+public sealed partial class BunkerMarkerSystem : EntitySystem
 {
-    [Dependency] private readonly FixtureSystem _fixture = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private FixtureSystem _fixture = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
 
     private EntityQuery<FixturesComponent> _fixturesQuery;
     private EntityQuery<Scp106PhantomComponent> _phantomQuery;

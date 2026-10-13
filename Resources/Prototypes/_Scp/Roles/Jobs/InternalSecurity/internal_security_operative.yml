@@ -9,7 +9,6 @@
   icon: JobInternalSecurityOperative
   supervisors: job-supervisors-director
   weight: 865
-  canBeAntag: false
   access:
   - Command
   - Bar

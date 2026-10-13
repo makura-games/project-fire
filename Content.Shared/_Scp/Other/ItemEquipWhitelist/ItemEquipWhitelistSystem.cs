@@ -4,10 +4,10 @@ using Content.Shared.Whitelist;
 
 namespace Content.Shared._Scp.Other.ItemEquipWhitelist;
 
-public sealed class ItemEquipWhitelistSystem : EntitySystem
+public sealed partial class ItemEquipWhitelistSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -24,10 +24,10 @@ public sealed class ItemEquipWhitelistSystem : EntitySystem
         if ((args.SlotFlags & ent.Comp.TargetSlots) == 0)
             return;
 
-        if (!_whitelist.CheckBoth(args.Equipee, ent.Comp.Blacklist, ent.Comp.Whitelist))
+        if (!_whitelist.CheckBoth(args.Equipment, ent.Comp.Blacklist, ent.Comp.Whitelist))
         {
             args.Cancel();
-            _popup.PopupClient(Loc.GetString(ent.Comp.Reason), args.Equipee, args.Equipee, PopupType.SmallCaution);
+            _popup.PopupClient(Loc.GetString(ent.Comp.Reason), args.Equipment, args.Equipment, PopupType.SmallCaution);
         }
     }
 }

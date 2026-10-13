@@ -18,7 +18,6 @@
   weight: 955
   icon: JobSecurityCommander
   supervisors: job-supervisors-director
-  canBeAntag: false
   radioBold: true # Sunrise-Edit
   displayWeight: 80 # Sunrise-Edit
   accessGroups:

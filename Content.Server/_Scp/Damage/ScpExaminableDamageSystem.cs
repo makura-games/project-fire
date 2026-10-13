@@ -4,9 +4,9 @@ using Content.Shared.Examine;
 
 namespace Content.Server._Scp.Damage;
 
-public sealed class ScpExaminableDamageSystem : SharedScpExaminableDamageSystem
+public sealed partial class ScpExaminableDamageSystem : SharedScpExaminableDamageSystem
 {
-    [Dependency] private readonly DestructibleSystem _destructible = default!;
+    [Dependency] private DestructibleSystem _destructible = default!;
 
     protected override void StructureExamine(Entity<ScpExaminableDamageComponent> ent, EntityUid target, ref ExaminedEvent args)
     {

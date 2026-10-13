@@ -7,11 +7,11 @@ using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared._Scp.Scp106.Containment;
 
-public abstract class SharedScp106ContainmentSystem : EntitySystem
+public abstract partial class SharedScp106ContainmentSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter  = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

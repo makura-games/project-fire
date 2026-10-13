@@ -1,7 +1,7 @@
 ent-AphrodisiacChemistryBottle = бутылочка афродизиака
     .desc = { ent-BaseChemistryBottleFilled.desc }
 ent-ChemistryBottlePolytrinicAcid = { ent-BaseChemistryBottleFilled }
-    .suffix = политриновая кислота
+    .suffix = Политриновая кислота
     .desc = { ent-BaseChemistryBottleFilled.desc }
 ent-JugBicaridineSunrise = { ent-Jug }
     .suffix = бикаридин

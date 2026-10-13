@@ -15,16 +15,16 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Scp.Scp082;
 
-public sealed class Scp082System : SharedScp082System
+public sealed partial class Scp082System : SharedScp082System
 {
-    [Dependency] private readonly HighlightSystem _highlight = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly BodySystem _body = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private HighlightSystem _highlight = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private BodySystem _body = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private readonly Dictionary<EntityUid, HashSet<EntityUid>> _highlightedTargets = new();
 

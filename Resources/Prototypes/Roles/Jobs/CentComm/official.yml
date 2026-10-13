@@ -7,7 +7,6 @@
   startingGear: CentcommGear
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-hos
-  canBeAntag: false
   overrideConsoleVisibility: false # Fire added
   accessGroups:
   - AllAccess

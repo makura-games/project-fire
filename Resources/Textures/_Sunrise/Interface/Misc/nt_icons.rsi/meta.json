@@ -263,9 +263,6 @@
       "name": "monkeycube"
     },
     {
-      "name": "mp5"
-    },
-    {
       "name": "mp7"
     },
     {
@@ -438,6 +435,15 @@
     },
     {
       "name": "vector"
+    },
+    {
+      "name": "medipen_case"
+    },
+    {
+      "name": "double_tank"
+    },
+    {
+      "name": "double_tank_red"
     }
   ]
 }

@@ -25,18 +25,18 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Scp.GameTicking.Rules;
 
-public sealed class ChaosSpyRuleSystem : GameRuleSystem<ChaosSpyRuleComponent>
+public sealed partial class ChaosSpyRuleSystem : GameRuleSystem<ChaosSpyRuleComponent>
 {
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly CodewordSystem _codeword = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly RoleSystem _role = default!;
-    [Dependency] private readonly JobSystem _job = default!;
-    [Dependency] private readonly RoleCodewordSystem _roleCodeword = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly UplinkSystem _uplink = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private CodewordSystem _codeword = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private RoleSystem _role = default!;
+    [Dependency] private JobSystem _job = default!;
+    [Dependency] private RoleCodewordSystem _roleCodeword = default!;
+    [Dependency] private NpcFactionSystem _npcFaction = default!;
+    [Dependency] private UplinkSystem _uplink = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private IRobustRandom _random = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -145,9 +145,9 @@ public sealed class ChaosSpyRuleSystem : GameRuleSystem<ChaosSpyRuleComponent>
     private (Note[]?, string) RequestUplink(EntityUid spy, FixedPoint2 startingBalance, string briefing)
     {
         var pda = _uplink.FindUplinkTarget(spy);
-        var uplinked = _uplink.AddUplink(spy, startingBalance, pda, true);
+        var uplinked = _uplink.AddUplink(spy, startingBalance, out _, pda, true);
 
-        if (pda != null && uplinked)
+        if (pda != null && uplinked != AddUplinkResult.Failure)
         {
             var ev = new GenerateUplinkCodeEvent();
             RaiseLocalEvent(pda.Value, ref ev);
@@ -162,7 +162,7 @@ public sealed class ChaosSpyRuleSystem : GameRuleSystem<ChaosSpyRuleComponent>
                 return (generatedCode, briefing);
             }
         }
-        else if (pda == null && uplinked)
+        else if (pda == null && uplinked != AddUplinkResult.Failure)
             briefing += "\n" + Loc.GetString("chaos-spy-role-uplink-implant-short");
 
         return (null, briefing);
@@ -178,7 +178,7 @@ public sealed class ChaosSpyRuleSystem : GameRuleSystem<ChaosSpyRuleComponent>
     {
         var sb = new StringBuilder();
 
-        if(isSleepSpy)
+        if (isSleepSpy)
             sb.AppendLine(Loc.GetString("chaos-sleep-spy-role-greeting"));
         else
             sb.AppendLine(Loc.GetString("chaos-spy-role-greeting"));

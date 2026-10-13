@@ -7,13 +7,13 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Light.EntitySystems;
 
-public abstract class SharedLightBulbSystem : EntitySystem
+public abstract partial class SharedLightBulbSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     // Fire added start
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private TagSystem _tag = default!;
     private static readonly ProtoId<TagPrototype> SavableTag = "MetaGarbageSavable";
     private static readonly ProtoId<TagPrototype> ContainerTag = "MetaGarbageCanBeSpawnedInContainer";
     private static readonly ProtoId<TagPrototype> ReplaceTag = "MetaGarbageReplace";

@@ -13,7 +13,6 @@
     effect: ScpEffectNightVision
   - type: Climbing
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: FleshMob
   - type: HTN
     rootTask:
@@ -263,7 +262,7 @@
       maxRange: 6
 
 - type: entity
-  parent: 
+  parent:
   - BaseMobScp106Monster
   - InventoryBase
   - StripableInventoryBase
