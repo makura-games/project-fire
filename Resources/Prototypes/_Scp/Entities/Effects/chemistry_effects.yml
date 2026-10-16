@@ -1,0 +1,20 @@
+﻿- type: entity
+  parent: BaseFoam
+  id: Scp208Foam
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+  - type: TimedDespawn
+    lifetime: 1
+  - type: SolutionContainerManager
+    solutions:
+      solutionArea:
+        maxVol: 10
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 5
+        - ReagentId: Pax
+          Quantity: 5
+  - type: Tag
+    tags:
+    - HideContextMenu

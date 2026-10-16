@@ -1,5 +1,37 @@
 # Safe
 - type: job
+  id: Scp208
+  name: job-name-scp208
+  description: job-description-scp208
+  playTimeTracker: JobScp208
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 432000 # 120h
+  weight: 968
+  icon: JobIconScp208
+  joinNotifyCrew: false
+  overrideConsoleVisibility: false
+  jobEntity: Scp208
+  alwaysShowInBanPanel: true
+  applyTraits: false
+
+- type: job
+  id: Scp492
+  name: job-name-scp492
+  description: job-description-scp492
+  playTimeTracker: JobScp492
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 108000 # 30h
+  weight: 965
+  icon: JobIconScp492
+  joinNotifyCrew: false
+  overrideConsoleVisibility: false
+  jobEntity: Scp492
+  alwaysShowInBanPanel: true
+  applyTraits: false
+
+- type: job
   id: Scp999
   name: job-name-scp999
   description: job-description-scp999
@@ -14,7 +46,39 @@
   jobEntity: Scp999
   applyTraits: false
 
+- type: job
+  id: Scp4449
+  name: job-name-scp4449
+  description: job-description-scp4449
+  playTimeTracker: JobScp4449
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 108000 # 30h
+  weight: 965
+  icon: JobIconScp4449
+  joinNotifyCrew: false
+  overrideConsoleVisibility: false
+  jobEntity: Scp4449
+  alwaysShowInBanPanel: true
+  applyTraits: false
+
 # Euclid
+- type: job
+  id: Scp007
+  name: job-name-scp007
+  description: job-description-scp007
+  playTimeTracker: JobScp007
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 108000 # 30h
+  weight: 965
+  icon: JobIconScp007
+  joinNotifyCrew: false
+  overrideConsoleVisibility: false
+  jobEntity: Scp007
+  alwaysShowInBanPanel: true
+  applyTraits: false
+
 - type: job
   id: Scp049
   name: job-name-scp049
@@ -103,6 +167,38 @@
   joinNotifyCrew: false
   overrideConsoleVisibility: false
   jobEntity: Scp457
+  applyTraits: false
+
+- type: job
+  id: Scp527
+  name: job-name-scp527
+  description: job-description-scp527
+  playTimeTracker: JobScp527
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 108000 # 30h
+  weight: 965
+  icon: JobIconScp527
+  joinNotifyCrew: false
+  overrideConsoleVisibility: false
+  jobEntity: Scp527
+  alwaysShowInBanPanel: true
+  applyTraits: false
+
+- type: job
+  id: Scp2020
+  name: job-name-scp2020
+  description: job-description-scp2020
+  playTimeTracker: JobScp2020
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 108000 # 30h
+  weight: 965
+  icon: JobIconScp2020
+  joinNotifyCrew: false
+  overrideConsoleVisibility: false
+  jobEntity: Scp2020
+  alwaysShowInBanPanel: true
   applyTraits: false
 
 # Keter

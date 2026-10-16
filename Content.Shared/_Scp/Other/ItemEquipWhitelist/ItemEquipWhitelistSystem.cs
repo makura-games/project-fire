@@ -24,10 +24,10 @@ public sealed partial class ItemEquipWhitelistSystem : EntitySystem
         if ((args.SlotFlags & ent.Comp.TargetSlots) == 0)
             return;
 
-        if (!_whitelist.CheckBoth(args.Equipment, ent.Comp.Blacklist, ent.Comp.Whitelist))
+        if (!_whitelist.CheckBoth(args.EquipTarget, ent.Comp.Blacklist, ent.Comp.Whitelist))
         {
             args.Cancel();
-            _popup.PopupClient(Loc.GetString(ent.Comp.Reason), args.Equipment, args.Equipment, PopupType.SmallCaution);
+            _popup.PopupClient(Loc.GetString(ent.Comp.Reason), args.EquipTarget, args.EquipTarget, PopupType.SmallCaution);
         }
     }
 }

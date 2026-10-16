@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CLA",
+  "copyright": "Sprited by icarusrev(discord), timur and peper for FireStation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

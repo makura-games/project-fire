@@ -6,3 +6,42 @@
     sprite: _Scp/Clothing/Uniforms/chaosins.rsi
   - type: Clothing
     sprite: _Scp/Clothing/Uniforms/chaosins.rsi
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: ClothingUniformSapientScp
+  suffix: SCP
+  components:
+  - type: Sprite
+    sprite: _Scp/Clothing/Uniforms/uniformSCP/sapient_scp.rsi
+  - type: Clothing
+    sprite: _Scp/Clothing/Uniforms/uniformSCP/sapient_scp.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+    - PrisonUniform
+  - type: SuitSensor
+    randomMode: false
+
+- type: entity
+  parent: ClothingUniformSapientScp
+  id: ClothingUniformScp2020
+  suffix: SCP-2020
+  components:
+  - type: Sprite
+    sprite: _Scp/Clothing/Uniforms/uniformSCP/scp2020.rsi
+  - type: Clothing
+    sprite: _Scp/Clothing/Uniforms/uniformSCP/scp2020.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+    - PrisonUniform
+    - Scp2020Clothing
+  - type: ItemEquipWhitelist
+    whitelist:
+      tags:
+      - Scp2020
