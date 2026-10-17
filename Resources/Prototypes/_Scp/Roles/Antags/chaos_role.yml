@@ -148,6 +148,32 @@
   mindRoles:
   - MindRoleChaosRaiderFighter
 
+- type: antagSpecifier
+  parent: BaseChaosRaiderSpecifier
+  id: SmallChaosRaiderFighter
+  pickPlayer: false
+  prefRoles:
+  - ChaosRaiderFighter
+  fallbackRoles:
+  - ChaosRaiderFighter
+  - ChaosRaiderMedic
+  spawnerPrototype: SpawnPointChaosRaiderFighter
+  startingGear: ChaosGear
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesChaos
+    - LastNamesChaos
+    nameFormat: name-format-ert
+  - type: ShowMessageOnSpawn
+    message: chaos-raid-rules-window
+  - type: GhostPanelAntagonistMarker
+    name: ghost-panel-antagonist-chaos-raider-fighter-name
+    description: ghost-panel-antagonist-chaos-raider-fighter-description
+    priority: 10
+  mindRoles:
+  - MindRoleChaosRaiderFighter
+
 #regionend
 
 #дефиб ПХ медика

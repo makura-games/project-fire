@@ -124,7 +124,7 @@
   - type: AntagSelection
     antags:
     - !type:LinearAntagCount
-      proto: ChaosRaiderFighter
+      proto: SmallChaosRaiderFighter
       range:
         min: 3
         max: 3
