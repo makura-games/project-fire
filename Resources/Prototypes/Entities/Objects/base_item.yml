@@ -47,6 +47,7 @@
     noRot: false
   - type: Pullable
   - type: DamageExaminable
+  - type: CEZPhysics # CrystallEdge
   # Sunrise start
   - type: TTS
     voice: Portal2FactCore

@@ -9,6 +9,10 @@
     snap:
     - Window
   components:
+  # Fire added start - полноразмерное окно поддерживает этажи выше
+  - type: CEGridStabilitySupport
+    supportStrength: 4
+  # Fire added end
   - type: Anchorable
     flags:
     - Anchorable
@@ -140,6 +144,10 @@
     snap:
     - Window
   components:
+  # Fire added start - направленное окно поддерживает этажи выше
+  - type: CEGridStabilitySupport
+    supportStrength: 3
+  # Fire added end
   - type: WallMount
     arc: 360 # interact despite grilles
   - type: Tag

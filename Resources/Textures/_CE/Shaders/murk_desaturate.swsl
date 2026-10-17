@@ -1,0 +1,10 @@
+uniform sampler2D SCREEN_TEXTURE;
+// How far to pull the screen towards greyscale. 0 leaves it untouched, 1 is fully black and white.
+uniform highp float Strength;
+
+void fragment() {
+    highp vec4 color = zTextureSpec(SCREEN_TEXTURE, UV);
+    highp vec3 gray = vec3(zGrayscale(color.rgb));
+
+    COLOR = vec4(mix(color.rgb, gray, Strength), color.a);
+}

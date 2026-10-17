@@ -1,0 +1,40 @@
+ce-zlevel-voice-from-up = {$name} (from above)
+ce-zlevel-voice-from-down = {$name} (from below)
+
+ce-floor-tile-wrong-tool = Need here: {$toolNames}
+ce-floor-tile-tool-separator = or
+ce-ceiling-tile-obstructed = Something above the ceiling is blocking the deconstruction.
+
+ce-soft-landing = You land softly.
+ce-soft-landing-too-high = Too high for a soft landing!
+
+ent-CEActionZLevelUp = Move up
+    .desc = Move up one Z-Level
+ent-CEActionZLevelDown = Move down
+    .desc = Move down one Z-Level
+ent-CEActionToggleLookUp = Look up
+    .desc = You lift your head and look up at the sky.
+ent-CEActionZFlightUp = Move up
+    .desc = Move up one Z-Level
+ent-CEActionZFlightDown = Move down
+    .desc = Move down one Z-Level
+ent-CEActionZFlightToggle = Toggle flight mode
+    .desc = Toggle flight mode on or off
+ent-CEZLevelEye = z-level eye
+    .desc = { "" }
+ent-CEDustEffect = dust effect
+    .desc = { "" }
+    .suffix = VFX
+ent-CEDustTileEffect = dust effect
+    .desc = A burst of dust upon impact.
+    .suffix = VFX
+ent-CEZLevelLadderBase = stairs
+    .desc = Be careful, the higher you ascend, the more painful the fall.
+ent-CEZLevelLadderWooden = wooden ladder
+    .desc = { ent-CEZLevelLadderBase.desc }
+ent-CEZLevelLadderWoodenCorner = wooden ladder
+    .desc = { ent-CEZLevelLadderBase.desc }
+    .suffix = Corner
+ent-CEZLevelLadderWoodenCornerInner = wooden ladder
+    .desc = { ent-CEZLevelLadderBase.desc }
+    .suffix = Inner Corner

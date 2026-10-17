@@ -65,6 +65,10 @@
   id: BaseWall
   components:
   - type: Occluder # Breaks on diagonal walls
+  # Fire added start - опора для этажей выше
+  - type: CEGridStabilitySupport
+    supportStrength: 7
+  # Fire added end
 
 - type: entity
   abstract: true

@@ -730,6 +730,8 @@
   name: hardened rock wall
   description: A rough wall of hardened rock.
   components:
+  - type: CEGridStabilitySupport
+    supportStrength: 100
   - type: Sprite
     sprite: _Scp/Structures/Walls/cave.rsi
     color: "#E2F9FF"

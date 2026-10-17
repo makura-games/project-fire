@@ -4,6 +4,10 @@
   name: girder
   description: A large structural assembly made out of metal; It requires a layer of metal before it can be considered a wall.
   components:
+  # Fire added start - каркас поддерживает этажи выше
+  - type: CEGridStabilitySupport
+    supportStrength: 4
+  # Fire added end
   - type: Transform
     anchored: true
     noRot: false
