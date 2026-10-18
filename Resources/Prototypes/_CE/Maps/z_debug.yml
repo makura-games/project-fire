@@ -1,0 +1,18 @@
+- type: zMap
+  id: CEZLevelsDebug
+  maps:
+  - /Maps/_CE/ZLevels/debug_lower.yml
+  - /Maps/_CE/ZLevels/debug_upper.yml
+  components:
+  - type: MapAtmosphere
+    space: false
+    mixture:
+      volume: 2500
+      immutable: true
+      temperature: 293.15
+      moles:
+        Oxygen: 21.824879
+        Nitrogen: 82.10312
+  - type: MapLight
+    ambientLightColor: "#c8fdff"
+  - type: CEZLevelRoof

@@ -1,0 +1,75 @@
+uniform highp vec2 corner_bl;
+uniform highp vec2 corner_br;
+uniform highp vec2 corner_tl;
+uniform highp vec2 corner_tr;
+uniform highp vec2 wind_offset;
+uniform highp vec2 seed_offset;
+uniform highp float time_z;
+uniform highp float frequency;
+uniform lowp int octaves;
+uniform highp float lacunarity;
+uniform highp float gain;
+uniform highp float coverage;
+uniform highp float shadow_strength;
+uniform highp vec3 shadow_color;
+
+highp float cloudHash(highp vec3 p)
+{
+    p = fract(p * 0.1031);
+    p += dot(p, p.yzx + 19.19);
+    return fract((p.x + p.y) * p.z);
+}
+
+highp float cloudNoise(highp vec3 p)
+{
+    highp vec3 i = floor(p);
+    highp vec3 f = fract(p);
+    highp vec3 u = f * f * (3.0 - 2.0 * f);
+
+    highp float n000 = cloudHash(i + vec3(0.0, 0.0, 0.0));
+    highp float n100 = cloudHash(i + vec3(1.0, 0.0, 0.0));
+    highp float n010 = cloudHash(i + vec3(0.0, 1.0, 0.0));
+    highp float n110 = cloudHash(i + vec3(1.0, 1.0, 0.0));
+    highp float n001 = cloudHash(i + vec3(0.0, 0.0, 1.0));
+    highp float n101 = cloudHash(i + vec3(1.0, 0.0, 1.0));
+    highp float n011 = cloudHash(i + vec3(0.0, 1.0, 1.0));
+    highp float n111 = cloudHash(i + vec3(1.0, 1.0, 1.0));
+
+    highp float nx00 = mix(n000, n100, u.x);
+    highp float nx10 = mix(n010, n110, u.x);
+    highp float nx01 = mix(n001, n101, u.x);
+    highp float nx11 = mix(n011, n111, u.x);
+
+    highp float nxy0 = mix(nx00, nx10, u.y);
+    highp float nxy1 = mix(nx01, nx11, u.y);
+
+    return mix(nxy0, nxy1, u.z);
+}
+
+highp float cloudFbm(highp vec3 p)
+{
+    highp float sum = 0.0;
+    highp float amp = 0.5;
+    highp float freq = 1.0;
+    highp float norm = 0.0;
+
+    for (lowp int i = 0; i < octaves; i++)
+    {
+        sum += cloudNoise(p * freq) * amp;
+        norm += amp;
+        freq *= lacunarity;
+        amp *= gain;
+    }
+
+    return sum / max(norm, 0.0001);
+}
+
+void fragment()
+{
+    highp vec2 world_pos = mix(mix(corner_bl, corner_br, UV.x), mix(corner_tl, corner_tr, UV.x), UV.y);
+    highp vec3 sample_pos = vec3((world_pos + wind_offset + seed_offset) * frequency, time_z);
+    highp float n = cloudFbm(sample_pos);
+    highp float shadow = smoothstep(coverage - 0.15, coverage + 0.15, n) * shadow_strength;
+
+    COLOR = vec4(shadow_color, shadow);
+}

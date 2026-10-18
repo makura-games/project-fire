@@ -108,6 +108,7 @@
   - type: MobMover
   - type: MovementSpeedModifier
   - type: LagCompensation
+  - type: CEZPhysics # CrystallEdge
   - type: CanBeCarried # Sunrise-Edit
 
 - type: entity

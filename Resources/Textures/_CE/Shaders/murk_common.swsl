@@ -1,0 +1,12 @@
+// Shared by murk.swsl and murkdebug.swsl.
+
+// strength at center, linear falloff to 0 at radius, 0 outside it.
+highp float circleContribution(highp vec2 world_pos, highp vec2 position, highp float radius, highp float strength)
+{
+    if (radius <= 0.0) return 0.0;
+
+    highp float dist = length(world_pos - position);
+    if (dist >= radius) return 0.0;
+
+    return strength * (1.0 - dist / radius);
+}

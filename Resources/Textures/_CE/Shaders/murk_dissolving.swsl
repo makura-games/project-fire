@@ -1,0 +1,35 @@
+light_mode unshaded;
+
+// Effect strength, already remapped to 0..1 by the system. 0 disables the effect entirely.
+uniform highp float dissolve;
+
+const highp float noise_strength = 0.01;
+const highp float noise_speed = 1.5;
+const highp float noise_scale = 25.0;
+
+const highp float opaque_height = 0.75;
+
+void fragment()
+{
+    // Wobbles the sampled UV around, growing stronger as dissolve increases, so the silhouette
+    // starts "swimming" the more dissolved the entity is.
+    highp float time = TIME * noise_speed;
+    highp float wobble = sin(UV.y * noise_scale + time) * cos(UV.x * noise_scale * 0.8 - time * 1.3);
+    highp vec2 distortedUV = UV + vec2(wobble) * noise_strength * dissolve;
+
+    highp vec4 sprite = zTexture(distortedUV);
+
+    if (sprite.a == 0.0)
+    {
+        discard;
+    }
+
+    highp vec3 blackened = mix(sprite.rgb, vec3(0.0), dissolve);
+
+    // UV.y runs from 0 at the bottom of the sprite to 1 at the top. Everything above
+    // opaque_height stays fully opaque; below it the gradient ramps up towards the feet.
+    highp float gradient = clamp((opaque_height - UV.y) / opaque_height, 0.0, 1.0);
+    highp float alphaMul = clamp(1.0 - dissolve * gradient, 0.0, 1.0);
+
+    COLOR = vec4(blackened, sprite.a * alphaMul);
+}
