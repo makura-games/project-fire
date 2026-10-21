@@ -31,6 +31,8 @@
     description: ghost-role-information-scp3199-egg-description
     raffle:
       settings: short
+  - type: Injurable
+    damageContainer: Inorganic
 
 - type: entity
   id: Scp3199EggFirst

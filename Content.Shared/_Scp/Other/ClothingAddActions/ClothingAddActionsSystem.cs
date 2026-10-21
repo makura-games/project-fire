@@ -25,7 +25,7 @@ public sealed partial class ClothingAddActionsSystem : EntitySystem
         foreach (var action in ent.Comp.Actions)
         {
             EntityUid? actionEnt = null;
-            _actions.AddAction(args.Equipment, ref actionEnt, action);
+            _actions.AddAction(args.EquipTarget, ref actionEnt, action);
 
             if (actionEnt != null)
                 ent.Comp.ActionEntities.Add(actionEnt.Value);
@@ -34,7 +34,7 @@ public sealed partial class ClothingAddActionsSystem : EntitySystem
         if (ent.Comp.ActionEntities.Count == 0)
             return;
 
-        ent.Comp.ActionsOwner = args.Equipment;
+        ent.Comp.ActionsOwner = args.EquipTarget;
     }
 
     /// <summary>
