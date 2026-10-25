@@ -64,6 +64,10 @@
   components:
   - type: StationEvent
     weight: 2
+    startAnnouncementColor: Green
+    startAnnouncement: station-event-spawn-scp-3199-egg
+    startAudio:
+      path: /Audio/Misc/bluealert.ogg
   - type: SpawnInEntityStorageRule
     probability: 0.005
     entities:

@@ -1,0 +1,1 @@
+﻿station-event-spawn-scp-3199-egg = Attention! Sensor scans and instrument readings have detected atypical biological activity within the facility. Multiple unidentified objects have been registered in the system.
