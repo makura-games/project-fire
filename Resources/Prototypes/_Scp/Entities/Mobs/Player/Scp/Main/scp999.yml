@@ -38,7 +38,9 @@
     class: Safe
   - type: ScpRestriction
     canBePulled: true
+    canBeDisarmed: true
     canMobCollide: true
+    canPull: true
   - type: Scp999
     states:
       Default: default
@@ -59,7 +61,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.25
-        density: 80
+        density: 1
         mask:
         - SmallMobMask
         layer:
@@ -72,7 +74,7 @@
         - None
         layer:
         - None
-        density: 1000
+        density: 1
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -196,6 +198,23 @@
         1
   - type: InputMover
   - type: MobMover
+  - type: ComplexInteraction
+  - type: Hands
+    hands:
+      main:
+        location: Middle
+        whitelist:
+          components:
+          - Edible
+          tags:
+          - Payload
+        blacklist:
+          components:
+          - Clothing
+    sortedHands:
+    - main
+    activeHandId: main
+  - type: Pacified
 
 - type: speechSounds
   id: Scp999Speech
