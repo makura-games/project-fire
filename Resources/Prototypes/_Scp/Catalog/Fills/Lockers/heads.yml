@@ -17,6 +17,8 @@
     - id: WeaponPistolDeagle
     - id: MagazineMagnum
     - id: MagazineMagnum
+    - id: MagazineMagnum
+    - id: MagazineMagnum
     - id: ClothingEyesGlassesCommand
     - id: FlippoLighterSunriseCap
 

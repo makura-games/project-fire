@@ -157,7 +157,7 @@
   - type: StorageFill
     contents:
       - id: WeaponRifleAK103
-        amount: 4
+        amount: 2
 
 - type: entity
   id: GunLockerFilledM4A1
@@ -168,7 +168,7 @@
   - type: StorageFill
     contents:
       - id: WeaponRifleM4A1
-        amount: 4
+        amount: 2
 
 - type: entity
   id: GunLockerFilledAR18
@@ -218,4 +218,23 @@
   - type: StorageFill
     contents:
       - id: WeaponRifleAR18M
-        amount: 4
+        amount: 2
+
+- type: entity
+  id: scpWeaponSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Structures/Furniture/Tables/Fancy/blue.rsi
+      state: full
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: GunLockerFilledAR18M
+      - id: GunLockerFilledAR18
+      - id: GunLockerFilledM4A1
+      - id: GunLockerFilledAK103
+      - id: GunLockerFilledM16A4
+    offset: 0.0

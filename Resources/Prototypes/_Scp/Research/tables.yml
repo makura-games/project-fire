@@ -4,8 +4,6 @@
   id: ScpArtifactEffectsDefaultTable
   table: !type:GroupSelector
     children:
-    - id: ScpArtifactWandering
-      weight: 3
     - id: ScpArtifactThrowThingsAround
       weight: 3
     - id: ScpArtifactKnock
@@ -130,8 +128,6 @@
   id: ScpArtifactEffectsDefaultFriendlyTable
   table: !type:GroupSelector
     children:
-    - id: ScpArtifactWandering
-      weight: 3
     - id: ScpArtifactThrowThingsAround
       weight: 3
     - id: ScpArtifactKnock
@@ -208,7 +204,7 @@
     TriggerThrow: 1
     TriggerOnDrop: 1
     TriggerDeath: 0.5
-    
+
 - type: weightedRandomXenoArchTrigger
   id: Scp261Triggers
   weights:

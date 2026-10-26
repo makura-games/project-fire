@@ -17,6 +17,9 @@
       - ModularReceiver
       - ModularReceiverForged # Sunrise-Edit
       - Metal
+    - type: Construction
+      graph: ImprovisedModularReceiverGraph
+      node: receiver
 
 - type: entity
   parent: BaseItem

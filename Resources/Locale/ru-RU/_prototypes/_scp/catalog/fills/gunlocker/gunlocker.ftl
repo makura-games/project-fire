@@ -28,3 +28,5 @@ ent-GunLockerFilledM4A1 = оружейный сейф М4А1
 ent-GunLockerFilledAR18M = { ent-GunLockerBase } AR-18 M
     .suffix = Заполненный, AR-18 M, ОСН
     .desc = { ent-GunLocker5x3.desc }
+ent-scpWeaponSpawner = Сейф с рандомным оружием
+    .desc = { ent-GunLocker5x3.desc }

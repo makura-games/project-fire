@@ -47,9 +47,11 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/improvised_modular_receiver.rsi
     state: icon
-  - type: Construction
-    graph: ImprovisedModularReceiverGraph
-    node: receiver
+# Fire edit start
+#  - type: Construction
+#    graph: ImprovisedModularReceiverGraph
+#    node: receiver
+# Fire edit end
   - type: Tag
     tags:
     - ImprovisedModularReceiver

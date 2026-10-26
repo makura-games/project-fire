@@ -55,8 +55,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyAdministration
-      - EncryptionKeyEthicsCommittee
+      - EncryptionKeyFacilityMaster
   - type: Sprite
     sprite: Clothing/Ears/Headsets/command.rsi
   - type: Clothing

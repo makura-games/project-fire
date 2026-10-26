@@ -28,3 +28,4 @@ ent-GunLockerFilledM4A1 = gun safe M4A1
 ent-GunLockerFilledAR18M = gun safe AR-18 M
     .suffix = Armory, AR-18 M
     .desc = { ent-GunLocker5x3.desc }
+ent-scpWeaponSpawner = gun safe random weapon
