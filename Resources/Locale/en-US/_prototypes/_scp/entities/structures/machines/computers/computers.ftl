@@ -137,3 +137,5 @@ ent-ScpComputerCodes = { ent-CodeConsole }
     .desc = { ent-CodeConsole.desc }
 ent-ScpComputerIcarus = { ent-ComputerIcarus }
     .desc = { ent-ComputerIcarus.desc }
+ent-NukeCodeConsole = nuclear authorization console
+    .desc = Facility nuclear authorization console. Use only as a last resort!

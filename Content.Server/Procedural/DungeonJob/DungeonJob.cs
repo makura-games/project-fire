@@ -24,6 +24,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using IDunGenLayer = Content.Shared.Procedural.IDunGenLayer;
+using Content.Shared._Scp.Procedural.PostGeneration; // Fire edit
 
 namespace Content.Server.Procedural.DungeonJob;
 
@@ -315,6 +316,11 @@ public sealed partial class DungeonJob : Job<List<Dungeon>>
             case WormCorridorDunGen worm:
                 await PostGen(worm, dungeons[^1], reservedTiles, random);
                 break;
+            // Fire edit start
+            case LimitedEntityDunGen entityDunGen:
+                await PostGen(entityDunGen, dungeons[^1], random);
+                break;
+            // Fire edit end
             default:
                 throw new NotImplementedException();
         }

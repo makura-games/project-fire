@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseItem
+  id: NukeCodeConsoleKey
+  name: nuclear authorization key
+  description: A nuclear authorization key used to arm a nuclear warhead.
+  components:
+  - type: NukeCodeConsoleKey
+  - type: Item
+    sprite: _Scp/Objects/Devices/nuke_code_console_key.rsi
+    size: Tiny
+  - type: Sprite
+    sprite: _Scp/Objects/Devices/nuke_code_console_key.rsi
+    state: icon
