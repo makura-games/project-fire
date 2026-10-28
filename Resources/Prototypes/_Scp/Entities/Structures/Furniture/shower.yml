@@ -45,3 +45,5 @@
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Ambience/Objects/flowing_water_open.ogg
+  - type: TriggerOnActivate
+  - type: ItemToggleOnTrigger
