@@ -37,7 +37,7 @@ namespace Content.Client.Viewport
 
         private readonly List<CopyPixelsDelegate<Rgba32>> _queuedScreenshots = new();
 
-        // Fire edit start
+        // Fire edit start - дополнительный шейдер для готового изображения сцены.
         public ShaderInstance? Shader;
         // Fire edit end
 
@@ -154,7 +154,9 @@ namespace Content.Client.Viewport
 
             DebugTools.AssertNotNull(_viewport);
 
-            _viewport!.Render();
+            RenderZLevels(_viewport!, handle); // Fire edit - собираем видимые этажи в один кадр, размывая верхний отдельно от текущего.
+
+            //_viewport!.Render();
 
             if (_queuedScreenshots.Count != 0)
             {
@@ -173,7 +175,7 @@ namespace Content.Client.Viewport
 
             var drawBox = GetDrawBox();
             var drawBoxGlobal = drawBox.Translated(GlobalPixelPosition);
-            // Fire edit start`
+            // Fire edit start - применяем шейдер к сцене между нижними и верхними экранными оверлеями.
 
             _viewport.RenderScreenOverlaysBelow(handle, this, drawBoxGlobal);
             handle.DrawingHandleScreen.UseShader(Shader);

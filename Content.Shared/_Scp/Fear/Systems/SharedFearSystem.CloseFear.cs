@@ -21,6 +21,7 @@ public abstract partial class SharedFearSystem
         base.Update(frameTime);
 
         UpdateCloseFear();
+        UpdateZLevelFear();
     }
 
     private void UpdateCloseFear()
@@ -36,38 +37,38 @@ public abstract partial class SharedFearSystem
     {
         if (!_mobState.IsAlive(ent))
         {
-            ClearCloseFear(ent);
+            ClearSameLevelCloseFear(ent);
             return;
         }
 
         if (!_fearSourceQuery.TryComp(proximity.Comp.Receiver, out var source))
         {
-            ClearCloseFear(ent);
+            ClearSameLevelCloseFear(ent);
             return;
         }
 
         if (source.UponComeCloser == FearState.None)
         {
-            ClearCloseFear(ent);
+            ClearSameLevelCloseFear(ent);
             return;
         }
 
         if (source.PhobiaType.HasValue && !ent.Comp.Phobias.Contains(source.PhobiaType.Value))
         {
-            ClearCloseFear(ent);
+            ClearSameLevelCloseFear(ent);
             return;
         }
 
         var blockerLevel = _proximity.GetLightOfSightBlockerLevel(proximity.Comp.Receiver, ent);
         if (blockerLevel > ent.Comp.ProximityBlockerLevel)
         {
-            ClearCloseFear(ent);
+            ClearSameLevelCloseFear(ent);
             return;
         }
 
         if (!_watching.IsWatchedBy(proximity.Comp.Receiver, ent, checkProximity: false, useFov: false, checkBlinking: false))
         {
-            ClearCloseFear(ent);
+            ClearSameLevelCloseFear(ent);
             return;
         }
 
@@ -75,53 +76,67 @@ public abstract partial class SharedFearSystem
         var targetCoords = Transform(ent).Coordinates;
         if (!sourceCoords.TryDistance(EntityManager, targetCoords, out var range))
         {
-            ClearCloseFear(ent);
+            ClearSameLevelCloseFear(ent);
             return;
         }
 
         if (range > proximity.Comp.CloseRange)
         {
-            ClearCloseFear(ent);
+            ClearSameLevelCloseFear(ent);
             return;
         }
 
+        ApplyCloseFear(ent, proximity.Comp.Receiver, source, range, proximity.Comp.CloseRange, blockerLevel);
+    }
+
+    private void ApplyCloseFear(Entity<FearComponent> ent, EntityUid sourceUid, FearSourceComponent source,
+        float range, float closeRange, LineOfSightBlockerLevel blockerLevel, float strength = 1f)
+    {
         var hadActive = _activeCloseFearQuery.TryComp(ent, out var activeCloseFear);
         activeCloseFear ??= EnsureComp<ActiveCloseFearComponent>(ent);
-        var sourceChanged = hadActive && activeCloseFear.Source != proximity.Comp.Receiver;
+        var sourceChanged = hadActive && activeCloseFear.Source != sourceUid;
+        var strengthChanged = hadActive && activeCloseFear.EffectStrength != strength;
 
-        if (!hadActive)
+        if (!hadActive || strengthChanged)
         {
-            AddNegativeMoodEffect(ent, MoodSourceClose);
+            if (strengthChanged)
+                RemoveCloseFearMood(ent);
+            AddNegativeMoodEffect(ent, MoodSourceClose, strength);
         }
-        else if (sourceChanged)
+        if (sourceChanged)
         {
             RemoveSoundEffects(ent.Owner);
         }
 
-        activeCloseFear.Source = proximity.Comp.Receiver;
+        activeCloseFear.Source = sourceUid;
+        activeCloseFear.EffectStrength = strength;
+        activeCloseFear.AcrossZLevels = strength < 1f;
+        if (!hadActive || sourceChanged || strengthChanged)
+            Dirty(ent, activeCloseFear);
 
         StartEffects(ent, source.PlayHeartbeatSound, source.PlayBreathingSound);
 
-        if (ent.Comp.State < source.UponComeCloser)
-            TrySetFearLevel(ent.AsNullable(), source.UponComeCloser);
+        TryApplyObservedFear(ent, source.UponComeCloser, strength);
 
-        RecalculateEffectsStrength(ent.Owner, range, proximity.Comp.CloseRange);
+        RecalculateEffectsStrength(ent.Owner, range, closeRange);
 
         SetRangeBasedShaderStrength<GrainOverlayComponent>(
             ent.Owner,
             range,
-            proximity.Comp.CloseRange,
+            closeRange,
             source.GrainShaderStrength,
             blockerLevel,
-            ent.Comp);
+            ent.Comp,
+            strength);
 
         SetRangeBasedShaderStrength<VignetteOverlayComponent>(
             ent.Owner,
             range,
-            proximity.Comp.CloseRange,
+            closeRange,
             source.VignetteShaderStrength,
             blockerLevel,
-            ent.Comp);
+            ent.Comp,
+            strength);
     }
 
     private void OnActiveProximityShutdown(Entity<ActiveProximityTargetComponent> ent, ref ComponentShutdown args)
@@ -129,7 +144,16 @@ public abstract partial class SharedFearSystem
         if (!_fearQuery.TryComp(ent, out var fear))
             return;
 
-        ClearCloseFear((ent.Owner, fear));
+        ClearSameLevelCloseFear((ent.Owner, fear));
+    }
+
+    private void ClearSameLevelCloseFear(Entity<FearComponent> ent)
+    {
+        // Межэтажная близость проверяется своим поиском, а не локальным ProximityTarget.
+        if (_activeCloseFearQuery.TryComp(ent, out var active) && active.AcrossZLevels)
+            return;
+
+        ClearCloseFear(ent);
     }
 
     private void ClearCloseFear(Entity<FearComponent> ent)

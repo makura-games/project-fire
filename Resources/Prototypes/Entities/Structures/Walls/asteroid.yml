@@ -1490,6 +1490,10 @@
   name: snowdrift
   parent: WallRock
   components:
+  # Fire added start - снег поддерживает меньшую площадь, чем камень
+  - type: CEGridStabilitySupport
+    supportStrength: 4
+  # Fire added end
   - type: Icon
     sprite: Structures/Walls/rock.rsi
     state: rock_snow

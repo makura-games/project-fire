@@ -77,6 +77,9 @@ public sealed partial class FearSystem : SharedFearSystem
         if (_watching.TryGetAnyEntitiesVisibleTo<FearSourceComponent>(ent.Owner, ent.Comp.SeenBlockerLevel))
             return false;
 
+        if (HasVisibleZLevelFearSource(ent))
+            return false;
+
         var newFearState = GetDecreasedLevel(ent.Comp.State);
 
         // АХТУНГ, МИСПРЕДИКТ!!
@@ -87,7 +90,7 @@ public sealed partial class FearSystem : SharedFearSystem
         if (attempt.Cancelled)
             return false;
 
-        if (!TrySetFearLevel(ent.AsNullable(), newFearState))
+        if (!TrySetFearLevel(ent.AsNullable(), newFearState, ent.Comp.EffectStrength))
             return false;
 
         return true;
@@ -116,6 +119,7 @@ public sealed partial class FearSystem : SharedFearSystem
 
     private void OnCleanUp(RoundRestartCleanupEvent args)
     {
+        ResetZLevelFearSearch();
         _nextHemophobiaCheck = TimeSpan.Zero;
         _nextCalmDownCheck = TimeSpan.Zero;
     }

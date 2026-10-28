@@ -207,11 +207,11 @@ public sealed partial class GunSystem : SharedGunSystem
         }
 
         // Define target coordinates relative to gun entity, so that network latency on moving grids doesn't fuck up the target location.
-        var coordinates = TransformSystem.ToCoordinates(entity, mousePos);
+        var coordinates = GetZLevelAimCoordinates(entity, gunUid, mousePos, out var targetMapCoordinates); // Fire edit - определяем точку прицеливания с учётом выбранного этажа.
 
         NetEntity? target = null;
         if (_state.CurrentState is GameplayStateBase screen)
-            target = GetNetEntity(screen.GetClickedEntity(mousePos));
+            target = GetNetEntity(screen.GetClickedEntity(targetMapCoordinates)); // Fire edit - ищем цель на этаже прицеливания, а не на текущем этаже игрока.
 
         Log.Debug($"Sending shoot request tick {Timing.CurTick} / {Timing.CurTime}");
 

@@ -105,7 +105,7 @@ public sealed partial class FieldOfViewSetAlphaOverlay : Overlay
 
         var player = _fovManagement.PlayerEntity;
 
-        if (args.Viewport.Eye != player.Value.Comp1.Eye)
+        if (!FieldOfViewOverlayManagementSystem.IsPlayerEye(args.Viewport.Eye, player.Value.Comp1.Eye))
             return false;
 
         return true;

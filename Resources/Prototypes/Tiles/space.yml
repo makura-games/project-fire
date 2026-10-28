@@ -1,7 +1,8 @@
 - type: tile
   id: Space
   name: tiles-space
-  friction: 0
+  friction: 0.2 #CrystallEdge
+  transparent: true #CrystallEdge
   isSubfloor: true
   isSpace: true
   sturdy: false

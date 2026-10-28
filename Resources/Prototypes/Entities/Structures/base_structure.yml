@@ -28,6 +28,7 @@
   - type: Tag
     tags:
       - Structure
+  - type: CEZPhysics # CrystallEdge
   - type: StaticPrice
     price: 0
   # Sunrise-Edit

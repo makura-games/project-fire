@@ -8,7 +8,7 @@ namespace Content.Shared._Scp.Shaders.Highlighting;
 /// Удаление убирает подсвечивание
 /// </summary>
 /// TODO: Кеширование предыдущего шейдера сущности и возвращение после удаления подсвечивания.
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class HighlightedComponent : Component
 {
     /// <summary>

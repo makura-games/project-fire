@@ -129,14 +129,22 @@ namespace Content.Shared.Maps
         /// </summary>
         [DataField("indestructible")] public bool Indestructible = false;
 
-        /// <summary>
-        ///     Hide this tile in the tile placement editor.
-        /// </summary>
-        [DataField] public bool EditorHidden { get; private set; } = false;
-
         public void AssignTileId(ushort id)
         {
             TileId = id;
         }
+
+        /// <summary>
+        ///     Hide this tile in the tile placement editor.
+        /// CrystallEdge: Vanilla tile filtering
+        /// </summary>
+        [DataField]
+        public bool EditorHidden { get; private set; } = false; // Fire edit - сохраняем доступность существующих тайлов в редакторе
+
+        /// <summary>
+        /// CrystallEdge: used for lightning calculation through zlevels
+        /// </summary>
+        [DataField]
+        public bool Transparent = false;
     }
 }

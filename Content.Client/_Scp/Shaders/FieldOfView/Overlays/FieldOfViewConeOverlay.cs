@@ -3,6 +3,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using System.Numerics;
 using Content.Client.Graphics;
+using Content.Client.Viewport;
 using Robust.Client.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
@@ -35,8 +36,6 @@ public sealed partial class FieldOfViewConeOverlay : Overlay
     private static readonly ProtoId<ShaderPrototype> BlurryYShaderProtoId = "BlurryVisionY";
 
     private readonly OverlayResourceCache<CachedResources> _resources = new ();
-
-    private TimeSpan _nextUpdate = TimeSpan.Zero;
 
     /// <summary>
     /// Размер текстуры размытия.
@@ -90,7 +89,7 @@ public sealed partial class FieldOfViewConeOverlay : Overlay
 
         var player = _fovManagement.PlayerEntity.Value;
 
-        if (args.Viewport.Eye != player.Comp1.Eye)
+        if (!FieldOfViewOverlayManagementSystem.IsPlayerEye(args.Viewport.Eye, player.Comp1.Eye, false))
             return false;
 
         var res = _resources.GetForViewport(args.Viewport, static _ => new CachedResources());
@@ -101,6 +100,7 @@ public sealed partial class FieldOfViewConeOverlay : Overlay
             res.BackBuffer = null;
             res.BlurPass?.Dispose();
             res.BlurPass = null;
+            res.NextUpdate = TimeSpan.Zero;
             return true;
         }
 
@@ -113,6 +113,7 @@ public sealed partial class FieldOfViewConeOverlay : Overlay
 
             res.BlurPass?.Dispose();
             res.BlurPass = _clyde.CreateRenderTarget(size, new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), name: "fov-blurpass");
+            res.NextUpdate = TimeSpan.Zero;
         }
 
         return true;
@@ -132,7 +133,7 @@ public sealed partial class FieldOfViewConeOverlay : Overlay
         var handle = args.WorldHandle;
         var viewport = args.WorldBounds;
 
-        if (BlurEnabled && _timing.RealTime >= _nextUpdate)
+        if (BlurEnabled && _timing.RealTime >= res.NextUpdate)
         {
             if (res.BackBuffer == null || res.BlurPass == null)
                 return;
@@ -155,10 +156,12 @@ public sealed partial class FieldOfViewConeOverlay : Overlay
                 handle.DrawRect(viewportBounds, Color.White);
             }, Color.Transparent);
 
-            _nextUpdate = _timing.RealTime + _fovManagement.UpdateInterval;
+            res.NextUpdate = _timing.RealTime + _fovManagement.UpdateInterval;
         }
 
-        var offset = GetOffset(uid, xform, eye);
+        var offset = args.Viewport.Eye is ScalingViewport.ZEye
+            ? GetZLevelOffset(args.Viewport, _transform.GetWorldPosition(xform))
+            : GetOffset(uid, xform, eye);
         var blurredTexture = BlurEnabled && res.BackBuffer != null ? res.BackBuffer.Texture : ScreenTexture;
 
         _shader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
@@ -201,10 +204,19 @@ public sealed partial class FieldOfViewConeOverlay : Overlay
         return offset;
     }
 
+    /// <summary>
+    /// Центр конуса на соседнем этаже совпадает с проекцией игрока с учётом смещения Z-камеры.
+    /// </summary>
+    internal static Vector2 GetZLevelOffset(IClydeViewport viewport, Vector2 playerPosition)
+    {
+        return (viewport.WorldToLocal(playerPosition) - viewport.Size / 2f) * OffsetVectorFix;
+    }
+
     private sealed class CachedResources : IDisposable
     {
         public IRenderTexture? BlurPass;
         public IRenderTexture? BackBuffer;
+        public TimeSpan NextUpdate;
 
         public void Dispose()
         {

@@ -28,6 +28,14 @@ public sealed partial class HighlightSystem : SharedHighlightSystem
 
         _shader = _prototype.Index(ShaderProtoId).InstanceUnique();
 
+        // Серверная отметка может прийти без отдельного события начала подсветки.
+        SubscribeLocalEvent<HighlightedComponent, ComponentStartup>(OnHighlightStartup);
+        SubscribeLocalEvent<HighlightedComponent, AfterAutoHandleStateEvent>(OnHighlightState);
+        SubscribeLocalEvent<HighlightedComponent, ComponentShutdown>(OnHighlightShutdown);
+        SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerAttached);
+        SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnPlayerDetached);
+        EntityManager.ComponentAdded += OnComponentAdded;
+
         SubscribeLocalEvent<HighlightedComponent, HighLightStartEvent>(OnHighlightStarted);
         SubscribeLocalEvent<SpriteComponent, HighLightEndEvent>(OnHighlightEnded);
 
@@ -37,9 +45,33 @@ public sealed partial class HighlightSystem : SharedHighlightSystem
 
     public override void Shutdown()
     {
+        EntityManager.ComponentAdded -= OnComponentAdded;
         base.Shutdown();
 
         _shader.Dispose();
+    }
+
+    private void OnHighlightStartup(Entity<HighlightedComponent> ent, ref ComponentStartup args)
+    {
+        StartHighlight(ent.AsNullable());
+    }
+
+    private void OnHighlightState(Entity<HighlightedComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        StartHighlight(ent.AsNullable());
+    }
+
+    private void OnHighlightShutdown(Entity<HighlightedComponent> ent, ref ComponentShutdown args)
+    {
+        if (TryComp<SpriteComponent>(ent, out var sprite))
+            EndHighlight((ent, sprite));
+    }
+
+    private void OnComponentAdded(AddedComponentEventArgs args)
+    {
+        if (args.BaseArgs.Component is SpriteComponent &&
+            TryComp<HighlightedComponent>(args.BaseArgs.Owner, out var highlight))
+            StartHighlight((args.BaseArgs.Owner, highlight));
     }
 
     private void OnHighlightStarted(Entity<HighlightedComponent> ent, ref HighLightStartEvent args)
@@ -70,16 +102,37 @@ public sealed partial class HighlightSystem : SharedHighlightSystem
         EndHighlight(uid.Value);
     }
 
+    private void OnPlayerAttached(LocalPlayerAttachedEvent args)
+    {
+        UpdateHighlights();
+    }
+
+    private void OnPlayerDetached(LocalPlayerDetachedEvent args)
+    {
+        UpdateHighlights();
+    }
+
+    private void UpdateHighlights()
+    {
+        // Состояния сущностей приходят раньше прикрепления локального игрока к получателю.
+        var query = AllEntityQuery<HighlightedComponent>();
+        while (query.MoveNext(out var uid, out var highlight))
+            StartHighlight((uid, highlight));
+    }
+
     private void StartHighlight(Entity<HighlightedComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp))
             return;
 
-        if (ent.Comp.Recipient.HasValue && _player.LocalEntity != ent.Comp.Recipient)
-            return;
-
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
+
+        if (ent.Comp.Recipient.HasValue && _player.LocalEntity != ent.Comp.Recipient)
+        {
+            EndHighlight((ent, sprite));
+            return;
+        }
 
         if (sprite.PostShader != _shader)
             sprite.PostShader = _shader;

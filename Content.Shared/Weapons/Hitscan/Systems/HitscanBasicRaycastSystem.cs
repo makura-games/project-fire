@@ -41,25 +41,40 @@ public sealed partial class HitscanBasicRaycastSystem : EntitySystem
             ignored = pilot.Mech;
         }
         // Sunrise edit end
-        var mapCords = _transform.ToMapCoordinates(args.FromCoordinates);
-        var ray = new CollisionRay(mapCords.Position, args.ShotDirection, (int) ent.Comp.CollisionMask);
-        var rayCastResults = _physics.IntersectRay(mapCords.MapId, ray, ent.Comp.MaxDistance, ignored, false);
+        // Fire edit start - проверяем препятствия на обоих этажах, чтобы луч не проходил сквозь стены до проёма.
+        RayCastResults? result;
+        float distanceTried;
+        var effectFrom = args.FromCoordinates;
+        var showMuzzle = true;
+        var zLevelTrace = TryTraceZLevelHitscan(ent, args, ignored, out var trace);
+        if (zLevelTrace)
+        {
+            result = trace.Result;
+            distanceTried = trace.Distance;
+            effectFrom = trace.EffectFrom;
+            showMuzzle = trace.ShowMuzzle;
+        }
+        else
+        {
+            var mapCords = _transform.ToMapCoordinates(args.FromCoordinates);
+            var ray = new CollisionRay(mapCords.Position, args.ShotDirection, (int) ent.Comp.CollisionMask);
+            var rayCastResults = _physics.IntersectRay(mapCords.MapId, ray, ent.Comp.MaxDistance, ignored, false);
 
-        var target = args.Target;
-        // If you are in a container, use the raycast result
-        // Otherwise:
-        //  1.) Hit the first entity that you targeted.
-        //  2.) Hit the first entity that doesn't require you to aim at it specifically to be hit.
-        var result = _container.IsEntityOrParentInContainer(shooter)
-            ? rayCastResults.FirstOrNull()
-            : rayCastResults.FirstOrNull(hit => hit.HitEntity == target
-                                                || CompOrNull<RequireProjectileTargetComponent>(hit.HitEntity)?.Active != true);
+            var target = args.Target;
+            // Находясь в контейнере, используем первое пересечение; иначе учитываем требование прицеливания.
+            result = _container.IsEntityOrParentInContainer(shooter)
+                ? rayCastResults.FirstOrNull()
+                : rayCastResults.FirstOrNull(hit => hit.HitEntity == target
+                                                    || CompOrNull<RequireProjectileTargetComponent>(hit.HitEntity)?.Active != true);
 
-        var distanceTried = result?.Distance ?? ent.Comp.MaxDistance;
+            distanceTried = result?.Distance ?? ent.Comp.MaxDistance;
+        }
+        // Fire edit end
 
         // Do visuals without an event. They should always happen and putting it on the attempt event is weird!
         // If more stuff gets added here, it should probably be turned into an event.
-        FireEffects(args.FromCoordinates, distanceTried, args.ShotDirection.ToAngle(), ent.Owner);
+        FireEffects(effectFrom, distanceTried, args.ShotDirection.ToAngle(), ent.Owner,
+            showMuzzle: showMuzzle, wholeSegment: zLevelTrace); // Fire edit - рисуем межэтажный участок целиком, чтобы луч не обрывался у проёма.
 
         // Admin logging
         if (result?.HitEntity != null)
@@ -94,7 +109,13 @@ public sealed partial class HitscanBasicRaycastSystem : EntitySystem
     /// <param name="distance">Distance of the hitscan shot.</param>
     /// <param name="shotAngle">Angle of the shot.</param>
     /// <param name="hitscanUid">The hitscan entity itself.</param>
-    private void FireEffects(EntityCoordinates fromCoordinates, float distance, Angle shotAngle, EntityUid hitscanUid)
+    /// <param name="showMuzzle">Whether to show a muzzle flash at the start of the ray.</param>
+    /// <param name="showImpact">Whether to show an effect at the end of the ray.</param>
+    /// <param name="wholeSegment">Draw the complete segment, including short sections at a floor's edge.</param>
+    // Fire edit start - позволяем отключать вспышки на проёме и рисовать межэтажные участки целиком.
+    private void FireEffects(EntityCoordinates fromCoordinates, float distance, Angle shotAngle, EntityUid hitscanUid,
+        bool showMuzzle = true, bool showImpact = true, bool wholeSegment = false)
+    // Fire edit end
     {
         if (distance == 0 || !_visualsQuery.TryComp(hitscanUid, out var vizComp))
             return;
@@ -133,9 +154,9 @@ public sealed partial class HitscanBasicRaycastSystem : EntitySystem
         }
         // Sunrise edit end
 
-        if (distance >= 1f)
+        if (distance >= 1f || wholeSegment) // Fire edit - рисуем и участки короче метра, чтобы луч не исчезал у проёма.
         {
-            if (vizComp.MuzzleFlash != null)
+            if (showMuzzle && vizComp.MuzzleFlash != null) // Fire edit - на другом этаже продолжается тот же луч, поэтому вспышка выстрела у проёма не нужна.
             {
                 var coords = fromCoordinates.Offset(shotAngle.ToVec().Normalized() / 2);
                 var netCoords = GetNetCoordinates(coords);
@@ -147,16 +168,16 @@ public sealed partial class HitscanBasicRaycastSystem : EntitySystem
 
             if (travelSprite != null)
             {
-                var coords = fromCoordinates.Offset(shotAngle.ToVec() * (distance + 0.5f) / 2);
+                var coords = fromCoordinates.Offset(shotAngle.ToVec() * (wholeSegment ? distance : distance + 0.5f) / 2); // Fire edit - не добавляем отступ для вспышки, чтобы участки луча сходились у проёма.
                 var netCoords = GetNetCoordinates(coords);
 
                 // Sunrise edit start - pass custom color and scale
-                sprites.Add((netCoords, shotAngle, travelSprite, distance - 1.5f, color, scale));
+                sprites.Add((netCoords, shotAngle, travelSprite, wholeSegment ? distance : distance - 1.5f, color, scale)); // Fire edit - не укорачиваем участок ради вспышек, чтобы у проёма не было разрыва.
                 // Sunrise edit end
             }
         }
 
-        if (vizComp.ImpactFlash != null)
+        if (showImpact && vizComp.ImpactFlash != null) // Fire edit - не создаём эффект попадания при переходе между этажами, поскольку там не было столкновения.
         {
             var coords = fromCoordinates.Offset(shotAngle.ToVec() * distance);
             var netCoords = GetNetCoordinates(coords);
