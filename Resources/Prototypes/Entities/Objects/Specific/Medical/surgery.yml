@@ -210,6 +210,21 @@
       path: /Audio/_Sunrise/Medical/Surgery/retractor1.ogg
     endSound:
       path: /Audio/_Sunrise/Medical/Surgery/retractor2.ogg
+  # Fire edit start - исследования сцп
+  - type: ScpInteractTool
+    delay: 30
+    cooldown: 600 # 5 минут
+    cooldownMessage: scp-interact-time-left
+    event: !type:ScpSpawnInteractDoAfterEvent
+      toSpawn: ScpDirtLump
+    sound: /Audio/Effects/break_stone.ogg # TODO: Звук
+    whitelist:
+      tags:
+      - Scp007
+  - type: GuideHelp
+    guides:
+    - ScpResearchAdvanced
+  # Fire edit end
 
 - type: entity
   name: advanced retractor

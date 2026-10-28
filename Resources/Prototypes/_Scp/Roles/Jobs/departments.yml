@@ -208,12 +208,18 @@
   color: "#7a7070"
   weight: 120
   roles:
+  - Scp007
   - Scp049
   - Scp082
   - Scp096
   - Scp106
   - Scp173
+  - Scp208
   - Scp247
   - Scp457
+  - Scp492
+  - Scp527
   - Scp939
   - Scp999
+  - Scp2020
+  - Scp4449

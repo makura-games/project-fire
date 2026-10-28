@@ -1,0 +1,17 @@
+- type: entity
+  id: Scp527PaperCollection
+  name: collection paper
+  description: A congratulatory paper about the discovery of a certain "Little Mister".
+  parent: Paper
+  components:
+  - type: Paper
+    content: info-paper-scp-527-collection
+
+- type: entity
+  id: Scp1508PaperFlyer
+  name: children's flyer
+  description: An advertisement for "Mikey the Janitor-Friend©". Judging by the text, this thing will clean up after you.
+  parent: Paper
+  components:
+  - type: Paper
+    content: info-paper-scp-1508-flyer

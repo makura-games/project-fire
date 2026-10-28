@@ -1,5 +1,13 @@
 ﻿- type: jobIcon
   parent: JobIcon
+  id: JobIconScp007
+  icon:
+    sprite: /Textures/_Scp/Interface/Misc/scp_job_icons.rsi
+    state: 007
+  jobName: job-name-scp007
+
+- type: jobIcon
+  parent: JobIcon
   id: JobIconScp049
   icon:
     sprite: /Textures/_Scp/Interface/Misc/scp_job_icons.rsi
@@ -8,11 +16,35 @@
 
 - type: jobIcon
   parent: JobIcon
+  id: JobIconScp208
+  icon:
+    sprite: /Textures/_Scp/Interface/Misc/scp_job_icons.rsi
+    state: 208
+  jobName: job-name-scp208
+
+- type: jobIcon
+  parent: JobIcon
   id: JobIconScp247
   icon:
     sprite: /Textures/_Scp/Interface/Misc/scp_job_icons.rsi
     state: 247
   jobName: job-name-scp247
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconScp492
+  icon:
+    sprite: /Textures/_Scp/Interface/Misc/scp_job_icons.rsi
+    state: 492
+  jobName: job-name-scp492
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconScp527
+  icon:
+    sprite: /Textures/_Scp/Interface/Misc/scp_job_icons.rsi
+    state: 527
+  jobName: job-name-scp527
 
 - type: jobIcon
   parent: JobIcon
@@ -69,3 +101,19 @@
     sprite: /Textures/_Scp/Interface/Misc/scp_job_icons.rsi
     state: 082
   jobName: job-name-scp082
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconScp2020
+  icon:
+    sprite: /Textures/_Scp/Interface/Misc/scp_job_icons.rsi
+    state: 2020
+  jobName: job-name-scp2020
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconScp4449
+  icon:
+    sprite: /Textures/_Scp/Interface/Misc/scp_job_icons.rsi
+    state: 4449
+  jobName: job-name-scp4449
