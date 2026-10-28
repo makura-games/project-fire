@@ -141,3 +141,5 @@ ent-ScpComputerCodes = { ent-CodeConsole }
     .desc = { ent-CodeConsole.desc }
 ent-ScpComputerIcarus = { ent-ComputerIcarus }
     .desc = { ent-ComputerIcarus.desc }
+ent-NukeCodeConsole = Консоль ядерной авторизации
+    .desc = Консоль ядерной авторизации учреждения. Используйте только в крайнем случае!
