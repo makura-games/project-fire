@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CLA",
+  "copyright": "timur",
+  "size": {
+    "x": 64,
+    "y": 128
+  },
+  "states": [
+    {
+      "name": "label1"
+    },
+    {
+      "name": "label2"
+    },
+    {
+      "name": "label3"
+    }
+  ]
+}
