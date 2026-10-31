@@ -1,0 +1,39 @@
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectAmnesiacA
+  categories: [ HideSpawnMenu ]
+  name: class A amnesia
+  components:
+  - type: AmnesiacStatusEffect
+    reagent: AmnesiacA
+    erasedMemory: amnesiac-erased-memory-a
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectAmnesiacB
+  categories: [ HideSpawnMenu ]
+  name: class B amnesia
+  components:
+  - type: AmnesiacStatusEffect
+    reagent: AmnesiacB
+    erasedMemory: amnesiac-erased-memory-b
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectAmnesiacC
+  categories: [ HideSpawnMenu ]
+  name: class C amnesia
+  components:
+  - type: AmnesiacStatusEffect
+    reagent: AmnesiacC
+    erasedMemory: amnesiac-erased-memory-c
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectAmnesiacD
+  categories: [ HideSpawnMenu ]
+  name: class D amnesia
+  components:
+  - type: AmnesiacStatusEffect
+    reagent: AmnesiacD
+    erasedMemory: amnesiac-erased-memory-d
