@@ -81,7 +81,6 @@ public sealed partial class GasMaskOverlaySystem : SharedGasMaskOverlaySystem
 
         if (ev.Entities.Count == 0)
         {
-            Log.Info("[GASMASK] No components found, deactivating");
             Deactivate();
             return;
         }
@@ -96,7 +95,6 @@ public sealed partial class GasMaskOverlaySystem : SharedGasMaskOverlaySystem
 
         if (!_overlayMan.HasOverlay<GasMaskOverlay>())
         {
-            Log.Info("[GASMASK] Adding overlay to manager");
             _overlayMan.AddOverlay(_overlay);
         }
     }
@@ -105,7 +103,6 @@ public sealed partial class GasMaskOverlaySystem : SharedGasMaskOverlaySystem
     {
         if (_overlayMan.HasOverlay<GasMaskOverlay>())
         {
-            Log.Info("[GASMASK] Removing overlay");
             _overlayMan.RemoveOverlay(_overlay);
         }
     }

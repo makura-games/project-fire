@@ -32,6 +32,11 @@ public sealed partial class FilterSystem : EntitySystem
         if (maskUidNullable is not { } maskUid)
             return false;
 
+        // Стянутая маска не фильтрует воздух.
+        if (TryComp<MaskComponent>(maskUid, out var mask) && mask.IsToggled)
+            return false;
+
+
         // 2. Ищем в маске слот "filter".
         if (!TryComp<ItemSlotsComponent>(maskUid, out var itemSlots))
             return false;
@@ -100,7 +105,7 @@ public sealed partial class FilterSystem : EntitySystem
     {
         if (component.Charge <= 0)
         {
-            args.PushMarkup("[color=red]Фильтр полностью израсходован.[/color]");
+            args.PushMarkup(Loc.GetString("gas-mask-filter-examine-depleted"));
             return;
         }
 
@@ -112,6 +117,6 @@ public sealed partial class FilterSystem : EntitySystem
             _ => "red"
         };
 
-        args.PushMarkup($"[color={color}]Заряд фильтра: {percent}%[/color]");
+        args.PushMarkup(Loc.GetString("gas-mask-filter-examine-charge", ("color", color), ("percent", percent)));
     }
 }

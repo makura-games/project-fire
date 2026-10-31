@@ -445,5 +445,5 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage:
-        id: GasMaskFilter # ID вашего прототипа фильтра
-        amount: 6          # Количество фильтров в ящике
+        id: GasMaskFilter
+        amount: 6

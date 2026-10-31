@@ -5,7 +5,7 @@
   description: A replaceable filter cartridge for a gas mask. It traps harmful reagents but lets you breathe.
   components:
   - type: Sprite
-    sprite: Objects\Specific\Atmos\GasmaskFilter.rsi
+    sprite: Objects/Specific/Atmos/GasmaskFilter.rsi
     state: icon
   - type: Item
     size: Tiny
