@@ -19,6 +19,8 @@
         - !type:BreathingCondition
         - !type:InternalsCondition
           inverted: true
+        - !type:ScpCondition
+          inverted: true
       - !type:ModifyStatusEffect
         effectProto: StatusEffectForcedSleeping
         time: 2
@@ -26,6 +28,18 @@
         conditions:
         - !type:BreathingCondition
         - !type:InternalsCondition
+          inverted: true
+        - !type:ScpCondition
+          inverted: true
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAmnesiacA
+        time: 120
+        type: Update
+        conditions:
+        - !type:BreathingCondition
+        - !type:InternalsCondition
+          inverted: true
+        - !type:ScpCondition
           inverted: true
   metabolisms:
     Bloodstream:
@@ -39,6 +53,8 @@
         - !type:ReagentCondition
           reagent: AmnesiacA
           min: 5
+        - !type:ScpCondition
+          inverted: true
       - !type:ModifyStatusEffect
         effectProto: StatusEffectForcedSleeping
         time: 5
@@ -47,6 +63,18 @@
         - !type:ReagentCondition
           reagent: AmnesiacA
           min: 4
+        - !type:ScpCondition
+          inverted: true
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAmnesiacA
+        time: 120
+        type: Update
+        conditions:
+        - !type:ReagentCondition
+          reagent: AmnesiacA
+          min: 4
+        - !type:ScpCondition
+          inverted: true
 
 - type: reagent
   id: AmnesiacB
@@ -68,6 +96,8 @@
         - !type:ReagentCondition
           reagent: AmnesiacB
           min: 5
+        - !type:ScpCondition
+          inverted: true
       - !type:ModifyStatusEffect
         effectProto: StatusEffectForcedSleeping
         time: 7
@@ -76,6 +106,18 @@
         - !type:ReagentCondition
           reagent: AmnesiacB
           min: 4
+        - !type:ScpCondition
+          inverted: true
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAmnesiacB
+        time: 120
+        type: Update
+        conditions:
+        - !type:ReagentCondition
+          reagent: AmnesiacB
+          min: 4
+        - !type:ScpCondition
+          inverted: true
 
 - type: reagent
   id: AmnesiacC
@@ -97,6 +139,8 @@
         - !type:ReagentCondition
           reagent: AmnesiacC
           min: 5
+        - !type:ScpCondition
+          inverted: true
       - !type:HealthChange
         damage:
           types:
@@ -105,6 +149,8 @@
         - !type:ReagentCondition
           reagent: AmnesiacC
           min: 1
+        - !type:ScpCondition
+          inverted: true
       - !type:ModifyStatusEffect
         effectProto: StatusEffectForcedSleeping
         time: 9
@@ -113,6 +159,8 @@
         - !type:ReagentCondition
           reagent: AmnesiacC
           min: 4
+        - !type:ScpCondition
+          inverted: true
       - !type:ModifyStatusEffect
         effectProto: StatusEffectWoozy
         time: 27
@@ -121,6 +169,18 @@
         - !type:ReagentCondition
           reagent: AmnesiacC
           min: 4
+        - !type:ScpCondition
+          inverted: true
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAmnesiacC
+        time: 120
+        type: Update
+        conditions:
+        - !type:ReagentCondition
+          reagent: AmnesiacC
+          min: 4
+        - !type:ScpCondition
+          inverted: true
 
 - type: reagent
   id: AmnesiacD
@@ -142,6 +202,8 @@
         - !type:ReagentCondition
           reagent: AmnesiacD
           min: 5
+        - !type:ScpCondition
+          inverted: true
       - !type:HealthChange
         damage:
           types:
@@ -150,6 +212,8 @@
         - !type:ReagentCondition
           reagent: AmnesiacD
           min: 1
+        - !type:ScpCondition
+          inverted: true
       - !type:ModifyStatusEffect
         effectProto: StatusEffectForcedSleeping
         time: 12
@@ -158,6 +222,8 @@
         - !type:ReagentCondition
           reagent: AmnesiacD
           min: 4
+        - !type:ScpCondition
+          inverted: true
       - !type:ModifyStatusEffect
         effectProto: StatusEffectWoozy
         time: 36
@@ -166,6 +232,18 @@
         - !type:ReagentCondition
           reagent: AmnesiacD
           min: 4
+        - !type:ScpCondition
+          inverted: true
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAmnesiacD
+        time: 120
+        type: Update
+        conditions:
+        - !type:ReagentCondition
+          reagent: AmnesiacD
+          min: 4
+        - !type:ScpCondition
+          inverted: true
 
 - type: reagent
   id: RawAmnesiac
@@ -186,6 +264,8 @@
         - !type:ReagentCondition
           reagent: RawAmnesiac
           min: 5
+        - !type:ScpCondition
+          inverted: true
 
 # Мнестики ("Анти Амнезиак")
 - type: reagent

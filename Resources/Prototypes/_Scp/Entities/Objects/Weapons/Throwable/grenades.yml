@@ -3,7 +3,7 @@
   parent: SmokeGrenade
   id: AmnesiacAGasGrenade
   name: amnesiac gas grenade
-  description: A grenade with class A amnesiac for mass use. Causes drowsiness and memory loss for up to an hour.
+  description: A grenade with class A amnesiac for mass use. Causes drowsiness and erases the last 15 minutes of memories.
   components:
   - type: Sprite
     sprite: _Scp/Objects/Weapons/Grenades/amnesiaca_gas.rsi
