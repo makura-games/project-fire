@@ -33,7 +33,7 @@ public sealed partial class AmnesiacSystem : EntitySystem
 
         _window = _ui.CreateWindow<AmnesiacInfoWindow>();
         _window.SetInfo(reagent.LocalizedName, Loc.GetString(ev.ErasedMemory), ev.ConfirmDelay);
-        _window.OnConfirmed += () => RaiseNetworkEvent(new AmnesiacConfirmEvent());
+        _window.OnConfirmed += () => RaiseNetworkEvent(new AmnesiacConfirmEvent(ev.Effect));
         _window.OpenCentered();
     }
 

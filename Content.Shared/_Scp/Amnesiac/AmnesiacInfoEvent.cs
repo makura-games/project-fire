@@ -5,8 +5,10 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._Scp.Amnesiac;
 
 [Serializable, NetSerializable]
-public sealed class AmnesiacInfoEvent(ProtoId<ReagentPrototype> reagent, LocId erasedMemory, TimeSpan confirmDelay) : EntityEventArgs
+public sealed class AmnesiacInfoEvent(NetEntity effect, ProtoId<ReagentPrototype> reagent, LocId erasedMemory, TimeSpan confirmDelay) : EntityEventArgs
 {
+    public NetEntity Effect { get; } = effect;
+
     public ProtoId<ReagentPrototype> Reagent { get; } = reagent;
 
     public LocId ErasedMemory { get; } = erasedMemory;
@@ -15,4 +17,7 @@ public sealed class AmnesiacInfoEvent(ProtoId<ReagentPrototype> reagent, LocId e
 }
 
 [Serializable, NetSerializable]
-public sealed class AmnesiacConfirmEvent : EntityEventArgs;
+public sealed class AmnesiacConfirmEvent(NetEntity effect) : EntityEventArgs
+{
+    public NetEntity Effect { get; } = effect;
+}
