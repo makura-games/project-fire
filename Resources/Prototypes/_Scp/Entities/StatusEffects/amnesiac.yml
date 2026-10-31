@@ -1,6 +1,6 @@
 - type: entity
   parent: MobStatusEffectDebuff
-  id: StatusEffectAmnesiacA
+  id: FireStatusEffectAmnesiacA
   categories: [ HideSpawnMenu ]
   name: class A amnesia
   components:
@@ -10,7 +10,7 @@
 
 - type: entity
   parent: MobStatusEffectDebuff
-  id: StatusEffectAmnesiacB
+  id: FireStatusEffectAmnesiacB
   categories: [ HideSpawnMenu ]
   name: class B amnesia
   components:
@@ -20,7 +20,7 @@
 
 - type: entity
   parent: MobStatusEffectDebuff
-  id: StatusEffectAmnesiacC
+  id: FireStatusEffectAmnesiacC
   categories: [ HideSpawnMenu ]
   name: class C amnesia
   components:
@@ -30,7 +30,7 @@
 
 - type: entity
   parent: MobStatusEffectDebuff
-  id: StatusEffectAmnesiacD
+  id: FireStatusEffectAmnesiacD
   categories: [ HideSpawnMenu ]
   name: class D amnesia
   components:

@@ -1,8 +1,8 @@
-ent-StatusEffectAmnesiacA = class A amnesia
+ent-FireStatusEffectAmnesiacA = class A amnesia
     .desc = { ent-MobStatusEffectDebuff.desc }
-ent-StatusEffectAmnesiacB = class B amnesia
+ent-FireStatusEffectAmnesiacB = class B amnesia
     .desc = { ent-MobStatusEffectDebuff.desc }
-ent-StatusEffectAmnesiacC = class C amnesia
+ent-FireStatusEffectAmnesiacC = class C amnesia
     .desc = { ent-MobStatusEffectDebuff.desc }
-ent-StatusEffectAmnesiacD = class D amnesia
+ent-FireStatusEffectAmnesiacD = class D amnesia
     .desc = { ent-MobStatusEffectDebuff.desc }

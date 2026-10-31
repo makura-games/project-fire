@@ -32,7 +32,7 @@
         - !type:ScpCondition
           inverted: true
       - !type:ModifyStatusEffect
-        effectProto: StatusEffectAmnesiacA
+        effectProto: FireStatusEffectAmnesiacA
         time: 120
         type: Update
         conditions:
@@ -66,7 +66,7 @@
         - !type:ScpCondition
           inverted: true
       - !type:ModifyStatusEffect
-        effectProto: StatusEffectAmnesiacA
+        effectProto: FireStatusEffectAmnesiacA
         time: 120
         type: Update
         conditions:
@@ -109,7 +109,7 @@
         - !type:ScpCondition
           inverted: true
       - !type:ModifyStatusEffect
-        effectProto: StatusEffectAmnesiacB
+        effectProto: FireStatusEffectAmnesiacB
         time: 120
         type: Update
         conditions:
@@ -172,7 +172,7 @@
         - !type:ScpCondition
           inverted: true
       - !type:ModifyStatusEffect
-        effectProto: StatusEffectAmnesiacC
+        effectProto: FireStatusEffectAmnesiacC
         time: 120
         type: Update
         conditions:
@@ -235,7 +235,7 @@
         - !type:ScpCondition
           inverted: true
       - !type:ModifyStatusEffect
-        effectProto: StatusEffectAmnesiacD
+        effectProto: FireStatusEffectAmnesiacD
         time: 120
         type: Update
         conditions:

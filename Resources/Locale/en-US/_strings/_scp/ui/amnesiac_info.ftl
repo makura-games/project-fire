@@ -8,4 +8,4 @@ amnesiac-info-ok-wait = OK ({ $seconds })
 amnesiac-erased-memory-a = the last 15 minutes of life
 amnesiac-erased-memory-b = the last hour of life
 amnesiac-erased-memory-c = everything negative that happened to you recently
-amnesiac-erased-memory-d = the whole identity: who you are, where you are and what you are doing here
+amnesiac-erased-memory-d = your whole life: who you are, where you are and what you are doing here
