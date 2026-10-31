@@ -14,3 +14,7 @@ ent-CrateSecurityTrackingMindshieldImplants = ящик имплантеров
     .desc = { ent-CrateSecgear.desc }
 ent-CrateSecNonlethalThrowables = ящик с нелетальным метательным оружием
     .desc = Содержит по одной коробке светошумовых гранат, гранат со слезоточивым газом и четыре болы. Требуется доступ службы безопасности для открытия.
+ent-CrateServiceGasMaskFilters = ящик с фильтрами для противогазов
+    .desc = Содержит сменные фильтры для противогазов. Не вдыхайте это.
+cargo-gas-mask-filters-name = ящик с фильтрами для противогазов
+cargo-gas-mask-filters-desc = Содержит сменные фильтры для противогазов. Не вдыхайте это.

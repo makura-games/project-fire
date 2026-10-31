@@ -1,0 +1,16 @@
+- type: entity
+  parent: BaseItem
+  id: GasMaskFilter
+  name: gas mask filter
+  description: A replaceable filter cartridge for a gas mask. It traps harmful reagents but lets you breathe.
+  components:
+  - type: Sprite
+    sprite: Objects\Specific\Atmos\GasmaskFilter.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: Filter
+    charge: 100
+    maxCharge: 100
+    useRate: 1
+    efficiency: 1

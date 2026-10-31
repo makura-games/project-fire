@@ -8,6 +8,9 @@
     sprite: _Scp/Clothing/Mask/gas.rsi # Fire edit
   - type: Clothing
     sprite: _Scp/Clothing/Mask/gas.rsi # Fire edit
+    equipDelay: 3    # <-- 3 секунды на надевание
+    unequipDelay: 3  # <-- 3 секунды на снятие
+    EquipWhileMoving: true
   - type: BreathMask
   - type: IngestionBlocker
   - type: IdentityBlocker
@@ -20,6 +23,35 @@
     layers:
       Snout: Mask
     hideOnToggle: true
+  # === ФИЛЬТР ===
+  - type: ContainerContainer
+    containers:
+      filter: !type:ContainerSlot
+  - type: ItemSlots
+    allowSmartEquip: true # Позволяет вставлять фильтр кликом
+    slots:
+      filter:
+        name: Filter
+        whitelist:
+          components:
+            - Filter
+  - type: EntityTableContainerFill
+    containers:
+      filter: !type:AllSelector
+        children:
+        - id: GasMaskFilter
+  # === ЗВУК И ОВЕРЛЕЙ ===
+  - type: EmitSoundWhileWorn
+    sound:
+      path: /Audio/Effects/Gasmask/Gasmask1.ogg
+      params:
+        volume: 5
+        loop: true
+    requiresGravity: false   # газ в космосе не нужен — маска работает и в невесомости
+    requiresAlive: true      # у мёртвого не дышит
+    ignorePockets: true      # в карманах не шумит
+  - type: GasMaskOverlay
+    texturePath: /Textures/Interface/GasmaskOverlay.png
 
 - type: entity
   parent: [ClothingMaskGas, BaseSecurityContraband]
