@@ -90,3 +90,15 @@
   cost: 250
   category: cargoproduct-category-name-security
   group: market
+
+- type: cargoProduct
+  id: SecurityGasMaskFilters
+  icon:
+    sprite: Objects/Specific/Atmos/GasmaskFilter.rsi
+    state: icon
+  product: CrateServiceGasMaskFilters
+  name: cargo-gas-mask-filters-name
+  description: cargo-gas-mask-filters-desc
+  cost: 400
+  category: cargoproduct-category-name-security
+  group: market

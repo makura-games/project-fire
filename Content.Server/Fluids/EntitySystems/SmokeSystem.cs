@@ -1,5 +1,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
+using Content.Server.Clothing.Systems;
 using Content.Server.Spreader;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry;
@@ -44,10 +45,11 @@ public sealed partial class SmokeSystem : EntitySystem
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
 
+    [Dependency] private FilterSystem _filter = default!;
+
     [Dependency] private EntityQuery<SmokeComponent> _smokeQuery = default!;
     [Dependency] private EntityQuery<SmokeAffectedComponent> _smokeAffectedQuery = default!;
 
-    /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
@@ -59,7 +61,6 @@ public sealed partial class SmokeSystem : EntitySystem
         SubscribeLocalEvent<SmokeComponent, SpreadNeighborsEvent>(OnSmokeSpread);
     }
 
-    /// <inheritdoc/>
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -88,7 +89,6 @@ public sealed partial class SmokeSystem : EntitySystem
 
     private void OnEndCollide(Entity<SmokeComponent> entity, ref EndCollideEvent args)
     {
-        // if we are already in smoke, make sure the thing we are exiting is the current smoke we are in.
         if (_smokeAffectedQuery.TryGetComponent(args.OtherEntity, out var smokeAffectedComponent))
         {
             if (smokeAffectedComponent.SmokeEntity != entity.Owner)
@@ -110,7 +110,7 @@ public sealed partial class SmokeSystem : EntitySystem
 
             smokeAffectedComponent ??= EnsureComp<SmokeAffectedComponent>(args.OtherEntity);
             smokeAffectedComponent.SmokeEntity = ent;
-            return; // exit the function so we don't remove the component.
+            return;
         }
 
         if (smokeAffectedComponent != null)
@@ -136,7 +136,6 @@ public sealed partial class SmokeSystem : EntitySystem
 
         TryComp<TimedDespawnComponent>(entity, out var timer);
 
-        // wtf is the logic behind any of this.
         var smokePerSpread = entity.Comp.SpreadAmount / Math.Max(1, args.NeighborFreeTiles.Count);
         foreach (var neighbor in args.NeighborFreeTiles)
         {
@@ -159,8 +158,6 @@ public sealed partial class SmokeSystem : EntitySystem
         if (args.NeighborFreeTiles.Count > 0 || args.Neighbors.Count == 0 || entity.Comp.SpreadAmount < 1)
             return;
 
-        // We have no more neighbours to spread to. So instead we will randomly distribute our volume to neighbouring smoke tiles.
-
         _random.Shuffle(args.Neighbors);
         foreach (var neighbor in args.Neighbors)
         {
@@ -177,7 +174,6 @@ public sealed partial class SmokeSystem : EntitySystem
                 break;
             }
         }
-
     }
 
     private void OnReactionAttempt(Entity<SmokeComponent> entity, ref ReactionAttemptEvent args)
@@ -185,7 +181,6 @@ public sealed partial class SmokeSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        // Prevent smoke/foam fork bombs (smoke creating more smoke).
         foreach (var effect in args.Reaction.Effects)
         {
             if (effect is AreaReactionEffect)
@@ -202,9 +197,6 @@ public sealed partial class SmokeSystem : EntitySystem
             OnReactionAttempt(entity, ref args.Event);
     }
 
-    /// <summary>
-    /// Sets up a smoke component for spreading.
-    /// </summary>
     public void StartSmoke(EntityUid uid, Solution solution, float duration, int spreadAmount, SmokeComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -228,13 +220,9 @@ public sealed partial class SmokeSystem : EntitySystem
         var timer = EnsureComp<TimedDespawnComponent>(uid);
         timer.Lifetime = duration;
 
-        // The tile reaction happens here because it only occurs once.
         ReactOnTile(uid, component);
     }
 
-    /// <summary>
-    /// Does the relevant smoke reactions for an entity.
-    /// </summary>
     public void SmokeReact(EntityUid entity, EntityUid smokeUid, SmokeComponent? component = null)
     {
         if (!Resolve(smokeUid, ref component))
@@ -268,6 +256,13 @@ public sealed partial class SmokeSystem : EntitySystem
         var transferAmount = FixedPoint2.Min(availableTransfer, bloodSolution.AvailableVolume);
         var transferSolution = cloneSolution.SplitSolution(transferAmount);
 
+        // === ФИЛЬТРАЦИЯ ПРОТИВОГАЗОМ ===
+        // Если интерналс не работает, дым попадает в организм.
+        // Пытаемся прогнать его через сменный фильтр противогаза, если он надет.
+        if (!blockIngestion)
+            _filter.TryFilterReagents(entity, transferSolution);
+        // =============================
+
         foreach (var reagentQuantity in transferSolution.Contents.ToArray())
         {
             if (reagentQuantity.Quantity == FixedPoint2.Zero)
@@ -281,9 +276,11 @@ public sealed partial class SmokeSystem : EntitySystem
         if (blockIngestion)
             return;
 
+        if (transferSolution.Volume <= 0)
+            return;
+
         if (_blood.TryAddToBloodstream((entity, bloodstream), transferSolution))
         {
-            // Log solution addition by smoke
             _logger.Add(LogType.ForceFeed, LogImpact.Medium, $"{ToPrettyString(entity):target} ingested smoke {SharedSolutionContainerSystem.ToPrettyString(transferSolution)}");
         }
     }
@@ -311,9 +308,6 @@ public sealed partial class SmokeSystem : EntitySystem
         }
     }
 
-    /// <summary>
-    /// Adds the specified solution to the relevant smoke solution.
-    /// </summary>
     private void TryAddSolution(Entity<SmokeComponent?> smoke, Solution solution)
     {
         if (solution.Volume == FixedPoint2.Zero)

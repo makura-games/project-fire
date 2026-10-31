@@ -435,3 +435,15 @@
           amount: 2
         - id: BoxCandleSmall
           amount: 2
+
+- type: entity
+  parent: CratePlastic
+  id: CrateServiceGasMaskFilters
+  name: gas mask filters crate
+  description: Contains a supply of replaceable gas mask filters for hazardous environments. Don't breathe this.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: GasMaskFilter
+        amount: 6

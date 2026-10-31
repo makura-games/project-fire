@@ -69,6 +69,7 @@
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot
+      filter: !type:ContainerSlot
   - type: ItemSlots
     slots:
       cell_slot:
@@ -83,3 +84,5 @@
     components:
       - type: NightVision
         effect: EffectNightVisionSyndie
+
+

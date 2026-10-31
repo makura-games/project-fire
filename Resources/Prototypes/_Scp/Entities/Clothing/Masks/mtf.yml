@@ -18,6 +18,7 @@
     - Hair
     - Snout
 
+
 - type: entity
   parent: ClothingMaskGasERT
   id: ClothingMaskMtfTacticalRed
@@ -49,6 +50,7 @@
     tags:
     - WhitelistChameleon
     - FullCovered
+
 
 - type: entity
   parent: ClothingMaskGasERT
