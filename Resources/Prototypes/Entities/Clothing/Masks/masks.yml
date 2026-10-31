@@ -28,10 +28,10 @@
     containers:
       filter: !type:ContainerSlot
   - type: ItemSlots
-    allowSmartEquip: true # Позволяет вставлять фильтр кликом
     slots:
       filter:
         name: Filter
+        insertOnInteract: true # Позволяет вставлять фильтр кликом
         whitelist:
           components:
             - Filter
