@@ -1,0 +1,97 @@
+- type: scpCombatMusic
+  id: ScpCombatMusicAdmin
+  priority: 30
+  departments:
+  - Administration
+  sound:
+    collection: ScpCombatMusicAdmin
+
+- type: scpCombatMusic
+  id: ScpCombatMusicSecurity
+  priority: 20
+  departments:
+  - FondSecurity
+  - HeavyContainmentSecurityService
+  - ExternalAdministrativeZoneSecurityService
+  sound:
+    collection: ScpCombatMusicSecurity
+
+- type: scpCombatMusic
+  id: ScpCombatMusicCivilian
+  priority: 10
+  departments:
+  - ScientificService
+  - MedicalService
+  - EngineeringTechnicalService
+  - LogisticsService
+  - FoodAndSanitationServiceDepartment
+  - LowAccessPersonnel
+  sound:
+    collection: ScpCombatMusicCivilian
+
+- type: scpCombatMusic
+  id: ScpCombatMusicMTF
+  priority: 40
+  departments:
+  - MobileTaskForce
+  sound:
+    collection: ScpCombatMusicMTF
+
+- type: scpCombatMusic
+  id: ScpCombatMusicChaos
+  sound:
+    collection: ScpCombatMusicChaos
+
+- type: scpCombatMusic
+  id: ScpCombatMusicFallback
+  sound:
+    collection: ScpCombatMusicFallback
+
+- type: scpCombatMusic
+  id: ScpCombatMusicSCP
+  departments:
+  - SCP
+  sound:
+    collection: ScpCombatMusicSCP
+
+# Треки каждой группы выбираются случайно из соответствующей коллекции.
+- type: soundCollection
+  id: ScpCombatMusicAdmin
+  files:
+  - /Audio/_Scp/Ambience/Music/Combat/Admin1.ogg
+  - /Audio/_Scp/Ambience/Music/Combat/Admin2.ogg
+
+- type: soundCollection
+  id: ScpCombatMusicSecurity
+  files:
+  - /Audio/_Scp/Ambience/Music/Combat/Security1.ogg
+  - /Audio/_Scp/Ambience/Music/Combat/Security2.ogg
+
+- type: soundCollection
+  id: ScpCombatMusicCivilian
+  files:
+  - /Audio/_Scp/Ambience/Music/Combat/Civilian1.ogg
+
+- type: soundCollection
+  id: ScpCombatMusicMTF
+  files:
+  - /Audio/_Scp/Ambience/Music/Combat/MTF1.ogg
+  - /Audio/_Scp/Ambience/Music/Combat/MTF2.ogg
+
+- type: soundCollection
+  id: ScpCombatMusicChaos
+  files:
+  - /Audio/_Scp/Ambience/Music/Combat/Chaos1.ogg
+  - /Audio/_Scp/Ambience/Music/Combat/Chaos2.ogg
+
+- type: soundCollection
+  id: ScpCombatMusicFallback
+  files:
+  - /Audio/_Scp/Ambience/Music/Combat/Fallback.ogg
+
+- type: soundCollection
+  id: ScpCombatMusicSCP
+  files:
+  - /Audio/_Scp/Ambience/Music/Combat/SCP1.ogg
+  - /Audio/_Scp/Ambience/Music/Combat/SCP2.ogg
+  - /Audio/_Scp/Ambience/Music/Combat/SCP3.ogg

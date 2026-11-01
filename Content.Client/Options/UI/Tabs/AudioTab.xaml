@@ -10,10 +10,16 @@
                                  Margin="0 0 0 8" />
                 <ui:OptionSlider Name="SliderVolumeMidi" Title="{Loc 'ui-options-midi-volume'}" />
                 <ui:OptionSlider Name="SliderVolumeAmbientMusic" Title="{Loc 'ui-options-ambient-music-volume'}" />
+                <!-- Fire added start - отдельная громкость боевой музыки -->
+                <ui:OptionSlider Name="SliderVolumeCombatMusic" Title="{Loc 'ui-options-scp-combat-music-volume'}" />
+                <!-- Fire added end -->
                 <ui:OptionSlider Name="SliderVolumeAmbience" Title="{Loc 'ui-options-ambience-volume'}" />
                 <ui:OptionSlider Name="SliderVolumeLobby" Title="{Loc 'ui-options-lobby-volume'}" />
                 <ui:OptionSlider Name="SliderVolumeInterface" Title="{Loc 'ui-options-interface-volume'}" />
                 <CheckBox Name="LobbyMusicCheckBox" Text="{Loc 'ui-options-lobby-music'}" />
+                <!-- Fire added start - переключатель боевой музыки -->
+                <CheckBox Name="CombatMusicCheckBox" Text="{Loc 'ui-options-scp-combat-music-enabled'}" />
+                <!-- Fire added end -->
                 <CheckBox Name="RestartSoundsCheckBox" Text="{Loc 'ui-options-restart-sounds'}" />
                 <CheckBox Name="EventMusicCheckBox" Text="{Loc 'ui-options-event-music'}" />
                 <CheckBox Name="AdminSoundsCheckBox" Text="{Loc 'ui-options-admin-sounds'}" />
