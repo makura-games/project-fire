@@ -5,6 +5,8 @@ using Content.Shared._Scp.Scp049;
 using Content.Shared.CombatMode;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.NPC.Prototypes;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Robust.Server.Player;
@@ -20,11 +22,13 @@ public sealed partial class ScpCombatMusicSystem : EntitySystem
 {
     [Dependency] private SharedMindSystem _mind = null!;
     [Dependency] private SharedJobSystem _job = null!;
+    [Dependency] private NpcFactionSystem _npcFaction = null!;
     [Dependency] private IPlayerManager _player = null!;
     [Dependency] private IPrototypeManager _prototype = null!;
     [Dependency] private IGameTiming _timing = null!;
 
     private static readonly ProtoId<ScpCombatMusicPrototype> ChaosMusic = "ScpCombatMusicChaos";
+    private static readonly ProtoId<NpcFactionPrototype> ChaosFaction = "Chaos";
     private static readonly TimeSpan RoleRefreshInterval = TimeSpan.FromSeconds(1);
 
     private readonly HashSet<EntityUid> _pendingUpdates = [];
@@ -116,9 +120,11 @@ public sealed partial class ScpCombatMusicSystem : EntitySystem
 
         var music = SharedScpCombatMusicSystem.FallbackMusic;
 
+        // У тел ПХ из меню спавна есть фракция, но нет маркера участника рейда.
         if (HasComp<MobChaosRaiderComponent>(uid) ||
             HasComp<ChaosSpyMobComponent>(uid) ||
-            HasComp<ChaosSleepSpyMobComponent>(uid))
+            HasComp<ChaosSleepSpyMobComponent>(uid) ||
+            _npcFaction.IsMember((uid, null), ChaosFaction))
         {
             music = ChaosMusic;
         }

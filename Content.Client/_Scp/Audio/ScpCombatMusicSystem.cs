@@ -147,7 +147,14 @@ public sealed partial class ScpCombatMusicSystem : EntitySystem
 
     private void StopTrack()
     {
-        _stream = _audio.Stop(_stream);
+        if (_audioQuery.TryComp(_stream, out var audio))
+        {
+            // При смене тела Stop пропускает удаление во время применения состояния сервера.
+            _audio.SetState(_stream, AudioState.Stopped, component: audio);
+            QueueDel(_stream);
+        }
+
+        _stream = null;
         _trackGain = 0f;
     }
 
