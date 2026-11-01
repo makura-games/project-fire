@@ -4,6 +4,18 @@ namespace Content.Shared._Scp.ScpCCVars;
 
 public sealed partial class ScpCCVars
 {
+    /// <summary>
+    /// Enables the local combat soundtrack.
+    /// </summary>
+    public static readonly CVarDef<bool> CombatMusicEnabled =
+        CVarDef.Create("scp.combat_music_enabled", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Linear gain multiplier for the combat soundtrack.
+    /// </summary>
+    public static readonly CVarDef<float> CombatMusicVolume =
+        CVarDef.Create("scp.combat_music_volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     /*
      * UI typing sounds
      */

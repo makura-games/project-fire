@@ -1,0 +1,53 @@
+- files: ["Admin1.ogg"]
+  license: "Custom"
+  copyright: "'Fire (Instrumental)' by H. Anton Riehl. All rights reserved."
+  source: "https://antonriehl.bandcamp.com/track/fire-feat-yanga-bold"
+
+- files: ["Admin2.ogg"]
+  license: "Custom"
+  copyright: "'Dreaming (Instrumental)' by H. Anton Riehl. All rights reserved."
+  source: "https://antonriehl.bandcamp.com/track/dreaming-feat-yanga-bold"
+
+- files: ["Chaos1.ogg"]
+  license: "Custom"
+  copyright: "'Looming Dread' by Kentaro Nakashima, Resident Evil 2 soundtrack. Copyright CAPCOM. All rights reserved."
+  source: "https://www.e-capcom.com/shop/g/gM00004787/"
+
+# На Newgrounds указан CC-BY-NC-SA-3.0:
+# https://www.newgrounds.com/audio/listen/1350402
+- files: ["Chaos2.ogg"]
+  license: "Custom"
+  copyright: "'Lumen' by Xtrullor, Intravenous 2 soundtrack. All rights reserved."
+  source: "https://xtrullor.bandcamp.com/track/lumen"
+
+- files: ["Civilian1.ogg"]
+  license: "Custom"
+  copyright: "'Code Red Initiated' by P.T. Adamczyk, Cyberpunk 2077 soundtrack. Copyright CD PROJEKT RED. All rights reserved."
+  source: "https://youtu.be/WpcSfB0etdY"
+
+- files: ["MTF1.ogg", "MTF2.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "'Close Quarters' by Bryn Schurman."
+  source: "https://causticreverie.bandcamp.com/track/close-quarters"
+
+# SCP1.ogg - удачи найти автора, и откуда это. Я не смог.
+
+- files: ["SCP2.ogg"]
+  license: "Custom"
+  copyright: "'Jorvik' by Brandon McKagan; Copyright 2023 Trepang Studios. All rights reserved."
+  source: "https://brandonmckagan.bandcamp.com/track/jorvik"
+
+- files: ["SCP3.ogg"]
+  license: "Custom"
+  copyright: "'16 230' by HEALTH, Max Payne 3 soundtrack. Copyright 2012 Rockstar Games. All rights reserved."
+  source: "https://music.amazon.co.uk/tracks/B0BN8GJGHT"
+
+- files: ["Security1.ogg"]
+  license: "Custom"
+  copyright: "'The Bull' by Makeup and Vanity Set. All rights reserved."
+  source: "https://makeupandvanityset.bandcamp.com/track/the-bull"
+
+- files: ["Security2.ogg"]
+  license: "Custom"
+  copyright: "'Smile for the Camera' by Makeup and Vanity Set. All rights reserved."
+  source: "https://makeupandvanityset.bandcamp.com/track/smile-for-the-camera"

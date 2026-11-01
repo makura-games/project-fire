@@ -1,5 +1,6 @@
 using Content.Shared.Audio;
 using Content.Shared.GameTicking;
+using Robust.Shared.Audio.Components; // Fire added - немедленная остановка неслышимых потоков
 using AudioComponent = Robust.Shared.Audio.Components.AudioComponent;
 
 namespace Content.Client.Audio;
@@ -104,7 +105,19 @@ public sealed partial class ContentAudioSystem : SharedContentAudioSystem
         // Just in case
         // TODO: Maybe handle the removals by making it seamless?
         _fadingIn.Remove(stream.Value);
-        var diff = component.Volume - MinVolume;
+        // Fire edit start - до первого аудиокадра источник может иметь нулевой gain и громкость -Infinity dB
+        var volume = component.Volume;
+        if (!float.IsFinite(volume) || volume <= MinVolume)
+        {
+            _fadingOut.Remove(stream.Value);
+            _audio.SetVolume(stream, float.NegativeInfinity, component);
+            _audio.SetState(stream, AudioState.Stopped, component: component);
+            PredictedDel(stream.Value);
+            return;
+        }
+
+        var diff = volume - MinVolume;
+        // Fire edit end
         _fadingOut.Add(stream.Value, diff / duration);
     }
 
