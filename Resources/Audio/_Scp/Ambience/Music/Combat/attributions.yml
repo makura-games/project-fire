@@ -23,7 +23,7 @@
 - files: ["Civilian1.ogg"]
   license: "Custom"
   copyright: "'Code Red Initiated' by P.T. Adamczyk, Cyberpunk 2077 soundtrack. Copyright CD PROJEKT RED. All rights reserved."
-  source: "https://www.e-capcom.com/shop/g/gM00004787/"
+  source: "https://youtu.be/WpcSfB0etdY"
 
 - files: ["MTF1.ogg", "MTF2.ogg"]
   license: "CC-BY-NC-4.0"
@@ -51,8 +51,3 @@
   license: "Custom"
   copyright: "'Smile for the Camera' by Makeup and Vanity Set. All rights reserved."
   source: "https://makeupandvanityset.bandcamp.com/track/smile-for-the-camera"
-
-- files: ["MTF1.ogg", "MTF2.ogg"]
-  license: "CC-BY-NC-4.0"
-  copyright: "'better_to_run', found within the game files, unknown composer (Bryn Schurman or Garrett Lindquist)."
-  source: "https://www.youtube.com/watch?v=70wN2e4ULtI"
