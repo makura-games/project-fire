@@ -13,10 +13,8 @@ namespace Content.Client.Options.UI.Tabs;
 [GenerateTypedNameReferences]
 public sealed partial class AudioTab : Control
 {
-    // Fire edit start - исправления замечаний Rider в зависимостях аудиоменю
-    [Dependency] private IAudioManager _audio = null!;
-    [Dependency] private IClientAdminManager _admin = null!;
-    // Fire edit end
+    [Dependency] private IAudioManager _audio = default!;
+    [Dependency] private IClientAdminManager _admin = default!;
 
     public AudioTab()
     {
@@ -62,9 +60,7 @@ public sealed partial class AudioTab : Control
             scale: ContentAudioSystem.InterfaceMultiplier);
 
         Control.AddOptionCheckBox(CCVars.LobbyMusicEnabled, LobbyMusicCheckBox);
-        // Fire added start - переключатель боевой музыки
         Control.AddOptionCheckBox(ScpCCVars.CombatMusicEnabled, CombatMusicCheckBox);
-        // Fire added end
         Control.AddOptionCheckBox(CCVars.RestartSoundsEnabled, RestartSoundsCheckBox);
         Control.AddOptionCheckBox(CCVars.EventMusicEnabled, EventMusicCheckBox);
         Control.AddOptionCheckBox(CCVars.AdminSoundsEnabled, AdminSoundsCheckBox);

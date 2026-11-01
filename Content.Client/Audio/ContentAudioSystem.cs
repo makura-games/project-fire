@@ -14,7 +14,7 @@ public sealed partial class ContentAudioSystem : SharedContentAudioSystem
     // Need volume change per tick + target volume.
     private readonly Dictionary<EntityUid, (float VolumeChange, float TargetVolume)> _fadingIn = new();
 
-    private readonly List<EntityUid> _fadeToRemove = []; // Fire edit - инициализация коллекции по стилю проекта
+    private readonly List<EntityUid> _fadeToRemove = new();
 
     private const float MinVolume = -32f;
     private const float DefaultDuration = 2f;
@@ -67,7 +67,6 @@ public sealed partial class ContentAudioSystem : SharedContentAudioSystem
         {
             Audio.SetGain(restartAudio, oldAudioGain.Value, restartComp);
         }
-
         PlayRestartSound(ev);
         // Sunrise added start - очищаем ротацию end-round music при возврате раунда в лобби.
         HandleSunriseRoundEndMusicCleanup();
@@ -151,11 +150,11 @@ public sealed partial class ContentAudioSystem : SharedContentAudioSystem
             _audio.SetVolume(stream, volume, component);
 
             // Fire edit start - раньше тут использовались методы, которые НЕ работают на клиенте. Я поменял
-            if (!component.Volume.Equals(MinVolume)) // Fire edit - ранний переход для незавершённого затухания
-                continue;
-
-            PredictedDel(stream);
-            _fadeToRemove.Add(stream);
+            if (component.Volume.Equals(MinVolume))
+            {
+                PredictedDel(stream);
+                _fadeToRemove.Add(stream);
+            }
             // Fire edit end
         }
 
