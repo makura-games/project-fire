@@ -5,7 +5,7 @@
   playTimeTracker: JobComMaid
   requirements:
     - !type:DepartmentTimeRequirement
-      department: Civilian
+      department: Service
       time: 36000
     - !type:DepartmentTimeRequirement
       department: Command
@@ -14,8 +14,6 @@
   icon: "JobIconComMaid"
   supervisors: job-supervisors-captain
   setPreference: false # Fire added
-  displayWeight: 0
-  weight: 5
   alternativeTitles:
   - job-alt-title-valet
   - job-alt-title-butler

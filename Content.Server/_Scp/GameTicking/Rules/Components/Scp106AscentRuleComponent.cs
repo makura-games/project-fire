@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Prototypes;
+﻿using Content.Shared.AlertLevel;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Scp.GameTicking.Rules.Components;
 
@@ -9,5 +10,5 @@ public sealed partial class Scp106AscentRuleComponent : Component
     public EntProtoId SpawnPortalsRule;
 
     [ViewVariables] public EntityUid TargetStation;
-    [ViewVariables] public string CachedAlertLevel;
+    [ViewVariables] public ProtoId<AlertLevelPrototype> CachedAlertLevel;
 }

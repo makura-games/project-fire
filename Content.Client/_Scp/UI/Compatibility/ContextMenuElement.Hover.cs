@@ -15,12 +15,6 @@ public partial class ContextMenuElement
         InitializeHoverHandling();
     }
 
-    protected override void ExitedTree()
-    {
-        base.ExitedTree();
-        CleanupHoverHandling();
-    }
-
     /// <summary>
     /// Вызывается при добавлении в дерево для настройки обработки наведения.
     /// </summary>

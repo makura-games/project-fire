@@ -32,7 +32,7 @@
     - Safe # чтобы мог выходить из своей кс
   - type: Scp
     class: Safe
-  - type: Muted
+  - type: MutedStatusEffect
   - type: NpcFactionMember
     factions:
     - SimpleNeutral

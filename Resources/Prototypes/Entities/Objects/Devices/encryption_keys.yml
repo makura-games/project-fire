@@ -219,7 +219,7 @@
     - PreventInsertingIntoHeadset # Fire edit
 
 - type: entity
-  parent: [ EncryptionKey, BaseCivilianContraband ]
+  parent: [ EncryptionKey, BaseServiceContraband ]
   id: EncryptionKeyService
   categories: [ HideSpawnMenu ] # Fire edit
   name: service encryption key
