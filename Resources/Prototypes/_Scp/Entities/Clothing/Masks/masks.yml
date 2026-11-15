@@ -82,4 +82,3 @@
     parent: true
     components:
       - type: NightVision
-        effect: EffectNightVisionSyndie

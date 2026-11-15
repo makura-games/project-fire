@@ -1,3 +1,5 @@
+using System.Numerics;
+
 namespace Content.Shared._Scp.Other.DirectionalOccluder;
 
 public sealed partial class ScpDirectionalOccluderSystem : EntitySystem
@@ -15,23 +17,22 @@ public sealed partial class ScpDirectionalOccluderSystem : EntitySystem
 
     private void OnMapInit(Entity<ScpDirectionalOccluderComponent> ent, ref MapInitEvent args)
     {
-        RefreshBoundingBox(ent);
+        RefreshPolygon(ent);
     }
 
     private void OnShutdown(Entity<ScpDirectionalOccluderComponent> ent, ref ComponentShutdown args)
     {
         if (Terminating(ent)
-            || ent.Comp.DefaultBoundingBox is not { } defaultBoundingBox
+            || ent.Comp.DefaultPolygon is not { } defaultPolygon
             || !TryComp<OccluderComponent>(ent, out var occluder))
         {
             return;
         }
 
-        var currentBox = occluder.BoundingBox;
-        if (currentBox.EqualsApprox(defaultBoundingBox))
+        if (PolygonsEqual(occluder.Polygon, defaultPolygon))
             return;
 
-        _occluder.SetBoundingBox(ent.Owner, defaultBoundingBox);
+        _occluder.SetPolygon(ent.Owner, defaultPolygon, occluder);
     }
 
     private void OnMove(Entity<ScpDirectionalOccluderComponent> ent, ref MoveEvent args)
@@ -39,10 +40,10 @@ public sealed partial class ScpDirectionalOccluderSystem : EntitySystem
         if (args.OldRotation.GetCardinalDir() == args.NewRotation.GetCardinalDir())
             return;
 
-        RefreshBoundingBox(ent);
+        RefreshPolygon(ent);
     }
 
-    private void RefreshBoundingBox(
+    private void RefreshPolygon(
         Entity<ScpDirectionalOccluderComponent> ent,
         OccluderComponent? occluder = null,
         TransformComponent? xform = null)
@@ -50,15 +51,19 @@ public sealed partial class ScpDirectionalOccluderSystem : EntitySystem
         if (!Resolve(ent.Owner, ref occluder, ref xform, false))
             return;
 
-        ent.Comp.DefaultBoundingBox ??= occluder.BoundingBox;
-        Dirty(ent);
+        if (ent.Comp.DefaultPolygon == null)
+        {
+            ent.Comp.DefaultPolygon = occluder.Polygon.ToArray();
+            ent.Comp.DefaultBoundingBox ??= GetBoundingBox(ent.Comp.DefaultPolygon);
+            Dirty(ent);
+        }
 
-        var currentBox = occluder.BoundingBox;
         var box = GetBoundingBox(ent.Comp, xform.LocalRotation.GetCardinalDir());
-        if (currentBox.EqualsApprox(box))
+        var polygon = GetPolygon(box);
+        if (PolygonsEqual(occluder.Polygon, polygon))
             return;
 
-        _occluder.SetBoundingBox(ent.Owner, box, occluder);
+        _occluder.SetPolygon(ent.Owner, polygon, occluder);
     }
 
     private static Box2 GetBoundingBox(ScpDirectionalOccluderComponent component, Direction direction)
@@ -67,5 +72,44 @@ public sealed partial class ScpDirectionalOccluderSystem : EntitySystem
             return box;
 
         return component.DefaultBoundingBox ?? Box2.UnitCentered;
+    }
+
+    private static Vector2[] GetPolygon(Box2 box)
+    {
+        return
+        [
+            box.TopLeft,
+            box.TopRight,
+            box.BottomRight,
+            box.BottomLeft,
+        ];
+    }
+
+    private static Box2 GetBoundingBox(ReadOnlySpan<Vector2> polygon)
+    {
+        if (polygon.Length == 0)
+            return Box2.UnitCentered;
+
+        var box = new Box2(polygon[0], polygon[0]);
+        for (var i = 1; i < polygon.Length; i++)
+        {
+            box = box.ExtendToContain(polygon[i]);
+        }
+
+        return box;
+    }
+
+    private static bool PolygonsEqual(ReadOnlySpan<Vector2> first, ReadOnlySpan<Vector2> second)
+    {
+        if (first.Length != second.Length)
+            return false;
+
+        for (var i = 0; i < first.Length; i++)
+        {
+            if (first[i] != second[i])
+                return false;
+        }
+
+        return true;
     }
 }

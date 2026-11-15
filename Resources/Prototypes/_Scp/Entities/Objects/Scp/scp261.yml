@@ -51,7 +51,8 @@
       components:
       - Cash
   - type: XenoArtifact
-    triggerWeights: Scp261Triggers
+    triggersTable: !type:NestedSelector
+      tableId: Scp261Triggers
   - type: Physics
     bodyType: Static
   - type: Transform
@@ -72,8 +73,6 @@
   - type: InteractionOutline
   - type: Damageable
   - type: DamageOverlay
-    damagePopupType: SmallFloating
-    isStructure: true
   - type: PointLight
     radius: 1.5
   - type: Scp

@@ -241,7 +241,7 @@
 
 - type: entity
   id: LockerBlueShield
-  parent: LockerBaseSecure
+  parent: LockerBase
   name: blue shield officer's locker
   categories: [ HideSpawnMenu ] # Fire added
   components:
@@ -278,7 +278,7 @@
 
 - type: entity
   id: LockerPilot
-  parent: LockerBaseSecure
+  parent: LockerBase
   name: security pilot's locker
   categories: [ HideSpawnMenu ] # Fire added
   components:
@@ -307,7 +307,7 @@
 - type: entity
   id: ClosetPatologoanatom
   name: patologoanatom's locker
-  parent: LockerBaseSecure
+  parent: LockerBase
   suffix: Empty
   categories: [ HideSpawnMenu ] # Fire added
   components:
@@ -363,7 +363,7 @@
 - type: entity
   id: LockerMiningSpecialist
   categories: [ HideSpawnMenu ] # Fire edit
-  parent: LockerBaseSecure
+  parent: LockerBase
   suffix: Empty
   name: mining specialist's equipment
   description: Nevermind the pickaxe.
@@ -404,10 +404,10 @@
 
 # Representative
 - type: entity
-  id: LockerRepresentative
   categories: [ HideSpawnMenu ] # Fire edit
+  id: SunriseLockerRepresentative
   name: representative locker
-  parent: LockerBaseSecure
+  parent: LockerBase
   components:
   - type: Appearance
   - type: AccessReader
@@ -420,7 +420,7 @@
 - type: entity
   id: LockerRepresentativeEmpty
   name: representative locker
-  parent: LockerBaseSecure
+  parent: LockerBase
   suffix: Empty
   components:
   - type: Appearance
@@ -434,7 +434,7 @@
 - type: entity
   id: LockerRepresentativeFilled
   categories: [ HideSpawnMenu ] # Fire edit
-  parent: LockerRepresentative
+  parent: SunriseLockerRepresentative
   suffix: Filled
   components:
   - type: EntityTableContainerFill

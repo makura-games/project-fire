@@ -64,8 +64,9 @@
   name: strange cowboy hat
   suffix: SCP Item
   components:
-  - type: AddAccentClothing
-    accent: DogAccent
+  - type: ClothingAddComponents
+    components:
+    - type: DogAccent
   - type: AddDrunkClothing
 
 - type: entity
@@ -231,10 +232,7 @@
         acts: [ "Destruction" ]
   - type: Speech
   - type: Vocal # ╰(▔∀▔)╯
-    sounds:
-      Male: MaleVulpkanin
-      Female: FemaleVulpkanin
-      Unsexed: MaleVulpkanin
+    emoteSounds: MaleVulpkanin
   - type: Emoting
   - type: EmitEmotesPeriodically
     emotes:

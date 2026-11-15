@@ -229,7 +229,7 @@ public sealed partial class Scp035System : SharedScp035System
 
                 // randomly opens some lockers and such.
                 if (entityStorage.TryGetComponent(ent, out var entstorecomp))
-                    _entityStorage.OpenStorage(ent, entstorecomp);
+                    _entityStorage.OpenStorage((ent, entstorecomp));
 
                 // chucks items
                 if (items.HasComponent(ent) &&

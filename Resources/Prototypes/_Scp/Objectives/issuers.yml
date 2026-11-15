@@ -1,0 +1,7 @@
+- type: objectiveIssuer
+  id: objective-issuer-chaos
+  name: objective-issuer-chaos
+
+- type: objectiveIssuer
+  id: objective-issuer-scp-2054-x
+  name: objective-issuer-scp-2054-x

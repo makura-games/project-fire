@@ -1,34 +1,23 @@
-﻿using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.EntityConditions;
 using Content.Shared.FixedPoint;
-using Content.Shared.Random.Rules;
-using JetBrains.Annotations;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Scp.Other.Rules;
 
-[UsedImplicitly]
-public sealed partial class HasDamageRule : RulesRule
+public sealed partial class HasDamageCondition : EntityConditionBase<HasDamageCondition>
 {
-    /// <summary>
-    /// Требуется ли урон, чтобы начать данное действие.
-    /// Если требуется, то без урона действие не пройдет.
-    /// Если не требуется, то с наличием урона действие не пройдет.
-    /// </summary>
-    [DataField]
-    public bool Require;
+    [DataField] public bool Require;
+    public override string EntityConditionGuidebookText(IPrototypeManager prototype) => string.Empty;
+}
 
-    public override bool Check(EntityManager entManager, EntityUid uid)
+public sealed partial class HasDamageConditionSystem : EntityConditionSystem<MetaDataComponent, HasDamageCondition>
+{
+    protected override void Condition(Entity<MetaDataComponent> entity, ref EntityConditionEvent<HasDamageCondition> args)
     {
-        return Require == HasAnyDamage(uid, entManager);
-    }
-
-    private static bool HasAnyDamage(EntityUid uid, EntityManager entManager)
-    {
-        var damageableSystem = entManager.System<DamageableSystem>();
-
-        if (!entManager.TryGetComponent<DamageableComponent>(uid, out var damageable))
-            return false;
-
-        return damageableSystem.GetTotalDamage((uid, damageable)) != FixedPoint2.Zero;
+        var hasDamage = TryComp(entity.Owner, out DamageableComponent? damageable)
+            && EntityManager.System<DamageableSystem>().GetTotalDamage((entity.Owner, damageable)) != FixedPoint2.Zero;
+        args.Result = args.Condition.Require == hasDamage;
     }
 }
