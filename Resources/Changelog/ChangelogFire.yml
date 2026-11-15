@@ -6163,3 +6163,10 @@
     message: На спрайт коричневого свитера SCP-082 добавлены туфли
   id: 567
   url: https://github.com/makura-games/project-fire/pull/1209
+- author: timur
+  time: '2026-11-15T21:50:26.0000000+00:00'
+  changes:
+  - type: Add
+    message: Добавлен золотой трон и паланкин для SCP-082 и SCP-3288
+  id: 568
+  url: https://github.com/makura-games/project-fire/pull/1201
