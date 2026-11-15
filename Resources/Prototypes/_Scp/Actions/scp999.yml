@@ -6,11 +6,13 @@
   components:
   - type: Action
     useDelay: 3
-    icon:
-      sprite: _Scp/Actions/scp-999.rsi
-      state: wall
     itemIconStyle: BigAction
     raiseOnUser: true
+  - type: Sprite
+    sprite: _Scp/Actions/scp-999.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: wall
   - type: InstantAction
     event: !type:Scp999WallifyActionEvent
 
@@ -22,13 +24,15 @@
   components:
   - type: Action
     useDelay: 3
-    icon:
-      sprite: _Scp/Actions/scp-999.rsi
-      state: sleep
     itemIconStyle: BigAction
     raiseOnUser: true
     checkCanInteract: false
     checkConsciousness: false
+  - type: Sprite
+    sprite: _Scp/Actions/scp-999.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: sleep
   - type: InstantAction
     event: !type:Scp999RestActionEvent
 
@@ -40,8 +44,10 @@
   components:
   - type: Action
     useDelay: 30
-    icon:
-      sprite: _Scp/Actions/scp-999.rsi
+  - type: Sprite
+    sprite: _Scp/Actions/scp-999.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
       state: love
   - type: TargetAction
     range: 3

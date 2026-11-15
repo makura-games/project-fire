@@ -100,7 +100,7 @@
         Shock: 10
         Cold: 10
         Caustic: 10
-  - type: Muted
+  - type: MutedStatusEffect
   - type: SafeTime
     addWidget: false
   - type: DamageOnHighSpeedImpact

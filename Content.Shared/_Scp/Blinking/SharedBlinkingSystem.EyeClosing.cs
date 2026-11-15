@@ -54,11 +54,6 @@ public abstract partial class SharedBlinkingSystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        // Нельзя закрыть глаза, если нас ослепили.
-        // Потому что это приведет к странному багу
-        if (HasComp<FlashedComponent>(ent))
-            return;
-
         // Нельзя дергать глазами, пока мы спим
         if (HasComp<SleepingComponent>(ent))
             return;

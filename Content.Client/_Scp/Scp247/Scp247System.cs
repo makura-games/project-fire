@@ -1,7 +1,7 @@
 using Content.Client.DamageState;
 using Content.Shared._Scp.Scp247;
 using Content.Shared._Scp.Watching;
-using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Robust.Client.GameObjects;

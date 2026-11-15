@@ -26,12 +26,20 @@
     weight: 4
   - type: SpawnInEntityStorageRule
     probability: 0.07
-    stationRules: StationHaveScp096
+    stationConditions:
+    - !type:StationHasEntityCondition
+      whitelist:
+        components:
+        - Scp096
     entities:
     - id: Scp096PhotoDeveloped
   - type: SpawnInPlayerInventoryRule
     probability: 0.1
-    stationRules: StationHaveScp096
+    stationConditions:
+    - !type:StationHasEntityCondition
+      whitelist:
+        components:
+        - Scp096
     sound:
       path: /Audio/_Scp/Effects/spawn.ogg
       params:
@@ -64,6 +72,10 @@
   components:
   - type: StationEvent
     weight: 2
+    startAnnouncementColor: Green
+    startAnnouncement: station-event-spawn-scp-3199-egg
+    startAudio:
+      path: /Audio/Misc/bluealert.ogg
   - type: SpawnInEntityStorageRule
     probability: 0.005
     entities:

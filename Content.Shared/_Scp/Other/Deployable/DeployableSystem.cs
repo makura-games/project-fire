@@ -34,7 +34,7 @@ public abstract partial class SharedDeployableSystem : EntitySystem
             return;
 
         // Подходит ли инструмент по требованиям
-        if (!toolComponent.Qualities.All(ent.Comp.RequiredTools.Contains))
+        if (!toolComponent.Qualities.All(quality => ent.Comp.RequiredTools.Contains(quality)))
         {
             var message = Loc.GetString("deployable-tool-deny");
             _popup.PopupClient(message, args.User);

@@ -12,7 +12,6 @@
       department: Security
       time: 18000 #5 hrs # Sunrise-RoleTime
   setPreference: false # Fire edit
-  displayWeight: -10  # Sunrise
   jobEntity: PlayerBorgSecurityBattery
   overrideConsoleVisibility: false
   alwaysUseSpawner: true

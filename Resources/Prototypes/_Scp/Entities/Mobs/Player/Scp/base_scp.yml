@@ -18,7 +18,8 @@
       Extinguish: [ Touch ]
       Acidic: [ Touch ]
   - type: XenoArtifact
-    triggerWeights: ScpDefaultTriggers
+    triggersTable: !type:NestedSelector
+      tableId: ScpDefaultTriggers
   - type: MobState
 
 - type: entity
@@ -98,8 +99,6 @@
     class: Neutralized
   - type: Damageable
   - type: DamageOverlay
-    damagePopupType: SmallFloating
-    isStructure: true
   - type: StealTarget
     stealGroup: ItemScp
   - type: Injurable
@@ -153,8 +152,7 @@
       - !type:PlaySoundBehavior
         sound: !type:SoundPathSpecifier
           path: /Audio/_Scp/demon-dying.ogg
-  - type: ToggleableNightVision
-    effect: ScpEffectNightVision
+  - type: NightVision
   - type: Tag
     tags:
     - FootstepSound

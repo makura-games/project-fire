@@ -14,13 +14,6 @@
   - InventoryBase
   - AppearanceScpPredator
   components:
-  - type: Clumsy # слишком большой чтобы взаимодействовать с чем то
-    clumsyDefaultStunTime: 1
-    gunShootFailStunTime: 1
-    clumsyDefib: false
-    clumsyHypo: false
-    clumsySound:
-      path: /Audio/Effects/chopstickbreak.ogg
   - type: AutoGhostRole
     disconnectDelay: 600
     pollDuration: 900
@@ -39,10 +32,14 @@
     templateId: scp3288Alpha
   - type: FieldOfView
     angle: 240
-  - type: Hunger
-  - type: Thirst
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: NormalSatiationHunger
+      Thirst:
+        prototype: NormalSatiationThirst
   - type: ScpPossibilities
-    canEjectPilotFromMech: false
+    canEjectPilotFromVehicle: false
     openContainer: false
   - type: Sprite
     noRot: true
