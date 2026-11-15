@@ -210,7 +210,7 @@ public abstract partial class SharedScp096System : EntitySystem
         if (TryComp<EntityStorageComponent>(target, out var entityStorageComponent) && !entityStorageComponent.Open)
         {
             _lock.TryUnlock(target, ent);
-            _entityStorage.OpenStorage(target, entityStorageComponent);
+            _entityStorage.OpenStorage(target);
             _audio.PlayLocal(StorageOpenSound, ent, ent);
         }
     }

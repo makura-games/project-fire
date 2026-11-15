@@ -22,6 +22,6 @@ public sealed partial class Scp106System
 
     private void AddCurrencyInStore(EntityUid uid)
     {
-        _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { BackroomsCurrencyPrototype, BackroomsEssenceRate }, }, uid);
+        _store.TryAddCurrency(new() { { BackroomsCurrencyPrototype, BackroomsEssenceRate } }, uid);
     }
 }

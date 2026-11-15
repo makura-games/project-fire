@@ -25,7 +25,7 @@
     - type: Stealth
       minVisibility: 0
       lastVisibility: 0
-    - type: Muted # так гораздо лучше
+    - type: MutedStatusEffect # так гораздо лучше
   - type: Tag
     tags:
     - Scp268

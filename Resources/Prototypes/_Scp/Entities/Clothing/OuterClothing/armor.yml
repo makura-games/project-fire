@@ -87,8 +87,7 @@
   - type: Clothing
     sprite: _Scp/Clothing/OuterClothing/Armor/security_winter.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 1.15
-    coolingCoefficient: 0.7
+    coefficient: 0.925 # Fire edit - усреднённый коэффициент защиты от температуры
 
 - type: entity
   parent: ClothingOuterArmorBulletproof
