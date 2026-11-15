@@ -68,15 +68,10 @@
           FoodMeatAnomaly:
             min: 0
             max: 2
-  - type: Hunger
-    baseDecayRate: 0.01
-    lastAuthoritativeHungerValue: 150
-    thresholds:
-      Overfed: 150
-      Okay: 100
-      Peckish: 50
-      Starving: 25
-      Dead: 0
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: NormalSatiationHunger
   - type: Devourer
     devourTime: 10
     healRate: 20
@@ -151,12 +146,6 @@
       - SCPs
   - type: FearSource
     uponSeenState: Fear
-  - type: EggLayer
-    eggSpawn:
-    - id: Scp3199EggFirst
-    hungerUsage: 55
-    eggLaySound:
-      path: /Audio/_Sunrise/FleshCult/devour_flesh_cultist.ogg
   - type: ComplexInteraction
   - type: ReplacementAccent
     accent: xeno
@@ -193,15 +182,10 @@
           FoodMeatAnomaly:
             min: 1
             max: 3
-  - type: Hunger
-    baseDecayRate: 0.01
-    lastAuthoritativeHungerValue: 150
-    thresholds:
-      Overfed: 150
-      Okay: 100
-      Peckish: 50
-      Starving: 25
-      Dead: 0
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: NormalSatiationHunger
   - type: Devourer
     devourTime: 15
     healRate: 20

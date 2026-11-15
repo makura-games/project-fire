@@ -1,6 +1,6 @@
 ﻿using Content.Server.EUI;
 using Content.Shared._Scp.BodyTakeover;
-using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Robust.Server.Player;

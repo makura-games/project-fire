@@ -1,3 +1,5 @@
+using System.Numerics;
+
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Scp.Other.DirectionalOccluder;
@@ -10,4 +12,7 @@ public sealed partial class ScpDirectionalOccluderComponent : Component
 
     [AutoNetworkedField, ViewVariables]
     public Box2? DefaultBoundingBox;
+
+    [AutoNetworkedField, ViewVariables]
+    public Vector2[]? DefaultPolygon;
 }

@@ -18,7 +18,7 @@ public sealed partial class ResearchSystem
 
     private void OnServerMapInit(EntityUid uid, ResearchServerComponent component, MapInitEvent args)
     {
-        var pointsPrototypes = PrototypeManager.EnumeratePrototypes<ResearchPointPrototype>();
+        var pointsPrototypes = ProtoMan.EnumeratePrototypes<ResearchPointPrototype>();
 
         foreach (var points in pointsPrototypes)
         {

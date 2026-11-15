@@ -159,7 +159,10 @@
     proto: scp999
   - type: ReplacementAccent
     accent: mouse
-  - type: Hunger
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: NormalSatiationHunger
   - type: Reflect
     reflectProb: 0.2
     reflects:
