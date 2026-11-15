@@ -10,7 +10,6 @@
   startingGear: SeniorResearcherGear
   icon: "JobIconSeniorResearcher"
   supervisors: job-supervisors-rd
-  displayWeight: 35
   overrideConsoleVisibility: false # Fire added
   setPreference: false # Fire added
   alternativeTitles:

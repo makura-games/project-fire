@@ -10,7 +10,6 @@
   startingGear: MailCarrierGear
   icon: "JobIconMailCarrier"
   supervisors: job-supervisors-qm #job-supervisors-hop
-  displayWeight: 30
   setPreference: false # Fire added
   overrideConsoleVisibility: false # Fire added
   alternativeTitles:

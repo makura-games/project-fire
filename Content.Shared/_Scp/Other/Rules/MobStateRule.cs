@@ -1,24 +1,18 @@
-﻿using Content.Shared.Mobs;
+using Content.Shared.EntityConditions;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Random.Rules;
-using JetBrains.Annotations;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Scp.Other.Rules;
 
-[UsedImplicitly]
-public sealed partial class MobStateRule : RulesRule
+public sealed partial class ScpMobStateCondition : EntityConditionBase<ScpMobStateCondition>
 {
-    [DataField]
-    public HashSet<MobState> AllowedStates = [];
+    [DataField] public HashSet<MobState> AllowedStates = [];
+    public override string EntityConditionGuidebookText(IPrototypeManager prototype) => string.Empty;
+}
 
-    public override bool Check(EntityManager entManager, EntityUid uid)
-    {
-        if (!entManager.TryGetComponent<MobStateComponent>(uid, out var mobState))
-            return Inverted;
-
-        if (!AllowedStates.Contains(mobState.CurrentState))
-            return Inverted;
-
-        return !Inverted;
-    }
+public sealed partial class ScpMobStateConditionSystem : EntityConditionSystem<MobStateComponent, ScpMobStateCondition>
+{
+    protected override void Condition(Entity<MobStateComponent> entity, ref EntityConditionEvent<ScpMobStateCondition> args)
+        => args.Result = args.Condition.AllowedStates.Contains(entity.Comp.CurrentState);
 }

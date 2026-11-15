@@ -163,7 +163,7 @@ public sealed partial class Scp173System : SharedScp173System
             // Открываем шкафы и подобные хранилища. Так как проверка на замок уже есть можно не беспокоиться
             if (entityStorage.TryComp(ent, out var entityStorageComponent) && !entityStorageComponent.Open)
             {
-                _entityStorage.OpenStorage(ent, entityStorageComponent);
+                _entityStorage.OpenStorage((ent, entityStorageComponent));
                 _audio.PlayPvs(_storageOpenSound, ent);
             }
         }

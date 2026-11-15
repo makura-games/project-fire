@@ -24,9 +24,6 @@
   - type: MultiHandedItem
   - type: Scp
     class: Safe
-  - type: Muted
-    allowed:
-    - Scp2295Squeak
   - type: NpcFactionMember
     factions:
     - SimpleNeutral
@@ -142,7 +139,4 @@
     - DoorBumpOpener
     - Scp2295
   - type: Vocal
-    sounds:
-      Male: SCP2295
-      Female: SCP2295
-      Unsexed: SCP2295
+    emoteSounds: SCP2295

@@ -14,9 +14,6 @@
   id: ClassDSpawner
 
 - type: Tag
-  id: Windoor
-
-- type: Tag
   id: LockerPistol
 
 - type: Tag
@@ -201,3 +198,20 @@
 
 - type: Tag
   id: MagazineMP5
+- type: Tag
+  id: Wall
+
+- type: Tag
+  id: SecureWindoor
+
+- type: Tag
+  id: SecurePlasmaWindoor
+
+- type: Tag
+  id: SecureUraniumWindoor
+
+- type: Tag
+  id: GhostOnlyWarp
+
+- type: Tag
+  id: BotanyHoe

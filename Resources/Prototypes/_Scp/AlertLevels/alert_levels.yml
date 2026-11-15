@@ -1,149 +1,181 @@
-﻿- type: alertLevels
-  id: FacilityAlerts
-  defaultLevel: scpNone
-  levels:
-    # Коды стандартные
-    scpNone:
-      announcement: alert-level-scpNone-announcement
-      color: White
-      emergencyLightColor: White
-      shuttleTime: 1800
+- type: alertLevel
+  id: scpNone
+  name: alert-level-scpNone
+  announcement: alert-level-scpNone-announcement
+  instructions: alert-level-scpNone-instructions
+  color: White
+  emergencyLightColor: White
+  shuttleTime: 1800
 
-    scpGreen:
-      announcement: alert-level-scpGreen-announcement
-      sound:
-        path: /Audio/Misc/bluealert.ogg
-        params:
-          volume: -1
-      color: Green
-      forceEnableEmergencyLights: true
-      emergencyLightColor: LawnGreen
-      shuttleTime: 1200
+- type: alertLevel
+  id: scpGreen
+  name: alert-level-scpGreen
+  announcement: alert-level-scpGreen-announcement
+  instructions: alert-level-scpGreen-instructions
+  sound:
+    path: /Audio/Misc/bluealert.ogg
+    params:
+      volume: -1
+  color: Green
+  forceEnableEmergencyLights: true
+  emergencyLightColor: LawnGreen
+  shuttleTime: 1200
 
-    scpBlue:
-      announcement: alert-level-scpBlue-announcement
-      sound:
-        path: /Audio/Misc/bluealert.ogg
-        params:
-          volume: -1
-      color: DodgerBlue
-      forceEnableEmergencyLights: true
-      emergencyLightColor: DodgerBlue
-      shuttleTime: 600
+- type: alertLevel
+  id: scpBlue
+  name: alert-level-scpBlue
+  announcement: alert-level-scpBlue-announcement
+  instructions: alert-level-scpBlue-instructions
+  sound:
+    path: /Audio/Misc/bluealert.ogg
+    params:
+      volume: -1
+  color: DodgerBlue
+  forceEnableEmergencyLights: true
+  emergencyLightColor: DodgerBlue
+  shuttleTime: 600
 
-    scpLime:
-      announcement: alert-level-scpLime-announcement
-      sound:
-        path: /Audio/Misc/bluealert.ogg
-        params:
-          volume: -1
-      color: Lime
-      emergencyLightColor: Lime
-      forceEnableEmergencyLights: true
-      shuttleTime: 1200
+- type: alertLevel
+  id: scpLime
+  name: alert-level-scpLime
+  announcement: alert-level-scpLime-announcement
+  instructions: alert-level-scpLime-instructions
+  sound:
+    path: /Audio/Misc/bluealert.ogg
+    params:
+      volume: -1
+  color: Lime
+  emergencyLightColor: Lime
+  forceEnableEmergencyLights: true
+  shuttleTime: 1200
 
-    scpOrange:
-      announcement: alert-level-scpOrange-announcement
-      sound:
-        path: /Audio/Misc/bluealert.ogg
-        params:
-          volume: -1
-      color: Orange
-      emergencyLightColor: DarkOrange
-      forceEnableEmergencyLights: true
-      shuttleTime: 600
+- type: alertLevel
+  id: scpOrange
+  name: alert-level-scpOrange
+  announcement: alert-level-scpOrange-announcement
+  instructions: alert-level-scpOrange-instructions
+  sound:
+    path: /Audio/Misc/bluealert.ogg
+    params:
+      volume: -1
+  color: Orange
+  emergencyLightColor: DarkOrange
+  forceEnableEmergencyLights: true
+  shuttleTime: 600
 
-    scpWhite:
-      announcement: alert-level-scpWhite-announcement
-      sound:
-        path: /Audio/Misc/delta.ogg
-        params:
-          volume: -1
-      color: White
-      emergencyLightColor: White
-      forceEnableEmergencyLights: true
-      shuttleTime: 600
+- type: alertLevel
+  id: scpWhite
+  name: alert-level-scpWhite
+  announcement: alert-level-scpWhite-announcement
+  instructions: alert-level-scpWhite-instructions
+  sound:
+    path: /Audio/Misc/delta.ogg
+    params:
+      volume: -1
+  color: White
+  emergencyLightColor: White
+  forceEnableEmergencyLights: true
+  shuttleTime: 600
 
-    scpGray:
-      announcement: alert-level-scpGray-announcement
-      sound:
-        path: /Audio/Misc/delta.ogg
-        params:
-          volume: -1
-      color: Gray
-      emergencyLightColor: Gray
-      forceEnableEmergencyLights: true
-      shuttleTime: 600
+- type: alertLevel
+  id: scpGray
+  name: alert-level-scpGray
+  announcement: alert-level-scpGray-announcement
+  instructions: alert-level-scpGray-instructions
+  sound:
+    path: /Audio/Misc/delta.ogg
+    params:
+      volume: -1
+  color: Gray
+  emergencyLightColor: Gray
+  forceEnableEmergencyLights: true
+  shuttleTime: 600
 
-    # Коды при НУС
-    scpYellow:
-      announcement: alert-level-scpYellow-announcement
-      sound:
-        path: /Audio/Misc/bluealert.ogg
-        params:
-          volume: -1
-      color: Gold
-      emergencyLightColor: Gold
-      forceEnableEmergencyLights: true
-      shuttleTime: 600
+- type: alertLevel
+  id: scpYellow
+  name: alert-level-scpYellow
+  announcement: alert-level-scpYellow-announcement
+  instructions: alert-level-scpYellow-instructions
+  sound:
+    path: /Audio/Misc/bluealert.ogg
+    params:
+      volume: -1
+  color: Gold
+  emergencyLightColor: Gold
+  forceEnableEmergencyLights: true
+  shuttleTime: 600
 
-    scpRed:
-      announcement: alert-level-scpRed-announcement
-      sound:
-        path: /Audio/Misc/redalert.ogg
-        params:
-          volume: -3
-      color: Red
-      emergencyLightColor: Red
-      forceEnableEmergencyLights: true
-      shuttleTime: 600
+- type: alertLevel
+  id: scpRed
+  name: alert-level-scpRed
+  announcement: alert-level-scpRed-announcement
+  instructions: alert-level-scpRed-instructions
+  sound:
+    path: /Audio/Misc/redalert.ogg
+    params:
+      volume: -3
+  color: Red
+  emergencyLightColor: Red
+  forceEnableEmergencyLights: true
+  shuttleTime: 600
 
-    scpPurple:
-      announcement: alert-level-scpPurple-announcement
-      sound:
-        path: /Audio/_Scp/Misc/delta_alt.ogg
-        params:
-          volume: -3
-      disableSelection: true
-      color: MediumPurple
-      emergencyLightColor: MediumPurple
-      forceEnableEmergencyLights: true
-      shuttleTime: 1200
+- type: alertLevel
+  id: scpPurple
+  name: alert-level-scpPurple
+  announcement: alert-level-scpPurple-announcement
+  instructions: alert-level-scpPurple-instructions
+  sound:
+    path: /Audio/_Scp/Misc/delta_alt.ogg
+    params:
+      volume: -3
+  disableSelection: true
+  color: MediumPurple
+  emergencyLightColor: MediumPurple
+  forceEnableEmergencyLights: true
+  shuttleTime: 1200
 
-    scpBlack:
-      announcement: alert-level-scpBlack-announcement
-      sound:
-        path: /Audio/_Scp/Misc/delta_alt.ogg
-        params:
-          volume: -5
-      color: DarkSlateGray
-      emergencyLightColor: DarkGray
-      forceEnableEmergencyLights: true
-      shuttleTime: 1200
+- type: alertLevel
+  id: scpBlack
+  name: alert-level-scpBlack
+  announcement: alert-level-scpBlack-announcement
+  instructions: alert-level-scpBlack-instructions
+  sound:
+    path: /Audio/_Scp/Misc/delta_alt.ogg
+    params:
+      volume: -5
+  color: DarkSlateGray
+  emergencyLightColor: DarkGray
+  forceEnableEmergencyLights: true
+  shuttleTime: 1200
 
-    # "Особые" коды
-    scpDelta:
-      announcement: alert-level-scpDelta-announcement
-      selectable: false
-      sound:
-        path: /Audio/_Scp/Effects/nuke_alarm.ogg
-        params:
-          volume: -100
-      disableSelection: true
-      color: DarkRed
-      emergencyLightColor: DarkRed
-      forceEnableEmergencyLights: true
-      shuttleTime: 1200
+- type: alertLevel
+  id: scpDelta
+  name: alert-level-scpDelta
+  announcement: alert-level-scpDelta-announcement
+  instructions: alert-level-scpDelta-instructions
+  selectable: false
+  sound:
+    path: /Audio/_Scp/Effects/nuke_alarm.ogg
+    params:
+      volume: -100
+  disableSelection: true
+  color: DarkRed
+  emergencyLightColor: DarkRed
+  forceEnableEmergencyLights: true
+  shuttleTime: 1200
 
-    scpColdSilver:
-      announcement: alert-level-scpColdSilver-announcement
-      selectable: false
-      sound:
-        path: /Audio/Misc/epsilon.ogg
-        params:
-          volume: -2
-      disableSelection: true
-      color: DarkCyan
-      emergencyLightColor: DarkCyan
-      forceEnableEmergencyLights: true
-      shuttleTime: 1200
+- type: alertLevel
+  id: scpColdSilver
+  name: alert-level-scpColdSilver
+  announcement: alert-level-scpColdSilver-announcement
+  instructions: alert-level-scpColdSilver-instructions
+  selectable: false
+  sound:
+    path: /Audio/Misc/epsilon.ogg
+    params:
+      volume: -2
+  disableSelection: true
+  color: DarkCyan
+  emergencyLightColor: DarkCyan
+  forceEnableEmergencyLights: true
+  shuttleTime: 1200

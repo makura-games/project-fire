@@ -1733,7 +1733,7 @@
     stock: 1
   - !type:BuyerDepartmentCondition
     whitelist:
-    - Civilian
+    - Service
 
 - type: listing
   id: UplinkSunriseJanitorialTrolley
@@ -1748,7 +1748,7 @@
     stock: 1
   - !type:BuyerDepartmentCondition
     whitelist:
-    - Civilian
+    - Service
 
 - type: listing
   id: UplinkSunriseFoodCartHot
@@ -1763,7 +1763,7 @@
     stock: 1
   - !type:BuyerDepartmentCondition
     whitelist:
-    - Civilian
+    - Service
 
 - type: listing
   id: UplinkChemistryBottleUnstableMutagen
@@ -1778,7 +1778,7 @@
     stock: 2
   - !type:BuyerDepartmentCondition
     whitelist:
-    - Civilian
+    - Service
 
 - type: listing
   id: UplinkChemistryBottleRobustHarvest
@@ -1793,7 +1793,7 @@
     stock: 4
   - !type:BuyerDepartmentCondition
     whitelist:
-    - Civilian
+    - Service
 
 - type: listing
   id: UplinkSunriseVendingMachineRestockBooze
@@ -1808,7 +1808,7 @@
     stock: 4
   - !type:BuyerDepartmentCondition
     whitelist:
-    - Civilian
+    - Service
 
 - type: listing
   id: UplinkSunriseVendingMachineRestockChefvend
@@ -1823,7 +1823,7 @@
     stock: 1
   - !type:BuyerDepartmentCondition
     whitelist:
-    - Civilian
+    - Service
 
 - type: listing
   id: UplinkSunriseBoxLightMixed
@@ -1838,7 +1838,7 @@
     stock: 1
   - !type:BuyerDepartmentCondition
     whitelist:
-    - Civilian
+    - Service
 
 - type: listing
   id: UplinkSunriseSprayBottleSpaceCleaner
@@ -1853,7 +1853,7 @@
     stock: 3
   - !type:BuyerDepartmentCondition
     whitelist:
-    - Civilian
+    - Service
 
 - type: listing
   id: UplinkSunriseProtoAdvMop
@@ -1867,7 +1867,7 @@
     stock: 1
   - !type:BuyerDepartmentCondition
     whitelist:
-    - Civilian
+    - Service
 
 - type: listing
   id: UplinkSunriseMousetrap
@@ -1882,12 +1882,12 @@
     stock: 2
   - !type:BuyerDepartmentCondition
     whitelist:
-    - Civilian
+    - Service
 
 - type: listing
   id: UplinkSunriseTrashBagBlue
   name: uplink-sunrise-trash-bag-blue-name
-  productEntity: TrashBagBlue
+  productEntity: TrashBagHolding
   cost:
     Suntick: 3
   categories:
@@ -1897,7 +1897,7 @@
     stock: 1
   - !type:BuyerDepartmentCondition
     whitelist:
-    - Civilian
+    - Service
 
 # Cargo
 
