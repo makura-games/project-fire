@@ -58,7 +58,8 @@
         - !type:MetabolizerTypeCondition
           type: [ Scp096 ]
           inverted: true
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 4
   plantMetabolism:
   - !type:PlantAdjustWater

@@ -19,8 +19,7 @@
       components:
       - Scp
     chance: 0.8
-  - type: ToggleableNightVision
-    effect: ScpEffectNightVision
+  - type: NightVision
   - type: Climbing
   - type: Damageable
     damageModifierSet: FleshMob
@@ -346,10 +345,7 @@
     nameFormat: name-format-standard
   - type: Speech
   - type: Vocal
-    sounds:
-      Male: MaleHuman
-      Female: FemaleHuman
-      Unsexed: MaleHuman
+    emoteSounds: MaleHuman
   - type: Emoting
   - type: EmitEmotesPeriodically
     emotes:
@@ -468,10 +464,7 @@
     canStandingState: true
   - type: Speech
   - type: Vocal
-    sounds:
-      Male: SCP106
-      Female: SCP106
-      Unsexed: SCP106
+    emoteSounds: SCP106
   - type: Emoting
   - type: EmitEmotesPeriodically
     emotes:

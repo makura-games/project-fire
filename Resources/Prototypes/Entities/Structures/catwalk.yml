@@ -1,5 +1,6 @@
 # TODO move this to tiles once tile smoothing is supported
 - type: entity
+  parent: StructureHealthFurniture
   id: Catwalk
   categories: [ HideSpawnMenu ] # Fire edit
   name: catwalk
@@ -10,7 +11,6 @@
   - type: Anchorable
     flags:
     - Anchorable
-  - type: Rotatable
   - type: Clickable
   - type: Sprite
     sprite: Structures/catwalk.rsi
@@ -35,28 +35,18 @@
     graph: Catwalk
     node: Catwalk
   - type: Damageable
-    damageModifierSet: Metallic
-  - type: Injurable
-    damageContainer: StructuralInorganic
+    damageModifierSet: SteelMod
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
+        damage: 40
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
           PartRodMetal: # takes two to construct, so drop less than that
             min: 0
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: TrayScanReveal
   - type: RCDDeconstructable
     cost: 2

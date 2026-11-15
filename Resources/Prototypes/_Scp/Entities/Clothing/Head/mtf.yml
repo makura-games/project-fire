@@ -71,7 +71,6 @@
     parent: true
     components:
       - type: NightVision
-        effect: EffectNightVisionGreen
 
 - type: entity
   parent: [ClothingHeadHelmetBasic, BaseFoldable]

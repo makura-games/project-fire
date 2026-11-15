@@ -12,6 +12,9 @@ REPLACEMENTS = {
     r"\bНанотрейзена\b": "Фонда",
     r"\bСтанция\b": "Учреждение",
     r"\bСтанции\b": "Учреждения",
+    r"\bОБР\b": "МОГ",
+    r"\bОтряд Быстрого Реагирования\b": "МОГ",
+    r"\bОтряда Быстрого Реагирования\b": "МОГ",
 }
 
 REPLACEMENTS_CI = [(re.compile(p, re.IGNORECASE), r) for p, r in REPLACEMENTS.items()]

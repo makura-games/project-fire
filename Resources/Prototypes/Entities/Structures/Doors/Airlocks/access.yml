@@ -10,6 +10,8 @@
       board: [ DoorElectronicsService ]
   - type: Wires
     layoutId: AirlockService
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/service-base.rsi
 
 - type: entity
   parent: AirlockServiceLocked
@@ -1000,7 +1002,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockCargoLocked
@@ -1008,7 +1010,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockCommandLocked
@@ -1016,7 +1018,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockEngineeringLocked
@@ -1024,7 +1026,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockAtmosphericsLocked
@@ -1032,7 +1034,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockBarLocked
@@ -1040,7 +1042,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockBarKitchenLocked
@@ -1048,7 +1050,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockChapelLocked
@@ -1056,7 +1058,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockHydroponicsLocked
@@ -1064,7 +1066,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockJanitorLocked
@@ -1072,7 +1074,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockLawyerLocked
@@ -1080,7 +1082,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockServiceLocked
@@ -1088,7 +1090,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockTheatreLocked
@@ -1096,7 +1098,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockServiceTheatreLocked
@@ -1104,7 +1106,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockKitchenLocked
@@ -1112,7 +1114,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockFreezerKitchenHydroLocked
@@ -1120,7 +1122,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockMedicalLocked
@@ -1128,7 +1130,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockMedicalMorgueLocked
@@ -1136,7 +1138,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockChemistryLocked
@@ -1144,7 +1146,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockScienceLocked
@@ -1152,7 +1154,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockMedicalScienceLocked
@@ -1160,7 +1162,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockSecurityLocked
@@ -1168,7 +1170,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockDetectiveLocked
@@ -1176,7 +1178,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockHeadOfPersonnelLocked
@@ -1184,7 +1186,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockCaptainLocked
@@ -1192,7 +1194,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockChiefEngineerLocked
@@ -1200,7 +1202,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockChiefMedicalOfficerLocked
@@ -1208,7 +1210,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockHeadOfSecurityLocked
@@ -1216,7 +1218,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockResearchDirectorLocked
@@ -1224,7 +1226,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockQuartermasterLocked
@@ -1232,7 +1234,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockArmoryLocked
@@ -1240,7 +1242,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
   parent: AirlockSyndicate
@@ -1358,6 +1360,7 @@
       board: [ DoorElectronicsExternal ]
 
 - type: entity
+  name: arrivals airlock
   parent: AirlockGlassShuttle
   id: AirlockExternalGlassShuttleArrivals
   suffix: External, Arrivals, Glass, Docking
@@ -1368,6 +1371,24 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsExternal ]
+  - type: Docking
+    radarColor: "#B22222"
+    highlightedRadarColor: Red
+    dockLegendCategory: Arrivals
+
+- type: entity
+  name: cargo airlock
+  parent: AirlockGlassShuttle
+  id: AirlockExternalGlassShuttleCargo
+  suffix: External, Cargo, Glass, Docking
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsExternal ]
+  - type: Docking
+    radarColor: "#FFFF9F"
+    highlightedRadarColor: LightYellow
+    dockLegendCategory: Cargo
 
 - type: entity
   parent: AirlockExternalGlassShuttleArrivals
@@ -1435,16 +1456,16 @@
     containers:
       board: [ DoorElectronicsArmory ]
 
-#Airtight hatch
+# Airtight hatch
 
-#- type: entity edited by Sunrise, look _Sunrise/Entityes/Structures/Doors/
-#  parent: AirlockHatchSyndicate
-#  id: AirlockHatchSyndicateLocked
-#  suffix: Syndicate, Locked
-#  components:
-#  - type: ContainerFill
-#    containers:
-#      board: [ DoorElectronicsSyndicateAgent ]
+- type: entity
+  parent: AirlockHatchSyndicate
+  id: AirlockHatchSyndicateLocked
+  suffix: Syndicate, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateAgent ]
 
 - type: entity
   parent: AirlockHatchMaintenance

@@ -10,13 +10,6 @@
   - StripableInventoryBase
   - AppearanceScpHumanoid
   components:
-  - type: Clumsy # не умеет
-    clumsyDefaultStunTime: 1
-    gunShootFailStunTime: 1
-    clumsyDefib: false
-    clumsyHypo: false
-    clumsySound:
-      path: /Audio/Effects/chopstickbreak.ogg
   - type: SoundWhileAlive
   - type: AutoGhostRole
     disconnectDelay: 600
@@ -46,7 +39,7 @@
     canMobCollide: true
   - type: ScpShow049Hud
   - type: ScpPossibilities
-    canEjectPilotFromMech: false
+    canEjectPilotFromVehicle: false
     openContainer: false
   - type: FearSource
     uponSeenState: Anxiety

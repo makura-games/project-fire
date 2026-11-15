@@ -1,17 +1,16 @@
-﻿using Content.Shared._Scp.Other.ClassDAppearance;
-using Content.Shared.Random.Rules;
-using JetBrains.Annotations;
+using Content.Shared._Scp.Other.ClassDAppearance;
+using Content.Shared.EntityConditions;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Scp.Other.Rules;
 
-[UsedImplicitly]
-public sealed partial class IsClassD : RulesRule
+public sealed partial class IsClassDCondition : EntityConditionBase<IsClassDCondition>
 {
-    public override bool Check(EntityManager entManager, EntityUid uid)
-    {
-        if (!entManager.HasComponent<ClassDAppearanceComponent>(uid))
-            return Inverted;
+    public override string EntityConditionGuidebookText(IPrototypeManager prototype) => string.Empty;
+}
 
-        return !Inverted;
-    }
+public sealed partial class IsClassDConditionSystem : EntityConditionSystem<ClassDAppearanceComponent, IsClassDCondition>
+{
+    protected override void Condition(Entity<ClassDAppearanceComponent> entity, ref EntityConditionEvent<IsClassDCondition> args)
+        => args.Result = true;
 }

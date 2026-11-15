@@ -1,7 +1,7 @@
 - type: entity
   id: AbductorDispencer
   categories: [ HideSpawnMenu ] # Fire edit
-  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  parent: [ BaseMachinePowered, ConstructibleMachine, BaseConstructibleMachineDestructible ]
   name: alien dispencer
   description: Dispence something wrong?
   components:

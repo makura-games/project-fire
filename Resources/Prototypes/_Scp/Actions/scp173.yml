@@ -6,11 +6,13 @@
   components:
   - type: Action
     useDelay: 90
-    icon:
-      sprite: _Scp/Actions/scp-173.rsi
-      state: blind
     itemIconStyle: BigAction
     raiseOnUser: true
+  - type: Sprite
+    sprite: _Scp/Actions/scp-173.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: blind
   - type: InstantAction
     event: !type:Scp173BlindAction
 
@@ -22,11 +24,13 @@
   components:
   - type: Action
     useDelay: 60
-    icon:
-      sprite: _Scp/Actions/scp-173.rsi
-      state: clog
     itemIconStyle: BigAction
     raiseOnUser: true
+  - type: Sprite
+    sprite: _Scp/Actions/scp-173.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: clog
   - type: InstantAction
     event: !type:Scp173ClogAction
   - type: SafeTimeRestricted
@@ -39,11 +43,13 @@
   components:
   - type: Action
     useDelay: 40
-    icon:
-      sprite: _Scp/Actions/scp-173.rsi
-      state: damage_structures
     itemIconStyle: BigAction
     raiseOnUser: true
+  - type: Sprite
+    sprite: _Scp/Actions/scp-173.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: damage_structures
   - type: InstantAction
     event: !type:Scp173DamageStructureAction
 
@@ -55,10 +61,12 @@
   components:
   - type: Action
     useDelay: 90
-    icon:
-      sprite: _Scp/Actions/scp-173.rsi
-      state: jump
     itemIconStyle: BigAction
+  - type: Sprite
+    sprite: _Scp/Actions/scp-173.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: jump
   - type: TargetAction
     range: 200
     checkCanAccess: false
