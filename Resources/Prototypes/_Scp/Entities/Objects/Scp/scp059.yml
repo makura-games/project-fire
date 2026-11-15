@@ -53,8 +53,6 @@
   - type: Damageable
     damageModifierSet: SCP-059
   - type: DamageOverlay
-    damagePopupType: SmallFloating
-    isStructure: true
   - type: Scp
     class: Keter
   - type: GuideHelp

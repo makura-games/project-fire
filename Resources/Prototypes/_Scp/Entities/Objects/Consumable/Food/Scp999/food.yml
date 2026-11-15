@@ -63,8 +63,6 @@
           Quantity: 5
         - ReagentId: JellyPizzaReagent
           Quantity: 5
-  - type: SliceableFood
-    slice: FoodPizzaJellySlice
   - type: FlavorProfile
     flavors:
     - scp999jelly

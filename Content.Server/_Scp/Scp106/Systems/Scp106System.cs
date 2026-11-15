@@ -4,7 +4,6 @@ using Content.Server._Scp.Fear;
 using Content.Server._Sunrise.Helpers;
 using Content.Server.DoAfter;
 using Content.Server.GameTicking;
-using Content.Server.Gateway.Systems;
 using Content.Server.Mind;
 using Content.Server.Store.Systems;
 using Content.Server.Stunnable;
@@ -19,6 +18,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.SSDIndicator;
+using Content.Shared.Store;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -49,7 +49,7 @@ public sealed partial class Scp106System : SharedScp106System
     private static readonly FixedPoint2 EssenceRate = 1f;
     private static readonly TimeSpan AddEssenceCooldown = TimeSpan.FromSeconds(1);
 
-    private const string BackroomsCurrencyPrototype = "LifeEssence";
+    private static readonly ProtoId<CurrencyPrototype> BackroomsCurrencyPrototype = "LifeEssence";
     private static readonly FixedPoint2 BackroomsEssenceRate = 2f;
 
     public const int HumansInBackroomsRequiredToAscent = 10;
@@ -65,8 +65,6 @@ public sealed partial class Scp106System : SharedScp106System
         base.Initialize();
 
         SubscribeLocalEvent<Scp106Component, MapInitEvent>(OnMapInit);
-
-        SubscribeLocalEvent((Entity<Scp106BackRoomMapComponent> _, ref AttemptGatewayOpenEvent args) => args.Cancelled = true);
 
         SubscribeLocalEvent<Scp106Component, Scp106TeleportationDelayActionEvent>(OnTeleportationDelay);
         SubscribeLocalEvent<HumanoidProfileComponent, FearCalmDownAttemptEvent>(OnFearCalmDownAttempt);

@@ -1,7 +1,7 @@
 - type: entity
   name: mimic
   id: MobMimic
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, MobCombat, BaseSlicingRefinable, BaseMobDestructible ]
   description: Surprise. # When this gets a proper write this should use the object's actual description >:)
   components:
   - type: Tag
@@ -41,8 +41,8 @@
     baseWalkSpeed : 1
     baseSprintSpeed : 1
   # Fire edit start
-  #- type: Butcherable
-  #  spawned:
-  #  - id: DrinkChangelingStingCan
-  #    amount: 1
+  - type: ToolRefinable
+    refineResult:
+    - id: DrinkChangelingStingCan
+      amount: 1
   # Fire edit end

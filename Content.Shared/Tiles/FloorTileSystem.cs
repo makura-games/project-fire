@@ -5,7 +5,6 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Interaction;
 using Content.Shared.Maps;
-using Content.Shared.Parallax.Biomes;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
@@ -18,6 +17,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Tiles;
@@ -25,7 +25,6 @@ namespace Content.Shared.Tiles;
 public sealed partial class FloorTileSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private INetManager _netManager = default!;
     [Dependency] private ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
@@ -74,26 +73,17 @@ public sealed partial class FloorTileSystem : EntitySystem
 
         var map = _transform.ToMapCoordinates(location);
 
-        // Fire added start - фикс невозможности поставит плитку на планете
-        var biomeQuery = GetEntityQuery<BiomeComponent>();
-        // Fire added end
-
         // Disallow placement close to grids.
         // FTLing close is okay but this makes alignment too finnicky.
         // While you may already have a tile close you want to replace when we get half-tiles that may also be finnicky
         // so we're just gon with this for now.
         const bool inRange = true;
-        // Fire edit start - фикс невозможности поставит плитку на планете
-        var state = (inRange, location.EntityId, biomeQuery);
-        _mapManager.FindGridsIntersecting(map.MapId, new Box2(map.Position - CheckRange, map.Position + CheckRange), ref state,
-            static (EntityUid entityUid, MapGridComponent grid, ref (bool weh, EntityUid EntityId, EntityQuery<BiomeComponent> Biomes) tuple) =>
+        var state = (inRange, location.EntityId);
+        _map.FindGridsIntersecting(map.MapId, new Box2(map.Position - CheckRange, map.Position + CheckRange), ref state,
+            static (EntityUid entityUid, MapGridComponent grid, ref (bool weh, EntityUid EntityId) tuple) =>
             {
                 if (tuple.EntityId == entityUid)
                     return true;
-
-                if (tuple.Biomes.HasComp(entityUid))
-                    return true;
-                // Fire edit end
 
                 tuple.weh = false;
                 return false;
@@ -147,7 +137,7 @@ public sealed partial class FloorTileSystem : EntitySystem
 
                 if (!CanPlaceTile(gridUid, mapGrid, tile.GridIndices, out var reason))
                 {
-                    _popup.PopupClient(reason, args.User, args.User);
+                    _popup.PopupEntity(reason, args.User, args.User);
                     return;
                 }
 
@@ -172,7 +162,7 @@ public sealed partial class FloorTileSystem : EntitySystem
                 if (_netManager.IsClient)
                     return;
 
-                var grid = _mapManager.CreateGridEntity(locationMap.MapId);
+                var grid = _map.CreateGridEntity(locationMap.MapId);
                 var gridXform = Transform(grid);
                 _transform.SetWorldPosition((grid, gridXform), locationMap.Position);
                 location = new EntityCoordinates(grid, Vector2.Zero);
@@ -205,8 +195,9 @@ public sealed partial class FloorTileSystem : EntitySystem
     {
         _adminLogger.Add(LogType.Tile, LogImpact.Low, $"{ToPrettyString(user):actor} placed tile {_tileDefinitionManager[tileId].Name} at {ToPrettyString(gridUid)} {location}");
 
-        var tileDef = (ContentTileDefinition) _tileDefinitionManager[tileId];
-        var random = new System.Random((int)_timing.CurTick.Value);
+        var tileDef = (ContentTileDefinition)_tileDefinitionManager[tileId];
+        var random = new RobustRandom();
+        random.SetSeed((int)_timing.CurTick.Value);
         var variant = _tile.PickVariant(tileDef, random);
 
         var tileRef = _map.GetTileRef(gridUid, mapGrid, location.Offset(new Vector2(offset, offset)));

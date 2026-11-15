@@ -74,9 +74,6 @@
   - type: Action
     itemIconStyle: BigAction
     priority: -20
-    icon:
-      sprite: _Scp/Objects/Devices/chaos_uplink.rsi
-      state: icon
 
 # UPLINK
 # spy
@@ -86,6 +83,11 @@
   name: terminal implant
   description: This implant lets the user access a hidden Chaos Insurgency terminal at will.
   components:
+  - type: Sprite
+    sprite: _Scp/Objects/Devices/chaos_uplink.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: icon
   - type: SubdermalImplant
     implantAction: ActionOpenTerminalImplant
     whitelist:
