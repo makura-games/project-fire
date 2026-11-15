@@ -1,0 +1,36 @@
+## Fallback if nothing else found
+- type: ambientMusic
+  id: General
+  sound:
+    params:
+      volume: -12
+    collection: FireAmbienceGeneral
+
+- type: ambientMusic
+  id: SpookyFog
+  sound:
+    params:
+      volume: -12
+    collection: FireAmbienceGeneral
+  priority: 5
+  conditions:
+  - !type:NearbyEntitiesCondition
+    count: 5
+    whitelist:
+      tags:
+      - SpookyFog
+    range: 4
+
+- type: ambientMusic
+  id: Holy
+  sound:
+    params:
+      volume: -12
+    collection: FireAmbienceGeneral
+  priority: 4
+  conditions:
+  - !type:NearbyComponentsCondition
+    anchored: true
+    components:
+    - type: Prayable
+    range: 5

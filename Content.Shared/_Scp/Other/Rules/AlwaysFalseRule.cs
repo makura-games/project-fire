@@ -1,13 +1,14 @@
-﻿using Content.Shared.Random.Rules;
-using JetBrains.Annotations;
+using Content.Shared.EntityConditions;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Scp.Other.Rules;
 
-[UsedImplicitly]
-public sealed partial class AlwaysFalseRule : RulesRule
+public sealed partial class AlwaysFalseCondition : EntityConditionBase<AlwaysFalseCondition>
 {
-    public override bool Check(EntityManager entManager, EntityUid uid)
-    {
-        return Inverted;
-    }
+    public override string EntityConditionGuidebookText(IPrototypeManager prototype) => string.Empty;
+}
+
+public sealed partial class AlwaysFalseConditionSystem : EntityConditionSystem<MetaDataComponent, AlwaysFalseCondition>
+{
+    protected override void Condition(Entity<MetaDataComponent> entity, ref EntityConditionEvent<AlwaysFalseCondition> args) { }
 }

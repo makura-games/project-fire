@@ -90,18 +90,17 @@
 #  cost: 750
 #  category: cargoproduct-category-name-engineering
 #  group: market
-# fire edit end
 
-- type: cargoProduct
-  id: AirlockKit
-  icon:
-    sprite: Objects/Tools/Toolboxes/toolbox_yellow.rsi
-    state: icon
-  product: CrateAirlockKit
-  cost: 1100
-  category: cargoproduct-category-name-engineering
-  group: market
-# fire edit start
+#- type: cargoProduct
+#  id: AirlockKit
+#  icon:
+#    sprite: Objects/Tools/Toolboxes/toolbox_yellow.rsi
+#    state: icon
+#  product: CrateAirlockKit
+#  cost: 1100
+#  category: cargoproduct-category-name-engineering
+#  group: market
+
 # - type: cargoProduct
 #  id: EvaKit
 #  icon:
@@ -112,6 +111,7 @@
 #  category: cargoproduct-category-name-engineering
 #  group: market
 # fire edit end
+
 
 - type: cargoProduct
   id: EngineeringRCDAmmo

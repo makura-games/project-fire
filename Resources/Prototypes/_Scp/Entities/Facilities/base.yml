@@ -10,4 +10,19 @@
   abstract: true
   components:
   - type: AlertLevel
-    alertLevelPrototype: FacilityAlerts
+    availableAlertLevels:
+    - scpNone
+    - scpGreen
+    - scpBlue
+    - scpLime
+    - scpOrange
+    - scpWhite
+    - scpGray
+    - scpYellow
+    - scpRed
+    - scpPurple
+    - scpBlack
+    - scpDelta
+    - scpColdSilver
+    defaultAlertLevel: scpNone
+    currentAlertLevel: scpNone

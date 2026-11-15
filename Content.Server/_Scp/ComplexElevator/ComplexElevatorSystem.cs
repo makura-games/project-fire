@@ -1,6 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
-using Content.Shared.Timing;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction;
@@ -10,6 +9,8 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 using Content.Server.Doors.Systems;
+using Content.Shared.Timing.Systems;
+using Content.Shared.Timing.Components;
 
 namespace Content.Server._Scp.ComplexElevator;
 

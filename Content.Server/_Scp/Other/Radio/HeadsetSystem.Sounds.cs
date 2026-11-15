@@ -1,5 +1,6 @@
 #pragma warning disable IDE0130
 using Content.Server.Emp;
+using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Robust.Server.Audio;
 

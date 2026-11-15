@@ -143,13 +143,15 @@ public sealed partial class CharacterUIController : UIController, IOnStateEntere
             return;
         }
 
-        var (entity, job, objectives, briefing, entityName) = data;
+        var (entity, objectives, briefing, jobId, entityName) = data;
 
         _window.SpriteView.SetEntity(entity);
 
         UpdateRoleType();
+        var job = _prototypeManager.Index(jobId);
+
         // Fire added start
-        UpdateJobInfo(job, ref _window);
+        UpdateJobInfo(jobId ?? string.Empty, ref _window);
         UpdateFears(entity, ref _window);
         UpdateEmployeeClass(entity, ref _window);
         UpdateAccessLevel(entity, ref _window);

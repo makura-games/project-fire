@@ -73,7 +73,7 @@
   - type: BloodSplatterer
     probability: 0.4
     bloodLineProbability: 0.1
-  - type: Sharp
+  - type: Sharpened
   - type: Execution
     doAfterDuration: 4.0
   - type: MeleeWeapon

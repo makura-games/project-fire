@@ -5,7 +5,6 @@
   playTimeTracker: JobCentCommOperator
   requirements:
   - !type:DiscordRoleRequirement
-  weight: 30
   setPreference: false # Fire edit
   startingGear: CentCommOperatorGear
   icon: "JobIconNanotrasen"

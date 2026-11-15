@@ -109,7 +109,8 @@
         rolls: !type:RangeNumberSelector
           range: 10, 18
   - type: XenoArtifact
-    triggerWeights: Scp330Triggers
+    triggersTable: !type:NestedSelector
+      tableId: Scp330Triggers
 
 - type: entityTable
   id: Scp330BowlTable
