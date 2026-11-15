@@ -6191,3 +6191,10 @@
     message: Теперь появление яиц SCP-3199 в учреждении сопровождается объявлением
   id: 571
   url: https://github.com/makura-games/project-fire/pull/1198
+- author: timur
+  time: '2026-11-15T22:00:08.0000000+00:00'
+  changes:
+  - type: Fix
+    message: Исправлен баг с невозможностью надеть SCP-035
+  id: 572
+  url: https://github.com/makura-games/project-fire/pull/1200
