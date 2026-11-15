@@ -1,5 +1,4 @@
 ﻿using System.Numerics;
-using Content.Server._Sunrise.ScaleSprite;
 using Content.Server._Sunrise.VentCraw;
 using Content.Server.Stack;
 using Content.Shared._Scp.Helpers;
@@ -20,6 +19,7 @@ using Content.Shared.Item;
 using Content.Shared.Materials;
 using Content.Shared.Physics;
 using Content.Shared.Stacks;
+using Content.Shared.Sprite;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
@@ -35,7 +35,7 @@ public sealed partial class Scp457System : EntitySystem
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] private SharedSafeTimeSystem _safeTime = default!;
-    [Dependency] private ScaleSpriteSystem _scaleSprite = default!;
+    [Dependency] private SharedScaleVisualsSystem _scaleVisuals = default!;
     [Dependency] private SharedSolutionContainerSystem _solution = default!;
     [Dependency] private StackSystem _stack = default!;
     [Dependency] private IGameTiming _timing = default!;
@@ -259,7 +259,7 @@ public sealed partial class Scp457System : EntitySystem
     private void UpdateAppearanceAndPhysics(Entity<Scp457Component> ent)
     {
         var component = ent.Comp;
-        _scaleSprite.Scale(ent.Owner, new Vector2(component.ObjectSize));
+        _scaleVisuals.SetSpriteScale(ent.Owner, new Vector2(component.ObjectSize));
 
         if (component.AppliedObjectSize > 0f && !MathHelper.CloseTo(component.AppliedObjectSize, component.ObjectSize))
             _physics.ScaleFixtures(ent.Owner, component.ObjectSize / component.AppliedObjectSize);

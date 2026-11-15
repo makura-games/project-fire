@@ -1,63 +1,48 @@
-﻿using Content.Shared.Random.Rules;
+using Content.Shared.EntityConditions;
 using Content.Shared.Station.Components;
 using Content.Shared.Whitelist;
-using JetBrains.Annotations;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Scp.Other.Rules;
 
-[UsedImplicitly]
-public sealed partial class StationHasEntityRule : RulesRule
+public sealed partial class StationHasEntityCondition : EntityConditionBase<StationHasEntityCondition>
 {
-    [DataField]
-    public EntityWhitelist? Whitelist;
+    [DataField] public EntityWhitelist? Whitelist;
+    [DataField] public EntityWhitelist? Blacklist;
+    public override string EntityConditionGuidebookText(IPrototypeManager prototype) => string.Empty;
+}
 
-    [DataField]
-    public EntityWhitelist? Blacklist;
-
-    private EntityLookupSystem? _lookup;
-    private EntityWhitelistSystem? _whitelist;
-
+public sealed partial class StationHasEntityConditionSystem : EntityConditionSystem<StationDataComponent, StationHasEntityCondition>
+{
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
     private EntityQuery<TransformComponent> _xformQuery;
-
     private readonly HashSet<Entity<TransformComponent>> _entities = [];
 
-    public override bool Check(EntityManager entManager, EntityUid uid)
+    public override void Initialize()
     {
-        _xformQuery = entManager.GetEntityQuery<TransformComponent>();
-
-        var mapId = GetStationMapId(uid, entManager);
-        if (mapId == MapId.Nullspace)
-            return Inverted;
-
-        _lookup ??= entManager.System<EntityLookupSystem>();
-        _whitelist ??= entManager.System<EntityWhitelistSystem>();
-
-        _entities.Clear();
-        _lookup.GetEntitiesOnMap(mapId, _entities);
-
-        foreach (var ent in _entities)
-        {
-            if (_whitelist.CheckBoth(ent, Blacklist, Whitelist))
-                return !Inverted;
-        }
-
-        return Inverted;
+        base.Initialize();
+        _xformQuery = GetEntityQuery<TransformComponent>();
     }
 
-    private MapId GetStationMapId(EntityUid station, EntityManager ent)
+    protected override void Condition(Entity<StationDataComponent> entity, ref EntityConditionEvent<StationHasEntityCondition> args)
     {
-        if (!ent.TryGetComponent<StationDataComponent>(station, out var stationData))
-            return MapId.Nullspace;
-
-        foreach (var gridUid in stationData.Grids)
+        foreach (var gridUid in entity.Comp.Grids)
         {
             if (!_xformQuery.TryGetComponent(gridUid, out var xform))
                 continue;
 
-            return xform.MapID;
+            _entities.Clear();
+            _lookup.GetEntitiesOnMap(xform.MapID, _entities);
+            foreach (var candidate in _entities)
+            {
+                if (_whitelist.CheckBoth(candidate, args.Condition.Blacklist, args.Condition.Whitelist))
+                {
+                    args.Result = true;
+                    return;
+                }
+            }
         }
-
-        return MapId.Nullspace;
     }
 }

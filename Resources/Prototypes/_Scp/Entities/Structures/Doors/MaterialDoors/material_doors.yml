@@ -6,7 +6,7 @@
     sprite: _Scp/Structures/Doors/MineralDoors/wood_door.rsi
 
 - type: entity
-  parent: MetalDoor
+  parent: SilverDoor
   id: ScpMetalDoor
   components:
   - type: Sprite

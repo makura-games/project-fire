@@ -34,6 +34,7 @@ public sealed partial class MainMenuControl : Control
         "KettleStation",
         "BagelStation",
         "ExoStation",
+        "SnowballStation"
     ];
 
     public MainMenuControl(IResourceCache resCache, IConfigurationManager configMan)

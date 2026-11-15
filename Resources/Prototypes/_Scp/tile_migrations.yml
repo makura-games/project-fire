@@ -19,14 +19,6 @@
   target: ScpFloorSteelPavement
 
 - type: tileAlias
-  id: FloorSteelDiagonal
-  target: ScpFloorSteelDiagonal
-
-- type: tileAlias
-  id: FloorSteelOffset
-  target: ScpFloorSteeloffset # Note: SCP ID uses lowercase 'o'
-
-- type: tileAlias
   id: FloorSteelMono
   target: ScpFloorSteelMono
 
@@ -51,14 +43,6 @@
   target: ScpFloorWhitePavement
 
 - type: tileAlias
-  id: FloorWhiteDiagonal
-  target: ScpFloorWhiteDiagonal
-
-- type: tileAlias
-  id: FloorWhiteOffset
-  target: ScpFloorWhiteoffset # Note: SCP ID uses lowercase 'o'
-
-- type: tileAlias
   id: FloorWhiteMono
   target: ScpFloorWhiteMono
 
@@ -81,14 +65,6 @@
 - type: tileAlias
   id: FloorDarkPavement
   target: ScpFloorDarkPavement
-
-- type: tileAlias
-  id: FloorDarkDiagonal
-  target: ScpFloorDarkDiagonal
-
-- type: tileAlias
-  id: FloorDarkOffset
-  target: ScpFloorDarkoffset # Note: SCP ID uses lowercase 'o'
 
 - type: tileAlias
   id: FloorDarkMono

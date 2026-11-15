@@ -39,19 +39,19 @@ public sealed partial class Scp012System
 
     private void OnVictimMapInit(Entity<Scp012VictimComponent> ent, ref MapInitEvent args)
     {
-        EnsureComp<MutedComponent>(ent);
+        EnsureComp<MutedStatusEffectComponent>(ent);
 
         SetNextSpeakTime(ent);
         SetNextLosCheckTime(ent);
         SetNextPassiveDamageTime(ent);
 
-        _movementSpeed.RefreshMovementSpeedModifiers(ent);
+        _movementSpeed.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private void OnVictimShutdown(Entity<Scp012VictimComponent> ent, ref ComponentShutdown args)
     {
-        RemCompDeferred<MutedComponent>(ent);
-        _movementSpeed.RefreshMovementSpeedModifiers(ent);
+        RemCompDeferred<MutedStatusEffectComponent>(ent);
+        _movementSpeed.RefreshMovementSpeedModifiers(ent.Owner);
         SetAudio(ent, enable: false);
 
         if (ent.Comp.Source.HasValue)
@@ -147,7 +147,7 @@ public sealed partial class Scp012System
         if (!TryPickup(ent, scp))
             return;
 
-        _movementSpeed.RefreshMovementSpeedModifiers(ent);
+        _movementSpeed.RefreshMovementSpeedModifiers(ent.Owner);
 
         ent.Comp.CachedLos = false;
         ent.Comp.NextLosCheckTime = null;
@@ -226,9 +226,9 @@ public sealed partial class Scp012System
     {
         var message = Loc.GetString(phraseId);
 
-        RemComp<MutedComponent>(victim);
+        RemComp<MutedStatusEffectComponent>(victim);
         _chat.TrySendInGameICMessage(victim, message, InGameICChatType.Speak, hideChat: false);
-        EnsureComp<MutedComponent>(victim);
+        EnsureComp<MutedStatusEffectComponent>(victim);
     }
 
     private void SetNextSuicideTime(Entity<Scp012VictimComponent> ent)

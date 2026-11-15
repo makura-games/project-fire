@@ -50,7 +50,8 @@
           - BulletImpassable
         restitution: 1.02 # чтбы разгонялся но не начинал лететь слишком быстро
   - type: XenoArtifact
-    triggerWeights: Scp018Triggers
+    triggersTable: !type:NestedSelector
+      tableId: Scp018Triggers
   - type: Destructible
     thresholds:
     - trigger:

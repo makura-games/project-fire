@@ -8,8 +8,10 @@
   components:
   - type: Action
     useDelay: 4
-    icon:
-      sprite: _Scp/Actions/scp-035.rsi
+  - type: Sprite
+    sprite: _Scp/Actions/scp-035.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
       state: raise
   - type: InstantAction
     event: !type:MaskRaiseArmyActionEvent
@@ -22,10 +24,12 @@
   components:
   - type: Action
     useDelay: 1
-    icon:
-      sprite: _Scp/Actions/scp-035.rsi
-      state: stay
     priority: 5
+  - type: Sprite
+    sprite: _Scp/Actions/scp-035.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: stay
   - type: InstantAction
     event:
       !type:MaskOrderActionEvent
@@ -39,10 +43,12 @@
   components:
   - type: Action
     useDelay: 1
-    icon:
-      sprite: _Scp/Actions/scp-035.rsi
-      state: follow
     priority: 6
+  - type: Sprite
+    sprite: _Scp/Actions/scp-035.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: follow
   - type: InstantAction
     event:
       !type:MaskOrderActionEvent
@@ -56,10 +62,12 @@
   components:
   - type: Action
     useDelay: 1
-    icon:
-      sprite: _Scp/Actions/scp-035.rsi
-      state: attack
     priority: 7
+  - type: Sprite
+    sprite: _Scp/Actions/scp-035.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: attack
   - type: InstantAction
     event:
       !type:MaskOrderActionEvent
@@ -73,10 +81,12 @@
   components:
   - type: Action
     useDelay: 1
-    icon:
-      sprite: _Scp/Actions/scp-035.rsi
-      state: loose
     priority: 8
+  - type: Sprite
+    sprite: _Scp/Actions/scp-035.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: loose
   - type: InstantAction
     event:
       !type:MaskOrderActionEvent
@@ -89,10 +99,12 @@
   components:
   - type: Action
     useDelay: 180
-    icon:
-      sprite: _Scp/Actions/scp-035.rsi
-      state: hypnosis
     priority: 9
+  - type: Sprite
+    sprite: _Scp/Actions/scp-035.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: hypnosis
   - type: TargetAction
     interactOnMiss: false
   - type: EntityTargetAction
@@ -113,8 +125,10 @@
   - type: Action
     useDelay: 180
     itemIconStyle: BigAction
-    icon:
-      sprite: Objects/Magic/magicactions.rsi
+  - type: Sprite
+    sprite: Objects/Magic/magicactions.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
       state: spell_default
   - type: InstantAction
     event: !type:InstantSpawnSpellEvent

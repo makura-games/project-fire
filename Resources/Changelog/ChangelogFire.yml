@@ -6147,3 +6147,12 @@
     message: исправлен баг с невозможностью нанести урон SCP предметам
   id: 565
   url: https://github.com/makura-games/project-fire/pull/1194
+- author: Wardex
+  time: '2026-11-15T17:42:16.0000000+00:00'
+  changes:
+  - type: Tweak
+    message: 'Актуализированы карты: Compact, Standard, Modular'
+  - type: Tweak
+    message: Сделан апстрим с Санрайза
+  id: 566
+  url: https://github.com/makura-games/project-fire/pull/1211

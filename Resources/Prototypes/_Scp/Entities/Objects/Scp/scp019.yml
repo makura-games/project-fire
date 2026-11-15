@@ -136,8 +136,6 @@
     damageOverlay:
       sprite: _Scp/Objects/Scp/scp-019-cracks.rsi
   - type: DamageOverlay
-    damagePopupType: SmallFloating
-    isStructure: true
   - type: Scp
     class: Keter
   - type: GuideHelp
