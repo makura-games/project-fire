@@ -6170,3 +6170,10 @@
     message: Добавлен золотой трон и паланкин для SCP-082 и SCP-3288
   id: 568
   url: https://github.com/makura-games/project-fire/pull/1201
+- author: timur
+  time: '2026-11-15T21:52:16.0000000+00:00'
+  changes:
+  - type: Add
+    message: Добавлена рука SCP-999
+  id: 569
+  url: https://github.com/makura-games/project-fire/pull/1195
