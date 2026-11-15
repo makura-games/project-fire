@@ -8,7 +8,13 @@
     collection: FireAmbienceShuttle
   fadeIn: true
   interruptable: true
-  rules: NearShuttle
+  conditions:
+  - !type:NearbyEntitiesCondition
+    count: 2
+    whitelist:
+      tags:
+      - ShuttleChair
+    range: 6
   priority: 5
 
 - type: ambientMusic
@@ -17,7 +23,12 @@
     collection: ScpFearAmbience
     params:
       volume: -12
-  rules: FearRule
+  conditions:
+  - !type:ScpMobStateCondition
+    allowedStates: [Alive, Critical]
+  - !type:FearStateCondition
+    requiredState: Anxiety
+    canBeGreater: true
   interruptable: true
   priority: 100
 
@@ -27,7 +38,14 @@
     params:
       volume: -12
     collection: FireAmbienceClassD
-  rules: ClassDRule
+  conditions:
+  - !type:IsClassDCondition
+  - !type:NearbyEntitiesCondition
+    count: 4
+    whitelist:
+      tags:
+      - ClassDSpawner
+    range: 16
   fadeIn: true
   interruptable: true
   priority: 99
@@ -39,7 +57,8 @@
     params:
       volume: -12
       loop: true
-  rules: AlwaysFalse
+  conditions:
+  - !type:AlwaysFalseCondition
 
 - type: ambientMusic
   id: ShiftStarted
@@ -48,7 +67,8 @@
     params:
       volume: -6
       loop: true
-  rules: AlwaysFalse
+  conditions:
+  - !type:AlwaysFalseCondition
 
 - type: ambientMusic
   id: ShiftAverted
@@ -56,7 +76,8 @@
     collection: FireAmbienceShiftAverted
     params:
       loop: true
-  rules: AlwaysFalse
+  conditions:
+  - !type:AlwaysFalseCondition
 
 - type: ambientMusic
   id: BeingDead
@@ -64,7 +85,9 @@
     collection: ScpAmbienceDead
     params:
       volume: -8
-  rules: IsCriticalDeadRule
+  conditions:
+  - !type:ScpMobStateCondition
+    allowedStates: [Dead, Critical]
   interruptable: true
   priority: 101
 
@@ -74,80 +97,25 @@
     collection: ScpAmbienceScp096Target
     params:
       volume: -2
-  rules: IsScp096Target
+  conditions:
+  - !type:OwnerWhitelistCondition
+    whitelist:
+      components:
+      - Scp096Target
   interruptable: true
   priority: 110
-
 - type: ambientMusic
   id: Scp096Rage
   sound:
     collection: ScpAmbienceScp096Rage
     params:
       volume: 20
-  rules: IsScp096InRage
-  interruptable: true
-  priority: 110
-
-# Правила
-
-- type: rules
-  id: AlwaysFalse
-  rules:
-  - !type:AlwaysFalseRule
-
-- type: rules
-  id: NearShuttle
-  rules:
-  - !type:NearbyEntitiesRule
-    count: 2
-    whitelist:
-      tags:
-      - ShuttleChair
-    range: 6
-
-- type: rules
-  id: ClassDRule
-  rules:
-  - !type:IsClassD
-  - !type:NearbyEntitiesRule
-    count: 4
-    whitelist:
-      tags:
-      - ClassDSpawner
-    range: 16
-
-- type: rules
-  id: FearRule
-  rules:
-  - !type:MobStateRule
-    allowedStates:
-    - Alive
-    - Critical
-  - !type:FearStateRule
-    requiredState: Anxiety
-    canBeGreater: true
-
-- type: rules
-  id: IsCriticalDeadRule
-  rules:
-  - !type:MobStateRule
-    allowedStates:
-    - Dead
-    - Critical
-
-- type: rules
-  id: IsScp096Target
-  rules:
-  - !type:OwnerWhitelistRule
-    whitelist:
-      components:
-      - Scp096Target
-
-- type: rules
-  id: IsScp096InRage
-  rules:
-  - !type:OwnerWhitelistRule
+  conditions:
+  - !type:OwnerWhitelistCondition
     whitelist:
       components:
       - ActiveScp096Rage
       - ActiveScp096HeatingUp
+  interruptable: true
+  priority: 110
+

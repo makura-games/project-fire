@@ -7,11 +7,13 @@
   components:
   - type: Action
     useDelay: 10
-    icon:
-      sprite: _Scp/Mobs/Scp/scp-457.rsi
-      state: fire
     itemIconStyle: BigAction
     raiseOnUser: true
+  - type: Sprite
+    sprite: _Scp/Mobs/Scp/scp-457.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: fire
   - type: InstantAction
     event: !type:InstantSpawnSpellEvent
       prototype: Scp457Flame

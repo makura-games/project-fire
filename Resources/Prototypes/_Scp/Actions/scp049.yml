@@ -4,11 +4,13 @@
   components:
   - type: Action
     useDelay: 120
-    icon:
-      sprite: _Scp/Actions/scp-049.rsi
-      state: resurrect
     itemIconStyle: NoItem
     priority: 12
+  - type: Sprite
+    sprite: _Scp/Actions/scp-049.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: resurrect
   - type: TargetAction
     interactOnMiss: false
   - type: EntityTargetAction
@@ -28,11 +30,13 @@
   components:
   - type: Action
     useDelay: 0
-    icon:
-      sprite: _Scp/Actions/scp-049.rsi
-      state: kill_minion
     itemIconStyle: NoItem
     priority: 12
+  - type: Sprite
+    sprite: _Scp/Actions/scp-049.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: kill_minion
   - type: TargetAction
     interactOnMiss: false
   - type: EntityTargetAction
@@ -48,11 +52,13 @@
   components:
   - type: Action
     useDelay: 180
-    icon:
-      sprite: _Scp/Actions/scp-049.rsi
-      state: kill
     itemIconStyle: NoItem
     priority: 12
+  - type: Sprite
+    sprite: _Scp/Actions/scp-049.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: kill
   - type: TargetAction
     interactOnMiss: false
   - type: EntityTargetAction
@@ -71,11 +77,13 @@
   components:
   - type: Action
     useDelay: 300
-    icon:
-      sprite: _Scp/Actions/scp-049.rsi
-      state: heal
     itemIconStyle: NoItem
     priority: 12
+  - type: Sprite
+    sprite: _Scp/Actions/scp-049.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: heal
   - type: InstantAction
     event: !type:Scp049SelfHealAction
 
@@ -85,11 +93,13 @@
   components:
   - type: Action
     useDelay: 300
-    icon:
-      sprite: _Scp/Actions/scp-049.rsi
-      state: heal
     itemIconStyle: NoItem
     priority: 12
+  - type: Sprite
+    sprite: _Scp/Actions/scp-049.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: heal
   - type: TargetAction
   - type: EntityTargetAction
     event: !type:Scp049HealMinionAction

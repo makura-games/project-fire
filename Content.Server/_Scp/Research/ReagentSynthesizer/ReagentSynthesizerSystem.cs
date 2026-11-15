@@ -125,12 +125,12 @@ public sealed partial class ReagentSynthesizerSystem : EntitySystem
     private void DoWork(Entity<ReagentSynthesizerComponent> synthesizer)
     {
         var container = _containerSystem.EnsureContainer<ContainerSlot>(synthesizer, ReagentGrinderComponent.BeakerSlotId);
-        var containerUid = _itemSlotsSystem.GetItemOrNull(synthesizer, ReagentGrinderComponent.BeakerSlotId);
+        var containerUid = _itemSlotsSystem.GetItemOrNull((synthesizer.Owner, null), ReagentGrinderComponent.BeakerSlotId);
 
         if (container.ContainedEntities.Count <= 0)
             return;
 
-        if (!HasComp<FitsInDispenserComponent>(containerUid))
+        if (containerUid is not { } beaker || !HasComp<FitsInDispenserComponent>(beaker))
             return;
 
         if (!IsSynthesisable(containerUid.Value, out _))
