@@ -6156,3 +6156,10 @@
     message: Сделан апстрим с Санрайза
   id: 566
   url: https://github.com/makura-games/project-fire/pull/1211
+- author: timur
+  time: '2026-11-15T21:48:24.0000000+00:00'
+  changes:
+  - type: Fix
+    message: На спрайт коричневого свитера SCP-082 добавлены туфли
+  id: 567
+  url: https://github.com/makura-games/project-fire/pull/1209
