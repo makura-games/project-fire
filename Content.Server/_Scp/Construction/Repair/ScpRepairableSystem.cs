@@ -9,11 +9,11 @@ using Content.Shared._Scp.Damage.ExaminableDamage;
 using Content.Shared.Construction;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Construction.Steps;
+using Content.Shared.EntityConditions;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
-using Content.Shared.Random.Rules;
 using Content.Shared.Whitelist;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
@@ -28,7 +28,7 @@ public sealed partial class ScpRepairableSystem : EntitySystem
 {
     [Dependency] private ConstructionSystem _construction = default!;
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private RulesSystem _rules = default!;
+    [Dependency] private SharedEntityConditionsSystem _conditions = default!;
     [Dependency] private PopupSystem _popup = default!;
     [Dependency] private DoAfterSystem _doAfter = default!;
     [Dependency] private ContainerSystem _container = default!;
@@ -99,12 +99,11 @@ public sealed partial class ScpRepairableSystem : EntitySystem
     #endregion
 
     /// <summary>
-    /// Проверяет все условия ремонта (RulesRule и EntityWhitelist).
+    /// Проверяет все условия ремонта (EntityCondition и EntityWhitelist).
     /// </summary>
     private bool CheckRepairConditions(EntityUid target, EntityUid user, ScpRepairableComponent repairable, bool silent = false)
     {
-        // Проверка RulesPrototype для цели
-        if (_prototype.TryIndex(repairable.TargetRules, out var targetRule) && !_rules.IsTrue(target, targetRule))
+        if (!_conditions.TryConditions(target, repairable.TargetConditions))
         {
             if (!silent)
                 _popup.PopupEntity(Loc.GetString("scp-repairable-failed-target"), target, user);
@@ -112,8 +111,7 @@ public sealed partial class ScpRepairableSystem : EntitySystem
             return false;
         }
 
-        // Проверка RulesPrototype для пользователя
-        if (_prototype.TryIndex(repairable.UserRules, out var userRules) && !_rules.IsTrue(user, userRules))
+        if (!_conditions.TryConditions(user, repairable.UserConditions))
         {
             if (!silent)
                 _popup.PopupEntity(Loc.GetString("scp-repairable-failed-user"), target, user);

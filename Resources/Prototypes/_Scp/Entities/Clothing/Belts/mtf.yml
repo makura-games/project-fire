@@ -186,7 +186,6 @@
         - Truncheon
         - HandGrenade
       components:
-        - Stunbaton
         - FlashOnTrigger
         - SmokeOnTrigger
         - Flash

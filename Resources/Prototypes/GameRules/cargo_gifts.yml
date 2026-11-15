@@ -46,10 +46,8 @@
     description: cargo-gift-pizza-small
     dest: cargo-gift-dest-bar
     gifts:
-      FoodPizza: 1              # 4 pizzas
-      FoodBarSupply: 1
-      FoodSoftdrinks: 1
-      CrateVendingMachineRestockRobustSoftdrinks: 1
+      FoodPizza: 1      # 4 pizzas (32 slices total)
+      FoodSoftdrinks: 1 # 16 sodas
 
 - type: entity
   id: GiftsPizzaPartyLarge
@@ -64,9 +62,8 @@
     description: cargo-gift-pizza-large
     dest: cargo-gift-dest-bar
     gifts:
-      FoodPizza: 4              # 16 pizzas
-      FoodBarSupply: 1
-      FoodSoftdrinks: 2         # 32 sodas
+      FoodPizza: 4      # 16 pizzas (128 slices total)
+      FoodSoftdrinks: 2 # 32 sodas
 
 - type: entity
   id: GiftsEngineering
@@ -82,7 +79,6 @@
     dest: cargo-gift-dest-eng
     gifts:
       EngineeringCableBulk: 1
-      AirlockKit: 1
       MaterialSteel: 1
       MaterialPlasteel: 1
       MaterialGlass: 1
@@ -121,9 +117,9 @@
     description: cargo-gift-cleaning
     dest: cargo-gift-dest-janitor
     gifts:
-      ServiceJanitorial: 2
-      ServiceLightsReplacement: 2
-      ServiceJanitorBiosuit: 1
+      JanitorialSupplies: 2
+      JanitorialLightsReplacement: 2
+      JanitorialBiosuit: 1
 
 - type: entity
   id: GiftsMedical
@@ -157,7 +153,7 @@
     description: cargo-gift-space-protection
     dest: cargo-gift-dest-supp
     gifts:
-      #EmergencyInternalsLarge: 2 # Fire edit
+      #EmergencyEVA: 2 # Fire edit
       EmergencyInflatablewall: 1
       EmergencyAdvancedKit: 1
       MedicalBiosuit: 1

@@ -3,7 +3,8 @@ using Content.Server.Popups;
 using Content.Shared._Scp.Backrooms.SpawnOnUse;
 using Content.Shared.Database;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Timing;
+using Content.Shared.Timing.Components;
+using Content.Shared.Timing.Systems;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 
@@ -53,6 +54,6 @@ public sealed partial class SpawnOnUseSystem : EntitySystem
         if (item.Comp.Charges == 0)
             _appearance.SetData(item, SpawnOnUseVisuals.Charged, false);
 
-        _useDelay.TryResetDelay(item);
+        _useDelay.TryResetDelay(item.Owner);
     }
 }

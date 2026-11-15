@@ -10,7 +10,6 @@
   startingGear: ChemistGear
   icon: "JobIconChemist"
   supervisors: job-supervisors-cmo
-  displayWeight: 30  # Sunrise
   overrideConsoleVisibility: false # Fire added
   setPreference: false # Fire added
   # Sunrise-Start
@@ -33,6 +32,7 @@
   job: Chemist
   equipment:
     head: ClothingHeadHatBeretMedic
+    eyes: ClothingEyesGlassesChemical
     mask: ClothingMaskSterile
     neck: ClothingNeckStethoscope
     outerClothing: ClothingOuterCoatLabChem

@@ -5,8 +5,10 @@
   - type: Action
     useDelay: 1
     checkCanInteract: false
-    icon:
-      sprite: _Scp/Clothing/Mask/scp-096.rsi
+  - type: Sprite
+    sprite: _Scp/Clothing/Mask/scp-096.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
       state: icon
   - type: InstantAction
     event: !type:ScpTearMaskEvent
@@ -20,6 +22,10 @@
   components:
   - type: Action
     useDelay: 1
-    icon: { sprite: _Scp/Clothing/Head/Helmets/aipowered.rsi, state: icon }
+  - type: Sprite
+    sprite: _Scp/Clothing/Head/Helmets/aipowered.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: icon
   - type: InstantAction
     event: !type:ToggleActionEvent

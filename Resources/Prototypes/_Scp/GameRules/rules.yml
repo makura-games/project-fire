@@ -1,7 +1,0 @@
-﻿- type: rules
-  id: StationHaveScp096
-  rules:
-  - !type:StationHasEntityRule
-    whitelist:
-      components:
-      - Scp096

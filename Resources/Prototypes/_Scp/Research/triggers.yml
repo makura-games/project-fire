@@ -1,45 +1,51 @@
 ﻿# Общие
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerInsertIntoContainer
-  tip: artifact-trigger-hint-insert-into-container
+  name: artifact-trigger-hint-insert-into-container
   components:
   - type: XATModifyContainer
     triggerOnInsert: true
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerRemoveFromContainer
-  tip: artifact-trigger-hint-remove-from-container
+  name: artifact-trigger-hint-remove-from-container
   components:
   - type: XATModifyContainer
     triggerOnRemove: true
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerOnTake
-  tip: artifact-trigger-hint-take-item
+  name: artifact-trigger-hint-take-item
   components:
   - type: XATTakeDrop
     triggerOnTake: true
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerOnDrop
-  tip: artifact-trigger-hint-drop-item
+  name: artifact-trigger-hint-drop-item
   components:
   - type: XATTakeDrop
     triggerOnDrop: true
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerDealDamageSlash30
-  tip: artifact-trigger-deal-damage-slash-30
+  name: artifact-trigger-deal-damage-slash-30
   components:
   - type: XATDealDamage
     requiredDamage:
       types:
         Slash: 30
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerDealDamageSlash70
-  tip: artifact-trigger-deal-damage-slash-70
+  name: artifact-trigger-deal-damage-slash-70
   components:
   - type: XATDealDamage
     requiredDamage:
@@ -48,8 +54,9 @@
 
 # SCP-330
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerScp330Punishment
-  tip: artifact-trigger-scp330-punishment
+  name: artifact-trigger-scp330-punishment
   components:
   - type: XATScp330Punishment

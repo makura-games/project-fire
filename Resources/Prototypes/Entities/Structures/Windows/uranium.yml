@@ -1,30 +1,21 @@
 - type: entity
+  parent: [BaseDeltaPressurePlasma, BaseWindowStructure, BaseRCDResistant, StructureHealthBarrier]
   id: UraniumWindow
   name: uranium window
-  parent: [BaseDeltaPressurePlasma, WindowRCDResistant]
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    drawdepth: WallTops
-    sprite: Structures/Windows/uranium_window.rsi
+    sprite: Structures/Windows/window-uranium.rsi
   - type: Icon
-    sprite: Structures/Windows/uranium_window.rsi
+    sprite: Structures/Windows/window-uranium.rsi
     state: full
   - type: Damageable
-    damageModifierSet: Glass
-  - type: Injurable
-    damageContainer: StructuralInorganic
+    damageModifierSet: GlassMod
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
+        damage: 80
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -34,8 +25,6 @@
           ShardGlassUranium:
             min: 1
             max: 2
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: IconSmooth
     base: uwindow
   - type: Construction
@@ -54,15 +43,10 @@
     resistance: 3
 
 - type: entity
+  parent: [BaseDeltaPressurePlasmaQuarter, BaseWindowStructureDirectional, BaseRCDResistant, StructureHealthBarrierWeak]
   id: UraniumWindowDirectional
-  parent: [BaseDeltaPressurePlasmaQuarter, WindowDirectionalRCDResistant]
   name: directional uranium window
-  description: Don't smudge up the glass down there.
   categories: [ HideSpawnMenu ] # Fire added
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Window
   components:
   - type: Sprite
     sprite: Structures/Windows/directional.rsi
@@ -80,17 +64,13 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
+  - type: Damageable
+    damageModifierSet: GlassMod
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
+        damage: 30
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -100,12 +80,41 @@
           ShardGlassUranium:
             min: 1
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: StaticPrice
     price: 100
   - type: RadiationBlocker
     resistance: 1.5
+
+- type: entity
+  parent: UraniumWindowDirectional
+  id: UraniumWindowDirectionalCorner
+  suffix: Corner
+  components:
+  - type: Sprite
+    sprite: Structures/Windows/directional.rsi
+    state: uranium_window_corner
+  - type: Icon
+    sprite: Structures/Windows/directional.rsi
+    state: uranium_window_corner
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,-0.28125,-0.28125"
+        density: 1500
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+  - type: Construction
+    graph: WindowDirectionalCorner
+    node: uraniumWindowDirectionalCorner
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: Structures/Windows/cracks_directional_corner.rsi
 
 - type: entity
   parent: UraniumWindow
@@ -119,7 +128,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/uranium_window_diagonal.rsi
+    sprite: Structures/Windows/window-diagonal-uranium.rsi
     state: state0
   - type: Tag
     tags:
@@ -130,7 +139,7 @@
     key: walls
     base: state
   - type: Icon
-    sprite: Structures/Windows/uranium_window_diagonal.rsi
+    sprite: Structures/Windows/window-diagonal-uranium.rsi
     state: state0
   - type: Fixtures
     fixtures:
@@ -155,7 +164,7 @@
     - East
   - type: DamageVisuals
     damageOverlay:
-      sprite: Structures/Windows/cracks_diagonal.rsi
+      sprite: Structures/Windows/cracks-diagonal.rsi
   - type: Construction
     graph: WindowDiagonal
     node: uraniumWindowDiagonal

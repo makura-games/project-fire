@@ -6,8 +6,10 @@
   components:
   - type: Action
     useDelay: 60
-    icon:
-      sprite: _Scp/Actions/scp-096.rsi
+  - type: Sprite
+    sprite: _Scp/Actions/scp-096.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
       state: scream
   - type: InstantAction
     event: !type:Scp096CryOutEvent
@@ -23,8 +25,10 @@
   components:
   - type: Action
     useDelay: 300 # 5 минут -> 25 минут до уничтожения лица
-    icon:
-      sprite: _Scp/Actions/scp-096.rsi
+  - type: Sprite
+    sprite: _Scp/Actions/scp-096.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
       state: rip
   - type: InstantAction
     event: !type:Scp096FaceSkinRipEvent
@@ -41,8 +45,10 @@
   - type: Action
     useDelay: 5
     checkCanInteract: false
-    icon:
-      sprite: _Scp/Actions/scp-096.rsi
+  - type: Sprite
+    sprite: _Scp/Actions/scp-096.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
       state: sit
   - type: InstantAction
     event: !type:Scp096SitDownEvent
