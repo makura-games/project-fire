@@ -1,40 +1,20 @@
-﻿using Content.Shared.Random.Rules;
+using Content.Shared.EntityConditions;
 using Content.Shared.Whitelist;
-using JetBrains.Annotations;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Scp.Other.Rules;
 
-/// <summary>
-/// Проверяет переданный вайтлист и блеклист для сущности.
-/// </summary>
-[UsedImplicitly]
-public sealed partial class OwnerWhitelistRule : RulesRule
+public sealed partial class OwnerWhitelistCondition : EntityConditionBase<OwnerWhitelistCondition>
 {
-    /// <summary>
-    /// Белый список компонентов и тегов, который должна иметь сущность.
-    /// </summary>
-    [DataField]
-    public EntityWhitelist? Whitelist;
+    [DataField] public EntityWhitelist? Whitelist;
+    [DataField] public EntityWhitelist? Blacklist;
+    public override string EntityConditionGuidebookText(IPrototypeManager prototype) => string.Empty;
+}
 
-    /// <summary>
-    /// Черный список компонентов и тегов, который должна иметь сущность.
-    /// </summary>
-    [DataField]
-    public EntityWhitelist? Blacklist;
+public sealed partial class OwnerWhitelistConditionSystem : EntityConditionSystem<MetaDataComponent, OwnerWhitelistCondition>
+{
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
-    /// <summary>
-    /// Система белых список для проверки сущности.
-    /// Кешируется в переменную.
-    /// </summary>
-    private EntityWhitelistSystem? _whitelist;
-
-    public override bool Check(EntityManager entManager, EntityUid uid)
-    {
-        _whitelist ??= entManager.System<EntityWhitelistSystem>();
-
-        if (!_whitelist.CheckBoth(uid, Blacklist, Whitelist))
-            return Inverted;
-
-        return !Inverted;
-    }
+    protected override void Condition(Entity<MetaDataComponent> entity, ref EntityConditionEvent<OwnerWhitelistCondition> args)
+        => args.Result = _whitelist.CheckBoth(entity, args.Condition.Blacklist, args.Condition.Whitelist);
 }

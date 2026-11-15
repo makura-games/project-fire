@@ -27,7 +27,7 @@ public sealed partial class DeployableComponent : Component
     /// Инструменты, которые требуются для развертывания
     /// </summary>
     [DataField(required: true)]
-    public PrototypeFlags<ToolQualityPrototype> RequiredTools  = [];
+    public HashSet<ProtoId<ToolQualityPrototype>> RequiredTools = [];
 
     /// <summary>
     /// Время развертывания. На него влиет качество инструмента, ускоряя или замедляя его

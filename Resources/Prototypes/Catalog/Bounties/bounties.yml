@@ -187,16 +187,14 @@
 
 # - type: cargoBounty
 #   id: BountyKnife
-#   reward: 2000
-#   description: bounty-description-knife
-#   entries:
-#   - name: bounty-item-knife
-#     amount: 5
-#     whitelist:
-#       components:
-#       - Sharp
-#       tags:
-#       - UtilityKnife # required because retracted utility knives are not Sharp
+#  reward: 2000
+#  description: bounty-description-knife
+#  entries:
+#  - name: bounty-item-knife
+#    amount: 5
+#    whitelist:
+#      tags:
+#      - Knife
 
 # - type: cargoBounty
 #   id: BountyLemon
@@ -520,20 +518,20 @@
 #       components:
 #       - PowerCell
 
-# - type: cargoBounty
-#   id: BountyFood
-#   reward: 4000
-#   description: bounty-description-food
-#   idPrefix: UNTH
-#   entries:
-#   - name: bounty-item-food
-#     amount: 30
-#     whitelist:
-#       tags:
-#       - Meat
-#     blacklist:
-#       components:
-#       - SliceableFood
+- type: cargoBounty
+  id: BountyFood
+  reward: 4000
+  description: bounty-description-food
+  idPrefix: UNTH
+  entries:
+  - name: bounty-item-food
+    amount: 30
+    whitelist:
+      tags:
+      - Meat
+    blacklist:
+      components:
+      - ToolRefinable
 
 # - type: cargoBounty
 #   id: BountyFruit

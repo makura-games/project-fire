@@ -1,8 +1,7 @@
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Robust.Shared.Audio; // Sunrise-Add: поле звука уведомления о низком заряде
 
-#pragma warning disable IDE0130 // Namespace does not match folder structure
+// ReSharper disable once CheckNamespace
 namespace Content.Shared.Radio.Components;
 
 public sealed partial class HeadsetComponent
@@ -14,13 +13,7 @@ public sealed partial class HeadsetComponent
     public Dictionary<string, float> ChannelVolumes = new();
 
     [DataField]
-    public float SendChargeCost = 2f; // Fire edit
-
-    [DataField]
-    public float ReceiveChargeCost = 1f; // Fire edit
-
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string ToggleAction = "ActionToggleHeadset";
+    public EntProtoId ToggleAction = "ActionToggleHeadset";
 
     [DataField, AutoNetworkedField]
     public EntityUid? ToggleActionEntity;

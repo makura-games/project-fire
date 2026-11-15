@@ -47,9 +47,6 @@
     - ScientificService
     - HeavyContainmentSecurityService
   - type: XenoScreech
-  - type: Muted
-    allowed:
-    - Laugh
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -80,10 +77,7 @@
   - type: TTS
     voice: HearthstoneSotis
   - type: Vocal
-    sounds:
-      Male: SCP106
-      Female: SCP106
-      Unsexed: SCP106
+    emoteSounds: SCP106
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepScp106

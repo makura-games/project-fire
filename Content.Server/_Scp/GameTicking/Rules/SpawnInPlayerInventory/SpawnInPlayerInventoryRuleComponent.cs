@@ -1,7 +1,6 @@
-﻿using Content.Shared.Random.Rules;
+using Content.Shared.EntityConditions;
 using Content.Shared.Storage;
 using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server._Scp.GameTicking.Rules.SpawnInPlayerInventory;
 
@@ -18,5 +17,5 @@ public sealed partial class SpawnInPlayerInventoryRuleComponent : Component
     public SoundSpecifier? Sound;
 
     [DataField]
-    public ProtoId<RulesPrototype>? StationRules;
+    public EntityCondition[] StationConditions = [];
 }

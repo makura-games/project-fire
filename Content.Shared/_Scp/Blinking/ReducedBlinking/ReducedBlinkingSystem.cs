@@ -3,7 +3,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.Timing;
+using Content.Shared.Timing.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
@@ -106,7 +106,7 @@ public abstract partial class SharedReducedBlinkingSystem : EntitySystem
         DirtyField(target, blinkable, nameof(BlinkableComponent.ReducedBlinkingTolerance));
 
         _blinking.ResetBlink(target);
-        _useDelay.TryResetDelay(ent);
+        _useDelay.TryResetDelay(ent.Owner);
 
         if (ent.Comp.UseSound != null)
             _audio.PlayPredicted(ent.Comp.UseSound, ent, target);

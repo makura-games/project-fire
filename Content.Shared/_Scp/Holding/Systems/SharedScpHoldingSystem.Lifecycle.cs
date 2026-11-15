@@ -85,12 +85,12 @@ public abstract partial class SharedScpHoldingSystem
 
     private void OnHolderSlowdownRemove(Entity<ActiveStateScpHolderSlowdownComponent> ent, ref ComponentRemove args)
     {
-        _movement.RefreshMovementSpeedModifiers(ent);
+        _movement.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private void OnHolderSlowdownAfterState(Entity<ActiveStateScpHolderSlowdownComponent> ent, ref AfterAutoHandleStateEvent args)
     {
-        _movement.RefreshMovementSpeedModifiers(ent);
+        _movement.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private void OnHolderSlowdownRefreshMoveSpeed(Entity<ActiveStateScpHolderSlowdownComponent> ent, ref RefreshMovementSpeedModifiersEvent args)

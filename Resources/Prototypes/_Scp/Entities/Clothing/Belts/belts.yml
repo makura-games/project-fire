@@ -19,7 +19,6 @@
       - CombatKnife
       - Truncheon
       components:
-      - Stunbaton
       - FlashOnTrigger
       - SmokeOnTrigger
       - Flash
@@ -39,7 +38,6 @@
       stunbaton:
         whitelist:
           components:
-          - Stunbaton
       tear_gas_grenade:
         whitelist:
           components:

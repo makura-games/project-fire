@@ -1,6 +1,6 @@
 using Content.Server.Construction.Components;
 using Content.Shared.Construction.Prototypes;
-using Content.Shared.Random.Rules;
+using Content.Shared.EntityConditions;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 
@@ -28,14 +28,14 @@ public sealed partial class ScpRepairableComponent : Component
     /// Если проверок нет или они проходят - ремонт доступен, иначе показывается сообщение о провале.
     /// </summary>
     [DataField]
-    public ProtoId<RulesPrototype>? TargetRules;
+    public EntityCondition[] TargetConditions = [];
 
     /// <summary>
     /// Правила проверки, которые будут применяться к использующему ремонт (игроку).
     /// Если проверок нет или они проходят - ремонт доступен, иначе показывается сообщение о провале.
     /// </summary>
     [DataField]
-    public ProtoId<RulesPrototype>? UserRules;
+    public EntityCondition[] UserConditions = [];
 
     /// <summary>
     /// Белый список для ремонтируемой сущности (цели).

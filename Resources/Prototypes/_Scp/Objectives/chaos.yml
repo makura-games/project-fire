@@ -80,15 +80,17 @@
   - type: TargetObjective
     title: objective-condition-kill-maroon-chaos-raid-title
   - type: PickRandomPerson
-    filters:
-    - !type:BodyMindFilter
+    conditions:
+    - !type:RoleCondition
       whitelist:
         components:
         - CommandStaff
-    - !type:TargetObjectiveMindFilter
-      blacklist:
+    - !type:ObjectiveTargetCondition
+      inverted: true
+      whitelist:
         components:
-        - KillPersonCondition
+        - HelpProgressCondition
+        - KeepAliveCondition
   - type: KillPersonCondition
     requireDead: true
     requireMaroon: true

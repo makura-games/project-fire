@@ -32,47 +32,20 @@
       entity: FloorTileItemWood
 
 - type: constructionGraph
-  id: TilesBrass
+  id: TileWhite
   start: start
   graph:
     - node: start
       edges:
-        - to: filledPlate
+        - to: whitetile
           completed:
             - !type:SetStackCount
               amount: 4
           steps:
-            - material: Brass
+            - material: Steel
               amount: 1
-        - to: reebe
-          completed:
-            - !type:SetStackCount
-              amount: 4
-          steps:
-            - material: Brass
-              amount: 1
-    
-    - node: filledPlate
-      entity: FloorTileItemBrassFilled
-      
-    - node: reebe
-      entity: FloorTileItemBrassReebe
-
-# - type: constructionGraph # Fire Edit
-#   id: TileWhite
-#   start: start
-#   graph:
-#     - node: start
-#       edges:
-#         - to: whitetile
-#           completed:
-#             - !type:SetStackCount
-#               amount: 4
-#           steps:
-#             - material: Steel
-#               amount: 1
-#     - node: whitetile
-#       entity: FloorTileItemWhite
+    - node: whitetile
+      entity: FloorTileItemWhite
 
 # - type: constructionGraph # Fire Edit
 #   id: TileDark
