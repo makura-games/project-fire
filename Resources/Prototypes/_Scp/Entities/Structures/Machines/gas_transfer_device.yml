@@ -18,10 +18,6 @@
     inletName: inlet
     transferRate: 100
   - type: AtmosPipeLayers
-    alternativePrototypes:
-      Primary: GasTransferDevice
-      Secondary: GasTransferDevice
-      Tertiary: GasTransferDevice
   - type: NodeContainer
     nodes:
       inlet:

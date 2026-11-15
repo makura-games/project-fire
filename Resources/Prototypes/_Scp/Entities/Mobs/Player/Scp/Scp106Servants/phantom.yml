@@ -27,8 +27,7 @@
     showInExamine: false
   - type: Scp106Phantom
   - type: ScpRestriction
-  - type: ToggleableNightVision
-    effect: ScpEffectNightVision
+  - type: NightVision
 
 - type: entity
   id: Scp106Phantom

@@ -51,10 +51,7 @@
     - GhostOnlyWarp
   - type: WarpPoint
     follow: true
-    location: nuclear bomb
-    blacklist:
-      tags:
-      - GhostOnlyWarp
+    location: location-nuclear-bomb # Fire edit - актуальный ключ локализации точки варпа
   - type: PointLight
     enabled: false
     radius: 6

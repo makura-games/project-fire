@@ -11,16 +11,17 @@ using Content.Server.Ghost;
 using Content.Server.Jittering;
 using Content.Server.Nuke;
 using Content.Server.RoundEnd;
-using Content.Server.Speech.EntitySystems;
 using Content.Server.Stunnable;
 using Content.Shared._Scp.Audio;
 using Content.Shared._Scp.Scp106;
 using Content.Shared._Scp.Scp106.Components;
+using Content.Shared.AlertLevel;
 using Content.Shared.Audio;
 using Content.Shared.GameTicking;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Light.Components;
+using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
@@ -78,7 +79,7 @@ public sealed partial class Scp106AscentRule : GameRuleSystem<Scp106AscentRuleCo
     private static readonly ProtoId<AudioPresetPrototype> FancyEffect = "Dizzy";
 
     private const string RuleAddedCode = "scpPurple";
-    private const string RuleStartedCode = "scpGamma";
+    private const string RuleStartedCode = "scpBlack";
 
     private static readonly TimeSpan ReturnCachedAlertLevelAfter = TimeSpan.FromSeconds(5f);
 
@@ -154,7 +155,8 @@ public sealed partial class Scp106AscentRule : GameRuleSystem<Scp106AscentRuleCo
         Timer.Spawn(AscentAnnounceAfter,
             () =>
             {
-                component.CachedAlertLevel = _alertLevel.GetLevel(station.Value);
+                if (_alertLevel.TryGetLevel(station.Value, out var alertLevelProto) && alertLevelProto is { } level)
+                    component.CachedAlertLevel = level;
                 _alertLevel.SetLevel(station.Value, RuleAddedCode, true, true, true);
             },
             _timerDespawnToken.Token);

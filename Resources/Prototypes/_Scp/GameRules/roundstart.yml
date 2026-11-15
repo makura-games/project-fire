@@ -284,7 +284,6 @@
     - id: GreytideVirus
     - id: IonStorm
     - id: MassHallucinations
-    - id: MimicVendorRule
     - id: MouseMigration
     - id: RandomSentience
 #    - id: VentClog

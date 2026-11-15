@@ -7,12 +7,14 @@
   components:
   - type: Action
     useDelay: 180
-    icon:
-      sprite: _Scp/Objects/Specific/NECKSNAP.rsi
-      state: necksnap
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/_Scp/Scp173/necksnap1.ogg
+  - type: Sprite
+    sprite: _Scp/Objects/Specific/NECKSNAP.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: necksnap
   - type: TargetAction
     range: 1
     interactOnMiss: false
@@ -47,12 +49,14 @@
   components:
   - type: Action
     useDelay: 20
-    icon:
-      sprite: _Scp/Objects/Specific/NECKSNAP.rsi
-      state: necksnap
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/_Scp/Scp173/necksnap1.ogg
+  - type: Sprite
+    sprite: _Scp/Objects/Specific/NECKSNAP.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: necksnap
   - type: TargetAction
     range: 1
     interactOnMiss: false

@@ -134,6 +134,7 @@
   defaultToScpScale: 0.0 # Fire Edit
   recipeUnlocks:
   - Truncheon
+  - EnergyBola # Sunrise-Add
   - TelescopicShield
   # - HoloprojectorSecurity #Fire-Station
   - WeaponDisablerSMG
