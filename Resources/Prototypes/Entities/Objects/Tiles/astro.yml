@@ -191,6 +191,7 @@
   name: large wood floor
   parent: FloorTileItemBase
   id: FloorTileItemWoodLarge
+  categories: [ HideSpawnMenu ] # Fire edit
   components:
   - type: Sprite
     state: wood-large

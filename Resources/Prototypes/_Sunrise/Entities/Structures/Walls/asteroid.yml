@@ -52,6 +52,7 @@
 # Бананиумные породы сохранены в Sunrise после их удаления из Wizden.
 - type: entity
   id: AsteroidRockBananium
+  categories: [ HideSpawnMenu ] # Fire edit
   parent: AsteroidRock
   description: An ore vein rich with bananium.
   suffix: Bananium
@@ -83,6 +84,7 @@
 
 - type: entity
   id: AsteroidRockBananiumCrab
+  categories: [ HideSpawnMenu ] # Fire edit
   parent: AsteroidRockBananium
   suffix: Bananium Crab
   components:
@@ -91,6 +93,7 @@
 
 - type: entity
   id: IronRockBananium
+  categories: [ HideSpawnMenu ] # Fire edit
   parent: IronRock
   description: An ore vein rich with bananium.
   suffix: Bananium
@@ -122,6 +125,7 @@
 
 - type: entity
   id: WallRockBananium
+  categories: [ HideSpawnMenu ] # Fire edit
   parent: WallRock
   description: An ore vein rich with bananium.
   suffix: Bananium
@@ -191,6 +195,7 @@
 
 - type: entity
   id: WallRockChromiteBananium
+  categories: [ HideSpawnMenu ] # Fire edit
   parent: WallRockChromite
   description: An ore vein rich with bananium.
   suffix: Bananium
@@ -222,6 +227,7 @@
 
 - type: entity
   id: WallRockSandBananium
+  categories: [ HideSpawnMenu ] # Fire edit
   parent: WallRockSand
   description: An ore vein rich with bananium.
   suffix: Bananium
@@ -253,6 +259,7 @@
 
 - type: entity
   id: WallRockSnowBananium
+  categories: [ HideSpawnMenu ] # Fire edit
   parent: WallRockSnow
   description: An ore vein rich with bananium.
   suffix: Bananium
