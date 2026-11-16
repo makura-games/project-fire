@@ -1,2 +1,10 @@
 ent-PlushieScp999 = SCP-999 plushie
     .desc = A soft orange toy, resembling a slightly melted lump of jelly, exudes a warm, soothing glow. When touched, it emits a barely audible squeak of satisfaction, as if it is happy to be hugged.
+ent-PlushieWardex = Victoria Hill
+    .desc = Your documents, please!
+ent-PlushieZero = Vergil Nocturnus
+    .desc = Vergil Nocturnus, known as “the Commissioner” or “Zero”. A long-standing employee of the foundation, known for his hot-tempered nature and love of Russian weapons. O5-8.
+ent-PlushiePuffiku = Emily Endsleigh
+    .desc = A stern woman who loves and reveres bureaucracy. You can have a pleasant chat with her about anything, but God forbid she sees a violation... She reeks of ink and fresh paper.
+ent-PlushiePeper = Gavriil Grebenyuk
+    .desc = The eternal “cadet”. Gavriil Grebenyuk is a Junior Officer in the Special Forces Unit, but don’t let such a low-ranking position fool you. Gavriil is one of the most experienced security service employees and...Perhaps.....He’s somehow involved in internal security.

@@ -74,6 +74,7 @@
   id: WoodWall
   graph: Barricade
   targetNode: woodWall
+  hide: true # Fire edit
 
 - type: construction
   parent: Girder
@@ -425,6 +426,7 @@
   id: FenceWood
   graph: FenceWood
   targetNode: straight
+  hide: true # Fire edit
 
 - type: construction
   parent: FenceWood
@@ -454,6 +456,7 @@
   id: FenceWoodSmall
   graph: FenceWood
   targetNode: straight_small
+  hide: true # Fire edit
 
 - type: construction
   parent: FenceWood

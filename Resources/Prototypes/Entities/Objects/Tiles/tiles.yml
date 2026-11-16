@@ -435,6 +435,7 @@
   name: wood floor
   parent: FloorTileItemBase
   id: FloorTileItemWood
+  categories: [ HideSpawnMenu ] # Fire edit
   components:
   - type: Sprite
     state: wood
@@ -838,6 +839,7 @@
   name: wood pattern floor
   parent: FloorTileItemBase
   id: FloorTileItemWoodPattern
+  categories: [ HideSpawnMenu ] # Fire edit
   components:
   - type: Sprite
     state: woodpatternfloor

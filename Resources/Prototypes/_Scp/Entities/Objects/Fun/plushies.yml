@@ -63,3 +63,48 @@
     sprite: _Scp/Objects/Fun/Plushies/class_d.rsi
     slots:
     - HEAD
+
+- type: entity
+  id: PlushieWardex
+  parent: BasePlushie
+  name: Victoria Hill
+  description: Your documents, please!
+  components:
+  - type: Sprite
+    sprite: _Scp/Objects/Fun/Plushies/Fire_Staff.rsi
+    state: wardex
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Misc/delta.ogg
+  - type: UseDelay
+    delay: 40
+
+- type: entity
+  id: PlushieZero
+  parent: BasePlushie
+  name: Vergil Nocturnus
+  description: Vergil Nocturnus, known as “the Commissioner” or “Zero”. A long-standing employee of the foundation, known for his hot-tempered nature and love of Russian weapons. O5-8.
+  components:
+  - type: Sprite
+    sprite: _Scp/Objects/Fun/Plushies/Fire_Staff.rsi
+    state: zero
+
+- type: entity
+  id: PlushiePuffiku
+  parent: BasePlushie
+  name: Emily Endsleigh
+  description: A stern woman who loves and reveres bureaucracy. You can have a pleasant chat with her about anything, but God forbid she sees a violation... She reeks of ink and fresh paper.
+  components:
+  - type: Sprite
+    sprite: _Scp/Objects/Fun/Plushies/Fire_Staff.rsi
+    state: puffiku
+
+- type: entity
+  id: PlushiePeper
+  parent: BasePlushie
+  name: Gavriil Grebenyuk
+  description: The eternal “cadet”. Gavriil Grebenyuk is a Junior Officer in the Special Forces Unit, but don’t let such a low-ranking position fool you. Gavriil is one of the most experienced security service employees and...Perhaps.....He’s somehow involved in internal security.
+  components:
+  - type: Sprite
+    sprite: _Scp/Objects/Fun/Plushies/Fire_Staff.rsi
+    state: peper

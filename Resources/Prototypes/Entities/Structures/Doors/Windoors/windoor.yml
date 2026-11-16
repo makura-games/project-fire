@@ -115,6 +115,7 @@
 - type: entity
   parent: Windoor
   id: WindoorCommandLocked
+  categories: [ HideSpawnMenu ] # Fire edit
   suffix: Command, Locked
   components:
   - type: ContainerFill
@@ -269,6 +270,7 @@
 - type: entity
   parent: Windoor
   id: WindoorSecurityLocked
+  categories: [ HideSpawnMenu ] # Fire edit
   suffix: Security, Locked
   components:
   - type: ContainerFill
@@ -280,6 +282,7 @@
 - type: entity
   parent: Windoor
   id: WindoorServiceLocked
+  categories: [ HideSpawnMenu ] # Fire edit
   suffix: Service, Locked
   components:
   - type: ContainerFill
@@ -291,6 +294,7 @@
 - type: entity
   parent: Windoor
   id: WindoorSyndicateLocked
+  categories: [ HideSpawnMenu ] # Fire edit
   suffix: Syndicate, Locked
   components:
   - type: ContainerFill
@@ -300,6 +304,7 @@
 - type: entity
   parent: WindoorServiceLocked
   id: WindoorTheatreLocked
+  categories: [ HideSpawnMenu ] # Fire edit
   suffix: Theatre, Locked
   components:
   - type: ContainerFill
@@ -376,6 +381,7 @@
 - type: entity
   parent: WindoorPlasma
   id: PlasmaWindoorJanitorLocked
+  categories: [ HideSpawnMenu ] # Fire edit
   suffix: Janitor, Locked, Plasma
   components:
   - type: ContainerFill
@@ -420,6 +426,7 @@
 - type: entity
   parent: WindoorPlasma
   id: PlasmaWindoorSyndicateLocked
+  categories: [ HideSpawnMenu ] # Fire edit
   suffix: Syndicate, Locked, Plasma
   components:
   - type: ContainerFill

@@ -42,9 +42,33 @@
     - PortableSurveillanceCameraMonitorUnpowered
     - HandheldStationMapUnpowered
   - type: Access
-  # Fire edit start - новые доступы
+    # Fire edit start - новые доступы
     groups:
     - SecurityJobCommon
+    # Fire edit end
+    tags:
+    - Borg # турели ИИ и станции не должны стрелять по боргу этого типа
+    - EmergencyShuttleRepealAll
+    - Command
+    - Lawyer
+    - Engineering
+    - Medical
+    - Salvage
+    - Cargo
+    - Research
+    - Service
+    - Maintenance
+    - Brig
+    - Security
+    - External
+    - Janitor
+    - Theatre
+    - Bar
+    - Chemistry
+    - Kitchen
+    - Chapel
+    - Hydroponics
+    - Atmospherics
   - type: AccessReader
     access: [ [ "Administration" ], [ "Security" ] ] # Fire Edit
   - type: Tag
@@ -183,9 +207,33 @@
   - type: SiliconLawProvider
     laws: ScpDefault # Fire edit
   - type: Access
-  # Fire edit start - новые доступы
+    # Fire edit start - новые доступы
     groups:
     - SecurityJobCommon
+    # Fire edit end
+    tags:
+    - Borg # турели ИИ и станции не должны стрелять по боргу этого типа
+    - EmergencyShuttleRepealAll
+    - Command
+    - Lawyer
+    - Engineering
+    - Medical
+    - Salvage
+    - Cargo
+    - Research
+    - Service
+#    - Maintenance
+    - Brig
+    - Security
+    - External
+    - Janitor
+    - Theatre
+    - Bar
+    - Chemistry
+    - Kitchen
+    - Chapel
+    - Hydroponics
+    - Atmospherics
   - type: AccessReader
     access: [ [ "Administration" ], [ "Security" ] ] # Fire Edit
   - type: Tag

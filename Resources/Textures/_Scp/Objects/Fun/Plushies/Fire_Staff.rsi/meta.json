@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CLA",
+    "copyright": "Made by peperino0290_92944 for SCP: Project Fire",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "wardex"
+      },
+      {
+        "name": "zero"
+      },
+      {
+        "name": "peper"
+      },
+      {
+        "name": "puffiku"
+      }
+      ]
+  }

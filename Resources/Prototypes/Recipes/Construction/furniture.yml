@@ -278,6 +278,7 @@
   id: Dresser
   graph: Dresser
   targetNode: dresser
+  hide: true # Fire edit
 # endregion Bedroom
 
 # region Curtains

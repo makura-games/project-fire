@@ -248,6 +248,7 @@
 - type: entity
   parent: BoxSurvivalDeluxeExtended
   id: BoxMime
+  categories: [ HideSpawnMenu ] # Fire edit
   suffix: Mime, Emergency
   components:
   - type: EntityTableContainerFill
@@ -264,6 +265,7 @@
 - type: entity
   parent: BoxSurvivalDeluxeExtendedNitrogen
   id: BoxMimeNitrogen
+  categories: [ HideSpawnMenu ] # Fire edit
   suffix: Mime, Emergency N2
   components:
   - type: EntityTableContainerFill
@@ -280,6 +282,7 @@
 - type: entity
   parent: BoxSurvivalDeluxeExtended
   id: BoxMimeMoth
+  categories: [ HideSpawnMenu ] # Fire edit
   suffix: Mime, Emergency Moth
   components:
   - type: EntityTableContainerFill

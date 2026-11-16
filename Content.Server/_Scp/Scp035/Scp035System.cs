@@ -37,6 +37,7 @@ using Robust.Shared.Utility;
 using Content.Shared.Whitelist;
 using Content.Shared.Chemistry.EntitySystems;
 using Robust.Server.GameObjects;
+using Content.Shared.Inventory.Events;
 
 namespace Content.Server._Scp.Scp035;
 
@@ -77,18 +78,18 @@ public sealed partial class Scp035System : SharedScp035System
         RaiseLocalEvent(ent, ref toggleUsed);
     }
 
-    protected override void OnMaskEquipped(Entity<Scp035MaskComponent> ent, ref ClothingGotEquippedEvent args)
+    protected override void OnMaskEquipped(Entity<Scp035MaskComponent> ent, ref GotEquippedEvent args)
     {
         base.OnMaskEquipped(ent, ref args);
 
-        if (!_mind.TryGetMind(args.Wearer, out var mindId, out var mind))
+        if (!_mind.TryGetMind(args.EquipTarget, out var mindId, out var mind))
             return;
 
         if (!_ghost.OnGhostAttempt(mindId, false, false, false, mind))
             return;
 
-        EnsureComp<GhostTakeoverAvailableComponent>(args.Wearer);
-        var ghostRoleComp = EnsureComp<GhostRoleComponent>(args.Wearer);
+        EnsureComp<GhostTakeoverAvailableComponent>(args.EquipTarget);
+        var ghostRoleComp = EnsureComp<GhostRoleComponent>(args.EquipTarget);
         ghostRoleComp.RoleName = Loc.GetString("scp-035-ghost-role-name");
         ghostRoleComp.RoleDescription = Loc.GetString("scp-035-ghost-role-desc");
         ghostRoleComp.RaffleConfig = new GhostRoleRaffleConfig(ent.Comp.GhostSettings);

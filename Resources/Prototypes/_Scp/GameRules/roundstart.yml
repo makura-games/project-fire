@@ -228,10 +228,10 @@
       max: 720 # 12 mins
     scheduledGameRules: !type:NestedSelector
       tableId: ScpBasicGameRulesTable
-  - type: RoundstartStationVariationRule
-    rules:
-    - id: ScpSolidWallRustingVariationPass
-    - id: ScpReinforcedWallRustingVariationPass
+#  - type: RoundstartStationVariationRule не надо
+#    rules:
+#    - id: ScpSolidWallRustingVariationPass
+#    - id: ScpReinforcedWallRustingVariationPass
 
 - type: entity
   id: BasicFoundationChillEventScheduler
