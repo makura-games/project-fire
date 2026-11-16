@@ -21,7 +21,6 @@ public sealed partial class ScalingViewport
     [Dependency] private IEyeManager _eyeManager = default!;
     [Dependency] private IPlayerManager _player = default!;
     [Dependency] private ITileDefinitionManager _tile = default!;
-    [Dependency] private IMapManager _map = default!;
 
     private CEClientZLevelsSystem? _zLevels;
     private SharedMapSystem? _mapSystem;
@@ -63,7 +62,7 @@ public sealed partial class ScalingViewport
 
         var mapCoordsBottomLeft = new MapCoordinates(new Vector2(minX, minY), mapId);
 
-        if (_mapSystem is null || !_map.TryFindGridAt(mapUid, mapCoordsBottomLeft.Position, out var gridUid, out var grid))
+        if (_mapSystem is null || !_mapSystem.TryFindGridAt(mapUid, mapCoordsBottomLeft.Position, out var gridUid, out var grid))
             return true;
 
         var minTileX = int.MaxValue;

@@ -55,7 +55,7 @@ public sealed partial class GunSystem
             return TransformSystem.ToCoordinates(user, cursor);
 
         // Соседний этаж имеет собственную систему координат; сохраняем привязку к его гриду.
-        if (MapManager.TryFindGridAt(target.MapId, target.Position, out var grid, out _))
+        if (Maps.TryFindGridAt(target, out var grid, out _))
             return TransformSystem.ToCoordinates(grid, target);
 
         return TransformSystem.ToCoordinates(target);

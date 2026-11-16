@@ -115,8 +115,8 @@ public sealed class ZLevelIntegrationTest
             var weather = server.System<WeatherSystem>();
             var lowerMap = map.CreateMap(out lowerMapId);
             var upperMap = map.CreateMap(out upperMapId);
-            lowerGrid = server.MapMan.CreateGridEntity(lowerMapId);
-            var upperGrid = server.MapMan.CreateGridEntity(upperMapId);
+            lowerGrid = map.CreateGridEntity(lowerMapId);
+            var upperGrid = map.CreateGridEntity(upperMapId);
 
             transform.SetLocalPositionRotation(lowerGrid, new Vector2(6f, -4f), Angle.FromDegrees(90));
             transform.SetLocalPosition(upperGrid, new Vector2(5f, -4f));

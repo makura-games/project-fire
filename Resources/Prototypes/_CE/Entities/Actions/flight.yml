@@ -5,9 +5,10 @@
   components:
   - type: Action
     useDelay: 1.5
-    icon:
-      sprite: _CE/Actions/misc.rsi
-      state: up
+  - type: Sprite
+    sprite: _CE/Actions/misc.rsi
+    layers:
+    - state: up
   - type: InstantAction
     event: !type:CEZFlightActionUp
 
@@ -18,9 +19,10 @@
   components:
   - type: Action
     useDelay: 1.5
-    icon:
-      sprite: _CE/Actions/misc.rsi
-      state: down
+  - type: Sprite
+    sprite: _CE/Actions/misc.rsi
+    layers:
+    - state: down
   - type: InstantAction
     event: !type:CEZFlightActionDown
 
@@ -32,9 +34,11 @@
   components:
   - type: Action
     useDelay: 1.5
-    icon:
-      sprite: _CE/Actions/misc.rsi
-      state: toggle_flight
-    iconOn:
-      sprite: _CE/Actions/misc.rsi
-      state: toggle_flight_on
+  - type: Sprite
+    sprite: _CE/Actions/misc.rsi
+    layers:
+    - state: toggle_flight
+      map: ["enum.ActionVisuals.Icon"]
+    - state: toggle_flight_on
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false

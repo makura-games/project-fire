@@ -39,8 +39,8 @@ public sealed class ZCollapseTest
         {
             lowerMap = map.CreateMap(out lowerMapId, runMapInit: false);
             var upperMap = map.CreateMap(out upperMapId, runMapInit: false);
-            var lowerGrid = server.MapMan.CreateGridEntity(lowerMapId);
-            upperGrid = server.MapMan.CreateGridEntity(upperMapId);
+            var lowerGrid = map.CreateGridEntity(lowerMapId);
+            upperGrid = map.CreateGridEntity(upperMapId);
             server.EntMan.AddComponent<CEGridStabilityComponent>(lowerGrid).SupportLowestLevel = true;
             if (!ceilingTool)
                 server.EntMan.AddComponent<CEGridStabilityComponent>(upperGrid);

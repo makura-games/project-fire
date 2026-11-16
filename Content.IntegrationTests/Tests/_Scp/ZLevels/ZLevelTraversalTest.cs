@@ -248,8 +248,8 @@ public sealed class ZLevelTraversalTest
         {
             lowerMap = map.CreateMap(out lowerMapId);
             upperMap = map.CreateMap(out upperMapId);
-            var lowerGrid = server.MapMan.CreateGridEntity(lowerMapId);
-            upperGrid = server.MapMan.CreateGridEntity(upperMapId);
+            var lowerGrid = map.CreateGridEntity(lowerMapId);
+            upperGrid = map.CreateGridEntity(upperMapId);
             map.SetTile(lowerGrid, lowerGrid.Comp, Vector2i.Zero, new Tile(1));
             map.SetTile(upperGrid, upperGrid.Comp, Vector2i.Zero, new Tile(1));
             map.SetTile(upperGrid, upperGrid.Comp, new Vector2i(1, 0), new Tile(1));

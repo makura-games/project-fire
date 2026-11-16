@@ -23,7 +23,6 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
 {
     [Dependency] private INetManager _net = null!;
     [Dependency] private IConfigurationManager _config = null!;
-    [Dependency] private IMapManager _mapManager = default!;
 
     [Dependency] private SharedPhysicsSystem _physicsSystem = null!;
     [Dependency] private SharedTransformSystem _transform = null!;

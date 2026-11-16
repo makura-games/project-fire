@@ -33,7 +33,6 @@ namespace Content.Server._CE.ZCollapse;
 public sealed partial class CEZCollapseSystem : EntitySystem
 {
     [Dependency] private SharedMapSystem _map = default!;
-    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private CESharedZLevelsSystem _zLevel = default!;
     [Dependency] private ITileDefinitionManager _tileDefMan = default!;
@@ -200,7 +199,7 @@ public sealed partial class CEZCollapseSystem : EntitySystem
         if (!_mapCompQuery.TryGetComponent(mapUid, out var mapComp))
             return false;
 
-        foreach (var grid in _mapManager.GetAllGrids(mapComp.MapId))
+        foreach (var grid in _map.GetAllGrids(mapComp.MapId))
         {
             if (_stabilityQuery.HasComponent(grid.Owner))
             {
@@ -289,7 +288,7 @@ public sealed partial class CEZCollapseSystem : EntitySystem
             if (!_mapCompQuery.TryGetComponent(mapUid, out var mapComp))
                 return false;
 
-            foreach (var candidate in _mapManager.GetAllGrids(mapComp.MapId))
+            foreach (var candidate in _map.GetAllGrids(mapComp.MapId))
             {
                 if (!participates(candidate.Owner))
                     continue;
@@ -670,8 +669,7 @@ public sealed partial class CEZCollapseSystem : EntitySystem
     /// </summary>
     private void DropTileItemBelow(EntityUid gridUid, Vector2i tile, ContentTileDefinition tileDef)
     {
-        var itemProto = tileDef.ItemDropPrototypeName;
-        if (itemProto == null)
+        if (tileDef.ItemDropPrototypeName is not { } itemProto)
             return;
 
         if (!TryGetOwningMap(gridUid, out var mapUid) ||

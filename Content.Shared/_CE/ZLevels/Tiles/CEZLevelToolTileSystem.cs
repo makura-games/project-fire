@@ -40,7 +40,6 @@ public sealed partial class CEZLevelToolTileSystem : EntitySystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private ITileDefinitionManager _tileDefManager = default!;
-    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private CESharedZLevelsSystem _zLevel = default!;
     [Dependency] private SharedInteractionSystem _interaction = default!;
@@ -84,7 +83,7 @@ public sealed partial class CEZLevelToolTileSystem : EntitySystem
             return;
 
         var worldPos = _transform.ToMapCoordinates(clickLocation).Position;
-        if (!_mapManager.TryFindGridAt(aboveMap.Owner, worldPos, out var gridUid, out var grid))
+        if (!_map.TryFindGridAt(aboveMap.Owner, worldPos, out var gridUid, out var grid))
             return;
 
         var tileIndices = _map.WorldToTile(gridUid, grid, worldPos);
@@ -92,7 +91,7 @@ public sealed partial class CEZLevelToolTileSystem : EntitySystem
         var tileDef = (ContentTileDefinition)_tileDefManager[tileRef.Tile.TypeId];
 
         var qualities = tool.Qualities;
-        if (!qualities.ContainsAny(tileDef.DeconstructTools))
+        if (!qualities.Overlaps(tileDef.DeconstructTools))
         {
             // Telegraph which tool is required, same as ToolTileCompatibleComponent's floor variant.
             var toolNames = new List<string>();
@@ -153,7 +152,7 @@ public sealed partial class CEZLevelToolTileSystem : EntitySystem
 
         var tileDef = (ContentTileDefinition)_tileDefManager[tileRef.Tile.TypeId];
         var qualities = tool.Qualities;
-        if (!qualities.ContainsAny(tileDef.DeconstructTools))
+        if (!qualities.Overlaps(tileDef.DeconstructTools))
             return;
 
         // don't do this on the client or else the tile entity spawn mispredicts and looks horrible
@@ -184,8 +183,7 @@ public sealed partial class CEZLevelToolTileSystem : EntitySystem
     /// </summary>
     private void DropItemOnLevelBelow(EntityUid gridUid, Vector2i tile, ContentTileDefinition tileDef)
     {
-        var itemProto = tileDef.ItemDropPrototypeName;
-        if (itemProto == null)
+        if (tileDef.ItemDropPrototypeName is not { } itemProto)
             return;
 
         if (Transform(gridUid).MapUid is not { } mapUid ||
@@ -196,7 +194,7 @@ public sealed partial class CEZLevelToolTileSystem : EntitySystem
         }
 
         var worldPos = _map.GridTileToWorldPos(gridUid, grid, tile);
-        if (!_mapManager.TryFindGridAt(belowMap.Owner, worldPos, out var belowGridUid, out var belowGrid))
+        if (!_map.TryFindGridAt(belowMap.Owner, worldPos, out var belowGridUid, out var belowGrid))
             return; // nothing below to fall onto — the item is simply lost
 
         var belowTile = _map.WorldToTile(belowGridUid, belowGrid, worldPos);

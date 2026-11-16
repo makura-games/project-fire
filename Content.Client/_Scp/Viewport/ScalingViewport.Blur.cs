@@ -10,8 +10,6 @@ namespace Content.Client.Viewport;
 
 public sealed partial class ScalingViewport
 {
-    [Dependency] private IPrototypeManager _proto = default!;
-
     private static readonly ProtoId<ShaderPrototype> ZLevelBlurShader = "CEZBlur";
 
     private readonly OverlayResourceCache<UpperZLevelResources> _upperZLevelResources = new();
@@ -72,7 +70,7 @@ public sealed partial class ScalingViewport
         // Color.Transparent содержит белый RGB, который проявляется в стекле и на границах размытия.
         upperViewport.ClearColor = new Color(0f, 0f, 0f, 0f);
 
-        return new UpperZLevelResources(upperViewport, _proto.Index(ZLevelBlurShader).InstanceUnique());
+        return new UpperZLevelResources(upperViewport, _prototypeManager.Index(ZLevelBlurShader).InstanceUnique());
     }
 
     protected override void ExitedTree()

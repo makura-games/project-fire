@@ -251,7 +251,7 @@ public sealed class ZLevelFearSightTest
                 var uid = map.CreateMap(out var id);
                 _maps.Add(depth, id);
                 levels.Add(uid, depth);
-                var grid = server.MapMan.CreateGridEntity(id);
+                var grid = map.CreateGridEntity(id);
                 _grids.Add(depth, grid);
                 for (var x = 0; x <= 5; x++)
                     map.SetTile(grid, grid.Comp, new Vector2i(x, 0), SolidFloor);

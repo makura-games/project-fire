@@ -58,7 +58,7 @@ public sealed class ZLevelPredictionTest
             var map = client.System<SharedMapSystem>();
             var mapUid = map.CreateMap(out mapId);
             client.EntMan.AddComponent<CEZMapComponent>(mapUid);
-            var grid = client.MapMan.CreateGridEntity(mapId);
+            var grid = map.CreateGridEntity(mapId);
             map.SetTile(grid, grid.Comp, Vector2i.Zero, new Tile(1));
             subject = client.EntMan.SpawnEntity("ScpZPredictionTestSubject", new MapCoordinates(position, mapId));
             var physics = client.EntMan.GetComponent<CEZPhysicsComponent>(subject);

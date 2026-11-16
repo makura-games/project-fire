@@ -265,9 +265,10 @@ public sealed class ZLevelShootingTest
         {
             scene = new Scene(pair);
             scene.ExtendMiddleFloor(-5, 6);
-            var coveringGrid = pair.Server.MapMan.CreateGridEntity(scene.MiddleId);
+            var map = pair.Server.System<SharedMapSystem>();
+            var coveringGrid = map.CreateGridEntity(scene.MiddleId);
             var tile = new Tile(pair.Server.ResolveDependency<ITileDefinitionManager>()["FloorSteel"].TileId);
-            pair.Server.System<SharedMapSystem>().SetTile(coveringGrid, coveringGrid.Comp, new Vector2i(2, 0), tile);
+            map.SetTile(coveringGrid, coveringGrid.Comp, new Vector2i(2, 0), tile);
             accepted = scene.TryPlan(new Vector2(1f, 0.5f), new Vector2(3.5f, 4.5f), scene.LowerId, out _);
         });
         await pair.Server.WaitAssertion(() => Assert.That(accepted, Is.False));
@@ -311,9 +312,10 @@ public sealed class ZLevelShootingTest
             var transform = pair.Server.System<SharedTransformSystem>();
             if (rotated)
                 transform.SetLocalPositionRotation(scene.MiddleGrid, new Vector2(13f, -9f), Angle.FromDegrees(67));
-            var coveringGrid = pair.Server.MapMan.CreateGridEntity(scene.MiddleId);
+            var map = pair.Server.System<SharedMapSystem>();
+            var coveringGrid = map.CreateGridEntity(scene.MiddleId);
             var tile = new Tile(pair.Server.ResolveDependency<ITileDefinitionManager>()["FloorSteel"].TileId);
-            pair.Server.System<SharedMapSystem>().SetTile(coveringGrid, coveringGrid.Comp, Vector2i.Zero, tile);
+            map.SetTile(coveringGrid, coveringGrid.Comp, Vector2i.Zero, tile);
             transform.SetLocalPositionRotation(coveringGrid, scene.World(new Vector2(2f, 0.45f)),
                 Angle.FromDegrees((rotated ? 67 : 0) + (rotatedCover ? 45 : 0)));
             // Проекция на край закрыта, но ближайший открытый угол находится в 0,9913 тайла от стрелка.
@@ -406,8 +408,8 @@ public sealed class ZLevelShootingTest
         await pair.Server.WaitPost(() =>
         {
             scene = new Scene(pair);
-            var grid = pair.Server.MapMan.CreateGridEntity(upward ? scene.UpperId : scene.MiddleId);
             var map = pair.Server.System<SharedMapSystem>();
+            var grid = map.CreateGridEntity(upward ? scene.UpperId : scene.MiddleId);
             var tile = new Tile(pair.Server.ResolveDependency<ITileDefinitionManager>()["FloorSteel"].TileId);
             if (upward)
                 map.SetTile(grid, grid.Comp, new Vector2i(1, 0), tile);
@@ -638,8 +640,8 @@ public sealed class ZLevelShootingTest
                 [Upper] = 1,
                 [far] = 2,
             });
-            MiddleGrid = server.MapMan.CreateGridEntity(MiddleId);
-            UpperGrid = server.MapMan.CreateGridEntity(UpperId);
+            MiddleGrid = map.CreateGridEntity(MiddleId);
+            UpperGrid = map.CreateGridEntity(UpperId);
             var tile = new Tile(server.ResolveDependency<ITileDefinitionManager>()["FloorSteel"].TileId);
             for (var x = 0; x < 2; x++)
                 map.SetTile(MiddleGrid, MiddleGrid.Comp, new Vector2i(x, 0), tile);
@@ -685,7 +687,7 @@ public sealed class ZLevelShootingTest
             transform.SetMapCoordinates(_shooter, source);
             var gun = server.EntMan.SpawnEntity(gunPrototype, source);
             var ammo = server.EntMan.SpawnEntity(hitscan ? "ScpZShotTestHitscan" : "ScpZShotTestProjectile", source);
-            server.System<GunSystem>().Shoot(gun, server.EntMan.GetComponent<GunComponent>(gun), ammo,
+            server.System<GunSystem>().Shoot((gun, server.EntMan.GetComponent<GunComponent>(gun)), ammo,
                 transform.ToCoordinates(source), transform.ToCoordinates(new MapCoordinates(World(to), target)), out _, _shooter);
             return ammo;
         }

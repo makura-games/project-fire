@@ -12,7 +12,11 @@
   - type: PlacementReplacement
     key: walls
   - type: Occluder
-    boundingBox: "-0.5,0.25,0.5,0.5"
+    polygon:
+    - "-0.5,0.5"
+    - "0.5,0.5"
+    - "0.5,0.25"
+    - "-0.5,0.25"
   - type: Sprite
     sprite: _CE/Structures/Architecture/Ladders/wooden.rsi
     state: straight
@@ -104,4 +108,8 @@
     state: internal_corner
   - type: Occluder
     enabled: true
-    boundingBox: "-0.5,-0.5,0.5,0.5"
+    polygon:
+    - "-0.5,0.5"
+    - "0.5,0.5"
+    - "0.5,-0.5"
+    - "-0.5,-0.5"

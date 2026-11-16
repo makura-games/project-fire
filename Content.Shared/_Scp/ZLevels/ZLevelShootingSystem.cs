@@ -13,7 +13,6 @@ public sealed partial class ZLevelShootingSystem : EntitySystem
 {
     [Dependency] private SharedMapSystem _map = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
-    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private CESharedZLevelsSystem _zLevels = default!;
     [Dependency] private EntityQuery<TransformComponent> _transformQuery = default!;
     [Dependency] private EntityQuery<CEZLevelViewerComponent> _viewerQuery = default!;
@@ -89,7 +88,7 @@ public sealed partial class ZLevelShootingSystem : EntitySystem
             return false;
         }
 
-        return !_mapManager.TryFindGridAt(coordinates, out var gridUid, out var grid) ||
+        return !_map.TryFindGridAt(coordinates, out var gridUid, out var grid) ||
                !_map.TryGetTileRef(gridUid, grid, coordinates.Position, out var tile) || tile.Tile.IsEmpty;
     }
 
@@ -108,7 +107,7 @@ public sealed partial class ZLevelShootingSystem : EntitySystem
         var bounds = new Box2(Vector2.Min(from, to) - new Vector2(BoundaryEpsilon),
             Vector2.Max(from, to) + new Vector2(BoundaryEpsilon));
         _grids.Clear();
-        _mapManager.FindGridsIntersecting(mapId, bounds, ref _grids, approx: true, includeMap: true);
+        _map.FindGridsIntersecting(mapId, bounds, ref _grids, approx: true, includeMap: true);
         foreach (var grid in _grids)
         {
             if (!TryFindGridBoundary(grid, mapId, from, to, enteringOpening, out var gridDistance, out var gridEdgeDistance) ||
@@ -287,7 +286,7 @@ public sealed partial class ZLevelShootingSystem : EntitySystem
             // Как в TryFindGridAt, расширяем поиск из-за небольшого сжатия границ сетки.
             var margin = new Vector2(0.2f);
             var bounds = new Box2(Vector2.Min(start, end) - margin, Vector2.Max(start, end) + margin);
-            _mapManager.FindGridsIntersecting(mapId, bounds, ref _edgeGrids, approx: true, includeMap: true);
+            _map.FindGridsIntersecting(mapId, bounds, ref _edgeGrids, approx: true, includeMap: true);
             var side = normal * BoundaryEpsilon;
             foreach (var grid in _edgeGrids)
             {

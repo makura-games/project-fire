@@ -19,7 +19,6 @@ public sealed partial class EyeWatchingSystem
     [Dependency] private CESharedZLevelsSystem _zLevels = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private SharedMapSystem _map = default!;
-    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private ITileDefinitionManager _tile = default!;
     [Dependency] private ExamineSystemShared _examine = default!;
     [Dependency] private SharedInteractionSystem _interaction = default!;
@@ -130,7 +129,7 @@ public sealed partial class EyeWatchingSystem
     private bool HasVisibleZProjection(MapId mapId, Vector2 position, LineOfSightBlockerLevel type)
     {
         _zSightGrids.Clear();
-        _mapManager.FindGridsIntersecting(mapId,
+        _map.FindGridsIntersecting(mapId,
             Box2.CenteredAround(position, new Vector2(ZPointTraceLength)), ref _zSightGrids, approx: true, includeMap: true);
 
         foreach (var grid in _zSightGrids)
