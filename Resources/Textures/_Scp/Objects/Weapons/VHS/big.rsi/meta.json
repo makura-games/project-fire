@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CLA",
+    "copyright": "by discord: peperino0290_92944",
+    "size": {
+        "x": 64,
+        "y": 32
+    },
+    "states": [
+	{
+		"name": "icon"
+	},
+	{
+		"name": "bolt-open"
+	},
+	{
+		"name": "base"
+	},
+	{
+		"name": "mag-0"
+    }
+    ]
+}

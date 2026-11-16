@@ -73,6 +73,20 @@
 
 - type: entity
   parent: BaseChaosStorageCrate
+  id: ChaosStorageCrateMachineGunVHS
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Storage
+    grid:
+    - 0,0,8,3
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleVHS
+      - id: MagazineRifleSP
+        amount: 4
+
+- type: entity
+  parent: BaseChaosStorageCrate
   id: ChaosStorageCrateWeaponShotgunCycler
   categories: [ HideSpawnMenu ]
   components:
