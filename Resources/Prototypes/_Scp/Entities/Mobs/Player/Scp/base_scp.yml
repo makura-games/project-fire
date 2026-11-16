@@ -205,11 +205,6 @@
   - type: Pullable
   - type: Puller
     needsHands: true
-  - type: Vocal
-    sounds:
-      Male: MaleHuman
-      Female: MaleHuman
-      Unsexed: MaleHuman
   - type: Speech
   - type: TTS
   - type: UserInterface

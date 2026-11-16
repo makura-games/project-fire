@@ -6,7 +6,6 @@
   components:
   - type: Action
     useDelay: 120
-    itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/forcewall.ogg
   - type: Sprite
@@ -32,7 +31,6 @@
       layers:
       - map: [ "enum.ActionVisuals.Icon" ]
         state: scp-208
-      itemIconStyle: NoItem
     - type: TargetAction
       repeat: false
       range: 3

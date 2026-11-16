@@ -104,7 +104,7 @@
         Cellular: -2
         Asphyxiation: -0.5
     whitelist:
-      tags:
+      components:
       - MobState
   - type: Scp208
     damage:
