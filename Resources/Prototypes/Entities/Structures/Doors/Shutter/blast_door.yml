@@ -195,6 +195,7 @@
 - type: entity
   parent: BlastDoor
   id: BlastDoorXenoborg
+  categories: [ HideSpawnMenu ] # Fire edit
   name: mechadermis blast door
   description: Don't lose a head!
   components:
@@ -222,6 +223,7 @@
 - type: entity
   parent: BlastDoorXenoborg
   id: BlastDoorXenoborgOpen
+  categories: [ HideSpawnMenu ] # Fire edit
   suffix: Open
   components:
   - type: Door

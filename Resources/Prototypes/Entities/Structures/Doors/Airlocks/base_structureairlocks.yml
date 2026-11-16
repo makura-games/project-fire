@@ -1,4 +1,4 @@
-﻿# Feature-reduced parent, compatible with the requirements of the High Security Door
+# Feature-reduced parent, compatible with the requirements of the High Security Door
 # You probably want to inherit from Airlock rather than this
 - type: entity
   abstract: true
@@ -163,6 +163,7 @@
 - type: entity
   parent: [ BaseAirlockIndestructible, StructureHealthDoor ]
   id: Airlock
+  categories: [ HideSpawnMenu ] # Fire edit
   name: airlock
   description: It opens, it closes, and maybe crushes you.
   components:

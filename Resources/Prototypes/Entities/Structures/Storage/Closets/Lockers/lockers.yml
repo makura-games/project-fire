@@ -742,6 +742,7 @@
 # Representative
 - type: entity
   id: LockerRepresentative
+  categories: [ HideSpawnMenu ] # Fire edit
   name: representative locker
   parent: LockerBase
   components:
