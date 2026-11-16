@@ -1,11 +1,11 @@
 using System.Linq;
 using System.Numerics;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Destructible;
+using Content.Shared.Explosion;
 using Content.Shared.Foldable;
 using Content.Shared.Hands.Components;
-using Content.Shared.Explosion;
 using Content.Shared.Interaction;
-using Content.Shared.Item;
 using Content.Shared.Lock;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
@@ -14,8 +14,6 @@ using Content.Shared.Tools.Systems;
 using Content.Shared.Verbs;
 using Content.Shared.Wall;
 using Content.Shared.Whitelist;
-using Content.Shared.ActionBlocker;
-using Content.Shared.Mobs.Components;
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -232,21 +230,21 @@ public abstract partial class SharedEntityStorageSystem : EntitySystem
     // Fire edit start
     // Я добавил возможность сделать открытие шкафов с дуафтером, пришлось чут чут переписать этот метод и добавить еще один
     // А еще я добавил EntityUid? user = null, чтобы дуафтер мог запускаться на открывающем двери игроке
-    public void OpenStorage(EntityUid uid, EntityStorageComponent? component = null, EntityUid? user = null, bool force = false)
+    public void OpenStorage(Entity<EntityStorageComponent?> target, EntityUid? user = null, bool force = false)
     {
-        if (!Resolve(uid, ref component))
+        if (!Resolve(target, ref target.Comp))
             return;
 
-        if (component.Open)
+        if (target.Comp.Open)
             return;
 
         var beforeev = new StorageBeforeOpenEvent();
-        RaiseLocalEvent(uid, ref beforeev);
+        RaiseLocalEvent(target, ref beforeev);
 
         // Тут начинается переписывание
-        if (component.DoAfterDelay != 0 && user.HasValue && !force)
+        if (target.Comp.DoAfterDelay != 0 && user.HasValue && !force)
         {
-            var doAfterEventArgs = new DoAfterArgs(EntityManager, user.Value, component.DoAfterDelay, new OpenStorageDoAfterEvent(), uid, target: uid)
+            var doAfterEventArgs = new DoAfterArgs(EntityManager, user.Value, TimeSpan.FromSeconds(target.Comp.DoAfterDelay), new OpenStorageDoAfterEvent(), target, target: target)
             {
                 BreakOnMove = true,
                 BreakOnDamage = true,
@@ -259,7 +257,7 @@ public abstract partial class SharedEntityStorageSystem : EntitySystem
         }
 
         // Остальные нормальные случаи, когда мы не используем дуафтер
-        DoOpenStorage(uid, component, user);
+        DoOpenStorage(target, target.Comp, user);
     }
 
     protected void DoOpenStorage(EntityUid uid, EntityStorageComponent component, EntityUid? user = null)
@@ -278,57 +276,63 @@ public abstract partial class SharedEntityStorageSystem : EntitySystem
     }
     // Fire edit end
 
-    public void CloseStorage(EntityUid uid, EntityStorageComponent? component = null, EntityUid? user = null)
+    public void CloseStorage(Entity<EntityStorageComponent?> target, EntityUid? user = null)
     {
-        if (!Resolve(uid, ref component))
+        if (!Resolve(target, ref target.Comp))
             return;
 
-        if (!component.Open)
+        if (!target.Comp.Open)
             return;
 
         // Prevent the container from closing if it is queued for deletion. This is so that the container-emptying
         // behaviour of DestructionEventArgs is respected. This exists because malicious players were using
         // destructible boxes to delete entities by having two players simultaneously destroy and close the box in
         // the same tick.
-        if (EntityManager.IsQueuedForDeletion(uid))
+        if (EntityManager.IsQueuedForDeletion(target))
             return;
 
-        component.Open = false;
-        Dirty(uid, component);
+        target.Comp.Open = false;
+        Dirty(target);
 
         var entities = _lookup.GetEntitiesInRange(
-            new EntityCoordinates(uid, component.EnteringOffset),
-            component.EnteringRange,
+            new EntityCoordinates(target, target.Comp.EnteringOffset),
+            target.Comp.EnteringRange,
             LookupFlags.Approximate | LookupFlags.Dynamic | LookupFlags.Sundries
         );
 
         // Don't insert the container into itself.
-        entities.Remove(uid);
+        entities.Remove(target);
 
-        var ev = new StorageBeforeCloseEvent(entities, []);
-        RaiseLocalEvent(uid, ref ev);
+        var ev = new StorageBeforeCloseEvent(user, entities, []);
+        RaiseLocalEvent(target, ref ev);
 
         foreach (var entity in ev.Contents)
         {
-            if (!ev.BypassChecks.Contains(entity) && !CanInsert(entity, uid, component))
+            if (!ev.BypassChecks.Contains(entity) && !CanInsert(entity, target, target.Comp))
                 continue;
 
-            if (!AddToContents(entity, uid, component))
+            if (!AddToContents(entity, target, target.Comp))
                 continue;
 
-            if (component.Contents.ContainedEntities.Count >= component.Capacity)
+            if (target.Comp.Contents.ContainedEntities.Count >= target.Comp.Capacity)
                 break;
         }
 
-        TakeGas(uid, component);
-        ModifyComponents(uid, component);
+        TakeGas(target, target.Comp);
+        ModifyComponents(target, target.Comp);
 
         // Fire edit start - чтобы с сервера нормально шли звуки
-        _audio.PlayPredicted(component.CloseSound, uid, user);
+        _audio.PlayPredicted(target.Comp.CloseSound, target, user);
         // Fire edit end
 
-        var afterev = new StorageAfterCloseEvent();
-        RaiseLocalEvent(uid, ref afterev);
+        if (LifeStage(target) >= EntityLifeStage.MapInitialized) // stop mappers from serializing air in locker
+            TakeGas(target, target.Comp);
+
+        ModifyComponents(target, target.Comp);
+        _audio.PlayLocal(target.Comp.CloseSound, target, user);
+
+        var afterev = new StorageAfterCloseEvent(user);
+        RaiseLocalEvent(target, ref afterev);
     }
 
     public bool Insert(EntityUid toInsert, EntityUid container, EntityStorageComponent? component = null)
@@ -361,12 +365,21 @@ public abstract partial class SharedEntityStorageSystem : EntitySystem
         if (!Resolve(container, ref component))
             return false;
 
-        _container.Remove(toRemove, component.Contents);
+        // Get our new parent: either the grid the entity is on, or the
+        var newParent = xform.GridUid ?? xform.MapUid;
+        if (!TryComp(newParent, out TransformComponent? parentXform))
+            return false;
+
+        // Reparent the removed entity to our grid, or the map!
+        var (pos, rot) = TransformSystem.GetWorldPositionRotation(xform);
+        pos += rot.RotateVec(component.EnteringOffset);
+        pos = Vector2.Transform(pos, TransformSystem.GetInvWorldMatrix(parentXform));
+        if (!_container.Remove(toRemove, component.Contents, destination: new(newParent.Value, pos)))
+            return false;
 
         if (_container.IsEntityInContainer(container)
             && _container.TryGetOuterContainer(container, Transform(container), out var outerContainer))
         {
-
             var attemptEvent = new EntityStorageIntoContainerAttemptEvent(outerContainer);
             RaiseLocalEvent(outerContainer.Owner, ref attemptEvent);
             if (!attemptEvent.Cancelled)
@@ -377,9 +390,6 @@ public abstract partial class SharedEntityStorageSystem : EntitySystem
         }
 
         RemComp<InsideEntityStorageComponent>(toRemove);
-
-        var pos = TransformSystem.GetWorldPosition(xform) + TransformSystem.GetWorldRotation(xform).RotateVec(component.EnteringOffset);
-        TransformSystem.SetWorldPosition(toRemove, pos);
         return true;
     }
 
@@ -421,7 +431,7 @@ public abstract partial class SharedEntityStorageSystem : EntitySystem
         if (!CanOpen(user, target, silent, requireHands:requireHands))
             return false;
 
-        OpenStorage(target, user: user);
+        OpenStorage(target, user);
         return true;
     }
 
@@ -432,10 +442,7 @@ public abstract partial class SharedEntityStorageSystem : EntitySystem
             return false;
         }
 
-        // Fire edit start - добавил поле user для predicted audio
-        CloseStorage(target, user: user);
-        // Fire edit end
-
+        CloseStorage(target, user);
         return true;
     }
 
@@ -452,15 +459,16 @@ public abstract partial class SharedEntityStorageSystem : EntitySystem
         if (!Resolve(target, ref component))
             return false;
 
-        // Fire edit start
-        if (!HasComp<HandsComponent>(user) && requireHands)
+        // Fire edit
+        if (!component.Contents.Contains(user) &&
+            (!HasComp<HandsComponent>(user) && requireHands))
             return false;
         // Fire edit end
 
         if (_weldable.IsWelded(target))
         {
             if (!silent && !component.Contents.Contains(user))
-                Popup.PopupClient(Loc.GetString("entity-storage-component-welded-shut-message"), target, user);
+                Popup.PopupEntity(Loc.GetString("entity-storage-component-welded-shut-message"), target, user);
 
             return false;
         }

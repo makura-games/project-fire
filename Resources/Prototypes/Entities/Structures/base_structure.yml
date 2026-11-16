@@ -32,7 +32,7 @@
   - type: StaticPrice
     price: 0
   # Sunrise-Edit
-  - type: DamageOverlay
+  - type: SunriseDamagePopup
     damagePopupType: SmallFloating
     isStructure: true
   - type: TTS

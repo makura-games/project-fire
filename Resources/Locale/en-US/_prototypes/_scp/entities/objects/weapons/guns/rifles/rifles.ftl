@@ -6,3 +6,5 @@ ent-WeaponRifleM4A1 = M4A1
     .desc = The Colt M4 automatic carbine is based on the M16A2. It uses 5.56 mm cartridges.
 ent-WeaponRifleAR18M = AR-18 M
     .desc = The AR-18 large-caliber rifle, upgraded by the SCP Foundation. Uses .308 caliber cartridges.
+ent-WeaponRifleGroza = OTs-14 «Groza»
+    .desc = The Russian assault small‑arms and grenade launcher complex, developed by TsKB SOO in 1993. It is designed for use in various combat conditions, including close combat and counter‑terrorism operations. Due to its specific design, it can accept magazines of 7.62 and 9×19 caliber.

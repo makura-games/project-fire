@@ -11,13 +11,12 @@
     sprite: _Scp/Objects/Scp/scp-3199.rsi
   - type: Item
     size: Normal
-  - type: Muted
+  - type: MutedStatusEffect
   - type: MovementSpeedModifier
     baseWalkSpeed: 0
     baseSprintSpeed: 0
   - type: GhostTakeoverAvailable
-  - type: ToggleableNightVision
-    effect: ScpEffectNightVision
+  - type: NightVision
   - type: JumpAbility # чо бы и нет
     action: ActionScp3199Jump
     collideKnockdown: 0

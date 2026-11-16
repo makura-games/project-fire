@@ -99,7 +99,9 @@
   components:
   - type: ScpRepairable
     graph: ScpWallRepair
-    targetRules: RequireDamageRule
+    targetConditions:
+    - !type:HasDamageCondition
+      require: true
     userBlacklist:
       components:
       - Scp

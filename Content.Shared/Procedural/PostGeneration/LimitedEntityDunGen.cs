@@ -14,6 +14,6 @@ public sealed partial class LimitedEntityDunGen : IDunGenLayer
     /// <summary>
     /// Proto.
     /// </summary>
-    [DataField("entity", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField("entity", required: true)]
     public string Entity = string.Empty;
 }

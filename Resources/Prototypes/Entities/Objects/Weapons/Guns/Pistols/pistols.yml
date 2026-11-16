@@ -104,6 +104,8 @@
   - type: Sprite
     sprite: _Scp/Objects/Weapons/Guns/Pistols/viper/big.rsi # Fire edit
     scale: 0.7, 0.7 # Fire edit
+  - type: Gun
+    selectedMode: FullAuto # Override of BaseWeaponPistol to default to full-auto
   - type: ItemSlots
     slots:
       gun_magazine:

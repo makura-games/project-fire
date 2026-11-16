@@ -6,11 +6,13 @@
   components:
   - type: Action
     useDelay: 180
-    icon:
-      sprite: _Scp/Objects/Scp/scp-059/crystal.rsi
-      state: kudzu_21
     itemIconStyle: BigAction
     raiseOnUser: true
+  - type: Sprite
+    sprite: _Scp/Objects/Scp/scp-059/crystal.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: kudzu_21
   - type: InstantAction
     event: !type:InstantSpawnSpellEvent
       prototype: Scp059CrystalStructure

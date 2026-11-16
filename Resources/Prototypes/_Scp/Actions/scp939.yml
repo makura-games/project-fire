@@ -5,8 +5,10 @@
   components:
   - type: Action
     useDelay: 5
-    icon:
-      sprite: _Scp/Actions/scp-939.rsi
+  - type: Sprite
+    sprite: _Scp/Actions/scp-939.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
       state: mimic
   - type: InstantAction
     event: !type:Scp939MimicActionEvent
@@ -18,8 +20,10 @@
   components:
   - type: Action
     useDelay: 300
-    icon:
-      sprite: _Scp/Actions/scp-939.rsi
+  - type: Sprite
+    sprite: _Scp/Actions/scp-939.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
       state: smaug
   - type: InstantAction
     event: !type:Scp939GasAction
@@ -30,8 +34,10 @@
   description: Allows SCP-939 to enter a deep sleep for rapid healing.
   components:
   - type: Action
-    icon:
-      sprite: _Scp/Actions/scp-939.rsi
+  - type: Sprite
+    sprite: _Scp/Actions/scp-939.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
       state: sleep
   - type: InstantAction
     event: !type:Scp939SleepAction

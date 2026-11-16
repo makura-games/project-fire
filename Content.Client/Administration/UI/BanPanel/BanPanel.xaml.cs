@@ -167,8 +167,7 @@ public sealed partial class BanPanel : DefaultWindow
         {
             var roles = proto.Roles
                 .Select(x => _protoMan.Index(x))
-                .Where(x => x.SetPreference || x.AlwaysShowInBanPanel)
-                .OrderByDescending(x => x.DisplayWeight);
+                .Where(x => x.SetPreference);
 
             CreateRoleGroup(proto.ID, proto.Color, roles);
         }

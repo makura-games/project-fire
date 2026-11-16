@@ -4,9 +4,9 @@ using Content.Shared._Scp.Helpers;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
 using Content.Shared.Pinpointer;
-using Content.Shared.Timing;
 using Content.Shared._Scp.Trigger.TriggerOnSignalSwitch;
 using Robust.Server.GameObjects;
+using Content.Shared.Timing.Systems;
 
 namespace Content.Server._Scp.Other.Radio;
 

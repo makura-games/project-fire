@@ -28,8 +28,6 @@
   components:
   - type: Damageable
   - type: DamageOverlay
-    damagePopupType: SmallFloating
-    isStructure: true
   - type: SolutionRegeneration
     generated:
       reagents:

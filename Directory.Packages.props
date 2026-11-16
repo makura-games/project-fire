@@ -21,7 +21,7 @@
     <PackageVersion Include="OpenTK" Version="4.9.4" />
     <PackageVersion Include="Veldrid" Version="4.8.0" />
     <PackageVersion Include="Veldrid.SPIRV" Version="1.0.15" />
-    <PackageVersion Update="YamlDotNet" Version="16.3.0" /> <!-- Fire added -->
+    <PackageVersion Update="YamlDotNet" Version="18.1.0" /> <!-- Fire added -->
     <PackageVersion Include="Lib.Harmony" Version="2.4.2" />
     <PackageVersion Include="AWSSDK.S3" Version="3.7.307.27" />
   </ItemGroup>

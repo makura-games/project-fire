@@ -22,5 +22,4 @@
   - type: Clothing
     sprite: _Scp/Clothing/Shoes/winter_security_guard.rsi
   - type: TemperatureProtection
-    heatingCoefficient: 1.05
-    coolingCoefficient: 0.85
+    coefficient: 0.95 # Fire edit - усреднённый коэффициент защиты от температуры
