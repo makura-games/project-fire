@@ -42,6 +42,7 @@
   loadouts:
   - ScpLoadoutClothingHeadHelmetBasic
   - ScpLoadoutClothingHeadSecurityBeret
+  - ScpLoadoutClothingHeadSecurityEliteBeret
   - ScpLoadoutClothingHeadHatSecBlack
 
 - type: loadoutGroup

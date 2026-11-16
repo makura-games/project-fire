@@ -81,6 +81,7 @@
   id: WoodenBuckler
   graph: WoodenBuckler
   targetNode: woodenBuckler
+  hide: true # Fire edit
 
 - type: construction
   parent: BaseWeapon

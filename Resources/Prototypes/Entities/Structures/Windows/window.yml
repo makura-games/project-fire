@@ -79,6 +79,7 @@
 - type: entity
   parent: [ BaseWindowStructure, StructureHealthBarrier ]
   id: Window
+  categories: [ HideSpawnMenu ] # Fire edit
   components:
   - type: Sprite
     sprite: Structures/Windows/window-base.rsi
@@ -199,6 +200,7 @@
 - type: entity
   parent: [ BaseWindowStructureDirectional, StructureHealthBarrierWeak ]
   id: WindowDirectional
+  categories: [ HideSpawnMenu ] # Fire edit
   components:
   - type: Sprite
     sprite: Structures/Windows/directional.rsi

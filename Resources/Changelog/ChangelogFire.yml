@@ -6156,3 +6156,60 @@
     message: Сделан апстрим с Санрайза
   id: 566
   url: https://github.com/makura-games/project-fire/pull/1211
+- author: timur
+  time: '2026-11-15T21:48:24.0000000+00:00'
+  changes:
+  - type: Fix
+    message: На спрайт коричневого свитера SCP-082 добавлены туфли
+  id: 567
+  url: https://github.com/makura-games/project-fire/pull/1209
+- author: timur
+  time: '2026-11-15T21:50:26.0000000+00:00'
+  changes:
+  - type: Add
+    message: Добавлен золотой трон и паланкин для SCP-082 и SCP-3288
+  id: 568
+  url: https://github.com/makura-games/project-fire/pull/1201
+- author: timur
+  time: '2026-11-15T21:52:16.0000000+00:00'
+  changes:
+  - type: Add
+    message: Добавлена рука SCP-999
+  id: 569
+  url: https://github.com/makura-games/project-fire/pull/1195
+- author: timur
+  time: '2026-11-15T21:56:22.0000000+00:00'
+  changes:
+  - type: Remove
+    message: Удален спавн ржавых стен в начале раунда
+  id: 570
+  url: https://github.com/makura-games/project-fire/pull/1197
+- author: timur
+  time: '2026-11-15T21:58:46.0000000+00:00'
+  changes:
+  - type: Add
+    message: Теперь появление яиц SCP-3199 в учреждении сопровождается объявлением
+  id: 571
+  url: https://github.com/makura-games/project-fire/pull/1198
+- author: timur
+  time: '2026-11-15T22:00:08.0000000+00:00'
+  changes:
+  - type: Fix
+    message: Исправлен баг с невозможностью надеть SCP-035
+  id: 572
+  url: https://github.com/makura-games/project-fire/pull/1200
+- author: MrZero1984
+  time: '2026-11-15T22:03:04.0000000+00:00'
+  changes:
+  - type: Add
+    message: Добавлены плюши
+  - type: Add
+    message: Добавлена автоматическая винтовка ОЦ-14 "Гроза".
+  - type: Add
+    message: ГРУ-П теперь при спавне имеют "Грозу".
+  - type: Tweak
+    message: Сержант ГРУ-П теперь имеет при себе лишь облегченный бронежилет.
+  - type: Fix
+    message: Офицерский Берет теперь доступен и для ОСН в персонализации.
+  id: 573
+  url: https://github.com/makura-games/project-fire/pull/1206

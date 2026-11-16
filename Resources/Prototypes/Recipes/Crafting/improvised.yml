@@ -12,6 +12,7 @@
   id: bat
   graph: WoodenBat
   targetNode: bat
+  hide: true # Fire edit
 
 - type: construction
   parent: BaseWeapon

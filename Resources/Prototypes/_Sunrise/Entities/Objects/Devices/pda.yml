@@ -244,6 +244,7 @@
 - type: entity
   parent: CentcomPDA
   id: CentcomOperatorPDA
+  categories: [ HideSpawnMenu ] # Fire edit
   name: CentComm operator PDA
   description: Light green sign of walking bureaucracy.
   components:
