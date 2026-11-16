@@ -7,6 +7,7 @@
   description: Large ceramic vase with ancient Greek style and decor.
   suffix: SCP-019
   components:
+  - type: Injurable
   - type: Sprite
     sprite: _Scp/Objects/Scp/scp-019.rsi
     state: icon
