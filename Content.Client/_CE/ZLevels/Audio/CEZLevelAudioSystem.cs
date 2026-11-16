@@ -132,7 +132,7 @@ public sealed partial class CEZLevelAudioSystem : EntitySystem
         }
 
         // Cross-map occlusion can't be raycast (different physics worlds), so instead we check for an
-        // opaque tile on the floor/ceiling boundary between the source and the listener.
+        // floor tile between the source and the listener.
         if ((component.Flags & AudioFlags.NoOcclusion) == AudioFlags.NoOcclusion)
             component.Occlusion = 0f;
         else if (sameMap)
@@ -165,19 +165,17 @@ public sealed partial class CEZLevelAudioSystem : EntitySystem
     }
 
     /// <summary>
-    /// Approximates floor/ceiling muffling between Z-levels using the same opaque-tile check the vision
-    /// system uses (<see cref="CESharedZLevelsSystem.HasOpaqueAbove"/>), since a real raycast can't cross
-    /// maps. Only the boundary nearest the "listening" side is checked, not every level in between.
+    /// Approximates muffling between Z-levels by checking for a floor tile at the lower endpoint.
     /// </summary>
     private float GetCrossLevelOcclusion(int levelOffset, Vector2 entityWorldPos, EntityUid entityMapUid, Vector2 listenerWorldPos, EntityUid listenerMapUid)
     {
         // Source is above us: the relevant boundary is the ceiling directly above the listener.
         // Source is below us: the relevant boundary is the ceiling directly above the source.
-        var opaque = levelOffset > 0
-            ? _zLevels.HasOpaqueAbove(listenerWorldPos, listenerMapUid)
-            : _zLevels.HasOpaqueAbove(entityWorldPos, entityMapUid);
+        var covered = levelOffset > 0
+            ? _zLevels.HasTileAbove(listenerWorldPos, listenerMapUid)
+            : _zLevels.HasTileAbove(entityWorldPos, entityMapUid);
 
-        return opaque ? _floorOcclusion : 0f;
+        return covered ? _floorOcclusion : 0f;
     }
 
     /// <summary>

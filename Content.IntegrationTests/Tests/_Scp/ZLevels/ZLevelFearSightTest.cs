@@ -8,7 +8,6 @@ using Content.Shared._Scp.Blinking;
 using Content.Shared._Scp.Proximity;
 using Content.Shared._Scp.Watching;
 using Content.Shared.Mobs;
-using Content.Shared.Maps;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
@@ -58,10 +57,13 @@ public sealed class ZLevelFearSightTest
                 layer: [Impassable]
         """;
 
-    [TestCase(false, false, false)]
-    [TestCase(true, false, true)]
-    [TestCase(true, true, false)]
-    public async Task UpperFloorRequiresLookUpAndAnOpenCeiling(bool lookUp, bool roof, bool expected)
+    [TestCase(false, null, false)]
+    [TestCase(false, "FloorGlass", false)]
+    [TestCase(true, null, true)]
+    [TestCase(true, "FloorGlass", true)]
+    [TestCase(true, "FloorRGlass", true)]
+    [TestCase(true, "FloorSteel", false)]
+    public async Task UpperFloorRequiresLookUpAndATransparentCeiling(bool lookUp, string? ceiling, bool expected)
     {
         await using var pair = await PoolManager.GetServerClient();
         Scene scene = default!;
@@ -69,8 +71,8 @@ public sealed class ZLevelFearSightTest
         await pair.Server.WaitPost(() =>
         {
             scene = new Scene(pair, lookUp);
-            if (!roof)
-                scene.SetFloor(1, Scene.ViewerPosition, Tile.Empty);
+            var tiles = pair.Server.ResolveDependency<ITileDefinitionManager>();
+            scene.SetFloor(1, Scene.ViewerPosition, ceiling is null ? Tile.Empty : new Tile(tiles[ceiling].TileId));
             visible = scene.IsVisible(scene.SpawnTarget(1));
         });
         await pair.Server.WaitAssertion(() => Assert.That(visible, Is.EqualTo(expected)));
@@ -231,8 +233,6 @@ public sealed class ZLevelFearSightTest
         public readonly EntityUid Viewer;
         public readonly Tile SolidFloor;
         private readonly Tile _transparentFloor;
-        private readonly ContentTileDefinition _glassDefinition;
-        private readonly bool _originalGlassTransparency;
 
         public Scene(TestPair pair, bool lookUp = true)
         {
@@ -241,11 +241,9 @@ public sealed class ZLevelFearSightTest
             var map = server.System<SharedMapSystem>();
             var zLevels = server.System<CEZLevelsSystem>();
             var levels = new Dictionary<EntityUid, int>();
-            SolidFloor = new Tile(server.ResolveDependency<ITileDefinitionManager>()["FloorSteel"].TileId);
-            _glassDefinition = (ContentTileDefinition) server.ResolveDependency<ITileDefinitionManager>()["FloorGlass"];
-            _originalGlassTransparency = _glassDefinition.Transparent;
-            _glassDefinition.Transparent = true;
-            _transparentFloor = new Tile(_glassDefinition.TileId);
+            var tiles = server.ResolveDependency<ITileDefinitionManager>();
+            SolidFloor = new Tile(tiles["FloorSteel"].TileId);
+            _transparentFloor = new Tile(tiles["FloorGlass"].TileId);
             for (var depth = -6; depth <= 2; depth++)
             {
                 var uid = map.CreateMap(out var id);
@@ -294,7 +292,6 @@ public sealed class ZLevelFearSightTest
 
         public void Cleanup()
         {
-            _glassDefinition.Transparent = _originalGlassTransparency;
             foreach (var id in _maps.Values)
                 _pair.Server.System<SharedMapSystem>().DeleteMap(id);
             _pair.Server.EntMan.DeleteEntity(_network);

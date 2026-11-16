@@ -4,12 +4,11 @@
  */
 
 using System.Numerics;
-using Robust.Shared.Analyzers;
 using Content.Shared._CE.ZLevels.Core.Components;
-using Content.Shared.Maps;
 using Content.Shared.Toggleable;
 using JetBrains.Annotations;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 
 namespace Content.Shared._CE.ZLevels.Core.EntitySystems;
 
@@ -57,15 +56,8 @@ public abstract partial class CESharedZLevelsSystem
 
         for (var i = 1; i <= MaxZLevelsAboveRendering; i++)
         {
-            // No grid or no chunk at this position means there's simply nothing there (open space),
-            // not an opaque roof, so it shouldn't block sight upward. Mirrors HasOpaqueAbove below.
-            if (_map.TryFindGridAt(checkingMap, worldPos, out var gridUid, out var grid) &&
-                _map.TryGetTileRef(gridUid, grid, worldPos, out var tileRef))
-            {
-                var tileDef = (ContentTileDefinition)TilDefMan[tileRef.Tile.TypeId];
-                if (!tileDef.Transparent)
-                    break;
-            }
+            if (HasOpaqueTileAt(checkingMap, worldPos))
+                break;
 
             visibleLevels++;
 
@@ -82,16 +74,26 @@ public abstract partial class CESharedZLevelsSystem
     [PublicAPI]
     public bool HasOpaqueAbove(Vector2 worldPos, Entity<CEZMapComponent?> currentMap)
     {
-        if (!TryMapUp(currentMap, out var mapAboveUid))
-            return false;
+        return TryMapUp(currentMap, out var mapAboveUid) && HasOpaqueTileAt(mapAboveUid, worldPos);
+    }
 
-        if (!_map.TryFindGridAt(mapAboveUid, worldPos, out var gridUid, out var grid))
-            return false;
+    private bool HasOpaqueTileAt(EntityUid map, Vector2 worldPosition)
+    {
+        var state = (System: this, Position: worldPosition, Blocked: false);
+        var bounds = Box2.CenteredAround(worldPosition, new Vector2(0.4f));
+        _map.FindGridsIntersecting(map, bounds, ref state, static (EntityUid uid, MapGridComponent grid,
+            ref (CESharedZLevelsSystem System, Vector2 Position, bool Blocked) state) =>
+        {
+            if (!state.System._map.TryGetTileRef(uid, grid, state.Position, out var tileRef) ||
+                CEZLevelOpeningCache.IsOpeningTile(tileRef.Tile, state.System.TilDefMan))
+            {
+                return true;
+            }
 
-        if (!_map.TryGetTileRef(gridUid, grid, worldPos, out var tileRef))
+            state.Blocked = true;
             return false;
-
-        return !((ContentTileDefinition)TilDefMan[tileRef.Tile.TypeId]).Transparent;
+        }, approx: true);
+        return state.Blocked;
     }
 
     public bool TryFindZShotOpening(
@@ -184,7 +186,7 @@ public abstract partial class CESharedZLevelsSystem
 
         bool TryUseOpeningTile(Vector2i tile)
         {
-            if (_map.TryGetTileRef(openingMap, grid, tile, out var tileRef) && !CEZLevelOpeningCache.IsOpeningTile(tileRef.Tile, TilDefMan))
+            if (_map.TryGetTileRef(openingMap, grid, tile, out var tileRef) && !tileRef.Tile.IsEmpty)
                 return false;
 
             var openingCenter = _map.ToCenterCoordinates(openingMap, tile, grid).Position;

@@ -36,7 +36,7 @@ public abstract partial class SharedWeatherSystem : EntitySystem
             return false;
 
         // Fire added start - пол на соседнем этаже сверху защищает от погоды даже пустую клетку под ним.
-        if (HasZLevelRoofAbove((ent.Owner, ent.Comp1), tileRef))
+        if (HasZLevelRoofAbove((ent.Owner, ent.Comp1, ent.Comp2), tileRef))
             return false;
 
         if (tileRef.Tile.IsEmpty)

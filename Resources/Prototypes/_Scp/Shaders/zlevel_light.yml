@@ -1,0 +1,5 @@
+- type: shader
+  id: ScpZLevelTransmittedLight
+  kind: canvas
+  light_mode: unshaded
+  blend_mode: add

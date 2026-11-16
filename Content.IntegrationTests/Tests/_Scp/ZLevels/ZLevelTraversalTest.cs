@@ -117,6 +117,26 @@ public sealed class ZLevelTraversalTest
             }));
         });
 
+        await server.WaitAssertion(() =>
+        {
+            var lower = maps[0].Owner;
+            var upper = maps[1].Owner;
+            var lowerGrid = server.EntMan.GetComponent<MapGridComponent>(lower);
+            var upperGrid = server.EntMan.GetComponent<MapGridComponent>(upper);
+            var lowerRoof = server.EntMan.GetComponent<RoofComponent>(lower);
+            var roof = server.System<SharedRoofSystem>();
+            var tiles = server.ResolveDependency<ITileDefinitionManager>();
+            var position = Vector2i.Zero;
+
+            map.SetTile(upper, upperGrid, position, new Tile(tiles["FloorGlass"].TileId));
+            Assert.That(roof.IsRooved((lower, lowerGrid, lowerRoof), position), Is.False);
+            Assert.That(roof.IsWeatherOccluding((lower, lowerGrid, lowerRoof), position), Is.True);
+
+            map.SetTile(upper, upperGrid, position, Tile.Empty);
+            Assert.That(roof.IsRooved((lower, lowerGrid, lowerRoof), position), Is.False);
+            Assert.That(roof.IsWeatherOccluding((lower, lowerGrid, lowerRoof), position), Is.False);
+        });
+
         await server.WaitPost(() =>
         {
             foreach (var loadedMap in maps)

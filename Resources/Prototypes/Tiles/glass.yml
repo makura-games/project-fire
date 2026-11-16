@@ -3,6 +3,7 @@
   parent: BaseStationTile
   name: tiles-glass-floor
   sprite: /Textures/Tiles/Glass/glass.png
+  transparent: true # Fire added - пропускает свет и обзор между Z-уровнями.
   footstepSounds:
     collection: FootstepTile
   itemDrop: SheetGlass1
@@ -12,6 +13,7 @@
   parent: BaseStationTile
   name: tiles-reinforced-glass-floor
   sprite: /Textures/Tiles/Glass/glass-reinf.png
+  transparent: true # Fire added - пропускает свет и обзор между Z-уровнями.
   footstepSounds:
     collection: FootstepTile
   itemDrop: SheetRGlass1
@@ -21,6 +23,7 @@
   parent: BaseStationTile
   name: tiles-plasma-glass-floor
   sprite: /Textures/Tiles/Glass/glass-plasma.png
+  transparent: true # Fire added - пропускает свет и обзор между Z-уровнями.
   footstepSounds:
     collection: FootstepTile
   itemDrop: SheetPlasma1
@@ -30,6 +33,7 @@
   parent: BaseStationTile
   name: tiles-uranium-glass-floor
   sprite: /Textures/Tiles/Glass/glass-uranium.png
+  transparent: true # Fire added - пропускает свет и обзор между Z-уровнями.
   footstepSounds:
     collection: FootstepTile
   itemDrop: SheetUranium1
@@ -39,6 +43,7 @@
   parent: BaseStationTile
   name: tiles-plastitanium-glass-floor
   sprite: /Textures/Tiles/Glass/glass-plastitanium.png
+  transparent: true # Fire added - пропускает свет и обзор между Z-уровнями.
   footstepSounds:
     collection: FootstepTile
   itemDrop: SheetPlasma1

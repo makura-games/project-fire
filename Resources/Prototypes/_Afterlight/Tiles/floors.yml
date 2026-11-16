@@ -2,6 +2,7 @@
   id: FloorGlassBronze
   name: tiles-glass-floor-bronze
   sprite: /Textures/_Afterlight/Tiles/glass_bronze.png
+  transparent: true # Fire added - пропускает свет и обзор между Z-уровнями.
   variants: 4
   placementVariants:
   - 1.0
@@ -20,6 +21,7 @@
   id: FloorGlassPlasmaReinforced
   name: tiles-glass-floor-plasma-reinforced
   sprite: /Textures/_Afterlight/Tiles/glass_plasma_reinforced.png
+  transparent: true # Fire added - пропускает свет и обзор между Z-уровнями.
   variants: 4
   placementVariants:
   - 1.0
@@ -38,6 +40,7 @@
   id: FloorGlassUraniumReinforced
   name: tiles-glass-floor-uranium-reinforced
   sprite: /Textures/_Afterlight/Tiles/glass_uranium_reinforced.png
+  transparent: true # Fire added - пропускает свет и обзор между Z-уровнями.
   variants: 4
   placementVariants:
   - 1.0

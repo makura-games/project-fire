@@ -9,7 +9,6 @@ using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared._CE.ZLevels.Roof;
 using Content.Shared.Light.Components;
-using Content.Shared.Maps;
 
 namespace Content.Server._CE.ZLevels.Roof;
 
@@ -37,7 +36,8 @@ public sealed partial class CEZLevelsRoofSystem
 
     public void RecalculateGridRoofs(Entity<CEZGridNetworkComponent> network)
     {
-        _roofMap.Clear();
+        _lightBlockingTiles.Clear();
+        _weatherBlockingTiles.Clear();
 
         var sorted = network.Comp.Grids
             .Select(g => (Grid: g, Depth: ZLevel.TryGetGridZDepth(g)))
@@ -59,12 +59,12 @@ public sealed partial class CEZLevelsRoofSystem
 
                 Roof.SetRoof((gridUid, grid, roofComp),
                     tileRef.Value.GridIndices,
-                    _roofMap.Contains(worldTile),
-                    occludeWeather: _roofMap.Contains(worldTile));
+                    _lightBlockingTiles.Contains(worldTile),
+                    occludeWeather: _weatherBlockingTiles.Contains(worldTile));
 
-                var tileDef = (ContentTileDefinition)TilDefMan[tileRef.Value.Tile.TypeId];
-                if (!tileDef.Transparent)
-                    _roofMap.Add(worldTile);
+                _weatherBlockingTiles.Add(worldTile);
+                if (TileBlocksLight(tileRef.Value.Tile))
+                    _lightBlockingTiles.Add(worldTile);
             }
         }
     }

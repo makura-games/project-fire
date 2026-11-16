@@ -7,8 +7,8 @@ using System.Linq;
 using Robust.Shared.Analyzers;
 using Content.Server._CE.ZLevels.Core;
 using Content.Shared._CE.ZLevels.Core.Components;
+using Content.Shared._CE.ZLevels.Roof;
 using Content.Shared.Light.Components;
-using Content.Shared.Maps;
 
 namespace Content.Server._CE.ZLevels.Roof;
 
@@ -33,7 +33,8 @@ public sealed partial class CEZLevelsRoofSystem
 
     private void RecalculateMapRoofs(Entity<CEZMapNetworkComponent> network)
     {
-        _roofMap.Clear();
+        _lightBlockingTiles.Clear();
+        _weatherBlockingTiles.Clear();
 
         List<EntityUid> sortedMaps = new();
         foreach (var mapUid in network.Comp.ZLevels
@@ -50,18 +51,19 @@ public sealed partial class CEZLevelsRoofSystem
             if (!GridQuery.TryComp(map, out var mapGrid))
                 continue;
 
+            EnsureComp<CEZLevelRoofComponent>(map);
             var enumerator = Map.GetAllTilesEnumerator(map, mapGrid);
             var roofComp = EnsureComp<RoofComponent>(map);
 
             while (enumerator.MoveNext(out var tileRef))
             {
-                var covered = _roofMap.Contains(tileRef.Value.GridIndices);
-                Roof.SetRoof((map, mapGrid, roofComp), tileRef.Value.GridIndices, covered, occludeWeather: covered);
+                var indices = tileRef.Value.GridIndices;
+                Roof.SetRoof((map, mapGrid, roofComp), indices,
+                    _lightBlockingTiles.Contains(indices), occludeWeather: _weatherBlockingTiles.Contains(indices));
 
-                var tileDef = (ContentTileDefinition)TilDefMan[tileRef.Value.Tile.TypeId];
-
-                if (!tileDef.Transparent)
-                    _roofMap.Add(tileRef.Value.GridIndices);
+                _weatherBlockingTiles.Add(indices);
+                if (TileBlocksLight(tileRef.Value.Tile))
+                    _lightBlockingTiles.Add(indices);
             }
         }
     }

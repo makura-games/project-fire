@@ -7,7 +7,6 @@ using System.Numerics;
 using Content.Client._CE.ZLevels.Core;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
-using Content.Shared.Maps;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Graphics;
@@ -18,7 +17,6 @@ namespace Content.Client.Viewport;
 
 public sealed partial class ScalingViewport
 {
-    [Dependency] private IEyeManager _eyeManager = default!;
     [Dependency] private IPlayerManager _player = default!;
     [Dependency] private ITileDefinitionManager _tile = default!;
 
@@ -29,69 +27,42 @@ public sealed partial class ScalingViewport
     private EntityQuery<MapComponent>? _mapQuery;
 
     private IEye? _fallbackEye;
+    private readonly Vector2[] _zLevelViewCorners = new Vector2[4];
 
-    /// <summary>
-    /// We are looking for at least one empty tile on the screen.
-    /// This is used to ensure that it makes sense to draw the z-planes and that they are visible.
-    /// </summary>
-    public bool TryFindEmptyTiles(EntityUid mapUid)
+    // Fire edit start - проверяем просветы в фактических границах кадра с учётом смещения этажа.
+    internal static Vector2 GetZLevelViewOffset(Angle eyeRotation)
     {
-        if (_xformQuery is null || !_xformQuery.Value.TryComp(mapUid, out var xform))
+        return (-eyeRotation).ToWorldVec() * CESharedZLevelsSystem.ZLevelOffset;
+    }
+
+    private bool HasVisibleZLevelOpening(EntityUid mapUid, ReadOnlySpan<Vector2> corners, Vector2 offset)
+    {
+        if (_mapSystem is not { } map || !map.TryFindGridAt(mapUid, corners[0] + offset, out var gridUid, out var grid))
             return true;
 
-        var drawBox = GetDrawBox();
-        var mapId = xform.MapID;
-
-        var corners = new[]
-        {
-            _eyeManager.ScreenToMap(drawBox.BottomLeft).Position,
-            _eyeManager.ScreenToMap(drawBox.BottomRight).Position,
-            _eyeManager.ScreenToMap(drawBox.TopLeft).Position,
-            _eyeManager.ScreenToMap(drawBox.TopRight).Position
-        };
-
-        float minX = float.MaxValue, minY = float.MaxValue;
-
-        foreach (var c in corners)
-        {
-            if (c.X < minX)
-                minX = c.X;
-            if (c.Y < minY)
-                minY = c.Y;
-        }
-
-        var mapCoordsBottomLeft = new MapCoordinates(new Vector2(minX, minY), mapId);
-
-        if (_mapSystem is null || !_mapSystem.TryFindGridAt(mapUid, mapCoordsBottomLeft.Position, out var gridUid, out var grid))
-            return true;
-
-        var minTileX = int.MaxValue;
-        var minTileY = int.MaxValue;
-        var maxTileX = int.MinValue;
-        var maxTileY = int.MinValue;
+        var minTile = new Vector2i(int.MaxValue, int.MaxValue);
+        var maxTile = new Vector2i(int.MinValue, int.MinValue);
 
         foreach (var corner in corners)
         {
-            var indices = _mapSystem.TileIndicesFor(gridUid, grid, new MapCoordinates(corner, mapId));
-            minTileX = Math.Min(minTileX, indices.X);
-            minTileY = Math.Min(minTileY, indices.Y);
-            maxTileX = Math.Max(maxTileX, indices.X);
-            maxTileY = Math.Max(maxTileY, indices.Y);
+            var tile = map.WorldToTile(gridUid, grid, corner + offset);
+            minTile = Vector2i.ComponentMin(minTile, tile);
+            maxTile = Vector2i.ComponentMax(maxTile, tile);
         }
 
-        for (var x = minTileX - 1; x <= maxTileX + 1; x++)
+        var gridEntity = new Entity<MapGridComponent>(gridUid, grid);
+        for (var x = minTile.X - 1; x <= maxTile.X + 1; x++)
         {
-            for (var y = minTileY - 1; y <= maxTileY + 1; y++)
+            for (var y = minTile.Y - 1; y <= maxTile.Y + 1; y++)
             {
-                var tile = _mapSystem.GetTileRef(gridUid, grid, new Vector2i(x, y));
-                var tileDef = (ContentTileDefinition)_tile[tile.Tile.TypeId];
-                if (tileDef.Transparent || tile.Tile.IsEmpty)
+                if (CEZLevelOpeningCache.IsOpeningTile(gridEntity, new Vector2i(x, y), map, _tile))
                     return true;
             }
         }
 
         return false;
     }
+    // Fire edit end
 
     private void RenderZLevels(IClydeViewport viewport, IRenderHandle handle) // Fire edit - контекст рисования нужен для наложения размытого верхнего этажа на остальную сцену.
     {
@@ -139,6 +110,14 @@ public sealed partial class ScalingViewport
             lookUp = Math.Min(1, _zLevels.GetVisibleZLevelsAbove(_player.LocalEntity.Value, playerXform.MapUid));
         // Fire edit end
 
+        // Fire added start - используем углы буфера, чтобы смещение и масштаб UI не влияли на проверку просветов.
+        _zLevelViewCorners[0] = viewport.LocalToWorld(Vector2.Zero).Position;
+        _zLevelViewCorners[1] = viewport.LocalToWorld(new Vector2(viewport.Size.X, 0)).Position;
+        _zLevelViewCorners[2] = viewport.LocalToWorld(new Vector2(0, viewport.Size.Y)).Position;
+        _zLevelViewCorners[3] = viewport.LocalToWorld(viewport.Size).Position;
+        var offsetPerLevel = GetZLevelViewOffset(_fallbackEye.Rotation);
+        // Fire added end
+
         var lowestDepth = 0;
         for (var i = 0; i >= -CESharedZLevelsSystem.MaxZLevelsBelowRendering; i--)
         {
@@ -154,7 +133,7 @@ public sealed partial class ScalingViewport
 
             lowestDepth = i;
 
-            if (!TryFindEmptyTiles(checkingMap))
+            if (!HasVisibleZLevelOpening(checkingMap, _zLevelViewCorners, offsetPerLevel * i)) // Fire edit
                 break;
         }
 
@@ -171,16 +150,13 @@ public sealed partial class ScalingViewport
                 if (!_mapQuery.Value.TryComp(mapUidBelow, out var mapComp))
                     continue;
 
-                Angle rotation = _fallbackEye.Rotation * -1;
-                var offset = rotation.ToWorldVec() * CEClientZLevelsSystem.ZLevelOffset * depth;
-
                 viewport.Eye = new ZEye(lowestDepth, depth, lookUp)
                 {
                     SourceEye = _fallbackEye, // Fire added - сохраняем исходную камеру, чтобы её FOV и эффекты работали и на этом этаже.
                     Position = new MapCoordinates(_fallbackEye.Position.Position, mapComp.MapId),
                     DrawFov = _fallbackEye.DrawFov && depth >= 0,
                     DrawLight = _fallbackEye.DrawLight,
-                    Offset = _fallbackEye.Offset + offset,
+                    Offset = _fallbackEye.Offset + offsetPerLevel * depth, // Fire edit
                     Rotation = _fallbackEye.Rotation,
                     Scale = _fallbackEye.Scale,
                 };

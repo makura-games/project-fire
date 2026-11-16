@@ -334,42 +334,32 @@ public sealed class ZLevelShootingTest
         Scene scene = default!;
         bool accepted = default;
         bool empty = default;
-        bool transparentDuringCheck = default;
+        bool transparent = default;
         await pair.Server.WaitPost(() =>
         {
             scene = new Scene(pair);
             var tiles = pair.Server.ResolveDependency<ITileDefinitionManager>();
             var definition = (ContentTileDefinition) tiles["FloorGlass"];
-            var originalTransparency = definition.Transparent;
-            // Новые определения тайлов не поддерживают загрузку после запуска пары; флаг меняется только на время проверки.
-            try
-            {
-                definition.Transparent = true;
-                transparentDuringCheck = definition.Transparent;
-                var transparent = new Tile(definition.TileId);
-                var grid = upward ? scene.UpperGrid : scene.MiddleGrid;
-                var tile = upward ? Vector2i.Zero : new Vector2i(5, 0);
-                pair.Server.System<SharedMapSystem>().SetTile(grid, grid.Comp, tile, transparent);
-                var position = upward ? new Vector2(0.5f, 0.5f) : new Vector2(5.5f, 0.5f);
-                var mapId = upward ? scene.UpperId : scene.MiddleId;
-                empty = pair.Server.System<ZLevelShootingSystem>().IsEmptyAt(new MapCoordinates(position, mapId));
-                accepted = scene.TryPlan(
-                    new Vector2(upward ? 0.5f : 1.5f, 0.5f),
-                    new Vector2(5.5f, 0.5f),
-                    upward ? scene.UpperId : scene.LowerId,
-                    out _);
-            }
-            finally
-            {
-                definition.Transparent = originalTransparency;
-            }
+            transparent = definition.Transparent;
+            var glass = new Tile(definition.TileId);
+            var grid = upward ? scene.UpperGrid : scene.MiddleGrid;
+            var tile = upward ? Vector2i.Zero : new Vector2i(5, 0);
+            pair.Server.System<SharedMapSystem>().SetTile(grid, grid.Comp, tile, glass);
+            var position = upward ? new Vector2(0.5f, 0.5f) : new Vector2(5.5f, 0.5f);
+            var mapId = upward ? scene.UpperId : scene.MiddleId;
+            empty = pair.Server.System<ZLevelShootingSystem>().IsEmptyAt(new MapCoordinates(position, mapId));
+            accepted = scene.TryPlan(
+                new Vector2(upward ? 0.5f : 1.5f, 0.5f),
+                new Vector2(5.5f, 0.5f),
+                upward ? scene.UpperId : scene.LowerId,
+                out _);
         });
 
         await pair.Server.WaitAssertion(() =>
         {
             Assert.Multiple(() =>
             {
-                Assert.That(transparentDuringCheck, Is.True);
+                Assert.That(transparent, Is.True);
                 Assert.That(empty, Is.False);
                 Assert.That(accepted, Is.False);
             });

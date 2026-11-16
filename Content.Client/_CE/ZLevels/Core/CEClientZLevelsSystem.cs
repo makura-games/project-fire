@@ -6,6 +6,7 @@
 using System.Numerics;
 using Robust.Shared.Analyzers;
 using Content.Client._CE.ZLevels.Core.Overlays;
+using Content.Client._Scp.ZLevels; // Fire added - рисует стеклянный потолок.
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared.Camera;
@@ -33,6 +34,8 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
         SubscribeLocalEvent<CEZPhysicsComponent, ComponentStartup>(OnStartup);
         _overlay.AddOverlay(new CEZLevelBlurOverlay());
         _overlay.AddOverlay(new CEZLevelFogOverlay());
+        _overlay.AddOverlay(new ZLevelCeilingGlassOverlay(EntityManager, this)); // Fire added
+        _overlay.AddOverlay(new ZLevelLightOverlay(EntityManager, this)); // Fire added
     }
 
     private void OnEyeOffset(Entity<CEZPhysicsComponent> ent, ref GetEyeOffsetEvent args)
@@ -72,6 +75,8 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
         base.Shutdown();
         _overlay.RemoveOverlay<CEZLevelBlurOverlay>();
         _overlay.RemoveOverlay<CEZLevelFogOverlay>();
+        _overlay.RemoveOverlay<ZLevelCeilingGlassOverlay>(); // Fire added
+        _overlay.RemoveOverlay<ZLevelLightOverlay>(); // Fire added
     }
 }
 

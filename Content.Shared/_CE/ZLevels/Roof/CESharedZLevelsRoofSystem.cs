@@ -10,7 +10,6 @@ using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
-using Content.Shared.Maps;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
@@ -65,17 +64,36 @@ public abstract partial class CESharedZLevelsRoofSystem : EntitySystem
         CEZMapComponent zLevelMapComp,
         TileChangedEvent args)
     {
-        Dictionary<Vector2i, bool> roofMap = new();
-        foreach (var change in args.Changes)
-        {
-            var tileDef = (ContentTileDefinition)TilDefMan[change.NewTile.TypeId];
-            var roovedAbove = Roof.IsRooved((mapUid, currentMapGrid, currentRoof), change.GridIndices);
-            roofMap.Add(change.GridIndices, roovedAbove || !tileDef.Transparent);
-        }
-
         var mapsBelow = ZLevel.GetAllMapsBelow((mapUid, zLevelMapComp));
         if (mapsBelow.Count == 0)
             return;
+
+        var mapsAbove = ZLevel.GetAllMapsAbove((mapUid, zLevelMapComp));
+        Dictionary<Vector2i, (bool BlocksLight, bool BlocksWeather)> roofMap = new();
+        foreach (var change in args.Changes)
+        {
+            var indices = change.GridIndices;
+            var blocksLight = Roof.IsRooved((mapUid, currentMapGrid, currentRoof), indices) || TileBlocksLight(change.NewTile);
+            var blocksWeather = Roof.IsWeatherOccluding((mapUid, currentMapGrid, currentRoof), indices) || !change.NewTile.IsEmpty;
+
+            // После загрузки карта с пустой клеткой может ещё не иметь маски крыши над ней.
+            foreach (var mapAbove in mapsAbove)
+            {
+                if (blocksLight && blocksWeather)
+                    break;
+
+                if (!GridQuery.TryComp(mapAbove, out var mapGridAbove) ||
+                    !Map.TryGetTile(mapGridAbove, indices, out var tile) || tile.IsEmpty)
+                {
+                    continue;
+                }
+
+                blocksLight |= TileBlocksLight(tile);
+                blocksWeather = true;
+            }
+
+            roofMap[indices] = (blocksLight, blocksWeather);
+        }
 
         foreach (var mapBelow in mapsBelow)
         {
@@ -84,12 +102,13 @@ public abstract partial class CESharedZLevelsRoofSystem : EntitySystem
 
             var roofBelow = EnsureComp<RoofComponent>(mapBelow);
 
-            foreach (var (indices, rooved) in roofMap)
+            foreach (var (indices, coverage) in roofMap)
             {
-                Roof.SetRoof((mapBelow, mapGridBelow, roofBelow), indices, rooved, occludeWeather: rooved);
+                Roof.SetRoof((mapBelow, mapGridBelow, roofBelow), indices, coverage.BlocksLight,
+                    occludeWeather: coverage.BlocksWeather);
 
                 if (Map.TryGetTile(mapGridBelow, indices, out var tile) && !tile.IsEmpty)
-                    roofMap[indices] = true;
+                    roofMap[indices] = (coverage.BlocksLight || TileBlocksLight(tile), true);
             }
         }
     }
@@ -106,25 +125,24 @@ public abstract partial class CESharedZLevelsRoofSystem : EntitySystem
         if (ZLevel.TryGetGridZDepth(gridUid) is not { } ownDepth)
             return;
 
-        // Topmost first, so `covered` below only ever re-latches to true by walking downward into
-        // a level with its own opaque tile — never by "seeing" a level further above.
-        var below = network.Comp.Grids
+        var otherGrids = network.Comp.Grids
             .Select(g => (Grid: g, Depth: ZLevel.TryGetGridZDepth(g)))
-            .Where(x => x.Depth is { } d && d < ownDepth)
+            .Where(x => x.Depth is { } d && d != ownDepth)
             .OrderByDescending(x => x.Depth!.Value)
             .ToList();
 
-        if (below.Count == 0)
+        if (otherGrids.Count == 0 || otherGrids[^1].Depth >= ownDepth)
             return;
 
         foreach (var change in args.Changes)
         {
             var worldTile = ZLevel.GridTileToWorldTile(gridUid, currentMapGrid, change.GridIndices);
-            var tileDef = (ContentTileDefinition)TilDefMan[change.NewTile.TypeId];
-            var roovedAbove = Roof.IsRooved((gridUid, currentMapGrid, currentRoof), change.GridIndices);
-            var covered = roovedAbove || !tileDef.Transparent;
+            var blocksLight = Roof.IsRooved((gridUid, currentMapGrid, currentRoof), change.GridIndices) ||
+                              TileBlocksLight(change.NewTile);
+            var blocksWeather = Roof.IsWeatherOccluding((gridUid, currentMapGrid, currentRoof), change.GridIndices) ||
+                                !change.NewTile.IsEmpty;
 
-            foreach (var (otherGrid, _) in below)
+            foreach (var (otherGrid, depth) in otherGrids)
             {
                 if (!GridQuery.TryComp(otherGrid, out var otherMapGrid))
                     continue;
@@ -133,17 +151,21 @@ public abstract partial class CESharedZLevelsRoofSystem : EntitySystem
                     continue;
 
                 if (!Map.TryGetTileRef(otherGrid, otherMapGrid, localTile, out var tileRef) || tileRef.Tile.IsEmpty)
-                    continue; // nothing here on this level — neither marked nor able to re-shield below
+                    continue;
 
-                var otherRoof = EnsureComp<RoofComponent>(otherGrid);
-                Roof.SetRoof((otherGrid, otherMapGrid, otherRoof), localTile, covered, occludeWeather: covered);
+                if (depth < ownDepth)
+                {
+                    var otherRoof = EnsureComp<RoofComponent>(otherGrid);
+                    Roof.SetRoof((otherGrid, otherMapGrid, otherRoof), localTile, blocksLight, occludeWeather: blocksWeather);
+                }
 
-                var otherTileDef = (ContentTileDefinition)TilDefMan[tileRef.Tile.TypeId];
-                if (!otherTileDef.Transparent)
-                    covered = true; // this level's own solid tile re-shields everything further down
+                blocksLight |= TileBlocksLight(tileRef.Tile);
+                blocksWeather = true;
             }
         }
     }
+
+    protected bool TileBlocksLight(Tile tile) => !CEZLevelOpeningCache.IsOpeningTile(tile, TilDefMan);
 
     /// <summary>
     /// Resolves a world tile (shared X,Y convention across Z-level maps — see
