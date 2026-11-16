@@ -9,12 +9,6 @@
   - StripableInventoryBase
   - AppearanceScpHands
   components:
-  - type: Clumsy
-    clumsyDefaultStunTime: 1
-    gunShootFailStunTime: 1
-    clumsyHypo: false
-    clumsySound:
-      path: /Audio/Effects/chopstickbreak.ogg
   - type: Hands
     showInHands: false
   - type: TTS
@@ -70,7 +64,7 @@
   - type: JumpAbility
     action: ActionScp4449Jump
     collideKnockdown: 0
-    jumpDistance: 0.5
+    jumpDistance: 0.75
     jumpThrowSpeed: 25
     jumpSound: /Audio/Effects/Footsteps/wood3.ogg
   - type: Body

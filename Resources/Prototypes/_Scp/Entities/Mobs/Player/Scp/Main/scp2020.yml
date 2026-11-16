@@ -6,7 +6,7 @@
   - BaseScpFriendlySapient
   - MobCombat
   - MobBloodstream
-  - AppearanceScpHumanoid
+  - AppearanceScp2020
   - StripableInventoryBase
   - InventoryBase
   components:
@@ -66,8 +66,6 @@
   - type: GuideHelp
     guides:
     - ScpResearch
-  - type: Thirst
-  - type: Hunger
   - type: Cuffable
   - type: Damageable
     damageModifierSet: SCP-2020
@@ -96,6 +94,12 @@
     - FootstepSound
     - DoorBumpOpener
     - Scp2020
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: NormalSatiationHunger
+      Thirst:
+        prototype: NormalSatiationThirst
 
 - type: startingGear
   id: Scp2020FormalGear

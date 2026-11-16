@@ -9,8 +9,10 @@
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/forcewall.ogg
-    icon:
-      sprite: Objects/Magic/magicactions.rsi
+  - type: Sprite
+    sprite: Objects/Magic/magicactions.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
       state: shield
   - type: InstantAction
     event: !type:InstantSpawnSpellEvent
@@ -25,8 +27,10 @@
   components:
     - type: Action
       useDelay: 30
-      icon:
-        sprite: /Textures/_Scp/Mobs/Scp/scp-208.rsi
+    - type: Sprite
+      sprite: /Textures/_Scp/Mobs/Scp/scp-208.rsi
+      layers:
+      - map: [ "enum.ActionVisuals.Icon" ]
         state: scp-208
       itemIconStyle: NoItem
     - type: TargetAction
