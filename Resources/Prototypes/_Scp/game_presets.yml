@@ -21,6 +21,7 @@
   rules:
   - ScpModeSafe
   - SendDocumentSafeMode
+  - SendDocumentNukeCodes
   - BasicFoundationEventScheduler
   - ScpMetaGarbageSpawn
   - FreeScpRule
@@ -36,6 +37,7 @@
   rules:
   - ScpModeEuclid
   - SendDocumentEuclidMode
+  - SendDocumentNukeCodes
   - BasicFoundationEventScheduler
   - ScpMetaGarbageSpawn
   - FreeScpRule
@@ -51,6 +53,7 @@
   rules:
   - ScpModeKeter
   - SendDocumentKeterMode
+  - SendDocumentNukeCodes
   - BasicFoundationEventScheduler
   - ScpMetaGarbageSpawn
   - FreeScpRule
@@ -66,6 +69,7 @@
   rules:
   - ScpModeThaumiel
   - SendDocumentThaumielMode
+  - SendDocumentNukeCodes
   - BasicFoundationEventScheduler
   - ScpMetaGarbageSpawn
   - FreeScpRule
@@ -81,6 +85,7 @@
   rules:
   - ScpModeEuclid
   - SendDocumentEuclidMode
+  - SendDocumentNukeCodes
   - BasicFoundationEventScheduler
   - ScpMetaGarbageSpawn
   - FreeScpRule
@@ -97,6 +102,7 @@
   rules:
   - ScpModeEuclid
   - SendDocumentEuclidMode
+  - SendDocumentNukeCodes
   - BasicFoundationEventScheduler
   - ScpMetaGarbageSpawn
   - FreeScpRule
