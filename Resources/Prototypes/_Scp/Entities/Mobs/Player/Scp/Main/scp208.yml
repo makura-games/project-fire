@@ -132,6 +132,32 @@
       params:
         volume: -5
         variation: 0.125
+  - type: AmbientSound
+    enabled: true
+    volume: -5
+    range: 3
+    sound:
+      path: /Audio/_Scp/Scp208/idle.ogg
+
+- type: entity
+  id: Scp208Wall
+  name: green barrier
+  parent: WallForce
+  components:
+  - type: Sprite
+    sprite: _Scp/Mobs/Scp/scp-208.rsi
+    state: wall
+  - type: Icon
+    sprite: _Scp/Mobs/Scp/scp-208.rsi
+    state: wall
+  - type: PointLight
+    color: "#32CD32"
+    radius: 2
+    energy: 10
+  - type: ScaleAnimation
+    animationKey: scp208_wall
+    duration: 0.5
+    initialSize: 0.2, 0.2
 
 - type: startingGear
   id: Scp208Gear

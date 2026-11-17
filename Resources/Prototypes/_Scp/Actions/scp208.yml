@@ -9,13 +9,13 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/forcewall.ogg
   - type: Sprite
-    sprite: Objects/Magic/magicactions.rsi
+    sprite: /Textures/_Scp/Mobs/Scp/scp-208.rsi
     layers:
     - map: [ "enum.ActionVisuals.Icon" ]
-      state: shield
+      state: wall
   - type: InstantAction
     event: !type:InstantSpawnSpellEvent
-      prototype: WallForce
+      prototype: Scp208Wall
       posData: !type:TargetInFront
 
 - type: entity

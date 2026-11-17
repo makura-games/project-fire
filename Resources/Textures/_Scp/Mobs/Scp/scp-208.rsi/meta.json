@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CLA",
-  "copyright": "made by peper",
+  "copyright": "made by peper and timur",
   "size": {
     "x": 32,
     "y": 32
@@ -10,6 +10,9 @@
     {
       "name": "scp-208",
       "directions": 4
+    },
+    {
+      "name": "wall"
     }
   ]
 }
