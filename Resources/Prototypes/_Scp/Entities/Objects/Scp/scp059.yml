@@ -7,6 +7,8 @@
     snap:
       - Wall
   components:
+  - type: Injurable
+    damageContainer: BiologicalMetaphysical
   - type: RadiationSource
     intensity: 0.1
     slope: 0.1
@@ -168,6 +170,8 @@
   - type: RadiationSource
     intensity: 0.3
     slope: 0.2
+  - type: Injurable
+    damageContainer: BiologicalMetaphysical
 
 - type: entity
   id: Scp059CrystalItem
