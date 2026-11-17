@@ -158,6 +158,8 @@
     animationKey: scp208_wall
     duration: 0.5
     initialSize: 0.2, 0.2
+  - type: TimedDespawn
+    lifetime: 20
 
 - type: startingGear
   id: Scp208Gear
