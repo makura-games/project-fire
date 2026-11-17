@@ -212,7 +212,7 @@
 - type: entityTable
   id: Scp018Triggers
   table: !type:GroupSelector
-  children:
+    children:
     - id: TriggerThrow
     - id: TriggerOnDrop
     - id: TriggerDeath
