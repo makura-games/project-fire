@@ -6257,3 +6257,14 @@
     description: Скриншот-20261025-012339
   - url: https://github.com/user-attachments/assets/95a339b0-4bd6-4a51-b1ea-e0ff4bf3b69d
     description: Скриншот-20261025-012408
+- author: Wardex
+  time: '2026-11-17T10:56:02.0000000+00:00'
+  changes:
+  - type: Add
+    message: Добавлена консоль ядерной авторизации
+  - type: Add
+    message: Добавлен ключ ядерной авторизации
+  - type: Add
+    message: Коды ядерной авторизации теперь отправляются на факс Директора Учреждения при режиме "Безопасный" и выше
+  id: 578
+  url: https://github.com/makura-games/project-fire/pull/1216
