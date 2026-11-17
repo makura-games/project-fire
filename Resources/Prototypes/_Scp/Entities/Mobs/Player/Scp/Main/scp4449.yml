@@ -88,6 +88,8 @@
     minimumSpeed: 30
   - type: ScpRestriction
     canTakeStaminaDamage: false
+  - type: FlipOnAttack
+    probability: 0.7
 
 - type: startingGear
   id: Scp4449Gear
