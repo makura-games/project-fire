@@ -14,7 +14,7 @@
     range: 75
     volume: -13
     sound:
-      path: /Audio/_Scp/Events/Scp3008/IKEA.ogg
+      path: /Audio/_Scp/Events/Scp3008/VOICE.ogg
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot
