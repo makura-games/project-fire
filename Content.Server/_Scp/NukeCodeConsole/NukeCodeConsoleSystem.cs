@@ -163,7 +163,7 @@ public sealed partial class NukeCodeConsoleSystem : EntitySystem
         if (_timing.CurTime < ent.Comp.EnterCodeCouldown)
             return;
 
-        ent.Comp.EnterCodeCouldown += _timing.CurTime + TimeSpan.FromSeconds(3);
+        ent.Comp.EnterCodeCouldown = _timing.CurTime + TimeSpan.FromSeconds(3);
 
         if (ent.Comp.IsLocked)
         {
