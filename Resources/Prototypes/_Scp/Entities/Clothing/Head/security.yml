@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingHeadHelmetBasic
+  parent: ClothingHeadHelmetMerc
   id: ClothingHeadHelmetSecurity
   name: helmet
   description: Standard black security gear. Protects the head from impacts.
@@ -21,7 +21,7 @@
     sprite: _Scp/Clothing/Head/Helmets/security_2.rsi
 
 - type: entity
-  parent: ClothingHeadHelmetRiot
+  parent: ClothingHeadHelmetMerc
   id: ClothingHeadHelmetSecurityRiot
   name: riot helmet
   description: Standard black security gear. Protects the head from impacts.
@@ -31,6 +31,12 @@
     sprite: _Scp/Clothing/Head/Helmets/security_riot.rsi
   - type: Clothing
     sprite: _Scp/Clothing/Head/Helmets/security_riot.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.2
+        Slash: 0.2
+        Piercing: 0.05
 
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable
@@ -112,4 +118,3 @@
     sprite: _Sunrise/Clothing/Head/Hats/beret_tsfelite.rsi
   - type: Clothing
     sprite: _Sunrise/Clothing/Head/Hats/beret_tsfelite.rsi
-    
