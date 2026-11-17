@@ -215,14 +215,6 @@
     TriggerThrow: 1
     TriggerOnDrop: 1
     TriggerDeath: 0.5
-
-- type: weightedRandomXenoArchTrigger
-  table: !type:GroupSelector
-    children:
-    - id: TriggerThrow
-    - id: TriggerOnDrop
-    - id: TriggerDeath
-      weight: 0.5
     
 - type: entityTable
   id: Scp261Triggers
