@@ -1,15 +1,11 @@
 using Content.Server.Nuke;
 using Content.Shared._Scp.NukeCodeConsole;
 using Content.Shared.Audio;
-using Content.Shared.DeviceNetwork.Components;
-using Content.Shared.Interaction;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Server._Scp.NukeCodeConsole;
 
@@ -35,9 +31,6 @@ public sealed partial class NukeCodeConsoleSystem : EntitySystem
         SubscribeLocalEvent<NukeCodeConsoleComponent, NukeCodeConsoleKeypadMessage>(OnKeypadButtonPressed);
         SubscribeLocalEvent<NukeCodeConsoleComponent, NukeCodeConsoleKeypadClearMessage>(OnClearButtonPressed);
         SubscribeLocalEvent<NukeCodeConsoleComponent, NukeCodeConsoleKeypadEnterMessage>(OnEnterButtonPressed);
-
-        SubscribeLocalEvent<NukeCodeConsoleComponent, InteractUsingEvent>(OnInteractUsing);
-        SubscribeLocalEvent<NukeCodeConsoleComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
     }
 
     private void OnMapInit(Entity<NukeCodeConsoleComponent> ent, ref MapInitEvent args)
@@ -52,8 +45,12 @@ public sealed partial class NukeCodeConsoleSystem : EntitySystem
             var nukeQuery = EntityQueryEnumerator<NukeComponent>();
             while (nukeQuery.MoveNext(out var uid, out var comp))
             {
-                if (Transform(uid).GridUid == Transform(ent).GridUid)
-                    ent.Comp.Code = comp.Code;
+                if (Transform(uid).GridUid != Transform(ent).GridUid)
+                    continue;
+
+                ent.Comp.LinkedNuke = uid;
+                ent.Comp.Code = comp.Code;
+                break;
             }
         }
 
@@ -91,17 +88,13 @@ public sealed partial class NukeCodeConsoleSystem : EntitySystem
         if (_timing.CurTime < ent.Comp.NextActivateButtonAvailable)
             return;
 
-        var nukeQuery = EntityQueryEnumerator<NukeComponent>();
-        while (nukeQuery.MoveNext(out var uid, out var comp))
-        {
-            if (Transform(uid).GridUid == Transform(ent).GridUid)
-            {
-                _nuke.SetRemainingTime(uid, ent.Comp.NukeRemainingTimeStart, comp);
-                _nuke.ToggleBomb(uid, comp);
+        if (ent.Comp.LinkedNuke == null)
+            return;
 
-                ent.Comp.NextActivateButtonAvailable = _timing.CurTime + ent.Comp.ActivateButtonDelay;
-            }
-        }
+        _nuke.SetRemainingTime(ent.Comp.LinkedNuke.Value, ent.Comp.NukeRemainingTimeStart);
+        _nuke.ToggleBomb(ent.Comp.LinkedNuke.Value);
+
+        ent.Comp.NextActivateButtonAvailable = _timing.CurTime + ent.Comp.ActivateButtonDelay;
     }
 
     private void OnLockButtonPressed(Entity<NukeCodeConsoleComponent> ent, ref NukeCodeConsoleLockButtonMessage args)
@@ -165,35 +158,12 @@ public sealed partial class NukeCodeConsoleSystem : EntitySystem
         UpdateUserInterface(ent);
     }
 
-    private void OnInteractUsing(Entity<NukeCodeConsoleComponent> ent, ref InteractUsingEvent args)
-    {
-        if (TryComp<NetworkConfiguratorComponent>(args.Used, out _) && ent.Comp.IsSealed)
-        {
-            args.Handled = true;
-        }
-    }
-
-    private void OnGetVerbs(Entity<NukeCodeConsoleComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
-    {
-        if (ent.Comp.IsSealed)
-            return;
-
-        if (!args.CanInteract || !args.CanAccess)
-            return;
-
-        var verb = new AlternativeVerb()
-        {
-            Text = Loc.GetString("code-console-verb-seal-name"),
-            Message = Loc.GetString("code-console-verb-seal-desc"),
-            Icon = new SpriteSpecifier.Texture(
-                new("/Textures/Interface/VerbIcons/lock.svg.192dpi.png")),
-            Act = () => { ent.Comp.IsSealed = true; }
-        };
-        args.Verbs.Add(verb);
-    }
-
     private void UpdateStatus(Entity<NukeCodeConsoleComponent> ent)
     {
+        if (_timing.CurTime < ent.Comp.EnterCodeCouldown)
+            return;
+
+        ent.Comp.EnterCodeCouldown += _timing.CurTime + TimeSpan.FromSeconds(3);
 
         if (ent.Comp.IsLocked)
         {

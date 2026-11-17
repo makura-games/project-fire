@@ -36,9 +36,6 @@ public sealed partial class NukeCodeConsoleComponent : Component
         }
     }
 
-    [DataField, AutoNetworkedField]
-    public bool IsSealed = false;
-
     private string _code = string.Empty;
 
     [DataField(serverOnly: true)]
@@ -48,7 +45,10 @@ public sealed partial class NukeCodeConsoleComponent : Component
     public TimeSpan ActivateButtonDelay = TimeSpan.FromMinutes(1);
 
     [DataField]
-    public float NukeRemainingTimeStart = 120f;
+    public float NukeRemainingTimeStart = 130f;
+
+    [ViewVariables]
+    public EntityUid? LinkedNuke;
 
     [DataField]
     public SoundSpecifier KeypadPressSound = new SoundPathSpecifier("/Audio/Machines/Nuke/general_beep.ogg");
@@ -61,6 +61,9 @@ public sealed partial class NukeCodeConsoleComponent : Component
 
     [ViewVariables]
     public TimeSpan? NextActivateButtonAvailable;
+
+    [ViewVariables]
+    public TimeSpan? EnterCodeCouldown;
 }
 
 
