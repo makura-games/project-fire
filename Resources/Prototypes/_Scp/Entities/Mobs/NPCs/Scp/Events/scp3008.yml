@@ -45,6 +45,8 @@
         true
       NavPry: !type:Bool
         true
+      NavInteract: !type:Bool
+        true
   - type: NPCRetaliation
     attackMemoryLength: 10
   - type: FactionException
@@ -59,7 +61,18 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-
+  - type: ComplexInteraction # чтобы могли открывать двери
+  - type: RepeatingTrigger
+    delay: 600 # 10 min
+  - type: StandingState
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: SoundWhileAlive
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
 
 - type: entity
   id: BasicScp3008
@@ -80,6 +93,8 @@
       types:
         Blunt: 5
         Structural: 20
+  - type: PolymorphOnTrigger
+    polymorph: BasicToAngry3008
 
 - type: entity
   id: BasicScp3008Angry
@@ -100,7 +115,8 @@
       params:
         variation: 0.5
       path: /Audio/_Scp/Events/Scp3008/VOICE.ogg
-
+  - type: PolymorphOnTrigger
+    polymorph: AngryToBasic3008
 
 - type: entity
   id: StrongScp3008
@@ -120,11 +136,12 @@
     attackRate: 0.7
     damage:
       types:
-        Blunt: 15
+        Blunt: 10
         Structural: 40
   - type: StaminaDamageOnHit
-    damage: 20
-
+    damage: 5
+  - type: PolymorphOnTrigger
+    polymorph: StrongToAngry3008
 
 - type: entity
   id: StrongScp3008Angry
@@ -138,7 +155,7 @@
         Blunt: 15
         Structural: 40
   - type: StaminaDamageOnHit
-    damage: 20
+    damage: 5
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 2.5
@@ -152,7 +169,8 @@
       params:
         variation: 0.15
       path: /Audio/_Scp/Events/Scp3008/VOICE.ogg
-
+  - type: PolymorphOnTrigger
+    polymorph: AngryToStrong3008
 
 - type: entity
   id: TallScp3008
@@ -168,7 +186,8 @@
   - type: NpcFactionMember
     factions:
     - Passive
-
+  - type: PolymorphOnTrigger
+    polymorph: TallToAngry3008
 
 - type: entity
   id: TallScp3008Angry
@@ -180,7 +199,7 @@
     baseWalkSpeed: 3.5
     baseSprintSpeed: 3.5
   - type: UseDelay
-    delay: 5
+    delay: 20
   - type: UseDelayOnMeleeHit
   - type: MeleeThrowOnHit
     stunTime: 0.2
@@ -206,3 +225,5 @@
       params:
         variation: 0.15
       path: /Audio/_Scp/Events/Scp3008/VOICE.ogg
+  - type: PolymorphOnTrigger
+    polymorph: AngryToTall3008

@@ -3,6 +3,7 @@
   abstract: true
   components:
   - type: Sprite
+    noRot: true
     sprite: _Scp/Structures/Furniture/dresser.rsi
     layers:
     - map: [ "base" ]

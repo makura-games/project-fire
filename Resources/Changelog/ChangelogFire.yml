@@ -6213,3 +6213,21 @@
     message: Офицерский Берет теперь доступен и для ОСН в персонализации.
   id: 573
   url: https://github.com/makura-games/project-fire/pull/1206
+- author: timur
+  time: '2026-11-17T09:08:54.0000000+00:00'
+  changes:
+  - type: Fix
+    message: исправлена невозможность сломать SCP-059
+  - type: Fix
+    message: исправлена невозможность сломать шкафчики со замком
+  - type: Fix
+    message: исправлен баг со странным вращением комодов
+  id: 574
+  url: https://github.com/makura-games/project-fire/pull/1215
+- author: Data_deleted
+  time: '2026-11-17T09:10:41.0000000+00:00'
+  changes:
+  - type: Fix
+    message: Пофикшены шлема
+  id: 575
+  url: https://github.com/makura-games/project-fire/pull/1212
