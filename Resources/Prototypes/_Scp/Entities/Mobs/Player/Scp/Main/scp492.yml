@@ -52,7 +52,7 @@
     - ScpResearch
   - type: FootstepModifier
     footstepSoundCollection:
-      collection: FootstepWood
+      collection: BarestepCarpet
   - type: Loadout
     prototypes: [ Scp492Gear ]
   - type: Damageable
