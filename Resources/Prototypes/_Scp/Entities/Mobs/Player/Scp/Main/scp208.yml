@@ -121,7 +121,7 @@
         Asphyxiation: -1
     stopBleeding: true
     bloodlossModifier: -2.0
-    delay: 5
+    delay: 3
     healingBeginSound:
       path: "/Audio/Effects/radpulse6.ogg"
       params:
