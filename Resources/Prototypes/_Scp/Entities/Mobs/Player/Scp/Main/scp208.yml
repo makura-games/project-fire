@@ -162,4 +162,4 @@
 - type: startingGear
   id: Scp208Gear
   equipment:
-    neck: KeyCardHospitalIntern
+    neck: KeyCardScp208

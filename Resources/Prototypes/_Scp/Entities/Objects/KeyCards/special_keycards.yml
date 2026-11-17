@@ -19,3 +19,23 @@
     state: head_security_red
   - type: PresetIdCard
     job: FondSeniorSecurityOfficer
+
+# SCPs
+
+- type: entity
+  parent: KeyCardBase
+  id: KeyCardScp208
+  components:
+  - type: Sprite
+    state: medical
+  - type: PresetIdCard
+    job: HospitalIntern
+
+- type: entity
+  parent: KeyCardBase
+  id: KeyCardScp492
+  components:
+  - type: Sprite
+    state: service
+  - type: PresetIdCard
+    job: ServicePersonnel
