@@ -11,10 +11,10 @@ public sealed partial class ScpPossibilitiesComponent : Component
 {
     /// <summary>
     /// Предоставляет сущности возможность выбрасывать
-    /// людей из мехов с помощью удара
+    /// людей из транспорта с помощью удара
     /// </summary>
     [DataField]
-    public bool CanEjectPilotFromMech = true;
+    public bool CanEjectPilotFromVehicle = true;
 
     /// <summary>
     /// Предоставляет сущности возможность открывать

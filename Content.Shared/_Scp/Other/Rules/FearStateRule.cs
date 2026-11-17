@@ -1,31 +1,23 @@
-﻿using Content.Shared._Scp.Fear;
+using Content.Shared._Scp.Fear;
 using Content.Shared._Scp.Fear.Components;
-using Content.Shared.Random.Rules;
-using JetBrains.Annotations;
+using Content.Shared.EntityConditions;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Scp.Other.Rules;
 
-[UsedImplicitly]
-public sealed partial class FearStateRule : RulesRule
+public sealed partial class FearStateCondition : EntityConditionBase<FearStateCondition>
 {
-    [DataField]
-    public FearState RequiredState;
+    [DataField] public FearState RequiredState;
+    [DataField] public bool CanBeGreater;
+    public override string EntityConditionGuidebookText(IPrototypeManager prototype) => string.Empty;
+}
 
-    [DataField]
-    public bool CanBeGreater;
-
-    public override bool Check(EntityManager entManager, EntityUid uid)
+public sealed partial class FearStateConditionSystem : EntityConditionSystem<FearComponent, FearStateCondition>
+{
+    protected override void Condition(Entity<FearComponent> entity, ref EntityConditionEvent<FearStateCondition> args)
     {
-        if (!entManager.TryGetComponent<FearComponent>(uid, out var fear))
-            return Inverted;
-
-        var should = CanBeGreater
-            ? fear.State >= RequiredState
-            : fear.State == RequiredState;
-
-        if (!should)
-            return Inverted;
-
-        return !Inverted;
+        args.Result = args.Condition.CanBeGreater
+            ? entity.Comp.State >= args.Condition.RequiredState
+            : entity.Comp.State == args.Condition.RequiredState;
     }
 }

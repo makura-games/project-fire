@@ -25,10 +25,6 @@
   components:
   - type: VendingMachine
     pack: ChefvendInventoryDClass
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    ejectState: eject-unshaded
   - type: Sprite
     sprite: _Scp/Structures/Machines/VendingMachines/chefvenddclass.rsi
   - type: PointLight
@@ -45,9 +41,6 @@
   components:
   - type: VendingMachine
     pack: ChefDrobeInventoryDClass
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: Sprite
     sprite: _Scp/Structures/Machines/VendingMachines/chefdrobedclass.rsi
 
@@ -60,10 +53,6 @@
   components:
   - type: VendingMachine
     pack: DinnerwareInventoryDClass
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    ejectState: eject-unshaded
   - type: Sprite
     sprite: _Scp/Structures/Machines/VendingMachines/dinnerwaredclass.rsi
   - type: PointLight
@@ -80,11 +69,6 @@
   components:
   - type: VendingMachine
     pack: MegaSeedServitorInventoryDClass
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    ejectState: eject-unshaded
-    denyState: deny-unshaded
   - type: Sprite
     sprite: _Scp/Structures/Machines/VendingMachines/seedsdclass.rsi
   - type: PointLight
@@ -101,11 +85,6 @@
   components:
   - type: VendingMachine
     pack: NutriMaxInventoryDClass
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    ejectState: eject-unshaded
-    denyState: deny-unshaded
   - type: Sprite
     sprite: _Scp/Structures/Machines/VendingMachines/nutridclass.rsi
   - type: PointLight
@@ -122,11 +101,6 @@
   components:
   - type: VendingMachine
     pack: BoozeOMatInventoryDClass
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    denyState: deny-unshaded
-    loopDeny: false
   - type: Sprite
     sprite: _Scp/Structures/Machines/VendingMachines/boozeomatdclass.rsi
   - type: GuideHelp
@@ -154,11 +128,6 @@
   components:
   - type: VendingMachine
     pack: ScpPTechInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    ejectState: eject-unshaded
-    denyState: deny-unshaded
   - type: AccessReader
     access: [["PersonnelOfficer"]]
 

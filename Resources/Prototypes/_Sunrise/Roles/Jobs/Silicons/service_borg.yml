@@ -9,7 +9,6 @@
     - !type:OverallPlaytimeRequirement
       time: 72000 #20 hrs # Sunrise-Edit
   setPreference: false # Fire edit
-  displayWeight: -10  # Sunrise
   jobEntity: PlayerBorgServiceBattery
   overrideConsoleVisibility: false
   alwaysUseSpawner: true

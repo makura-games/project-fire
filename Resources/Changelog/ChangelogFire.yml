@@ -6147,3 +6147,124 @@
     message: исправлен баг с невозможностью нанести урон SCP предметам
   id: 565
   url: https://github.com/makura-games/project-fire/pull/1194
+- author: Wardex
+  time: '2026-11-15T17:42:16.0000000+00:00'
+  changes:
+  - type: Tweak
+    message: 'Актуализированы карты: Compact, Standard, Modular'
+  - type: Tweak
+    message: Сделан апстрим с Санрайза
+  id: 566
+  url: https://github.com/makura-games/project-fire/pull/1211
+- author: timur
+  time: '2026-11-15T21:48:24.0000000+00:00'
+  changes:
+  - type: Fix
+    message: На спрайт коричневого свитера SCP-082 добавлены туфли
+  id: 567
+  url: https://github.com/makura-games/project-fire/pull/1209
+- author: timur
+  time: '2026-11-15T21:50:26.0000000+00:00'
+  changes:
+  - type: Add
+    message: Добавлен золотой трон и паланкин для SCP-082 и SCP-3288
+  id: 568
+  url: https://github.com/makura-games/project-fire/pull/1201
+- author: timur
+  time: '2026-11-15T21:52:16.0000000+00:00'
+  changes:
+  - type: Add
+    message: Добавлена рука SCP-999
+  id: 569
+  url: https://github.com/makura-games/project-fire/pull/1195
+- author: timur
+  time: '2026-11-15T21:56:22.0000000+00:00'
+  changes:
+  - type: Remove
+    message: Удален спавн ржавых стен в начале раунда
+  id: 570
+  url: https://github.com/makura-games/project-fire/pull/1197
+- author: timur
+  time: '2026-11-15T21:58:46.0000000+00:00'
+  changes:
+  - type: Add
+    message: Теперь появление яиц SCP-3199 в учреждении сопровождается объявлением
+  id: 571
+  url: https://github.com/makura-games/project-fire/pull/1198
+- author: timur
+  time: '2026-11-15T22:00:08.0000000+00:00'
+  changes:
+  - type: Fix
+    message: Исправлен баг с невозможностью надеть SCP-035
+  id: 572
+  url: https://github.com/makura-games/project-fire/pull/1200
+- author: MrZero1984
+  time: '2026-11-15T22:03:04.0000000+00:00'
+  changes:
+  - type: Add
+    message: Добавлены плюши
+  - type: Add
+    message: Добавлена автоматическая винтовка ОЦ-14 "Гроза".
+  - type: Add
+    message: ГРУ-П теперь при спавне имеют "Грозу".
+  - type: Tweak
+    message: Сержант ГРУ-П теперь имеет при себе лишь облегченный бронежилет.
+  - type: Fix
+    message: Офицерский Берет теперь доступен и для ОСН в персонализации.
+  id: 573
+  url: https://github.com/makura-games/project-fire/pull/1206
+- author: timur
+  time: '2026-11-17T09:08:54.0000000+00:00'
+  changes:
+  - type: Fix
+    message: исправлена невозможность сломать SCP-059
+  - type: Fix
+    message: исправлена невозможность сломать шкафчики со замком
+  - type: Fix
+    message: исправлен баг со странным вращением комодов
+  id: 574
+  url: https://github.com/makura-games/project-fire/pull/1215
+- author: Data_deleted
+  time: '2026-11-17T09:10:41.0000000+00:00'
+  changes:
+  - type: Fix
+    message: Пофикшены шлема
+  id: 575
+  url: https://github.com/makura-games/project-fire/pull/1212
+- author: timur
+  time: '2026-11-17T09:13:58.0000000+00:00'
+  changes:
+  - type: Add
+    message: Добавлена декорация винтажного радио
+  - type: Tweak
+    message: Душ теперь можно переключить через клик на спрайт
+  id: 576
+  url: https://github.com/makura-games/project-fire/pull/1173
+  media:
+  - url: https://github.com/user-attachments/assets/1df1520c-f203-4083-adac-e47529988a39
+    description: Скриншот-20260927-004313
+- author: timur
+  time: '2026-11-17T09:12:52.0000000+00:00'
+  changes:
+  - type: Add
+    message: добавлена генерация SCP-3008
+  id: 577
+  url: https://github.com/makura-games/project-fire/pull/1196
+  media:
+  - url: https://github.com/user-attachments/assets/acd1c9b4-ef74-4255-8381-be37bac61871
+    description: Скриншот-20261025-012247
+  - url: https://github.com/user-attachments/assets/2f5f9f8c-af01-4e6f-883f-ff790cddb2c7
+    description: Скриншот-20261025-012339
+  - url: https://github.com/user-attachments/assets/95a339b0-4bd6-4a51-b1ea-e0ff4bf3b69d
+    description: Скриншот-20261025-012408
+- author: Wardex
+  time: '2026-11-17T10:56:02.0000000+00:00'
+  changes:
+  - type: Add
+    message: Добавлена консоль ядерной авторизации
+  - type: Add
+    message: Добавлен ключ ядерной авторизации
+  - type: Add
+    message: Коды ядерной авторизации теперь отправляются на факс Директора Учреждения при режиме "Безопасный" и выше
+  id: 578
+  url: https://github.com/makura-games/project-fire/pull/1216

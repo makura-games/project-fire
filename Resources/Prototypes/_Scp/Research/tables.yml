@@ -157,48 +157,59 @@
 
 # Триггеры
 
-- type: weightedRandomXenoArchTrigger
+- type: entityTable
   id: ScpDefaultTriggers
-  weights:
-    TriggerMusic: 1
-    TriggerHeat: 1
-    TriggerCold: 0.4
-    TriggerPlasma: 0.4
-    TriggerRadiation: 0.5
-    TriggerPressureHigh: 0.4
-    TriggerPressureLow: 0.4
-    TriggerExamine: 1
-    TriggerBruteDamage: 1
-    TriggerWrenching: 1
-    TriggerPrying: 1
-    TriggerScrewing: 1
-    TriggerPulsing: 1
-    TriggerTimer: 0.25
-    TriggerBlood: 1
-    TriggerThrow: 1
-    TriggerDeath: 1
-    TriggerMagnet: 1
+  table: !type:GroupSelector
+    children:
+    - id: TriggerMusic
+    - id: TriggerHeat
+    - id: TriggerCold
+      weight: 0.4
+    - id: TriggerPlasma
+      weight: 0.4
+    - id: TriggerRadiation
+      weight: 0.5
+    - id: TriggerPressureHigh
+      weight: 0.4
+    - id: TriggerPressureLow
+      weight: 0.4
+    - id: TriggerExamine
+    - id: TriggerBruteDamage
+    - id: TriggerWrenching
+    - id: TriggerPrying
+    - id: TriggerScrewing
+    - id: TriggerPulsing
+    - id: TriggerTimer
+      weight: 0.25
+    - id: TriggerBlood
+    - id: TriggerThrow
+    - id: TriggerDeath
+    - id: TriggerMagnet
     # Дальше наши самописные
-    TriggerHealthAnalyzer: 1
+    - id: TriggerHealthAnalyzer
 
-- type: weightedRandomXenoArchTrigger
+- type: entityTable
   id: Scp330Triggers
-  weights:
-    TriggerInsertIntoContainer: 1
-    TriggerRemoveFromContainer: 1
-    TriggerScp330Punishment: 1
-    TriggerDeath: 0.5
+  table: !type:GroupSelector
+    children:
+    - id: TriggerInsertIntoContainer
+    - id: TriggerRemoveFromContainer
+    - id: TriggerScp330Punishment
+    - id: TriggerDeath
+      weight: 0.5
 
-- type: weightedRandomXenoArchTrigger
+- type: entityTable
   id: Scp012Triggers
-  weights:
-    TriggerOnTake: 1
-    TriggerOnDrop: 1
-    TriggerDealDamageSlash30: 1
-    TriggerDealDamageSlash70: 1
-    TriggerDeath: 0.5
+  table: !type:GroupSelector
+    children:
+    - id: TriggerOnTake
+    - id: TriggerOnDrop
+    - id: TriggerDealDamageSlash30
+    - id: TriggerDealDamageSlash70
+    - id: TriggerDeath
+      weight: 0.5
 
-- type: weightedRandomXenoArchTrigger
+- type: entityTable
   id: Scp018Triggers
   weights:
     TriggerThrow: 1
@@ -206,11 +217,20 @@
     TriggerDeath: 0.5
 
 - type: weightedRandomXenoArchTrigger
+  table: !type:GroupSelector
+    children:
+    - id: TriggerThrow
+    - id: TriggerOnDrop
+    - id: TriggerDeath
+      weight: 0.5
+    
+- type: entityTable
   id: Scp261Triggers
-  weights:
-    TriggerInsertIntoContainer: 1
-    TriggerExamine: 1
-    TriggerBruteDamage: 1
-    TriggerWrenching: 1
-    TriggerPrying: 1
-    TriggerScrewing: 1
+  table: !type:GroupSelector
+    children:
+    - id: TriggerInsertIntoContainer
+    - id: TriggerExamine
+    - id: TriggerBruteDamage
+    - id: TriggerWrenching
+    - id: TriggerPrying
+    - id: TriggerScrewing

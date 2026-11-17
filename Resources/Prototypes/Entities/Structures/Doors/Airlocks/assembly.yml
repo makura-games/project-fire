@@ -6,7 +6,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/atmospherics.rsi
+    sprite: Structures/Doors/Airlocks/Standard/engineering-atmos.rsi
     state: "assembly"
 
 - type: entity
@@ -16,7 +16,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/atmospherics.rsi
+    sprite: Structures/Doors/Airlocks/Glass/engineering-atmos.rsi
     state: "assembly"
 
 #Cargo
@@ -27,7 +27,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/cargo.rsi
+    sprite: Structures/Doors/Airlocks/Standard/cargo-base.rsi
     state: "assembly"
 
 - type: entity
@@ -37,34 +37,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/cargo.rsi
-    state: "assembly"
-
-#Clockwork
-- type: entity
-  id: PinionAirlockAssembly
-  name: airlock assembly
-  suffix: Pinion, Clockwork
-  parent: AirlockAssembly
-  categories: [ HideSpawnMenu ] # Fire added
-  components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/clockwork_pinion.rsi
-    state: "assembly"
-  - type: Construction
-    graph: PinionAirlock
-    node: assembly
-  placement:
-    mode: SnapgridCenter
-
-- type: entity
-  parent: PinionAirlockAssembly
-  id: PinionAirlockAssemblyGlass
-  suffix: Pinion, Clockwork, Glass
-  categories: [ HideSpawnMenu ] # Fire added
-  components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/clockwork_pinion.rsi
+    sprite: Structures/Doors/Airlocks/Glass/cargo-base.rsi
     state: "assembly"
 
 #Command
@@ -75,7 +48,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/command.rsi
+    sprite: Structures/Doors/Airlocks/Standard/command-base.rsi
     state: "assembly"
 
 - type: entity
@@ -85,7 +58,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/command.rsi
+    sprite: Structures/Doors/Airlocks/Glass/command-base.rsi
     state: "assembly"
 
 #Engineering
@@ -96,7 +69,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/engineering.rsi
+    sprite: Structures/Doors/Airlocks/Standard/engineering-base.rsi
     state: "assembly"
 
 - type: entity
@@ -106,7 +79,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/engineering.rsi
+    sprite: Structures/Doors/Airlocks/Glass/engineering-base.rsi
     state: "assembly"
 
 #External
@@ -117,7 +90,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/external.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-external.rsi
     state: "assembly"
 
 - type: entity
@@ -127,7 +100,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/external.rsi
+    sprite: Structures/Doors/Airlocks/Glass/airlock-external.rsi
     state: "assembly"
 
 #Public (Glass Airlock)
@@ -138,7 +111,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/glass.rsi
+    sprite: Structures/Doors/Airlocks/Glass/airlock-base.rsi
     state: "assembly"
 
 #Freezer
@@ -149,7 +122,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/freezer.rsi
+    sprite: Structures/Doors/Airlocks/Standard/service-freezer.rsi
     state: "assembly"
 
 #Hydroponics
@@ -160,7 +133,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: _Sunrise/Structures/Doors/Airlocks/Standard/hydroponics.rsi #Sunrise-Resprite
+    sprite: Structures/Doors/Airlocks/Standard/service-botany.rsi
     state: "assembly"
 
 - type: entity
@@ -170,7 +143,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: _Sunrise/Structures/Doors/Airlocks/Glass/hydroponics.rsi #Sunrise-Resprite
+    sprite: Structures/Doors/Airlocks/Glass/service-botany.rsi
     state: "assembly"
 
 #Maintenance
@@ -181,7 +154,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
     state: "assembly"
 
 - type: entity
@@ -191,7 +164,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/maint.rsi
+    sprite: Structures/Doors/Airlocks/Glass/airlock-maints.rsi
     state: "assembly"
 
 #Medical
@@ -202,7 +175,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/medical.rsi
+    sprite: Structures/Doors/Airlocks/Standard/medical-base.rsi
     state: "assembly"
 
 - type: entity
@@ -212,7 +185,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/medical.rsi
+    sprite: Structures/Doors/Airlocks/Glass/medical-base.rsi
     state: "assembly"
 
 #Salvage
@@ -223,7 +196,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/salvage.rsi
+    sprite: Structures/Doors/Airlocks/Standard/cargo-salvage.rsi
     state: "assembly"
 
 - type: entity
@@ -233,7 +206,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/salvage.rsi
+    sprite: Structures/Doors/Airlocks/Glass/cargo-salvage.rsi
     state: "assembly"
 
 #Science
@@ -244,7 +217,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/science.rsi
+    sprite: Structures/Doors/Airlocks/Standard/science-base.rsi
     state: "assembly"
 
 - type: entity
@@ -254,7 +227,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/science.rsi
+    sprite: Structures/Doors/Airlocks/Glass/science-base.rsi
     state: "assembly"
 
 #Security
@@ -265,7 +238,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/security.rsi
+    sprite: Structures/Doors/Airlocks/Standard/security-base.rsi
     state: "assembly"
 
 - type: entity
@@ -275,7 +248,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/security.rsi
+    sprite: Structures/Doors/Airlocks/Glass/security-base.rsi
     state: "assembly"
 
 #Shuttle
@@ -286,8 +259,11 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/shuttle.rsi
-    state: "assembly"
+    sprite: Structures/Doors/Airlocks/Standard/shuttle-base.rsi
+    layers:
+    - state: docking-clamp
+      offset: 0, -1
+    - state: assembly
 
 - type: entity
   parent: AirlockAssembly
@@ -296,7 +272,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/shuttle.rsi
+    sprite: Structures/Doors/Airlocks/Glass/shuttle-base.rsi
     state: "assembly"
 
 #Virology
@@ -307,7 +283,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/virology.rsi
+    sprite: Structures/Doors/Airlocks/Standard/medical-viro.rsi
     state: "assembly"
 
 - type: entity
@@ -317,7 +293,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/virology.rsi
+    sprite: Structures/Doors/Airlocks/Glass/medical-viro.rsi
     state: "assembly"
 
 #CentralCommand
@@ -328,7 +304,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/centcomm.rsi
+    sprite: Structures/Doors/Airlocks/Standard/centcomm-base.rsi
     state: "assembly"
 
 - type: entity
@@ -338,7 +314,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/centcomm.rsi
+    sprite: Structures/Doors/Airlocks/Glass/centcomm-base.rsi
     state: "assembly"
 
 #Mining
@@ -349,7 +325,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/mining.rsi
+    sprite: Structures/Doors/Airlocks/Standard/cargo-mining.rsi
     state: "assembly"
 
 - type: entity
@@ -359,7 +335,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/mining.rsi
+    sprite: Structures/Doors/Airlocks/Glass/cargo-mining.rsi
     state: "assembly"
 
 #Syndicate
@@ -370,7 +346,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/syndicate.rsi
+    sprite: Structures/Doors/Airlocks/Standard/syndicate-base.rsi
     state: "assembly"
 
 - type: entity
@@ -380,7 +356,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/syndicate.rsi
+    sprite: Structures/Doors/Airlocks/Glass/syndicate-base.rsi
     state: "assembly"
 
 #ShuttleSyndicate
@@ -391,7 +367,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/shuttle_syndicate.rsi
+    sprite: Structures/Doors/Airlocks/Standard/shuttle-syndicate.rsi
     state: "assembly"
 
 - type: entity
@@ -401,7 +377,7 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/shuttle_syndicate.rsi
+    sprite: Structures/Doors/Airlocks/Glass/shuttle-syndicate.rsi
     state: "assembly"
 
 #High Security
@@ -412,5 +388,5 @@
   categories: [ HideSpawnMenu ] # Fire added
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/highsec/highsec.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-vault.rsi
     state: "assembly"

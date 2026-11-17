@@ -6,23 +6,6 @@
   components:
   - type: Sprite
     sprite: Structures/Piping/disposal.rsi # TODO: сделать отдельный спрайт
-    layers:
-    - state: outlet
-      map: [ "enum.DisposalUnitVisualLayers.Unanchored" ]
-    - state: intake
-      map: [ "enum.DisposalUnitVisualLayers.Base" ]
-    - state: outlet
-      map: [ "enum.DisposalUnitVisualLayers.BaseCharging" ]
-    - state: intake-closing
-      map: [ "enum.DisposalUnitVisualLayers.OverlayFlush" ]
-    - state: dispover-handle
-      map: [ "enum.DisposalUnitVisualLayers.OverlayCharging" ]
-    - state: dispover-handle
-      map: [ "enum.DisposalUnitVisualLayers.OverlayReady" ]
-    - state: dispover-handle
-      map: [ "enum.DisposalUnitVisualLayers.OverlayFull" ]
-    - state: dispover-handle
-      map: [ "enum.DisposalUnitVisualLayers.OverlayEngaged" ]
   - type: DisposalUnit
     whitelist:
       components:

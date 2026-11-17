@@ -2,7 +2,10 @@
 
 - type: entity
   id: OrganScpRightArm
-  parent: OrganBase
+  parent: 
+  - OrganBase
+  - OrganBaseParent
+  - OrganBaseChildExternal
   categories: [ HideSpawnMenu ]
   components:
   - type: Organ
@@ -10,7 +13,10 @@
 
 - type: entity
   id: OrganScpLeftArm
-  parent: OrganBase
+  parent: 
+  - OrganBase
+  - OrganBaseParent
+  - OrganBaseChildExternal
   categories: [ HideSpawnMenu ]
   components:
   - type: Organ
@@ -18,7 +24,10 @@
 
 - type: entity
   id: OrganScpRightHand
-  parent: OrganBase
+  parent: 
+  - OrganBase
+  - OrganBaseParent
+  - OrganBaseChildExternal
   categories: [ HideSpawnMenu ]
   components:
   - type: Organ
@@ -30,7 +39,10 @@
 
 - type: entity
   id: OrganScpLeftHand
-  parent: OrganBase
+  parent:
+  - OrganBase
+  - OrganBaseParent
+  - OrganBaseChildExternal
   categories: [ HideSpawnMenu ]
   components:
   - type: Organ
@@ -42,7 +54,10 @@
 
 - type: entity
   id: OrganScpRightLeg
-  parent: OrganBase
+  parent:
+  - OrganBase
+  - OrganBaseParent
+  - OrganBaseChildExternal
   categories: [ HideSpawnMenu ]
   components:
   - type: Organ
@@ -50,7 +65,10 @@
 
 - type: entity
   id: OrganScpLeftLeg
-  parent: OrganBase
+  parent: 
+  - OrganBase
+  - OrganBaseParent
+  - OrganBaseChildExternal
   categories: [ HideSpawnMenu ]
   components:
   - type: Organ
@@ -58,7 +76,10 @@
 
 - type: entity
   id: OrganScpRightFoot
-  parent: OrganBase
+  parent: 
+  - OrganBase
+  - OrganBaseParent
+  - OrganBaseChildExternal
   categories: [ HideSpawnMenu ]
   components:
   - type: Organ
@@ -66,7 +87,10 @@
 
 - type: entity
   id: OrganScpLeftFoot
-  parent: OrganBase
+  parent: 
+  - OrganBase
+  - OrganBaseParent
+  - OrganBaseChildExternal
   categories: [ HideSpawnMenu ]
   components:
   - type: Organ
@@ -74,7 +98,10 @@
 
 - type: entity
   id: OrganScpEyes
-  parent: OrganBase
+  parent: 
+  - OrganBase
+  - OrganBaseParent
+  - OrganBaseChildExternal
   categories: [ HideSpawnMenu ]
   components:
   - type: Organ
@@ -83,7 +110,10 @@
 
 - type: entity
   id: OrganScpHead
-  parent: OrganBase
+  parent: 
+  - OrganBase
+  - OrganBaseParent
+  - OrganBaseChildExternal
   categories: [ HideSpawnMenu ]
   components:
   - type: Organ
@@ -91,7 +121,10 @@
 
 - type: entity
   id: OrganScpTorso
-  parent: OrganBase
+  parent: 
+  - OrganBase
+  - OrganBaseParent
+  - OrganBaseChildExternal
   categories: [ HideSpawnMenu ]
   components:
   - type: Organ
