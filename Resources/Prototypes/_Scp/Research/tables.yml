@@ -211,10 +211,11 @@
 
 - type: entityTable
   id: Scp018Triggers
+  table: !type:GroupSelector
   weights:
-    TriggerThrow: 1
-    TriggerOnDrop: 1
-    TriggerDeath: 0.5
+    - id: TriggerThrow
+    - id: TriggerOnDrop
+    - id: TriggerDeath
     
 - type: entityTable
   id: Scp261Triggers
