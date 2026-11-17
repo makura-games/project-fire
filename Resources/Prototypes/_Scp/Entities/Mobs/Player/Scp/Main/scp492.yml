@@ -10,7 +10,6 @@
   - AppearanceScpHands
   components:
   - type: Hands
-    showInHands: false
   - type: TTS
     voice: batrider_dota_2
   - type: AutoGhostRole
