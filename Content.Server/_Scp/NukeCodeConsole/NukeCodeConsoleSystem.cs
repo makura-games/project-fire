@@ -35,7 +35,7 @@ public sealed partial class NukeCodeConsoleSystem : EntitySystem
 
     private void OnMapInit(Entity<NukeCodeConsoleComponent> ent, ref MapInitEvent args)
     {
-        _itemSlots.AddItemSlot(ent, NukeCodeConsoleComponent.KeySlotId, ent.Comp.KeySlot);
+        _itemSlots.AddItemSlot(ent.Owner, NukeCodeConsoleComponent.KeySlotId, ent.Comp.KeySlot);
 
         if (string.IsNullOrWhiteSpace(ent.Comp.Code))
         {

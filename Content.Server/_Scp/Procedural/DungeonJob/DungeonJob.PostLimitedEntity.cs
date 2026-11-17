@@ -1,7 +1,8 @@
-using System.Linq;
 using System.Threading.Tasks;
 using Content.Shared._Scp.Procedural.PostGeneration;
 using Content.Shared.Procedural;
+using Robust.Shared.Collections;
+using Robust.Shared.Map;
 using Robust.Shared.Random;
 
 namespace Content.Server.Procedural.DungeonJob;
@@ -9,34 +10,33 @@ namespace Content.Server.Procedural.DungeonJob;
 public sealed partial class DungeonJob
 {
     /// <summary>
-    /// Generates limited entities in the dungeon based on the specified parameters.
+    /// Генерирует ограниченное количество сущностей в случайных свободных клетках подземелья.
     /// <see cref="LimitedEntityDunGen"/>
     /// </summary>
-    private async Task PostGen(LimitedEntityDunGen gen, Dungeon dungeon, Random random)
+    private async Task PostGen(LimitedEntityDunGen gen, Dungeon dungeon, IRobustRandom random)
     {
-        if (gen.Limit <= 0 || string.IsNullOrEmpty(gen.Entity))
+        if (gen.Limit <= 0)
             return;
 
-        var checkedTiles = new HashSet<Vector2i>();
-        var candidateTiles = new List<Vector2i>(dungeon.RoomTiles);
-        random.Shuffle(candidateTiles);
+        var availableTiles = new ValueList<Vector2i>(dungeon.AllTiles);
 
-        var entitiesSpawned = 0;
-        foreach (var tile in candidateTiles.TakeWhile(_ => entitiesSpawned < gen.Limit).Where(tile => checkedTiles.Add(tile) && _anchorable.TileFree(_grid, tile, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask)))
+        for (var i = 0; i < gen.Limit && availableTiles.Count > 0; i++)
         {
-            if (TrySpawnEntity(tile, gen.Entity))
-                entitiesSpawned++;
+            while (availableTiles.Count > 0)
+            {
+                var tile = availableTiles.RemoveSwap(random.Next(availableTiles.Count));
 
-            if (entitiesSpawned % 10 == 0)
-                await SuspendDungeon();
+                if (!_anchorable.TileFree((_gridUid, _grid), tile, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask))
+                    continue;
+
+                _entManager.SpawnAtPosition(gen.Entity, _maps.GridTileToLocal(_gridUid, _grid, tile));
+                break;
+            }
+
+            await SuspendDungeon();
+
+            if (!ValidateResume())
+                return;
         }
-    }
-
-    private bool TrySpawnEntity(Vector2i tile, string entityPrototype)
-    {
-        var gridPos = _maps.GridTileToLocal(_gridUid, _grid, tile);
-        var entityUid = _entManager.SpawnEntity(entityPrototype, gridPos);
-
-        return entityUid != EntityUid.Invalid;
     }
 }
