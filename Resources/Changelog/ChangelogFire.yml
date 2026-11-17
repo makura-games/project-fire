@@ -6231,3 +6231,29 @@
     message: Пофикшены шлема
   id: 575
   url: https://github.com/makura-games/project-fire/pull/1212
+- author: timur
+  time: '2026-11-17T09:13:58.0000000+00:00'
+  changes:
+  - type: Add
+    message: Добавлена декорация винтажного радио
+  - type: Tweak
+    message: Душ теперь можно переключить через клик на спрайт
+  id: 576
+  url: https://github.com/makura-games/project-fire/pull/1173
+  media:
+  - url: https://github.com/user-attachments/assets/1df1520c-f203-4083-adac-e47529988a39
+    description: Скриншот-20260927-004313
+- author: timur
+  time: '2026-11-17T09:12:52.0000000+00:00'
+  changes:
+  - type: Add
+    message: добавлена генерация SCP-3008
+  id: 577
+  url: https://github.com/makura-games/project-fire/pull/1196
+  media:
+  - url: https://github.com/user-attachments/assets/acd1c9b4-ef74-4255-8381-be37bac61871
+    description: Скриншот-20261025-012247
+  - url: https://github.com/user-attachments/assets/2f5f9f8c-af01-4e6f-883f-ff790cddb2c7
+    description: Скриншот-20261025-012339
+  - url: https://github.com/user-attachments/assets/95a339b0-4bd6-4a51-b1ea-e0ff4bf3b69d
+    description: Скриншот-20261025-012408
