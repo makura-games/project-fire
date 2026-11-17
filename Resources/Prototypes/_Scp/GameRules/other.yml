@@ -108,3 +108,15 @@
     delay:
       min: 25
       max: 30
+
+# Коды ядерной аутентификации
+- type: entity
+  id: SendDocumentNukeCodes
+  parent: BaseGameRuleShortDelay
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SendDocumentNukeCodeRule
+  - type: GameRule
+    delay:
+      min: 30
+      max: 35
