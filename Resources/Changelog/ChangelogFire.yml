@@ -6224,3 +6224,10 @@
     message: исправлен баг со странным вращением комодов
   id: 574
   url: https://github.com/makura-games/project-fire/pull/1215
+- author: Data_deleted
+  time: '2026-11-17T09:10:41.0000000+00:00'
+  changes:
+  - type: Fix
+    message: Пофикшены шлема
+  id: 575
+  url: https://github.com/makura-games/project-fire/pull/1212
