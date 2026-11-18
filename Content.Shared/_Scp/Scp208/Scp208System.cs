@@ -38,7 +38,6 @@ public sealed partial class SharedScp208System : EntitySystem
     private void OnStartup(Entity<Scp208Component> ent, ref ComponentStartup args)
     {
         _actions.AddAction(ent, ref ent.Comp.HealActionEnt, ent.Comp.ActionHealProtoId);
-        Dirty(ent);
     }
 
     private void OnShutdown(Entity<Scp208Component> ent, ref ComponentShutdown args)

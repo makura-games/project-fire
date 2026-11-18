@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Scp.Scp208;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class Scp208Component : Component
 {
     [DataField]
@@ -29,6 +29,6 @@ public sealed partial class Scp208Component : Component
     [DataField]
     public SoundSpecifier? HealingEndSound;
 
-    [ViewVariables, AutoNetworkedField]
+    [ViewVariables]
     public EntityUid? HealActionEnt;
 }
