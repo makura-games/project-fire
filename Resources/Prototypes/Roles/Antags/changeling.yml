@@ -2,7 +2,7 @@
   id: Changeling
   name: roles-antag-changeling-name
   antagonist: true
-  setPreference: true
+  setPreference: false # Fire edit
   playTimeTracker: AntagChangeling # Sunrise-Edit
   objective: roles-antag-changeling-objective
   guides: [ Changelings ]
