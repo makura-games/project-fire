@@ -3,6 +3,7 @@ using Content.Server.Actions;
 using Content.Server.Disposal.Unit;
 using Content.Server.Popups;
 using Content.Shared._Scp.Scp999;
+using Content.Shared.Disposal.Unit;
 using Content.Shared._Sunrise.VentCraw;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage.Systems;

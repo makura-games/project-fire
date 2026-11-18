@@ -51,10 +51,6 @@
     - id: RubberStampDenied
     - id: RubberStampSeniorLogisticsOfficer
     - id: AstroNavCartridge
-    - id: ClothingOuterSuitCargo
-    - id: BluespaceBox
-    - id: BluespaceBox
-      prob: 0.25
     - id: FlippoLighterSunriseQm
 
 - type: entity

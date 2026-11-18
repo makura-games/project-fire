@@ -1,6 +1,5 @@
-﻿using Content.Shared.Random.Rules;
+using Content.Shared.EntityConditions;
 using Content.Shared.Storage;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server._Scp.GameTicking.Rules.SpawnInEntityStorage;
 
@@ -23,5 +22,5 @@ public sealed partial class SpawnInEntityStorageRuleComponent : Component
     public TimeSpan CloseAfterVariation = TimeSpan.FromSeconds(0.5f);
 
     [DataField]
-    public ProtoId<RulesPrototype>? StationRules;
+    public EntityCondition[] StationConditions = [];
 }

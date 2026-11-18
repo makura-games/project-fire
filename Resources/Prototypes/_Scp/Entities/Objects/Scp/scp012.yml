@@ -33,4 +33,5 @@
     uponSeenState: None
     uponComeCloser: Terror
   - type: XenoArtifact
-    triggerWeights: Scp012Triggers
+    triggersTable: !type:NestedSelector
+      tableId: Scp012Triggers

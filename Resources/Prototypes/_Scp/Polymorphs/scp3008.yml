@@ -1,0 +1,103 @@
+- type: polymorph
+  id: BasicToAngry3008
+  configuration:
+    entity: BasicScp3008Angry
+    forced: true
+    inventory: None
+    transferName: false
+    transferDamage: true
+    revertOnCrit: false
+    revertOnDeath: false
+    revertOnDelete: false
+    ignoreAllowRepeatedMorphs: true
+
+- type: polymorph
+  id: StrongToAngry3008
+  configuration:
+    entity: StrongScp3008Angry
+    forced: true
+    inventory: None
+    transferName: false
+    transferDamage: true
+    revertOnCrit: false
+    revertOnDeath: false
+    revertOnDelete: false
+    ignoreAllowRepeatedMorphs: true
+
+- type: polymorph
+  id: TallToAngry3008
+  configuration:
+    entity: TallScp3008Angry
+    forced: true
+    inventory: None
+    transferName: false
+    transferDamage: true
+    revertOnCrit: false
+    revertOnDeath: false
+    revertOnDelete: false
+    ignoreAllowRepeatedMorphs: true
+
+- type: polymorph
+  id: AngryToBasic3008
+  configuration:
+    entity: BasicScp3008
+    forced: true
+    inventory: None
+    transferName: false
+    transferDamage: true
+    revertOnCrit: false
+    revertOnDeath: false
+    revertOnDelete: false
+    ignoreAllowRepeatedMorphs: true
+
+- type: polymorph
+  id: AngryToStrong3008
+  configuration:
+    entity: StrongScp3008
+    forced: true
+    inventory: None
+    transferName: false
+    transferDamage: true
+    revertOnCrit: false
+    revertOnDeath: false
+    revertOnDelete: false
+    ignoreAllowRepeatedMorphs: true
+
+- type: polymorph
+  id: AngryToTall3008
+  configuration:
+    entity: TallScp3008
+    forced: true
+    inventory: None
+    transferName: false
+    transferDamage: true
+    revertOnCrit: false
+    revertOnDeath: false
+    revertOnDelete: false
+    ignoreAllowRepeatedMorphs: true
+
+- type: polymorph
+  id: DayToNight
+  configuration:
+    entity: Scp3008EnergyOff
+    forced: true
+    inventory: None
+    transferName: false
+    transferDamage: false
+    revertOnCrit: false
+    revertOnDeath: false
+    revertOnDelete: false
+    ignoreAllowRepeatedMorphs: true
+
+- type: polymorph
+  id: NightToDay
+  configuration:
+    entity: Scp3008Energy
+    forced: true
+    inventory: None
+    transferName: false
+    transferDamage: false
+    revertOnCrit: false
+    revertOnDeath: false
+    revertOnDelete: false
+    ignoreAllowRepeatedMorphs: true

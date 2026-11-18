@@ -1,7 +1,6 @@
 <controls:FancyWindow
     xmlns="https://spacestation14.io"
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-    xmlns:system="clr-namespace:System;assembly=System.Runtime"
     xmlns:ui="clr-namespace:Content.Client.Materials.UI"
     xmlns:xNamespace="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:palette="clr-namespace:Content.Client._Scp.Stylesheets.Palette"
@@ -120,12 +119,8 @@
                             Text="✖"
                             SetSize="38 32"
                             HorizontalAlignment="Right"
-                            ToolTip="{Loc 'lathe-menu-delete-fabricating-tooltip'}">
-                            <Button.StyleClasses>
-                                <system:String>Caution</system:String>
-                                <system:String>OpenLeft</system:String>
-                            </Button.StyleClasses>
-                        </Button>
+                            ToolTip="{Loc 'lathe-menu-delete-fabricating-tooltip'}"
+                            StyleClasses="negative OpenLeft" />
                     </PanelContainer>
                 </BoxContainer>
                 <ScrollContainer VerticalExpand="True" HScrollEnabled="False">

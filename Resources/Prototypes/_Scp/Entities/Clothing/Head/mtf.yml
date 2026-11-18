@@ -71,7 +71,6 @@
     parent: true
     components:
       - type: NightVision
-        effect: EffectNightVisionGreen
 
 - type: entity
   parent: [ClothingHeadHelmetBasic, BaseFoldable]
@@ -96,7 +95,7 @@
   - type: FoldableClothing
     foldedEquippedPrefix: up
     foldedHeldPrefix: up
-  # TODO 
+  # TODO
   # Убрать костыль и добавить функционал ПНВ.
 
 - type: entity
@@ -141,7 +140,7 @@
     - FullCovered
 
 - type: entity
-  parent: ClothingHeadHelmetBasic
+  parent: ClothingHeadHelmetMerc
   id: ClothingHelmetMtfMilitary
   name: military helmet
   description: A combat model of a tactical helmet. They are supplied specifically for private military companies.

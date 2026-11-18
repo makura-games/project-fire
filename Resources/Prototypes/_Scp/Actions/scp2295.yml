@@ -6,11 +6,13 @@
   components:
   - type: Action
     useDelay: 20
-    icon:
-      sprite: _Scp/Objects/Research/research_material.rsi
-      state: scp2295-fiber
     itemIconStyle: BigAction
     raiseOnUser: true
+  - type: Sprite
+    sprite: _Scp/Objects/Research/research_material.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: scp2295-fiber
   - type: InstantAction
     event: !type:InstantSpawnSpellEvent
       prototype: Scp2295Fiber1

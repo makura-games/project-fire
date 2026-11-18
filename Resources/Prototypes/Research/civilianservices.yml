@@ -110,7 +110,6 @@
   - FauxTileMowedAstroGrass
   - FauxTileJungleAstroGrass
   - FauxTileDarkAstroGrass
-  - FauxTileLightAstroGrass
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
@@ -148,6 +147,7 @@
   - AdvMopItem
   - MegaSprayBottle
   - BorgModuleAdvancedCleaning
+  - TrashBagHolding
 
 # - type: technology # Fire Edit
 #   id: HONKMech

@@ -113,7 +113,7 @@ public sealed partial class SunriseGeneralRecord : BoxContainer
         }
 
         _hasAccess = hasAccess;
-        _nonHumanoid = record.NonHumanoid;
+        _nonHumanoid = record.Silicon;
 
         UpdateEditableInfo(record);
         UpdateHeading(record);

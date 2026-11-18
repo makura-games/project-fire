@@ -27,6 +27,7 @@
     eyes: ClothingEyesNVDSec
     gloves: ClothingHandsGlovesMtfMilitary
     outerClothing: ClothingOuterArmorGRU
+    suitstorage: WeaponRifleGroza
     belt: ClothingBeltGRUrigFilled
     ears: ClothingHeadsetGRU
     pocket1: GRUAccessBreakerLimited
@@ -80,7 +81,8 @@
     mask: ClothingMaskGRU
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesMtfMilitary
-    outerClothing: ClothingOuterArmorGRU
+    outerClothing: ClothingOuterArmorLightGRU
+    suitstorage: WeaponRifleGroza
     belt: ClothingBeltGRUrigFilled
     ears: ClothingHeadsetGRU
     pocket1: GRUAccessBreakerLimited
@@ -99,6 +101,7 @@
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesMtfMilitary
     outerClothing: ClothingOuterArmorLightGRU
+    suitstorage: WeaponRifleGroza
     belt: ClothingBeltMtfMedicalFilledOperative
     ears: ClothingHeadsetGRU
     pocket1: GRUAccessBreakerLimited

@@ -4,11 +4,10 @@ using Content.Server.Storage.EntitySystems;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
-using Content.Shared.Random.Rules;
+using Content.Shared.EntityConditions;
 using Content.Shared.Storage;
 using Robust.Server.Audio;
 using Robust.Server.Containers;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server._Scp.GameTicking.Rules.SpawnInPlayerInventory;
@@ -20,8 +19,7 @@ public sealed partial class SpawnInPlayerInventoryRule : StationEventSystem<Spaw
     [Dependency] private StorageSystem _storage = default!;
     [Dependency] private StationSystem _station = default!;
     [Dependency] private AudioSystem _audio = default!;
-    [Dependency] private RulesSystem _rules = default!;
-    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private SharedEntityConditionsSystem _conditions = default!;
 
     private const string Pocket1Slot = "pocket1";
     private const string Pocket2Slot = "pocket2";
@@ -38,10 +36,9 @@ public sealed partial class SpawnInPlayerInventoryRule : StationEventSystem<Spaw
         if (!TryGetRandomStation(out var station))
             return;
 
-        if (_prototype.TryIndex(component.StationRules, out var stationRule) &&
-            !_rules.IsTrue(station.Value, stationRule))
+        if (!_conditions.TryConditions(station.Value, component.StationConditions))
         {
-            Log.Info($"Skipped {Prototype(uid)} due to {component.StationRules} fails! Event aborted");
+            Log.Info($"Skipped {Prototype(uid)} because station conditions failed. Event aborted");
             return;
         }
 
