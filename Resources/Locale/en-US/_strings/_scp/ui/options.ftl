@@ -1,6 +1,8 @@
 ui-options-tab-scp = SCP Settings
 ui-options-scp-graphics = Graphics
 ui-options-scp-audio = Audio
+ui-options-scp-combat-music-enabled = Combat music
+ui-options-scp-combat-music-volume = Combat music volume
 ui-options-scp-game = Game
 
 ui-options-tab-hover-to-see-details = Hover over a setting to see a tooltip about its effect.

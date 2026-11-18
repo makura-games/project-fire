@@ -1,6 +1,8 @@
 ui-options-tab-scp = Настройки SCP
 ui-options-scp-graphics = Графика
 ui-options-scp-audio = Аудио
+ui-options-scp-combat-music-enabled = Боевая музыка
+ui-options-scp-combat-music-volume = Громкость боевой музыки
 ui-options-scp-game = Игра
 
 ui-options-tab-hover-to-see-details = Наведите мышку на настройку, чтобы увидеть подсказку о действии настройки.
