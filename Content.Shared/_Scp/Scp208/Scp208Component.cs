@@ -9,7 +9,7 @@ namespace Content.Shared._Scp.Scp208;
 public sealed partial class Scp208Component : Component
 {
     [DataField]
-    public EntProtoId ActionHealId = "Scp208Heal";
+    public EntProtoId ActionHealProtoId = "Scp208Heal";
 
     [DataField(required: true)]
     public DamageSpecifier Damage = default!;
@@ -30,5 +30,5 @@ public sealed partial class Scp208Component : Component
     public SoundSpecifier? HealingEndSound;
 
     [ViewVariables, AutoNetworkedField]
-    public EntityUid? Action;
+    public EntityUid? HealActionEnt;
 }

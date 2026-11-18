@@ -77,7 +77,7 @@
 - type: startingGear
   id: Scp492Gear
   equipment:
-    id: KeyCardScp492
+    id: KeyCardServicePersonnel
     head: ClothingHeadBandSkull
     jumpsuit: UniformSecurityShortsRed
     belt: ClothingBeltStorageWaistbag
@@ -86,7 +86,7 @@
 - type: startingGear
   id: Scp492FormalGear
   equipment:
-    id: KeyCardScp492
+    id: KeyCardServicePersonnel
     jumpsuit: ClothingUniformSapientScp
     belt: ClothingBeltStorageWaistbag
     shoes: ClothingShoesBootsLaceup

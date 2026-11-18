@@ -11,6 +11,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Serialization;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Mobs.Components;
 
 namespace Content.Shared._Scp.Scp208;
 
@@ -36,13 +37,13 @@ public sealed partial class SharedScp208System : EntitySystem
 
     private void OnStartup(Entity<Scp208Component> ent, ref ComponentStartup args)
     {
-        _actions.AddAction(ent, ref ent.Comp.Action, ent.Comp.ActionHealId);
+        _actions.AddAction(ent, ref ent.Comp.HealActionEnt, ent.Comp.ActionHealProtoId);
         Dirty(ent);
     }
 
     private void OnShutdown(Entity<Scp208Component> ent, ref ComponentShutdown args)
     {
-        _actions.RemoveAction(ent.Owner, ent.Comp.Action);
+        _actions.RemoveAction(ent.Owner, ent.Comp.HealActionEnt);
     }
 
     private void OnHealAction(Entity<Scp208Component> ent, ref Scp208HealTargetActionEvent args)
@@ -79,7 +80,7 @@ public sealed partial class SharedScp208System : EntitySystem
         if (args.Cancelled || args.Handled || args.Target is not { } target)
             return;
 
-        if (!TryComp<DamageableComponent>(target, out var damageable))
+        if (!HasComp<DamageableComponent>(target))
             return;
 
         _damageable.TryChangeDamage(target, ent.Comp.Damage, true, origin: ent);
@@ -100,24 +101,36 @@ public sealed partial class SharedScp208System : EntitySystem
 
         _audio.PlayPredicted(ent.Comp.HealingEndSound, ent, ent);
 
-        if (HasDamageToHeal(target, damageable, ent.Comp))
+        if (CanHeal(ent, target, out _))
             TryStartHealing(ent, target);
 
         args.Handled = true;
     }
 
     private bool CanHeal(Entity<Scp208Component> ent, EntityUid target, out string? errorMessage)
-    {
-        errorMessage = null;
+	{
+		errorMessage = null;
 
-        if (!TryComp<DamageableComponent>(target, out var damageable))
-            return false;
+		if (!HasComp<MobStateComponent>(target))
+		{
+			errorMessage = Loc.GetString("scp208-cannot-heal");
+			return false;
+		}
 
-        if (!HasDamageToHeal(target, damageable, ent.Comp))
-            return false;
+		if (!TryComp<DamageableComponent>(target, out var damageable))
+		{
+			errorMessage = Loc.GetString("scp208-cannot-heal");
+			return false;
+		}
 
-        return true;
-    }
+		if (!HasDamageToHeal(target, damageable, ent.Comp))
+		{
+			errorMessage = Loc.GetString("scp208-no-damage-to-heal");
+			return false;
+		}
+
+		return true;
+	}
 
     private bool HasDamageToHeal(EntityUid target, DamageableComponent damageable, Scp208Component scp208)
     {
