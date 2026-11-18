@@ -131,6 +131,7 @@
   abstract: true
   components:
   - type: ShuttleConsole
+  - type: AnnouncementSpeaker # Sunrise-Edit
   - type: ActivatableUI
     key: enum.ShuttleConsoleUiKey.Key
   - type: UserInterface

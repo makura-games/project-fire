@@ -1,42 +1,4 @@
 
-# Часть санрайзов
-- type: technology
-  id: scp_Ripley2
-  name: research-technology-ripley-mkii
-  icon:
-    sprite: Objects/Specific/Mech/ripley.rsi
-    state: ripleymkii
-  discipline: scp_industrial
-  tier: 2
-  cost: 2500
-  defaultToScpScale: 0.1
-  recipeUnlocks:
-  - RipleyMKIIHarness
-  - RipleyUpgradeKit
-  technologyPrerequisites:
-  - scp_RipleyAPLU
-
-- type: technology
-  id: scp_Clarke
-  name: research-technology-clarke
-  icon:
-    sprite: Objects/Specific/Mech/clarke.rsi
-    state: clarke
-  discipline: scp_industrial
-  tier: 2
-  cost: 45000
-  defaultToScpScale: 0.1
-  recipeUnlocks:
-  - ClarkeHarness
-  - ClarkeHead
-  - ClarkeLArm
-  - ClarkeRArm
-  - ClarkeTreads
-  - ClarkeCentralElectronics
-  - ClarkePeripheralsElectronics
-  - PowerCageMedium
-  technologyPrerequisites:
-  - scp_Ripley2
 
 - type: technology
   id: scp_BasicNVD
@@ -166,28 +128,6 @@
   recipeUnlocks:
   - ThermomachineFreezerMachineCircuitBoard
   - GasRecyclerMachineCircuitboard
-
-- type: technology
-  id: scp_RipleyAPLU
-  name: research-technology-ripley-aplu
-  icon:
-    sprite: Objects/Specific/Mech/ripley.rsi
-    state: ripley
-  discipline: scp_industrial
-  tier: 1
-  cost: 5000
-  defaultToScpScale: 0.0 # Fire Edit
-  recipeUnlocks:
-  - RipleyHarness
-  - RipleyLArm
-  - RipleyRArm
-  - RipleyLLeg
-  - RipleyRLeg
-  - RipleyCentralElectronics
-  - RipleyPeripheralsElectronics
-  - MechEquipmentGrabber
-  - PowerCageSmall  # Sunrise-Add
-  - PowerCageRechargerCircuitboard  # Sunrise-Add
 
 # Tier 2
 

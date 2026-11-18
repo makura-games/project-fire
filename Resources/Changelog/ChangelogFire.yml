@@ -6268,3 +6268,40 @@
     message: Коды ядерной авторизации теперь отправляются на факс Директора Учреждения при режиме "Безопасный" и выше
   id: 578
   url: https://github.com/makura-games/project-fire/pull/1216
+- author: Wardex
+  time: '2026-11-18T12:22:20.0000000+00:00'
+  changes:
+  - type: Tweak
+    message: 'Актуализировано карты: Compact, Standard, Modular, Sector-02'
+  id: 579
+  url: https://github.com/makura-games/project-fire/pull/1219
+- author: timur
+  time: '2026-11-18T12:23:29.0000000+00:00'
+  changes:
+  - type: Remove
+    message: убран генокрад из выбора антагонистов в лобби
+  - type: Tweak
+    message: исправлен баг с невозможностью сломать бронированную дверь
+  id: 580
+  url: https://github.com/makura-games/project-fire/pull/1220
+- author: Data_deleted
+  time: '2026-11-18T15:10:09.0000000+00:00'
+  changes:
+  - type: Remove
+    message: Мехи удалены из исследований(покойтесь с миром)
+  - type: Remove
+    message: Удален узел на движение объекта.
+  - type: Tweak
+    message: Крафт самодельного ресивера был заменен обычным ресивером
+  - type: Tweak
+    message: Добавлен ящик с рандомным оружием(AR18M AR18 M4A1 AK103 M16A4)
+  - type: Tweak
+    message: Добавлено 2 магазина к десерт иглу в шкаф директора учреждения
+  - type: Tweak
+    message: В гарнитуру комитета по этике выданы все основные каналы
+  - type: Tweak
+    message: Вновь изменен крафт рельсатрона, теперь окончательно. (1000 металла, 500 стекла, 30 урана, 30 серебра, 30 золота, связи с тем, что он стал менее мощным)
+  - type: Fix
+    message: Исправлено время открытие пандоры 173
+  id: 581
+  url: https://github.com/makura-games/project-fire/pull/1199
