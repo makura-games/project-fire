@@ -15,7 +15,7 @@ using Content.Shared.Mobs.Components;
 
 namespace Content.Shared._Scp.Scp208;
 
-public sealed partial class SharedScp208System : EntitySystem
+public sealed partial class Scp208System : EntitySystem
 {
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
