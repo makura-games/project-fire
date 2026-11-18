@@ -5125,3 +5125,24 @@
   media:
   - url: https://github.com/user-attachments/assets/4bef7b28-19b7-4e0d-aecb-cb39ce79cadd
     description: Новые шаттлы на станции ЦК.
+- author: KaiserMaus
+  time: '2026-11-16T18:40:43.0000000+00:00'
+  changes:
+  - type: Tweak
+    message: Консоль шаттлов теперь имеют встроенный динамик на манер громкоговорителя и сообщают глобальные уведомления, уведомления станции через консоль связи все ещё не слышно.
+  id: 2055
+  url: https://github.com/makura-games/sunrise-station/pull/4891
+- author: Nordstream17
+  time: '2026-11-16T18:46:04.0000000+00:00'
+  changes:
+  - type: Add
+    message: Добавлены коробки с волшебными свечами и маленькими волшебными свечами
+  id: 2056
+  url: https://github.com/makura-games/sunrise-station/pull/4604
+- author: ThereDrD
+  time: '2026-11-18T14:45:11.0000000+00:00'
+  changes:
+  - type: Fix
+    message: Исправлена техническая уязвимость в правах технической команды
+  id: 2057
+  url: https://github.com/makura-games/sunrise-station/pull/4894
