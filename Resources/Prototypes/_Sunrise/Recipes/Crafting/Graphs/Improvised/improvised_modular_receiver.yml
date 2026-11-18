@@ -13,4 +13,4 @@
         amount: 2
         doAfter: 3
   - node: receiver
-    entity: ImprovisedModularReceiver
+    entity: ModularReceiver # Fire Edit
