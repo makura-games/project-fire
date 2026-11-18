@@ -3118,4 +3118,6 @@ Scp268: null # Временно отключён из-за сломанност�
 
 # замена оригинального сервера на сервера с собственными исследованиями
 ResearchAndDevelopmentServer: SCPResearchServer
+# замена спавнера на спавнер сцп оружия
+WeaponSpawner: ScpWeaponSpawner
 # Fire added end
