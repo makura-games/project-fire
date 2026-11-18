@@ -221,7 +221,7 @@
         amount: 2
 
 - type: entity
-  id: scpWeaponSpawner
+  id: ScpWeaponSpawner
   parent: MarkerBase
   components:
   - type: Sprite

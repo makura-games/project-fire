@@ -17,9 +17,11 @@
       - ModularReceiver
       - ModularReceiverForged # Sunrise-Edit
       - Metal
+    # Fire edit start
     - type: Construction
       graph: ImprovisedModularReceiverGraph
       node: receiver
+    # Fire edit end
 
 - type: entity
   parent: BaseItem
