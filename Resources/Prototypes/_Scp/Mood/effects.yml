@@ -20,6 +20,21 @@
   category: FearState
 
 - type: moodEffect
+  id: ScpFearStateAnxietyHalf
+  moodChange: -2.5
+  category: FearState
+
+- type: moodEffect
+  id: ScpFearStateFearHalf
+  moodChange: -5
+  category: FearState
+
+- type: moodEffect
+  id: ScpFearStateTerrorHalf
+  moodChange: -12.5
+  category: FearState
+
+- type: moodEffect
   id: FearSomeoneDiedOnMyEyes
   moodChange: -10
   timeout: 300
@@ -31,6 +46,11 @@
 - type: moodEffect
   id: FearSourceSeen
   moodChange: -8
+  timeout: 120
+
+- type: moodEffect
+  id: ScpFearSourceSeenHalf
+  moodChange: -4
   timeout: 120
 
 - type: moodEffect # TODO: Реализовать

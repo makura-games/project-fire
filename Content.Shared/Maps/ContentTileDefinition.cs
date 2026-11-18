@@ -132,6 +132,14 @@ public sealed partial class ContentTileDefinition : IPrototype, IInheritingProto
     /// </summary>
     [DataField] public bool EditorHidden { get; private set; } = false;
 
+    // Fire added start - прозрачность тайла для Z-уровней.
+    /// <summary>
+    /// Whether light and sight can pass through the tile between Z-levels.
+    /// </summary>
+    [DataField]
+    public bool Transparent = false;
+    // Fire added end
+
     public void AssignTileId(ushort id)
     {
         TileId = id;

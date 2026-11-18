@@ -225,12 +225,14 @@ namespace Content.Shared.Examine
         /// <param name="range">Maximum range</param>
         /// <param name="state">if a blocking entity evaluates for true, the entity is ignored.</param>
         /// <param name="predicate">if a blocking entity evaluates for true, the entity is ignored.</param>
+        /// <param name="ignoreInsideBlocker">Учитывать ли исключение для препятствий, содержащих начало или конец луча.</param>
         /// <returns>Returns true if no occlusion was found between origin and other and both are in range.</returns>
         public bool InRangeUnOccluded<TState>(MapCoordinates origin,
             MapCoordinates other,
             float range,
             TState state,
-            Func<EntityUid, TState, bool> predicate)
+            Func<EntityUid, TState, bool> predicate,
+            bool ignoreInsideBlocker = true) // Fire added - для наблюдения между этажами любое пересечение блокирует обзор.
         {
             if (other.MapId != origin.MapId ||
                 other.MapId == MapId.Nullspace)
@@ -264,6 +266,9 @@ namespace Content.Shared.Examine
             {
                 if (predicate(result.HitEntity, state))
                     continue;
+
+                if (!ignoreInsideBlocker) // Fire added - сохраняем строгую проверку обзора между этажами.
+                    return false;
 
                 if (!_occluderQuery.TryComp(result.HitEntity, out var occluder) ||
                     !_xformQuery.TryComp(result.HitEntity, out var xform))

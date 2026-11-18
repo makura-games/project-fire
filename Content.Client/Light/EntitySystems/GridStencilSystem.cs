@@ -113,7 +113,11 @@ public sealed partial class GridStencilSystem : EntitySystem
         in OverlayDrawArgs args,
         string key,
         string name,
-        TileStencilPredicate predicate)
+        TileStencilPredicate predicate,
+        // Fire added start - параметры маски погоды для Z-уровней.
+        bool ignoreEmpty = true,
+        float boundsPadding = 0f)
+        // Fire added end
     {
         var viewport = args.Viewport;
         var target = viewport.RenderTarget;
@@ -132,7 +136,7 @@ public sealed partial class GridStencilSystem : EntitySystem
         var worldHandle = args.WorldHandle;
         var invMatrix = viewport.GetWorldToLocalMatrix();
         var mapId = args.MapId;
-        var worldBounds = args.WorldBounds;
+        var worldBounds = args.WorldBounds.Enlarged(boundsPadding); // Fire edit - запас при поиске тайлов для маски.
 
         if (targetRes.LastFrame == _timing.CurFrame &&
             targetRes.LastMapId == mapId &&
@@ -155,7 +159,7 @@ public sealed partial class GridStencilSystem : EntitySystem
                 {
                     var transform = _xform.GetWorldMatrix(grid.Owner);
                     var worldToTextureMatrix = Matrix3x2.Multiply(transform, invMatrix);
-                    var tiles = _map.GetTilesIntersecting(grid.Owner, grid, worldBounds);
+                    var tiles = _map.GetTilesIntersecting(grid.Owner, grid, worldBounds, ignoreEmpty); // Fire edit - учитываем пустые клетки, если они могут закрывать погоду.
                     worldHandle.SetTransform(worldToTextureMatrix);
                     _rects.Clear();
 

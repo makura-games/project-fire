@@ -3,6 +3,10 @@
   parent: BaseStructureDynamic
   id: BaseGirder
   components:
+  # Fire added start - каркас поддерживает этажи выше
+  - type: CEGridStabilitySupport
+    supportStrength: 4
+  # Fire added end
   - type: Transform
     anchored: true
     noRot: false

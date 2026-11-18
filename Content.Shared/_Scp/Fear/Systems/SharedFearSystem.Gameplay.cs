@@ -1,4 +1,4 @@
-﻿using Content.Shared._Scp.Fear.Components;
+using Content.Shared._Scp.Fear.Components;
 using Content.Shared._Scp.Weapons.Ranged;
 using Content.Shared._Sunrise.Mood;
 using Content.Shared._Sunrise.Random;
@@ -7,6 +7,9 @@ using Content.Shared.Jittering;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Scp.Fear.Systems;
@@ -18,6 +21,8 @@ public abstract partial class SharedFearSystem
     [Dependency] private StandingStateSystem _standing = default!;
     [Dependency] private SharedStunSystem _stun = default!;
     [Dependency] private RandomPredictedSystem _random = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
 
     private const float BaseJitteringAmplitude = 1f;
     private const float BaseJitteringFrequency = 4f;
@@ -33,6 +38,13 @@ public abstract partial class SharedFearSystem
         { FearState.Anxiety, "FearStateAnxiety" },
         { FearState.Fear, "FearStateFear" },
         { FearState.Terror, "FearStateTerror" },
+    };
+
+    private static readonly Dictionary<FearState, string> HalfFearMoodStates = new()
+    {
+        { FearState.Anxiety, "ScpFearStateAnxietyHalf" },
+        { FearState.Fear, "ScpFearStateFearHalf" },
+        { FearState.Terror, "ScpFearStateTerrorHalf" },
     };
 
     private EntityQuery<DrunkStatusEffectComponent> _drunkQuery;
@@ -78,7 +90,18 @@ public abstract partial class SharedFearSystem
         }
 
         var modifier = ent.Comp.FearBasedSpreadAngleModifier[ent.Comp.State];
-        SetSpreadParameters(ent, modifier, modifier);
+        if (ent.Comp.EffectStrength == 1f)
+        {
+            SetSpreadParameters(ent, modifier, modifier);
+            return;
+        }
+        var spread = EnsureComp<DispersingShotSourceComponent>(ent);
+        // Ослабляем только надбавку страха, сохраняя базовую неточность стрелка.
+        var angle = spread.DefaultAngleIncreaseModifier +
+                    (Math.Max(spread.DefaultAngleIncreaseModifier, modifier) - spread.DefaultAngleIncreaseModifier) * ent.Comp.EffectStrength;
+        var maxAngle = spread.DefaultMaxAngleMultiplier +
+                       (Math.Max(spread.DefaultMaxAngleMultiplier, modifier) - spread.DefaultMaxAngleMultiplier) * ent.Comp.EffectStrength;
+        SetSpreadParameters(ent, angle, maxAngle);
     }
 
     private void SetSpreadParameters(EntityUid uid, float angleIncrease, float maxAngle)
@@ -88,6 +111,9 @@ public abstract partial class SharedFearSystem
         component.MaxAngleMultiplier = maxAngle;
 
         Dirty(uid, component);
+
+        if (_hands.TryGetActiveItem(uid, out var held) && HasComp<GunComponent>(held))
+            _gun.RefreshModifiers(held.Value);
     }
 
     /// <summary>
@@ -107,7 +133,7 @@ public abstract partial class SharedFearSystem
         var genericModifier = GetGenericFearBasedModifier(ent.Comp.State);
         var alcoholModifier = GetDrunkModifier(ent);
 
-        var time = ent.Comp.BaseJitterTime * genericModifier / alcoholModifier;
+        var time = ent.Comp.BaseJitterTime * genericModifier * ent.Comp.EffectStrength / alcoholModifier;
         var amplitude = BaseJitteringAmplitude * genericModifier / alcoholModifier;
         var frequency = BaseJitteringFrequency * genericModifier / alcoholModifier;
 
@@ -123,7 +149,7 @@ public abstract partial class SharedFearSystem
             return;
 
         var modifier = GetGenericFearBasedModifier(ent.Comp.State);
-        var time = TimeSpan.FromSeconds(ent.Comp.AdrenalineBaseTime * modifier);
+        var time = TimeSpan.FromSeconds(ent.Comp.AdrenalineBaseTime * modifier * ent.Comp.EffectStrength);
 
         _effects.TryAddStatusEffectDuration(ent, AdrenalineStatusEffect, time);
     }
@@ -136,7 +162,8 @@ public abstract partial class SharedFearSystem
         if (ent.Comp.State == FearState.None)
             WipeMood(ent);
 
-        if (!FearMoodStates.TryGetValue(ent.Comp.State, out var moodEffect))
+        var states = ent.Comp.EffectStrength < 1f ? HalfFearMoodStates : FearMoodStates;
+        if (!states.TryGetValue(ent.Comp.State, out var moodEffect))
             return;
 
         AddNegativeMoodEffect(ent, moodEffect);
@@ -152,16 +179,20 @@ public abstract partial class SharedFearSystem
         {
             RaiseLocalEvent(uid, new MoodRemoveEffectEvent(effect));
         }
+        foreach (var effect in HalfFearMoodStates.Values)
+        {
+            RaiseLocalEvent(uid, new MoodRemoveEffectEvent(effect));
+        }
     }
 
     /// <summary>
     /// Вызывает эффект негативного влияния на настроение.
     /// Сила эффекта зависит от уровня алкоголя в крови сущности, алкоголь делает негативные эффекты слабее
     /// </summary>
-    protected void AddNegativeMoodEffect(EntityUid uid, string effect)
+    protected void AddNegativeMoodEffect(EntityUid uid, string effect, float strength = 1f)
     {
         var drunkModifier = Math.Clamp(1f / GetDrunkModifier(uid), 0f, 1f);
-        RaiseLocalEvent(uid, new MoodEffectEvent(effect, drunkModifier));
+        RaiseLocalEvent(uid, new MoodEffectEvent(effect, drunkModifier * strength));
     }
 
     /// <summary>
@@ -186,11 +217,8 @@ public abstract partial class SharedFearSystem
     {
         if (ent.Comp.State >= ent.Comp.FallOffRequiredState)
         {
-            if (HasComp<ActiveFearFallOffComponent>(ent))
-                return;
-
             var comp = EnsureComp<ActiveFearFallOffComponent>(ent);
-            comp.FallOffChance = ent.Comp.FallOffChance;
+            comp.FallOffChance = ent.Comp.FallOffChance * ent.Comp.EffectStrength;
             Dirty(ent, comp);
         }
         else

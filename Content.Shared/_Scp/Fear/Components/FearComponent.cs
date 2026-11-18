@@ -16,6 +16,18 @@ public sealed partial class FearComponent : Component
     public FearState State = FearState.None;
 
     /// <summary>
+    /// Strength retained from the accepted fright. Interfloor sightings use half strength.
+    /// </summary>
+    [AutoNetworkedField, ViewVariables]
+    public float EffectStrength = 1f;
+
+    /// <summary>
+    /// Strength and expiry of the last accepted sight mood, independent of the retained fear state.
+    /// </summary>
+    public float SeenMoodStrength;
+    public TimeSpan SeenMoodExpiry;
+
+    /// <summary>
     /// Список, содержащий информацию о фобиях персонажа
     /// </summary>
     [DataField, AutoNetworkedField]

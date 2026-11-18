@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Client.Parallax.Managers;
+using Content.Client.Viewport;
 using Content.Shared.CCVar;
 using Content.Shared.Parallax.Biomes;
 using Robust.Client.GameObjects;
@@ -37,7 +38,13 @@ public sealed partial class ParallaxOverlay : Overlay
         if (args.MapId == MapId.Nullspace || _entManager.HasComponent<BiomeComponent>(_mapSystem.GetMapOrInvalid(args.MapId)))
             return false;
 
-        return true;
+        //CrystallEdge draw parallax only for lowest zlevel
+        if (args.Viewport.Eye is ScalingViewport.ZEye zEye)
+            return zEye.LowestDepth == zEye.Depth;
+        else
+            return !_zLevel.TryMapDown(args.MapUid, out _);
+        //CrystallEdge end
+
     }
 
     protected override void Draw(in OverlayDrawArgs args)

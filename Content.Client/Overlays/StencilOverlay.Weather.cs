@@ -28,7 +28,9 @@ public sealed partial class StencilOverlay
                 _entManager.TryGetComponent(grid.Owner, out RoofComponent? roofComp);
                 // Ignored tiles for stencil.
                 return !_weather.CanWeatherAffect((grid.Owner, grid.Comp, roofComp), tile);
-            });
+            },
+            ignoreEmpty: false, // Fire edit - пустые клетки под полом верхнего этажа тоже закрыты от погоды.
+            boundsPadding: 1f); // Fire edit - запас по краям экрана убирает мерцание маски.
 
         worldHandle.SetTransform(Matrix3x2.Identity);
         worldHandle.UseShader(_protoManager.Index(StencilMask).Instance());

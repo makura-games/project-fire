@@ -1,5 +1,6 @@
 ﻿using Robust.Client.Graphics;
 using Robust.Client.Player;
+using Content.Client.Viewport;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
@@ -45,10 +46,12 @@ public sealed partial class GrainOverlay : Overlay
 
         var playerEntity = _player.LocalEntity;
 
-        if (!_eyeQuery.TryGetComponent(playerEntity, out var eyeComp) || args.Viewport.Eye != eyeComp.Eye)
+        if (!_eyeQuery.TryGetComponent(playerEntity, out var eyeComp))
             return false;
 
-        return true;
+        // Нижние этажи уже входят в основной кадр; верхний рисуется отдельно.
+        return args.Viewport.Eye == eyeComp.Eye ||
+               args.Viewport.Eye is ScalingViewport.ZEye { Depth: > 0 } zEye && zEye.SourceEye == eyeComp.Eye;
     }
 
     protected override void Draw(in OverlayDrawArgs args)

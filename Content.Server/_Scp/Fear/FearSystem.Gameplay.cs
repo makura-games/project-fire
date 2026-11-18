@@ -25,6 +25,9 @@ public sealed partial class FearSystem
         if (ent.Comp.State < ent.Comp.ScreamRequiredState)
             return;
 
+        if (ent.Comp.EffectStrength < 1f && !_random.Prob(ent.Comp.EffectStrength))
+            return;
+
         _chat.TryEmoteWithChat(ent, ScreamProtoId);
     }
 }

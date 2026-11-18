@@ -1,0 +1,48 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp vec2 renderScale;
+uniform lowp int count;
+uniform highp vec2[10] position;
+uniform highp float[10] sharpness;
+uniform highp float[10] width;
+uniform highp float[10] falloffPower;
+// Seconds elapsed since each wave spawned, computed on the CPU to avoid GPU/CPU clock skew.
+uniform highp float[10] localTime;
+
+void fragment() {
+    highp vec2 coord = FRAGCOORD.xy * SCREEN_PIXEL_SIZE.xy;
+    highp float ratio = SCREEN_PIXEL_SIZE.y / SCREEN_PIXEL_SIZE.x * 0.6;
+
+    // Accumulate UV distortion and brightness across all active waves.
+    // Sampling happens once after the loop so that multiple simultaneous waves
+    // don't overwrite each other's distortion.
+    highp vec2 distortedCoord = coord;
+    highp float brightness = 0.0;
+
+    for (lowp int i = 0; i < count; ++i) {
+        highp vec2 WaveCentre = position[i];
+
+        highp float Dist = distance(
+            vec2(coord.x, coord.y * ratio),
+            vec2(WaveCentre.x, WaveCentre.y * ratio)
+        );
+
+        // removes the first few frames of the "animation"
+        Dist = max(Dist, 0.13);
+
+        // Per-wave local time: seconds since this wave spawned, clamped to avoid division by zero.
+        highp float CurrentTime = max(localTime[i], 0.001);
+
+        if (Dist <= (CurrentTime + 0.1) && Dist >= (CurrentTime - 0.1)) {
+            highp float Diff = Dist - CurrentTime;
+            highp float ScaleDiff = 1.0 - pow(abs(Diff * sharpness[i]), width[i]);
+            highp float DiffTime = Diff * ScaleDiff;
+            highp vec2 DiffTexCoord = normalize(coord - WaveCentre);
+            distortedCoord += (DiffTexCoord * DiffTime) / (CurrentTime * Dist * falloffPower[i]);
+            brightness += ScaleDiff / (CurrentTime * Dist * 40.0);
+        }
+    }
+
+    highp vec4 Color = zTextureSpec(SCREEN_TEXTURE, distortedCoord);
+    Color += Color * brightness;
+    COLOR = Color;
+}

@@ -219,9 +219,10 @@ public sealed partial class GunSystem : SharedGunSystem
         }
 
         // Define target coordinates relative to gun entity, so that network latency on moving grids doesn't fuck up the target location.
-        var target = GetBestTarget(_eyeManager.CurrentEye, mousePos);
-
-        var coordinates = TransformSystem.ToCoordinates(entity, mousePos);
+        // Fire edit start - учитываем выбранный этаж при расчёте координат и поиске цели.
+        var coordinates = GetZLevelAimCoordinates(entity, gun, mousePos, out var targetMapCoordinates);
+        var target = GetBestTarget(_eyeManager.CurrentEye, targetMapCoordinates);
+        // Fire edit end
 
         Log.Debug($"Sending shoot request tick {Timing.CurTick} / {Timing.CurTime}");
 

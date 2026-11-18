@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-4.0",
+    "copyright": "Created by TheShuEd",
+    "states": [
+        {
+            "name": "down"
+        },
+        {
+            "name": "todo"
+        },
+        {
+            "name": "eye"
+        },
+        {
+            "name": "eye_down"
+        },
+        {
+            "name": "eye_up"
+        },
+        {
+            "name": "up"
+        },
+        {
+            "name": "respawn"
+        },
+        {
+            "name": "toggle_flight"
+        },
+        {
+            "name": "toggle_flight_on"
+        }
+    ]
+}

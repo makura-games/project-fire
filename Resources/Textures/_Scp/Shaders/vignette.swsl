@@ -17,5 +17,7 @@ void fragment() {
     highp float vignette = smoothstep(inner_radius, outer_radius, dist) * actual_vignette_strength;
     highp float dither = fract(sin(dot(UV, vec2(12.9898, 78.233))) * 43758.5453123) * actual_dither_strength;
 
-    COLOR = vec4(vignette_color.rgb, vignette + dither);
+    // Прозрачная область отдельного этажа не должна затемнять остальные этажи.
+    highp float coverage = texture(SCREEN_TEXTURE, UV).a;
+    COLOR = vec4(vignette_color.rgb, (vignette + dither) * coverage);
 }

@@ -47,6 +47,10 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
             return;
 
         var target = args.OtherEntity;
+        // Fire added start - удаляем межэтажный снаряд до обработки попадания, если он уже превысил дальность.
+        if (_zLevelProjectiles.TryExpireBeyondRange((uid, component), args.OurBody))
+            return;
+        // Fire added end
         // it's here so this check is only done once before possible hit
         var attemptEv = new ProjectileReflectAttemptEvent(uid, component, false);
         RaiseLocalEvent(target, ref attemptEv);
@@ -114,9 +118,9 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
 
         if (!damage.Empty)
         {
-            if (!Deleted(target))
+            if (!Deleted(target) && TryComp(target, out TransformComponent? targetXform)) // Fire edit - после урона у цели может уже не быть координат.
             {
-                _color.RaiseEffect(Color.Red, new List<EntityUid> { target }, Filter.Pvs(target, entityManager: EntityManager));
+                _color.RaiseEffect(Color.Red, new List<EntityUid> { target }, Filter.Pvs(targetXform.Coordinates, entityMan: EntityManager)); // Fire edit
             }
 
             var shotByString = Exists(component.Shooter)
@@ -165,7 +169,7 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
         component.ProjectileSpent = projectileSpent;
         // Sunrise edit end
 
-        if (!Deleted(target))
+        if (!Deleted(target) && HasComp<TransformComponent>(target)) // Fire edit - звук попадания требует координат цели.
         {
             _guns.PlayImpactSound(target, damage, component.SoundHit, component.ForceSound);
 

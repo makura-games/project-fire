@@ -1,0 +1,73 @@
+#include "/Textures/_CE/Shaders/murk_common.swsl"
+
+// showmurkdebug: contours instead of fills, no noise.
+
+uniform highp vec2 corner_bl;
+uniform highp vec2 corner_br;
+uniform highp vec2 corner_tl;
+uniform highp vec2 corner_tr;
+
+// Free zone (InMurk() false) - base assumed 1 regardless of CEMurkedMapComponent.
+uniform lowp int freeCount;
+uniform highp vec2[64] freePositions;
+uniform highp float[64] freeRadii;
+uniform highp float[64] freeStrengths;
+
+// World boundary.
+uniform lowp int wallCount;
+uniform highp vec2[64] wallPositions;
+uniform highp float[64] wallRadii;
+uniform highp float[64] wallStrengths;
+
+uniform highp float threshold;
+
+const highp vec3 FreeColor = vec3(0.35, 1.0, 0.45);
+const highp vec3 WallColor = vec3(1.0, 0.85, 0.2);
+
+highp float freeField(highp vec2 world_pos)
+{
+    highp float total = 1.0;
+
+    for (lowp int i = 0; i < min(freeCount, 64); i++)
+    {
+        total += circleContribution(world_pos, freePositions[i], freeRadii[i], freeStrengths[i]);
+    }
+
+    return total;
+}
+
+highp float wallField(highp vec2 world_pos)
+{
+    highp float total = 1.0;
+
+    for (lowp int i = 0; i < min(wallCount, 64); i++)
+    {
+        total += circleContribution(world_pos, wallPositions[i], wallRadii[i], wallStrengths[i]);
+    }
+
+    return total;
+}
+
+// Anti-aliased line where value crosses threshold - merges overlapping circles into one outline.
+// Fixed width, not fwidth()-based: derivatives inside a non-entry-point helper broke shader
+// compilation on some drivers, and adaptive AA isn't worth that fragility for a debug overlay.
+highp float contourAlpha(highp float value)
+{
+    highp float d = abs(value - threshold);
+    const highp float width = 0.05;
+
+    return 1.0 - smoothstep(0.0, width, d);
+}
+
+void fragment()
+{
+    highp vec2 world_pos = mix(mix(corner_bl, corner_br, UV.x), mix(corner_tl, corner_tr, UV.x), UV.y);
+
+    highp float freeAlpha = contourAlpha(freeField(world_pos));
+    highp float wallAlpha = contourAlpha(wallField(world_pos));
+
+    highp vec3 color = wallAlpha > freeAlpha ? WallColor : FreeColor;
+    highp float alpha = max(freeAlpha, wallAlpha);
+
+    COLOR = vec4(color, alpha);
+}

@@ -47,6 +47,7 @@
     noRot: false
   - type: Pullable
   - type: DamageExaminable
+  - type: CEZPhysics # CrystallEdge
   - type: Rotatable
     increment: 30
   # Sunrise start
