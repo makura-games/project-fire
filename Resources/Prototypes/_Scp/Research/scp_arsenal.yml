@@ -63,32 +63,6 @@
   radioChannels:
   - Security
 
-- type: technology
-  id: scp_Gygax
-  name: research-technology-gygax
-  icon:
-    sprite: Objects/Specific/Mech/gygax.rsi
-    state: gygax
-  discipline: scp_arsenal
-  tier: 2
-  cost: 6000
-  defaultToScpScale: 0.3
-  recipeUnlocks:
-  - GygaxHarness
-  - GygaxArmor
-  - GygaxHead
-  - GygaxLArm
-  - GygaxLLeg
-  - GygaxRArm
-  - GygaxRLeg
-  - GygaxCentralElectronics
-  - GygaxPeripheralsElectronics
-  - GygaxTargetingElectronics
-  - WeaponMechCombatUltraRifle
-  technologyPrerequisites:
-  - scp_Ripley2
-  radioChannels:
-  - Security
 
 - type: technology
   id: scp_ExplosiveMechAmmunition
@@ -108,35 +82,6 @@
   radioChannels:
   - Security
 
-- type: technology
-  id: scp_Durand
-  name: research-technology-durand
-  icon:
-    sprite: _Sunrise/Objects/Specific/Mech/durand.rsi
-    state: base
-  discipline: scp_arsenal
-  tier: 3
-  cost: 7500
-  defaultToScpScale: 0.3
-  recipeUnlocks:
-  - DurandHarness
-  - DurandArmor
-  - DurandHead
-  - DurandLArm
-  - DurandLLeg
-  - DurandRArm
-  - DurandRLeg
-  - DurandCentralElectronics
-  - DurandPeripheralsElectronics
-  - DurandTargetingElectronics
-  - WeaponMechCombatShotgun
-  - WeaponMechCombatShotgunIncendiary
-  - PowerCageHigh
-  technologyPrerequisites:
-  - scp_Gygax
-  radioChannels:
-  - Security
-
 # Tier 2
 
 - type: technology
@@ -152,29 +97,8 @@
   recipeUnlocks:
   - ClothingShoesBootsMagCombat
   - ClothingHeadHelmetPubg
-  - VestSecUpgradeBullet
-  - VestSecUpgradeRiot
-  - VestSecUpgradeReflective
   technologyPrerequisites:
   - scp_AdvancedRiotControl
-  radioChannels:
-  - Security
-
-- type: technology
-  id: scp_AdvancedCombatEquipment
-  name: research-technology-advanced-combat-equipment
-  icon:
-    sprite: _Sunrise/Clothing/OuterClothing/Vests/web_armor_sec.rsi
-    state: icon
-  discipline: scp_arsenal
-  tier: 3
-  cost: 5000
-  defaultToScpScale: 0.1
-  recipeUnlocks:
-  - VestSecUpgradeBulletHeavy
-  - VestSecUpgradeWeb
-  technologyPrerequisites:
-  - scp_CombatEquipment
   radioChannels:
   - Security
 

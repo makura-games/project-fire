@@ -192,7 +192,7 @@
 
 - type: construction
   name: crafting-menu-name-improvised-modular-receiver
-  id: ImprovisedModularReceiver
+  id: ModularReceiver # Fire edit
   graph: ImprovisedModularReceiverGraph
   startNode: start
   targetNode: receiver

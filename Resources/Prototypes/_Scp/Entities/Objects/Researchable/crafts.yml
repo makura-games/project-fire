@@ -127,10 +127,10 @@
   completetime: 120
   materials:
     Steel: 100000
-    Glass: 20000
-    Gold: 15000
-    Silver: 15000
-    Uranium: 15000
+    Glass: 50000
+    Gold: 3000
+    Silver: 3000
+    Uranium: 3000
 
 - type: latheRecipe
   id: SwatArmorRecipe

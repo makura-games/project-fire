@@ -105,6 +105,7 @@
   - type: Occluder
   - type: Damageable
     damageModifierSet: StrongMetallicScp
+  - type: Injurable 
   - type: Destructible
     thresholds:
       - trigger:
