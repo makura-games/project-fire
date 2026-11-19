@@ -134,6 +134,19 @@
         - id: Scp208MilitaryClothing
         - id: ClothingShoesBootsCombat
 
+- type: entity
+  id: ScpDresserScp2020Filled
+  parent: 
+  - ScpBaseDresserComponents
+  - ScpDresser
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingUniformScp2020
+        - id: Scp2020SpaceClothing
+
 - type: entity # TODO: спрайт шкафа
   id: ScpDresserScp082Filled
   parent: ScpDresser

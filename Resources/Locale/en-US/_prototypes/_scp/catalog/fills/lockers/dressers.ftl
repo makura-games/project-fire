@@ -29,3 +29,6 @@ ent-ScpDresserScp208Filled = { ent-ScpDresser }
 ent-ScpDresserScp082Filled = { ent-ScpDresser }
     .suffix = SCP-082
     .desc = { ent-ScpDresser.desc }
+ent-ScpDresserScp2020Filled = { ent-ScpDresser }
+    .suffix = SCP-2020
+    .desc = { ent-ScpDresser.desc }

@@ -88,7 +88,7 @@
       uponComeCloser: None
     - type: WatchingTarget
   - type: Loadout
-    prototypes: [ Scp2020FormalGear ]
+    prototypes: [ Scp2020Gear ]
   - type: Tag
     tags:
     - FootstepSound
@@ -107,3 +107,12 @@
     jumpsuit: ClothingUniformScp2020
     belt: ClothingBeltStorageWaistbag
     shoes: ClothingShoesBootsLaceup
+    id: KeyCardPassEmpty
+
+- type: startingGear
+  id: Scp2020Gear
+  equipment:
+    jumpsuit: Scp2020SpaceClothing
+    belt: ClothingBeltStorageWaistbag
+    shoes: ClothingShoesBootsLaceup
+    id: KeyCardPassEmpty

@@ -44,3 +44,18 @@
     uiWindowPos: 1,1
     strippingWindowPos: 1,4
     displayName: Shoes
+  - name: id
+    slotTexture: id
+    fullTextureName: template_small
+    slotFlags: IDCARD
+    slotGroup: SecondHotbar
+    stripTime: 6
+    uiWindowPos: 2,1
+    strippingWindowPos: 2,4
+    displayName: ID
+  - name: neck
+    slotTexture: neck
+    slotFlags: NECK
+    uiWindowPos: 0,2
+    strippingWindowPos: 0,1
+    displayName: Neck
