@@ -145,9 +145,12 @@
     shape:
     - 0,0,3,2
     sprite: _Scp/Objects/Weapons/M4/tiny.rsi
+  - type: GunWieldBonus
+    minAngle: -3
+    maxAngle: -19
   - type: Gun
     minAngle: 1.7
-    maxAngle: 12
+    maxAngle: 30
     angleIncrease: 2
     angleDecay: 12
     fireRate: 5.6
@@ -318,6 +321,72 @@
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/_Sunrise/Weapons/Guns/Rifles/AK/ak_cocked.ogg
+  - type: Tag
+    tags:
+    - LockerGun6x3
+
+- type: entity
+  name: VHS
+  description: A Croatian bullpup-style assault rifle compliant with NATO standards.
+  parent: BaseWeaponRifle
+  id: WeaponRifleVHS
+  components:
+  - type: Sprite
+    sprite: _Scp/Objects/Weapons/VHS/big.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Scp/Objects/Weapons/VHS/tiny.rsi
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,3,2
+    sprite: _Scp/Objects/Weapons/VHS/tiny.rsi
+  - type: Gun
+    minAngle: 2.7
+    maxAngle: 18
+    angleIncrease: 2
+    angleDecay: 12
+    fireRate: 5.6
+    soundGunshot:
+      path: /Audio/_Sunrise/Weapons/Guns/Rifles/g36/g36_shot.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleSP
+        insertSound: /Audio/_Sunrise/Weapons/Guns/Snipers/Different/reload.ogg
+        ejectSound: /Audio/_Sunrise/Weapons/Guns/Snipers/Different/unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifle
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeRifleSP
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Wieldable
+  - type: UseDelay
+    delay: 0.75
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 7
+    pvsIncrease: 0.7
   - type: Tag
     tags:
     - LockerGun6x3

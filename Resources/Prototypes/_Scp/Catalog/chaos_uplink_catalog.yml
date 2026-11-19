@@ -16,6 +16,20 @@
     stock: 1
 
 - type: listing
+  id: ChaosUplinkWeaponVHS
+  productEntity: ChaosStorageCrateMachineGunVHS
+  name: AK-103
+  description: chaos-catalog-weapon-VHS-description
+  icon: { sprite: _Scp/Objects/Weapons/VHS/big.rsi, state: icon  }
+  cost:
+    SupplyPoint: 12
+  categories:
+  - ChaosWeaponRifle
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: ChaosUplinkWeaponDragunov
   productEntity: WeaponSniperDragunov
   cost:
