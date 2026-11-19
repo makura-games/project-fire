@@ -26,14 +26,20 @@
 
 - type: reaction
   id: AmnesiacCRecipe
-  impact: Medium
+  impact: High
+  minTemp: 370
   reactants:
+    AmnesiacB:
+      amount: 2
     PolytrinicAcid:
       amount: 1
     Diethylamine:
       amount: 1
     RawAmnesiac:
+      amount: 2
+    Plasma:
       amount: 1
+      catalyst: true
   products:
     AmnesiacC: 3
 
