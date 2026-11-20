@@ -133,6 +133,8 @@
         - id: ClothingHeadHatBeretSalvageMercGreen
         - id: Scp208MilitaryClothing
         - id: ClothingShoesBootsCombat
+        - id: ClothingShoesBootsLaceup
+        - id: Scp208LooseClothing
 
 - type: entity
   id: ScpDresserScp2020Filled
