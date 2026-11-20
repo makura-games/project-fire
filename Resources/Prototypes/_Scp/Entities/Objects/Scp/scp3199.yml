@@ -32,6 +32,15 @@
       settings: short
   - type: Injurable
     damageContainer: Inorganic
+  - type: Actions
+  - type: DoAfter
+  - type: Examiner
+  - type: Eye
+  - type: ContentEye
+  - type: CameraRecoil
+  - type: MindContainer
+  - type: RequireProjectileTarget
+  - type: Alerts
 
 - type: entity
   id: Scp3199EggFirst
