@@ -1,0 +1,40 @@
+﻿- type: entity
+  id: Scp208Shield
+  name: Physical shield
+  description: You create a strong barrier right in front of your opponent.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 90
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/forcewall.ogg
+  - type: Sprite
+    sprite: /Textures/_Scp/Mobs/Scp/scp-208.rsi
+    layers:
+    - map: [ "enum.ActionVisuals.Icon" ]
+      state: wall
+  - type: InstantAction
+    event: !type:InstantSpawnSpellEvent
+      prototype: Scp208Wall
+      posData: !type:TargetInFront
+
+- type: entity
+  id: Scp208Heal
+  name: god's treatment
+  description: You focus your healing ability on a specific person.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Action
+      useDelay: 10
+    - type: Sprite
+      sprite: /Textures/_Scp/Mobs/Scp/scp-208.rsi
+      layers:
+      - map: [ "enum.ActionVisuals.Icon" ]
+        state: scp-208
+    - type: TargetAction
+      repeat: false
+      range: 3
+      checkCanAccess: true
+    - type: EntityTargetAction
+      canTargetSelf: false
+      event: !type:Scp208HealTargetActionEvent

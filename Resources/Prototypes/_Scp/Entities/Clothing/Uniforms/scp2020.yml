@@ -1,0 +1,22 @@
+﻿- type: entity
+  id: Scp2020SpaceClothing
+  parent: ClothingUniformBase
+  suffix: SCP-2020
+  name: white costume
+  components:
+  - type: Sprite
+    sprite: _Scp/Clothing/Uniforms/scp2020-uniform.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Scp/Clothing/Uniforms/scp2020-uniform.rsi
+  - type: Item
+    size: Normal
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - Scp2020Clothing
+  - type: ItemEquipWhitelist
+    whitelist:
+      tags:
+      - Scp2020

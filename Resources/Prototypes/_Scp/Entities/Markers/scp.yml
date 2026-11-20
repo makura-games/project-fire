@@ -155,6 +155,22 @@
     - Scp131B
 
 - type: entity
+  name: SCP-208 spawner
+  id: SpawnScp208
+  parent: SpawnPointJobBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _Scp/Mobs/Scp/scp-208.rsi
+      state: scp-208
+  - type: SpawnPoint
+    spawn_type: Job
+    job_id: Scp208
+  - type: PreferredSpawn
+    preferredSpawnTypes: [ Job ]
+
+- type: entity
   name: SCP-2295 spawner
   id: SpawnScp2295
   parent: MarkerBase
@@ -197,9 +213,89 @@
     - Scp1589
 
 - type: entity
+  name: SCP-527 spawner
+  id: SpawnScp527
+  parent: SpawnPointJobBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _Scp/Mobs/Scp/scp-527.rsi
+      state: scp-527
+  - type: SpawnPoint
+    spawn_type: Job
+    job_id: Scp527
+  - type: PreferredSpawn
+    preferredSpawnTypes: [ Job ]
+
+- type: entity
+  name: SCP-007 spawner
+  id: SpawnScp007
+  parent: SpawnPointJobBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _Scp/Mobs/Scp/scp-007.rsi
+      state: scp-007
+  - type: SpawnPoint
+    spawn_type: Job
+    job_id: Scp007
+  - type: PreferredSpawn
+    preferredSpawnTypes: [ Job ]
+
+- type: entity
+  name: SCP-2020 spawner
+  id: SpawnScp2020
+  parent: SpawnPointJobBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _Scp/Mobs/Scp/scp-2020.rsi
+      state: scp-2020
+  - type: SpawnPoint
+    spawn_type: Job
+    job_id: Scp2020
+  - type: PreferredSpawn
+    preferredSpawnTypes: [ Job ]
+
+- type: entity
+  name: SCP-4449 spawner
+  id: SpawnScp4449
+  parent: SpawnPointJobBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _Scp/Mobs/Scp/scp-4449.rsi
+      state: scp-4449
+  - type: SpawnPoint
+    spawn_type: Job
+    job_id: Scp4449
+  - type: PreferredSpawn
+    preferredSpawnTypes: [ Job ]
+
+- type: entity
+  name: SCP-492 spawner
+  id: SpawnScp492
+  parent: SpawnPointJobBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _Scp/Mobs/Scp/scp-492.rsi
+      state: scp-492
+  - type: SpawnPoint
+    spawn_type: Job
+    job_id: Scp492
+  - type: PreferredSpawn
+    preferredSpawnTypes: [ Job ]
+
+- type: entity
   name: SCP-457 spawner
   id: SpawnScp457
-  parent: MarkerBase
+  parent: SpawnPointJobBase
   components:
   - type: Sprite
     layers:
@@ -215,7 +311,7 @@
 - type: entity
   name: SCP-247 spawner
   id: SpawnScp247
-  parent: MarkerBase
+  parent: SpawnPointJobBase
   components:
   - type: Sprite
     layers:

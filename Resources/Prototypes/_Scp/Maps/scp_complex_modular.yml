@@ -27,7 +27,10 @@
             Scp106: [ 1, 1 ]
             Scp247: [ 1, 1 ]
             Scp457: [ 1, 1 ]
+            Scp492: [ 1, 1 ]
+            Scp527: [ 1, 1 ]
             Scp999: [ 1, 1 ]
+            Scp4449: [ 1, 1 ]
             # Администрация
             Director: [ 1, 1 ]
             ScientificServiceDirector: [ 1, 1 ]

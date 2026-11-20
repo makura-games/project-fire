@@ -1,0 +1,61 @@
+- type: inventoryTemplate
+  id: scp2020
+  slots:
+  - name: pocket1
+    slotTexture: pocket
+    fullTextureName: template_small
+    slotFlags: POCKET
+    slotGroup: MainHotbar
+    stripTime: 3
+    uiWindowPos: 0,3
+    strippingWindowPos: 0,4
+    displayName: Pocket 1
+    stripHidden: true
+  - name: pocket2
+    slotTexture: pocket
+    fullTextureName: template_small
+    slotFlags: POCKET
+    slotGroup: MainHotbar
+    stripTime: 3
+    uiWindowPos: 2,3
+    strippingWindowPos: 1,4
+    displayName: Pocket 2
+    stripHidden: true
+  - name: jumpsuit
+    slotTexture: uniform
+    slotFlags: INNERCLOTHING
+    stripTime: 6
+    uiWindowPos: 1,2
+    strippingWindowPos: 0,2
+    displayName: Jumpsuit
+  - name: belt
+    slotTexture: belt
+    fullTextureName: template_small
+    slotFlags: BELT
+    slotGroup: SecondHotbar
+    stripTime: 6
+    uiWindowPos: 3,1
+    strippingWindowPos: 1,5
+    displayName: Belt
+  - name: shoes
+    slotTexture: shoes
+    slotFlags: FEET
+    stripTime: 3
+    uiWindowPos: 1,1
+    strippingWindowPos: 1,4
+    displayName: Shoes
+  - name: id
+    slotTexture: id
+    fullTextureName: template_small
+    slotFlags: IDCARD
+    slotGroup: SecondHotbar
+    stripTime: 6
+    uiWindowPos: 2,1
+    strippingWindowPos: 2,4
+    displayName: ID
+  - name: neck
+    slotTexture: neck
+    slotFlags: NECK
+    uiWindowPos: 0,2
+    strippingWindowPos: 0,1
+    displayName: Neck
