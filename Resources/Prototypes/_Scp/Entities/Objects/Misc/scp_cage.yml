@@ -126,7 +126,7 @@
       components:
       - Scp173BlockStructureDamage
   - type: EntityStorage
-    doAfterDelay: 3
+    doAfterDelay: 9
     air:
       volume: 800
     whitelist:
