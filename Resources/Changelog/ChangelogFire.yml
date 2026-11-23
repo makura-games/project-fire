@@ -6305,3 +6305,35 @@
     message: Исправлено время открытие пандоры 173
   id: 581
   url: https://github.com/makura-games/project-fire/pull/1199
+- author: MrZero1984
+  time: '2026-11-23T14:12:55.0000000+00:00'
+  changes:
+  - type: Add
+    message: Рейдеры повстанцев хаоса получили в своё распоряжение хорватскую винтовку VHS.
+  - type: Add
+    message: Добавлен плюш ANAN1Mа.
+  - type: Tweak
+    message: Спрайт М4 был изменён.
+  - type: Fix
+    message: Боевой дробовик теперь имеет локализацию.
+  id: 582
+  url: https://github.com/makura-games/project-fire/pull/1217
+- author: timur
+  time: '2026-11-23T14:12:06.0000000+00:00'
+  changes:
+  - type: Fix
+    message: исправлен баг с бесплодными SCP-3199
+  - type: Fix
+    message: исправлен баг с невозможностью засунуть батарейку в шлем обскура
+  - type: Fix
+    message: исправлен баг с возможностью разговаривать немым SCP
+  - type: Fix
+    message: убран дубликат научного департамента в лобби
+  - type: Fix
+    message: исправлен баг с невозможностью распотрошить SCP-019-2
+  - type: Fix
+    message: исправлен баг с невозможностью приклеить SCP-133 к стене
+  - type: Fix
+    message: исправлен баг с невозможностью уничтожить камень
+  id: 583
+  url: https://github.com/makura-games/project-fire/pull/1222
