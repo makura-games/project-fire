@@ -8,3 +8,6 @@ ent-PlushiePuffiku = Emily Endsleigh
     .desc = A stern woman who loves and reveres bureaucracy. You can have a pleasant chat with her about anything, but God forbid she sees a violation... She reeks of ink and fresh paper.
 ent-PlushiePeper = Gavriil Grebenyuk
     .desc = The eternal “cadet”. Gavriil Grebenyuk is a Junior Officer in the Special Forces Unit, but don’t let such a low-ranking position fool you. Gavriil is one of the most experienced security service employees and...Perhaps.....He’s somehow involved in internal security.
+ent-PlushieANAN1M = Kirill Dzhigurda
+    .desc = An old employee of the SCP Foundation, Special Operations Unit. Rumored to have tried to trick someone named “Parashut,” but it didn’t work. A note reads “Narcolepsy, please be patient.”
+

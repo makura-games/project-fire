@@ -108,6 +108,7 @@
   name: department-Science
   description: department-Science-description
   color: "#984EB4" # Sunrise edit
+  editorHidden: true # Fire added
   roles:
   - ResearchDirector
   - SeniorResearcher  # Sunrise-Senior

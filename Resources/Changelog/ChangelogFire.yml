@@ -6213,3 +6213,127 @@
     message: Офицерский Берет теперь доступен и для ОСН в персонализации.
   id: 573
   url: https://github.com/makura-games/project-fire/pull/1206
+- author: timur
+  time: '2026-11-17T09:08:54.0000000+00:00'
+  changes:
+  - type: Fix
+    message: исправлена невозможность сломать SCP-059
+  - type: Fix
+    message: исправлена невозможность сломать шкафчики со замком
+  - type: Fix
+    message: исправлен баг со странным вращением комодов
+  id: 574
+  url: https://github.com/makura-games/project-fire/pull/1215
+- author: Data_deleted
+  time: '2026-11-17T09:10:41.0000000+00:00'
+  changes:
+  - type: Fix
+    message: Пофикшены шлема
+  id: 575
+  url: https://github.com/makura-games/project-fire/pull/1212
+- author: timur
+  time: '2026-11-17T09:13:58.0000000+00:00'
+  changes:
+  - type: Add
+    message: Добавлена декорация винтажного радио
+  - type: Tweak
+    message: Душ теперь можно переключить через клик на спрайт
+  id: 576
+  url: https://github.com/makura-games/project-fire/pull/1173
+  media:
+  - url: https://github.com/user-attachments/assets/1df1520c-f203-4083-adac-e47529988a39
+    description: Скриншот-20260927-004313
+- author: timur
+  time: '2026-11-17T09:12:52.0000000+00:00'
+  changes:
+  - type: Add
+    message: добавлена генерация SCP-3008
+  id: 577
+  url: https://github.com/makura-games/project-fire/pull/1196
+  media:
+  - url: https://github.com/user-attachments/assets/acd1c9b4-ef74-4255-8381-be37bac61871
+    description: Скриншот-20261025-012247
+  - url: https://github.com/user-attachments/assets/2f5f9f8c-af01-4e6f-883f-ff790cddb2c7
+    description: Скриншот-20261025-012339
+  - url: https://github.com/user-attachments/assets/95a339b0-4bd6-4a51-b1ea-e0ff4bf3b69d
+    description: Скриншот-20261025-012408
+- author: Wardex
+  time: '2026-11-17T10:56:02.0000000+00:00'
+  changes:
+  - type: Add
+    message: Добавлена консоль ядерной авторизации
+  - type: Add
+    message: Добавлен ключ ядерной авторизации
+  - type: Add
+    message: Коды ядерной авторизации теперь отправляются на факс Директора Учреждения при режиме "Безопасный" и выше
+  id: 578
+  url: https://github.com/makura-games/project-fire/pull/1216
+- author: Wardex
+  time: '2026-11-18T12:22:20.0000000+00:00'
+  changes:
+  - type: Tweak
+    message: 'Актуализировано карты: Compact, Standard, Modular, Sector-02'
+  id: 579
+  url: https://github.com/makura-games/project-fire/pull/1219
+- author: timur
+  time: '2026-11-18T12:23:29.0000000+00:00'
+  changes:
+  - type: Remove
+    message: убран генокрад из выбора антагонистов в лобби
+  - type: Tweak
+    message: исправлен баг с невозможностью сломать бронированную дверь
+  id: 580
+  url: https://github.com/makura-games/project-fire/pull/1220
+- author: Data_deleted
+  time: '2026-11-18T15:10:09.0000000+00:00'
+  changes:
+  - type: Remove
+    message: Мехи удалены из исследований(покойтесь с миром)
+  - type: Remove
+    message: Удален узел на движение объекта.
+  - type: Tweak
+    message: Крафт самодельного ресивера был заменен обычным ресивером
+  - type: Tweak
+    message: Добавлен ящик с рандомным оружием(AR18M AR18 M4A1 AK103 M16A4)
+  - type: Tweak
+    message: Добавлено 2 магазина к десерт иглу в шкаф директора учреждения
+  - type: Tweak
+    message: В гарнитуру комитета по этике выданы все основные каналы
+  - type: Tweak
+    message: Вновь изменен крафт рельсатрона, теперь окончательно. (1000 металла, 500 стекла, 30 урана, 30 серебра, 30 золота, связи с тем, что он стал менее мощным)
+  - type: Fix
+    message: Исправлено время открытие пандоры 173
+  id: 581
+  url: https://github.com/makura-games/project-fire/pull/1199
+- author: MrZero1984
+  time: '2026-11-23T14:12:55.0000000+00:00'
+  changes:
+  - type: Add
+    message: Рейдеры повстанцев хаоса получили в своё распоряжение хорватскую винтовку VHS.
+  - type: Add
+    message: Добавлен плюш ANAN1Mа.
+  - type: Tweak
+    message: Спрайт М4 был изменён.
+  - type: Fix
+    message: Боевой дробовик теперь имеет локализацию.
+  id: 582
+  url: https://github.com/makura-games/project-fire/pull/1217
+- author: timur
+  time: '2026-11-23T14:12:06.0000000+00:00'
+  changes:
+  - type: Fix
+    message: исправлен баг с бесплодными SCP-3199
+  - type: Fix
+    message: исправлен баг с невозможностью засунуть батарейку в шлем обскура
+  - type: Fix
+    message: исправлен баг с возможностью разговаривать немым SCP
+  - type: Fix
+    message: убран дубликат научного департамента в лобби
+  - type: Fix
+    message: исправлен баг с невозможностью распотрошить SCP-019-2
+  - type: Fix
+    message: исправлен баг с невозможностью приклеить SCP-133 к стене
+  - type: Fix
+    message: исправлен баг с невозможностью уничтожить камень
+  id: 583
+  url: https://github.com/makura-games/project-fire/pull/1222

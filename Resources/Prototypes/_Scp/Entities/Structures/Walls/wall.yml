@@ -795,7 +795,7 @@
     key: walls
     base: cavewall
   - type: Damageable
-    damageModifierSet: Rock
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:

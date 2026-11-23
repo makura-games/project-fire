@@ -10,3 +10,5 @@ ent-ChaosStorageCrateWeaponShotgunTrenchgun4034Sawn = ящик со снаряж
     .desc = Тяжёлый деревянный ящик. В нём находится различного рода снаряжение. Обычно содержимое отмечено специальной этикеткой.
 ent-ChaosStorageCrateSunriseWeaponSubMachineGunUzi = ящик со снаряжением
     .desc = Тяжёлый деревянный ящик. В нём находится различного рода снаряжение. Обычно содержимое отмечено специальной этикеткой.
+ent-ChaosStorageCrateMachineGunVHS = { ent-BaseChaosStorageCrate }
+    .desc = { ent-BaseChaosStorageCrate.desc }

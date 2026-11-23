@@ -10,3 +10,5 @@ ent-ChaosStorageCrateWeaponShotgunTrenchgun4034Sawn = { ent-BaseChaosStorageCrat
     .desc = { ent-BaseChaosStorageCrate.desc }
 ent-ChaosStorageCrateSunriseWeaponSubMachineGunUzi = { ent-BaseChaosStorageCrate }
     .desc = { ent-BaseChaosStorageCrate.desc }
+ent-ChaosStorageCrateMachineGunVHS = { ent-BaseChaosStorageCrate }
+    .desc = { ent-BaseChaosStorageCrate.desc }

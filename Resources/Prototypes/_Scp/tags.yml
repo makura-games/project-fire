@@ -5,6 +5,9 @@
   id: BackroomsMineshaft
 
 - type: Tag
+  id: IkeaRooms
+
+- type: Tag
   id: ShuttleChair
 
 - type: Tag

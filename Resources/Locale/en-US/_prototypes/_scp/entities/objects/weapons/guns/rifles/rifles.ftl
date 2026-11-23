@@ -8,3 +8,5 @@ ent-WeaponRifleAR18M = AR-18 M
     .desc = The AR-18 large-caliber rifle, upgraded by the SCP Foundation. Uses .308 caliber cartridges.
 ent-WeaponRifleGroza = OTs-14 «Groza»
     .desc = The Russian assault small‑arms and grenade launcher complex, developed by TsKB SOO in 1993. It is designed for use in various combat conditions, including close combat and counter‑terrorism operations. Due to its specific design, it can accept magazines of 7.62 and 9×19 caliber.
+ent-WeaponRifleVHS = VHS
+    .desc = A Croatian bullpup-style assault rifle compliant with NATO standards.

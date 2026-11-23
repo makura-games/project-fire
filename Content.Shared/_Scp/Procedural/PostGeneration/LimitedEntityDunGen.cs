@@ -1,7 +1,7 @@
-﻿using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Content.Shared.Procedural;
+using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Procedural.PostGeneration;
+namespace Content.Shared._Scp.Procedural.PostGeneration;
 
 public sealed partial class LimitedEntityDunGen : IDunGenLayer
 {
@@ -15,5 +15,5 @@ public sealed partial class LimitedEntityDunGen : IDunGenLayer
     /// Proto.
     /// </summary>
     [DataField("entity", required: true)]
-    public string Entity = string.Empty;
+    public EntProtoId Entity;
 }

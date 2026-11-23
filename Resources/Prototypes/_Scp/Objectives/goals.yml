@@ -2,58 +2,82 @@
   id: Scp1
   text: station-goal-scp-1
   lockBoxPrototypeId: LockboxCaptain
+  extraItems:
+    - NukeCodeConsoleKey
 
 - type: stationGoal
   id: Scp2
   text: station-goal-scp-2
   lockBoxPrototypeId: LockboxCaptain
+  extraItems:
+    - NukeCodeConsoleKey
 
 - type: stationGoal
   id: Scp3
   text: station-goal-scp-3
   lockBoxPrototypeId: LockboxCaptain
+  extraItems:
+    - NukeCodeConsoleKey
 
 - type: stationGoal
   id: Scp4
   text: station-goal-scp-4
   lockBoxPrototypeId: LockboxCaptain
+  extraItems:
+    - NukeCodeConsoleKey
 
 - type: stationGoal
   id: Scp5
   text: station-goal-scp-5
   lockBoxPrototypeId: LockboxCaptain
+  extraItems:
+    - NukeCodeConsoleKey
 
 - type: stationGoal
   id: Scp6
   text: station-goal-scp-6
   lockBoxPrototypeId: LockboxCaptain
+  extraItems:
+    - NukeCodeConsoleKey
 
 - type: stationGoal
   id: Scp7
   text: station-goal-scp-7
   lockBoxPrototypeId: LockboxCaptain
+  extraItems:
+    - NukeCodeConsoleKey
 
 - type: stationGoal
   id: Scp8
   text: station-goal-scp-8
   lockBoxPrototypeId: LockboxCaptain
+  extraItems:
+    - NukeCodeConsoleKey
 
 - type: stationGoal
   id: Scp9
   text: station-goal-scp-9
   lockBoxPrototypeId: LockboxCaptain
+  extraItems:
+    - NukeCodeConsoleKey
 
 - type: stationGoal
   id: Scp10
   text: station-goal-scp-10
   lockBoxPrototypeId: LockboxCaptain
+  extraItems:
+    - NukeCodeConsoleKey
 
 - type: stationGoal
   id: Scp11
   text: station-goal-scp-11
   lockBoxPrototypeId: LockboxCaptain
+  extraItems:
+    - NukeCodeConsoleKey
 
 - type: stationGoal
   id: Scp12
   text: station-goal-scp-12
   lockBoxPrototypeId: LockboxCaptain
+  extraItems:
+    - NukeCodeConsoleKey

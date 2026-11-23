@@ -6,6 +6,9 @@
   - BaseScpFriendly
   - ShowMedicalIcons
   components:
+  - type: PermanentStatusEffects
+    statusEffects:
+    - TraitStatusEffectMuted
   - type: AutoGhostRole
     disconnectDelay: 600
     pollDuration: 900
