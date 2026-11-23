@@ -66,7 +66,9 @@
   - type: Buckle
   - type: FlashImmunity
     enabled: false # переопределение родитесколько иммунитета
-  - type: MutedStatusEffect
+  - type: PermanentStatusEffects
+    statusEffects:
+    - TraitStatusEffectMuted
   - type: Strippable
   - type: Stripping
   - type: ScpPossibilities

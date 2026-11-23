@@ -118,3 +118,6 @@
     - Stun
   - type: ComplexInteraction
   - type: SpeedModifierContactCapClothing
+  - type: PermanentStatusEffects
+    statusEffects:
+    - TraitStatusEffectMuted

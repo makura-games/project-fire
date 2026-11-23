@@ -100,7 +100,9 @@
         Shock: 10
         Cold: 10
         Caustic: 10
-  - type: MutedStatusEffect
+  - type: PermanentStatusEffects
+    statusEffects:
+    - TraitStatusEffectMuted
   - type: SafeTime
     addWidget: false
   - type: DamageOnHighSpeedImpact

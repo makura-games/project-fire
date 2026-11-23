@@ -8,6 +8,9 @@
   name: ???
   abstract: true
   components:
+    - type: PermanentStatusEffects
+      statusEffects:
+      - TraitStatusEffectMuted
     - type: KillGlobalSound
       sound:
         collection: DistanceKillHuman

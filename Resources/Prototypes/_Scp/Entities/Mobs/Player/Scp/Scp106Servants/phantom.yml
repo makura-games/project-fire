@@ -28,6 +28,9 @@
   - type: Scp106Phantom
   - type: ScpRestriction
   - type: NightVision
+  - type: PermanentStatusEffects
+    statusEffects:
+    - TraitStatusEffectMuted
 
 - type: entity
   id: Scp106Phantom
