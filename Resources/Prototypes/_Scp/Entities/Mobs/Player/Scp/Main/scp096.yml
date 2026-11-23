@@ -154,7 +154,9 @@
     templateId: scp096
   - type: Blindable
   - type: Climbing
-  - type: MutedStatusEffect
+  - type: PermanentStatusEffects
+    statusEffects:
+    - TraitStatusEffectMuted
   - type: Stamina
     stunTime: 12
     baseCritThreshold: 400

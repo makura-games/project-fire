@@ -21,7 +21,9 @@
   - type: MultiHandedItem
   - type: Scp
     class: Safe
-  - type: MutedStatusEffect
+  - type: PermanentStatusEffects
+    statusEffects:
+    - TraitStatusEffectMuted
   - type: NpcFactionMember
     factions:
     - SimpleNeutral # нужно что бы турели не били их т.к. они мирные

@@ -181,7 +181,7 @@
             max: 1
           FoodMeatAnomaly:
             min: 1
-            max: 3
+            max: 1
   - type: Satiation
     satiations:
       Hunger:
@@ -208,3 +208,23 @@
     range: 8
     sound:
       path: /Audio/_Scp/Scp3199/breath.ogg
+  - type: EntityProducerAction
+    insufficientSatiationPopup: action-popup-lay-egg-too-hungry
+    userPopup: action-popup-lay-egg-user
+    othersPopup: action-popup-lay-egg-others
+    productionSound:
+      path: /Audio/_Sunrise/FleshCult/flesh_cultist_mutation.ogg
+  - type: SatiationProduction
+    delay: 60
+    delayMax: 120
+    satiationUsage: 60
+    minimumSatiation: 60
+    automaticForPlayers: false
+  - type: EntityProducer
+    table: !type:AllSelector
+      children:
+      - id: Scp3199EggFirst
+      - id: PuddleBlood
+  - type: ActionGrant
+    actions:
+    - ActionAnimalLayEgg
