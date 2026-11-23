@@ -1,4 +1,5 @@
 ﻿using Content.Shared._Scp.Fear;
+using Content.Shared._Scp.Fear.Components;
 using Content.Shared._Scp.Fear.Components.Traits;
 using Content.Shared.Speech.Components;
 using Content.Shared.StatusEffectNew;
@@ -31,22 +32,32 @@ public sealed partial class FearSystem
         if (args.NewState < ent.Comp.RequiredState)
             return;
 
-        if (!_random.Prob(ent.Comp.Chance))
+        if (!TryComp<FearComponent>(ent, out var fear))
             return;
 
-        _statusEffects.TryAddStatusEffectDuration(ent, ent.Comp.StatusEffect, ent.Comp.StuporTime);
+        if (!_random.Prob(ent.Comp.Chance * fear.EffectStrength))
+            return;
+
+        _statusEffects.TryAddStatusEffectDuration(ent, ent.Comp.StatusEffect, ent.Comp.StuporTime * fear.EffectStrength);
     }
 
     private void OnStutteringFearStateChanged(Entity<FearStutteringComponent> ent, ref FearStateChangedEvent args)
     {
         if (args.NewState == FearState.None)
         {
+            ent.Comp.AppliedStrength = 1f;
             RemComp<StutteringAccentComponent>(ent);
             return;
         }
 
+        if (!TryComp<FearComponent>(ent, out var fear))
+            return;
+
         var stuttering = EnsureComp<StutteringAccentComponent>(ent);
-        var modifier = GetGenericFearBasedModifier(args.NewState, 1);
+        var modifier = args.NewState == args.OldState ? 1f : GetGenericFearBasedModifier(args.NewState, 1);
+        // При обновлении силы меняем только уже применённый коэффициент, не повторяем множитель уровня.
+        modifier *= fear.EffectStrength / ent.Comp.AppliedStrength;
+        ent.Comp.AppliedStrength = fear.EffectStrength;
 
         stuttering.CutRandomProb *= modifier;
         stuttering.FourRandomProb *= modifier;
@@ -62,9 +73,12 @@ public sealed partial class FearSystem
         if (args.NewState < ent.Comp.RequiredState)
             return;
 
-        if (!_random.Prob(ent.Comp.Chance))
+        if (!TryComp<FearComponent>(ent, out var fear))
             return;
 
-        _statusEffects.TryAddStatusEffectDuration(ent, ent.Comp.StatusEffect, ent.Comp.Time);
+        if (!_random.Prob(ent.Comp.Chance * fear.EffectStrength))
+            return;
+
+        _statusEffects.TryAddStatusEffectDuration(ent, ent.Comp.StatusEffect, ent.Comp.Time * fear.EffectStrength);
     }
 }

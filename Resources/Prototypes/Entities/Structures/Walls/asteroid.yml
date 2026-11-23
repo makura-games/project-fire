@@ -658,6 +658,10 @@
   id: WallRockSnow
   name: snowdrift
   components:
+  # Fire added start - снег поддерживает меньшую площадь, чем камень
+  - type: CEGridStabilitySupport
+    supportStrength: 4
+  # Fire added end
   - type: Icon
     sprite: Structures/Walls/stone-snow.rsi
     state: full

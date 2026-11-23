@@ -34,6 +34,7 @@ public abstract partial class SharedFearSystem : EntitySystem
 
     private const string MoodSourceClose = "FearSourceClose";
     private const string MoodFearSourceSeen = "FearSourceSeen";
+    private const string MoodHalfFearSourceSeen = "ScpFearSourceSeenHalf";
 
     private EntityQuery<FearSourceComponent> _fearSourceQuery;
     private EntityQuery<FearComponent> _fearQuery;
@@ -55,6 +56,8 @@ public abstract partial class SharedFearSystem : EntitySystem
         InitializeGameplay();
         InitializeTraits();
         InitializeCloseFear();
+
+        InitializeZLevelFear();
 
         _fearSourceQuery = GetEntityQuery<FearSourceComponent>();
         _fearQuery = GetEntityQuery<FearComponent>();
@@ -102,7 +105,7 @@ public abstract partial class SharedFearSystem : EntitySystem
         if (!TrySetFearLevel(ent.AsNullable(), source.UponSeenState))
             return;
 
-        AddNegativeMoodEffect(ent, MoodFearSourceSeen);
+        AddSeenFearMood(ent, 1f);
         HighLightAllVisibleFears(ent);
     }
 
@@ -111,7 +114,8 @@ public abstract partial class SharedFearSystem : EntitySystem
     /// </summary>
     private void OnFearStateChanged(Entity<FearComponent> ent, ref FearStateChangedEvent args)
     {
-        PlayFearStateSound(ent, args.OldState);
+        if (args.NewState != args.OldState)
+            PlayFearStateSound(ent, args.OldState);
 
         // Добавляем геймплейные проблемы, завязанный на уровне страха
         ManageShootingProblems(ent);
@@ -157,20 +161,28 @@ public abstract partial class SharedFearSystem : EntitySystem
     }
 
     /// <summary>
-    /// Пытается установить переданный уровень страха.
+    /// Sets the fear state and retained effect strength. A stronger exposure at the same state
+    /// refreshes persistent penalties without replaying the reactions to a rising state.
     /// </summary>
-    public bool TrySetFearLevel(Entity<FearComponent?> ent, FearState state)
+    public bool TrySetFearLevel(Entity<FearComponent?> ent, FearState state, float strength = 1f)
     {
         if (!Resolve(ent, ref ent.Comp))
             return false;
 
-        if (ent.Comp.State == state)
+        if (strength != 1f && strength != ZLevelFearStrength)
+            return false;
+
+        if (state == FearState.None)
+            strength = 1f;
+
+        if (ent.Comp.State == state && strength <= ent.Comp.EffectStrength)
             return false;
 
         var entity = (ent, ent.Comp);
         var ev = new FearStateChangedEvent(state, ent.Comp.State);
 
         ent.Comp.State = state;
+        ent.Comp.EffectStrength = strength;
 
         // TODO: Реализовать версию метода использующую RaiseNetworkEvent для вызова с сервера адекватной синхронизации
         // Или перенести все в Shared, но это не от меня зависит.
@@ -180,6 +192,7 @@ public abstract partial class SharedFearSystem : EntitySystem
         SetNextCalmDownTime(entity);
 
         DirtyField(ent, ent.Comp, nameof(FearComponent.State));
+        DirtyField(ent, ent.Comp, nameof(FearComponent.EffectStrength));
 
         return true;
     }
@@ -189,8 +202,8 @@ public abstract partial class SharedFearSystem : EntitySystem
     /// </summary>
     private void SetFearBasedShaderStrength(Entity<FearComponent> ent)
     {
-        var grainStrength = ent.Comp.FearBasedGrainStrength[ent.Comp.State];
-        var vignetteStrength = ent.Comp.FearBasedVignetteStrength[ent.Comp.State];
+        var grainStrength = ent.Comp.FearBasedGrainStrength[ent.Comp.State] * ent.Comp.EffectStrength;
+        var vignetteStrength = ent.Comp.FearBasedVignetteStrength[ent.Comp.State] * ent.Comp.EffectStrength;
 
         _shaderStrength.TrySetAdditionalStrength<GrainOverlayComponent>(ent.Owner, grainStrength);
         _shaderStrength.TrySetAdditionalStrength<VignetteOverlayComponent>(ent.Owner, vignetteStrength);
@@ -218,6 +231,25 @@ public abstract partial class SharedFearSystem : EntitySystem
     private void RemoveSeenFearMood(EntityUid uid)
     {
         RaiseLocalEvent(uid, new MoodRemoveEffectEvent(MoodFearSourceSeen));
+        RaiseLocalEvent(uid, new MoodRemoveEffectEvent(MoodHalfFearSourceSeen));
+        if (_fearQuery.TryComp(uid, out var fear))
+        {
+            fear.SeenMoodStrength = 0f;
+            fear.SeenMoodExpiry = TimeSpan.Zero;
+        }
+    }
+
+    private void AddSeenFearMood(Entity<FearComponent> ent, float strength)
+    {
+        if (_timing.CurTime < ent.Comp.SeenMoodExpiry && ent.Comp.SeenMoodStrength >= strength)
+            return;
+
+        // Разные ID не позволяют таймеру старого половинного эффекта снять новый полный эффект.
+        RemoveSeenFearMood(ent);
+        var effect = strength < 1f ? MoodHalfFearSourceSeen : MoodFearSourceSeen;
+        AddNegativeMoodEffect(ent, effect);
+        ent.Comp.SeenMoodStrength = strength;
+        ent.Comp.SeenMoodExpiry = _timing.CurTime + TimeSpan.FromSeconds(120);
     }
 
     private void RemoveCloseFearMood(EntityUid uid)
@@ -242,13 +274,14 @@ public abstract partial class SharedFearSystem : EntitySystem
         float maxRange,
         MinMaxExtended parameters,
         LineOfSightBlockerLevel type,
-        FearComponent? fear = null)
+        FearComponent? fear = null,
+        float effectStrength = 1f)
         where T : IShaderStrength, IComponent
     {
         if (!Resolve(ent, ref fear))
             return;
 
-        var strength = CalculateShaderStrength(currentRange, maxRange, parameters);
+        var strength = CalculateShaderStrength(currentRange, maxRange, parameters) * effectStrength;
 
         if (type == LineOfSightBlockerLevel.Transparent)
             strength /= fear.TransparentStrengthDecreaseFactor;

@@ -1,0 +1,77 @@
+#include "/Textures/_CE/Shaders/murk_common.swsl"
+
+uniform highp vec3 MURK_COLOR;
+uniform highp vec2 corner_bl;
+uniform highp vec2 corner_br;
+uniform highp vec2 corner_tl;
+uniform highp vec2 corner_tr;
+uniform highp float baseIntensity;
+uniform lowp int count;
+uniform highp vec2[64] positions;
+uniform highp float[64] radii;
+uniform highp float[64] strengths;
+// 1 if the source edits the boundary wall layer instead of the ordinary murk layer, 0 otherwise.
+uniform highp float[64] isBoundary;
+uniform highp float maxOpacity;
+uniform highp float noiseStrength;
+
+const highp float noiseFrequency = 0.2;
+const highp float noiseTimeSpeed = 0.1;
+
+const highp float edgePeak = 0.45;
+const highp float edgeEnd = 0.5;
+const highp float edgeStrength = 1.0;
+
+highp vec3 randomVector(highp vec2 coord)
+{
+    return fract(sin(vec3(dot(coord, vec2(127.1,311.7)), dot(coord, vec2(269.5,183.3)), dot(coord, vec2(419.2,371.9))))*43758.5453);
+}
+
+highp float simplexNoise(highp vec2 coord)
+{
+    const highp float K1=0.366025404, K2=0.211324865;
+    highp vec2 i = floor(coord + (coord.x+coord.y)*K1);
+    highp vec2 a = coord - i + (i.x+i.y)*K2;
+    highp vec2 offset = vec2(step(a.y,a.x), 1.0-step(a.y,a.x));
+    highp vec2 b = a - offset + K2, c = a - 1.0 + 2.0*K2;
+    highp vec3 h = max(0.5-vec3(dot(a,a),dot(b,b),dot(c,c)),0.0);
+    highp vec3 n = h*h*h*h * vec3(dot(a,randomVector(i).xy), dot(b,randomVector(i+offset).xy), dot(c,randomVector(i+1.0).xy));
+    return dot(n, vec3(70.0));
+}
+
+// x - ordinary murk, y - boundary wall. Same base, same falloff; a source picks which layer it edits.
+highp vec2 murkAt(highp vec2 world_pos)
+{
+    highp vec2 total = vec2(baseIntensity);
+
+    for (lowp int i = 0; i < min(count, 64); i++)
+    {
+        highp float contribution = circleContribution(world_pos, positions[i], radii[i], strengths[i]);
+        total += contribution * vec2(1.0 - isBoundary[i], isBoundary[i]);
+    }
+
+    return total;
+}
+
+void fragment()
+{
+    highp vec2 world_pos = mix(mix(corner_bl, corner_br, UV.x), mix(corner_tl, corner_tr, UV.x), UV.y);
+    highp vec2 noiseCoord = world_pos * noiseFrequency + TIME * noiseTimeSpeed;
+
+    // Noise only bends where the border falls; it never softens it into a gradient.
+    highp vec2 distortion = vec2(
+        simplexNoise(noiseCoord + vec2(3.1, 7.7)),
+        simplexNoise(noiseCoord + vec2(9.3, 2.4))) * noiseStrength;
+
+    highp vec2 murk = clamp(murkAt(world_pos + distortion), 0.0, 1.0);
+
+    // The murk itself is not a flat fill: it drifts between pure black and the map's tint.
+    highp vec3 color = mix(vec3(0.0), MURK_COLOR, clamp(simplexNoise(noiseCoord) + 0.5, 0.0, 1.0));
+
+    // Bright rim right where the fog becomes visible, fading back to the normal murk color deeper in.
+    highp float edge = smoothstep(0.0, edgePeak, murk.x) * (1.0 - smoothstep(edgePeak, edgeEnd, murk.x));
+    color = mix(color, MURK_COLOR * 10.0, edge * edgeStrength);
+
+    // The wall is the same murk, only it is not capped by maxOpacity.
+    COLOR = vec4(color, max(murk.x * maxOpacity, murk.y));
+}

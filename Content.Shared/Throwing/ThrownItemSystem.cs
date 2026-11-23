@@ -127,6 +127,11 @@ namespace Content.Shared.Throwing
                 _adminLogger.Add(LogType.Landed, LogImpact.Low, $"{ToPrettyString(uid):entity} thrown by {ToPrettyString(thrownItem.Thrower.Value):thrower} landed.");
 
             _broadphase.RegenerateContacts((uid, physics));
+
+            //CrystallEdge dont call LandEvent if we dont have ground
+            if (_zLevels.DistanceToGround(uid) > 0.5f)
+                return;
+            //CrystallEdge end
             var landEvent = new LandEvent(thrownItem.Thrower, playSound);
             RaiseLocalEvent(uid, ref landEvent);
         }

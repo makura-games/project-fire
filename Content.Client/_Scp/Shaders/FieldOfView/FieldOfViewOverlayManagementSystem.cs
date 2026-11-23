@@ -1,12 +1,14 @@
 using Content.Client._Scp.Shaders.Common;
 using Content.Client._Scp.Shaders.FieldOfView.Overlays;
 using Content.Client.Eye;
+using Content.Client.Viewport;
 using Content.Shared._Scp.ScpCCVars;
 using Content.Shared._Scp.Watching.FOV;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Configuration;
+using Robust.Shared.Graphics;
 using Robust.Shared.Player;
 
 namespace Content.Client._Scp.Shaders.FieldOfView;
@@ -37,6 +39,17 @@ public sealed partial class FieldOfViewOverlayManagementSystem : EntitySystem
     private EntityQuery<TransformComponent> _xformQuery;
 
     public Entity<EyeComponent, FieldOfViewComponent, TransformComponent>? PlayerEntity { get; private set; }
+
+    /// <summary>
+    /// Применяет поле зрения только к камере игрока и созданным из неё камерам этажей.
+    /// Нижние этажи входят в общий проход конуса текущего этажа.
+    /// </summary>
+    internal static bool IsPlayerEye(IEye? viewportEye, IEye playerEye, bool includeLowerLevels = true)
+    {
+        return viewportEye == playerEye ||
+               viewportEye is ScalingViewport.ZEye zEye && zEye.SourceEye == playerEye &&
+               (includeLowerLevels || zEye.Depth > 0);
+    }
 
     /// <summary>
     /// Количество кадров в секунду, которые будут использоваться для обработки некоторых эффектов.

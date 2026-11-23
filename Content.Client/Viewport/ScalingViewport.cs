@@ -42,7 +42,7 @@ namespace Content.Client.Viewport
 
         private readonly List<CopyPixelsDelegate<Rgba32>> _queuedScreenshots = new();
 
-        // Fire edit start
+        // Fire edit start - дополнительный шейдер для готового изображения сцены.
         public ShaderInstance? Shader;
         // Fire edit end
         private float _sharpnessStrength;
@@ -169,7 +169,9 @@ namespace Content.Client.Viewport
 
             DebugTools.AssertNotNull(_viewport);
 
-            _viewport!.Render();
+            RenderZLevels(_viewport!, handle); // Fire edit - собираем видимые этажи в один кадр, размывая верхний отдельно от текущего.
+
+            //_viewport!.Render();
 
             if (_queuedScreenshots.Count != 0)
             {
@@ -188,7 +190,7 @@ namespace Content.Client.Viewport
 
             var drawBox = GetDrawBox();
             var drawBoxGlobal = drawBox.Translated(GlobalPixelPosition);
-            // Fire edit start`
+            // Fire edit start - применяем шейдер к сцене между нижними и верхними экранными оверлеями.
 
             _viewport.RenderScreenOverlaysBelow(handle, this, drawBoxGlobal);
 
@@ -196,8 +198,7 @@ namespace Content.Client.Viewport
 
             handle.DrawingHandleScreen.DrawTextureRect(_viewport.RenderTarget.Texture, drawBox);
 
-            if (_sharpnessStrength > 0)
-                handle.DrawingHandleScreen.UseShader(null);
+            handle.DrawingHandleScreen.UseShader(null);
 
             _viewport.RenderScreenOverlaysAbove(handle, this, drawBoxGlobal);
 
@@ -206,10 +207,13 @@ namespace Content.Client.Viewport
 
         private void ApplySharpnessShader(IRenderHandle handle)
         {
-            if (_sharpnessStrength <= 0)
+            // Fire edit start - внешний шейдер сцены имеет приоритет над шейдером резкости.
+            if (Shader != null || _sharpnessStrength <= 0)
+            {
+                handle.DrawingHandleScreen.UseShader(Shader);
                 return;
-
-            _sharpnessShader = Shader; // Fire edit - небольшой костыль
+            }
+            // Fire edit end
 
             _sharpnessShader ??= _prototypeManager.Index<ShaderPrototype>(SharpnessShader).InstanceUnique();
 
