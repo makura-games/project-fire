@@ -4,10 +4,14 @@
   - MobAtmosExposed
   - MobCombat
   - MobBloodstream
+  - BaseSlicingRefinable
   id: BaseMobScp019Monster
   name: ???
   abstract: true
   components:
+    - type: PermanentStatusEffects
+      statusEffects:
+      - TraitStatusEffectMuted
     - type: KillGlobalSound
       sound:
         collection: DistanceKillHuman
@@ -57,10 +61,10 @@
         0: Alive
         75: Dead
     - type: Appearance
-    - type: Butcherable
-      spawned:
-        - id: FoodMeat
-          amount: 1
+    - type: ToolRefinable
+      refineResult:
+      - id: FoodMeat
+        amount: 1
     - type: CombatMode
     - type: MeleeWeapon
       autoAttack: true # ими очень трудно попадать в цель

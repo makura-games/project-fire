@@ -108,3 +108,13 @@
   - type: Sprite
     sprite: _Scp/Objects/Fun/Plushies/Fire_Staff.rsi
     state: peper
+
+- type: entity
+  id: PlushieANAN1M
+  parent: BasePlushie
+  name: Kirill Dzhigurda
+  description: An old employee of the SCP Foundation, Special Operations Unit. Rumored to have tried to trick someone named “Parashut,” but it didn’t work. A note reads “Narcolepsy, please be patient.”
+  components:
+  - type: Sprite
+    sprite: _Scp/Objects/Fun/Plushies/Fire_Staff.rsi
+    state: ANAN1M

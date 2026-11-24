@@ -10,11 +10,9 @@
     state: paper
   - type: Sticky
     whitelist:
-      tags:
-      - Wall
-      - Window
       components:
       - Airlock
+      - Wall
     stickDelay: 2
     canUnstick: false
     stickPopupStart: stick-popup-start-scp133
