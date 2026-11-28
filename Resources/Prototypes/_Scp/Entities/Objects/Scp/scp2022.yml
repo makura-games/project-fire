@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: Pill
   id: PillScp2022
   suffix: SCP-2022
@@ -14,13 +14,12 @@
     radius: 1.3
     energy: 15.0
     color: "#FFCC00"
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Scp2022Reagent
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Omnizine
+        Quantity: 10
   - type: Tag
     tags:
     - Scp2022
@@ -53,3 +52,16 @@
   - type: Tag
     tags:
     - Scp2022
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsScpScp202217Food
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: food
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Scp2022Reagent
+        Quantity: 10

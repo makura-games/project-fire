@@ -89,7 +89,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
                 body.AddChild(buttons);
 
                 EntryContainer.AddChild(collapsible);
-                _collapsibleBoxes.Add(prototypeId, collapsible);
+                _collapsibleBoxes.TryAdd(prototypeId, collapsible); // Fire edit - изменено с Add на TryAdd
             }
             else
             {

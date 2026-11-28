@@ -21,7 +21,7 @@ public sealed partial class Scp096System : SharedScp096System
         base.OnInit(ent, ref args);
 
         _meta.AddFlag(ent, MetaDataFlags.PvsPriority);
-        TryAddOverrides(ent);
+        TryAddOverrides(ent, null);
     }
 
     protected override void OnShutdown(Entity<Scp096Component> ent, ref ComponentShutdown args)
@@ -29,23 +29,24 @@ public sealed partial class Scp096System : SharedScp096System
         base.OnShutdown(ent, ref args);
 
         _meta.RemoveFlag(ent, MetaDataFlags.PvsPriority);
-        TryRemoveOverrides(ent);
+        TryRemoveOverrides(ent, null);
     }
 
     private void OnAttached(Entity<Scp096Component> ent, ref PlayerAttachedEvent args)
     {
-        TryAddOverrides(ent);
+        TryAddOverrides(ent, args.Player);
     }
 
     private void OnDetached(Entity<Scp096Component> ent, ref PlayerDetachedEvent args)
     {
-        TryRemoveOverrides(ent);
+        TryRemoveOverrides(ent, args.Player);
     }
 
-    private bool TryAddOverrides(EntityUid scp)
+    private bool TryAddOverrides(EntityUid scp, ICommonSession? session)
     {
-        if (!_player.TryGetSessionByEntity(scp, out var session))
-            return false;
+        if (session == null)
+            if (!_player.TryGetSessionByEntity(scp, out session))
+                return false;
 
         var query = EntityQueryEnumerator<Scp096TargetComponent>();
         while (query.MoveNext(out var targetUid, out _))
@@ -56,10 +57,11 @@ public sealed partial class Scp096System : SharedScp096System
         return true;
     }
 
-    private bool TryRemoveOverrides(EntityUid scp)
+    private bool TryRemoveOverrides(EntityUid scp, ICommonSession? session)
     {
-        if (!_player.TryGetSessionByEntity(scp, out var session))
-            return false;
+        if (session == null)
+            if (!_player.TryGetSessionByEntity(scp, out session))
+                return false;
 
         var query = EntityQueryEnumerator<Scp096TargetComponent>();
         while (query.MoveNext(out var uid, out _))

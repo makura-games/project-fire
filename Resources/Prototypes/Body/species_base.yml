@@ -180,13 +180,6 @@
     - Scream
     - Crying
     - Pain # Fire edit
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 25
   - type: Solution
     id: food
     solution:

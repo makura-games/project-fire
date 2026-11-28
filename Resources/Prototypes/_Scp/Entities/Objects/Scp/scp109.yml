@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: Scp109
   parent:
   - BaseItemScp
@@ -66,10 +66,14 @@
     class: Euclid
   - type: Item
     size: Small
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 10
+  - type: Solution
+    solution:
+      maxVol: 120
+      reagents:
+      - ReagentId: Water
+        Quantity: 60
+      - ReagentId: Omnizine
+        Quantity: 10
   - type: SolutionRegeneration
     generated:
       reagents:
@@ -97,3 +101,13 @@
   - type: Tag
     tags:
     - Scp109
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsScpScp10969Drink
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 10

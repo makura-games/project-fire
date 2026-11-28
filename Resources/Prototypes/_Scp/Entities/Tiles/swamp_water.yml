@@ -9,15 +9,16 @@
     drawdepth: BelowFloor
     layers:
       - state: dirty_water
-  - type: SolutionContainerManager
-    solutions:
-      pool:
-        maxVol: 10000
-        reagents:
-        - ReagentId: DirtyWater
-          Quantity: 10000
+  - type: Solution
+    id: pool
+    solution:
+      maxVol: 10000
+      reagents:
+      - ReagentId: DirtyWater
+        Quantity: 10000
   - type: SolutionRegeneration
     generated:
       reagents:
       - ReagentId: DirtyWater
         Quantity: 100
+

@@ -28,13 +28,9 @@
     heldPrefix: concrete
   - type: Extractable
     grindableSolutionName: concrete
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      concrete:
-        reagents:
-        - ReagentId: SodiumHydroxide
-          Quantity: 10
-
+    - SolutionScpScpEntitiesObjectsMaterialsMaterials31Concrete
 - type: entity
   parent: MaterialConcrete
   id: MaterialConcrete10
@@ -81,3 +77,16 @@
     sprite: _Scp/Objects/Materials/wood_plank.rsi
   - type: Item
     sprite: _Scp/Objects/Materials/wood_plank.rsi
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsMaterialsMaterials31Concrete
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: concrete
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: SodiumHydroxide
+        Quantity: 10

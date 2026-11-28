@@ -21,6 +21,7 @@ using Content.Shared.SSDIndicator;
 using Content.Shared.Store;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
+using Robust.Server.GameStates;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -45,6 +46,7 @@ public sealed partial class Scp106System : SharedScp106System
     [Dependency] private GameTicker _gameTicker = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private PvsOverrideSystem _pvsOverride = default!;
 
     private static readonly FixedPoint2 EssenceRate = 1f;
     private static readonly TimeSpan AddEssenceCooldown = TimeSpan.FromSeconds(1);
@@ -64,6 +66,8 @@ public sealed partial class Scp106System : SharedScp106System
     {
         base.Initialize();
 
+        SubscribeLocalEvent<Scp106Component, ComponentInit>(OnInit);
+        SubscribeLocalEvent<Scp106Component, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<Scp106Component, MapInitEvent>(OnMapInit);
 
         SubscribeLocalEvent<Scp106Component, Scp106TeleportationDelayActionEvent>(OnTeleportationDelay);
@@ -73,6 +77,18 @@ public sealed partial class Scp106System : SharedScp106System
         InitializeStore();
         InitializePhantom();
         InitializePortals();
+    }
+
+    private void OnInit(Entity<Scp106Component> ent, ref ComponentInit args)
+    {
+        // SCP-106 должен оставаться доступен клиентам, пока его координаты
+        // меняются между картами и сетка/PVS ещё не успела обновиться.
+        _pvsOverride.AddGlobalOverride(ent.Owner);
+    }
+
+    private void OnShutdown(Entity<Scp106Component> ent, ref ComponentShutdown args)
+    {
+        _pvsOverride.RemoveGlobalOverride(ent.Owner);
     }
 
     private void OnMapInit(Entity<Scp106Component> ent, ref MapInitEvent args)

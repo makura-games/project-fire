@@ -3,13 +3,25 @@
   id: DrinkLavenderTeaGlass
   name: glass of lavender tea
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: LavenderTea
-          Quantity: 30
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: LavenderTea
+        Quantity: 30
   - type: Icon
     sprite: Objects/Consumable/Drinks/cognacglass.rsi
     state: icon
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsConsumableDrinksLavenderTea6Drink
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: LavenderTea
+        Quantity: 30

@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: BasePlushie
   id: PlushieScp999
   name: SCP-999 plushie
@@ -30,15 +30,12 @@
       reagents:
       - ReagentId: Fiber
         Quantity: 10
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-        - ReagentId: JuiceThatMakesYouWeh
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 60
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 10
   - type: Clothing
     quickEquip: false
     sprite: _Scp/Objects/Fun/Plushies/scp999.rsi
@@ -118,3 +115,17 @@
   - type: Sprite
     sprite: _Scp/Objects/Fun/Plushies/Fire_Staff.rsi
     state: ANAN1M
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsFunPlushies33Food
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: food
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 10
+      - ReagentId: JuiceThatMakesYouWeh
+        Quantity: 10

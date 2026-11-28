@@ -4,100 +4,197 @@
   suffix: Raw Amnesiac
   components:
   - type: Label
-    currentLabel: reagent-amnesiac-raw-name
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: RawAmnesiac
-          Quantity: 50
-
+    localizedLabel: reagent-amnesiac-raw-name
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 240
+      reagents:
+      - ReagentId: RawAmnesiac
+        Quantity: 50
 - type: entity
   id: ChemistryVialAmnesiacA
   parent: ChemistryEmptyVial
   suffix: Amnesiac A
   components:
   - type: Label
-    currentLabel: reagent-amnesiac-a-name
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 10
-        reagents:
-          - ReagentId: AmnesiacA
-            Quantity: 10
-
+    localizedLabel: reagent-amnesiac-a-name
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: AmnesiacA
+        Quantity: 10
 - type: entity
   id: ChemistryVialAmnesiacB
   parent: ChemistryEmptyVial
   suffix: Amnesiac B
   components:
   - type: Label
-    currentLabel: reagent-amnesiac-b-name
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 10
-        reagents:
-          - ReagentId: AmnesiacB
-            Quantity: 10
-
+    localizedLabel: reagent-amnesiac-b-name
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: AmnesiacB
+        Quantity: 10
 - type: entity
   id: ChemistryVialAmnesiacC
   parent: ChemistryEmptyVial
   suffix: Amnesiac C
   components:
   - type: Label
-    currentLabel: reagent-amnesiac-c-name
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 10
-        reagents:
-          - ReagentId: AmnesiacC
-            Quantity: 10
-
+    localizedLabel: reagent-amnesiac-c-name
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: AmnesiacC
+        Quantity: 10
 - type: entity
   id: ChemistryVialAmnesiacD
   parent: ChemistryEmptyVial
   suffix: Amnesiac D
   components:
   - type: Label
-    currentLabel: reagent-amnesiac-d-name
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 10
-        reagents:
-          - ReagentId: AmnesiacD
-            Quantity: 10
-
+    localizedLabel: reagent-amnesiac-d-name
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: AmnesiacD
+        Quantity: 10
 - type: entity
   id: ChemistryVialMnesticW
   parent: ChemistryEmptyVial
   suffix: Mnestic W
   components:
   - type: Label
-    currentLabel: reagent-mnestic-w-name
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 10
-        reagents:
-          - ReagentId: MnesticW
-            Quantity: 10
-
+    localizedLabel: reagent-mnestic-w-name
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: MnesticW
+        Quantity: 10
 - type: entity
   id: ChemistryVialMnesticX
   parent: ChemistryEmptyVial
   suffix: Mnestic X
   components:
   - type: Label
-    currentLabel: reagent-mnestic-x-name
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 10
-        reagents:
-          - ReagentId: MnesticX
-            Quantity: 10
+    localizedLabel: reagent-mnestic-x-name
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: MnesticX
+        Quantity: 10
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsSpecificAmnesiac97Drink
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 10
+      reagents:
+        - ReagentId: MnesticX
+          Quantity: 10
+
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsSpecificAmnesiac82Drink
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 10
+      reagents:
+        - ReagentId: MnesticW
+          Quantity: 10
+
+
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsSpecificAmnesiac67Drink
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 10
+      reagents:
+        - ReagentId: AmnesiacD
+          Quantity: 10
+
+
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsSpecificAmnesiac52Drink
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 10
+      reagents:
+        - ReagentId: AmnesiacC
+          Quantity: 10
+
+
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsSpecificAmnesiac37Drink
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 10
+      reagents:
+        - ReagentId: AmnesiacB
+          Quantity: 10
+
+
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsSpecificAmnesiac22Drink
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 10
+      reagents:
+        - ReagentId: AmnesiacA
+          Quantity: 10
+
+
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsSpecificAmnesiac8Drink
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 240
+      reagents:
+      - ReagentId: RawAmnesiac
+        Quantity: 50
