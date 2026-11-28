@@ -41,6 +41,7 @@
 - type: entity
   parent: BasePDACartridge
   id: MessengerCartridge
+  categories: [ HideSpawnMenu ] # Fire edit
   name: messenger cartridge
   description: A program for messaging between PDAs.
   components:
@@ -75,6 +76,7 @@
 - type: entity
   parent: BasePDACartridge
   id: CorporateLawCartridge
+  categories: [ HideSpawnMenu ] # Fire edit
   name: corporate law cartridge
   description: A program for viewing corporate laws and guidelines.
   components:
