@@ -93,7 +93,12 @@ public abstract partial class SharedBlinkingSystem : EntitySystem
 
         // Задаем время следующего моргания
         var variance = GetBlinkVariance(ent);
-        SetNextBlink(ent.AsNullable(), args.CustomNextTimeBlinkInterval ?? ent.Comp.BlinkingInterval, variance);
+        // При открытии по сетевому событию клиент может пропустить этот обработчик из-за prediction.
+        // Поэтому сервер обязан передать новое время следующего моргания вместе со стейтом.
+        SetNextBlink(ent.AsNullable(),
+            args.CustomNextTimeBlinkInterval ?? ent.Comp.BlinkingInterval,
+            variance,
+            predicted: _net.IsClient);
 
         // Как только глаза открыты, мы проверяем, слепы ли мы.
         _blindable.UpdateIsBlind(ent.Owner);

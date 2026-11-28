@@ -1,4 +1,4 @@
-﻿# Сама конфета
+# Сама конфета
 - type: entity
   parent: FoodInjectableBase
   id: BaseScp330Candy
@@ -11,13 +11,12 @@
     sprite: _Scp/Objects/Scp/scp-330.rsi
     state: candy_blue
   - type: Scp330Candy
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Scp330Nothing
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Scp330Nothing
+        Quantity: 10
   - type: Scp
     class: Safe
   - type: Tag
@@ -121,3 +120,16 @@
     - id: Scp330CandyGreen
     - id: Scp330CandyYellow
     - id: Scp330CandyPink
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsScpScp33014Food
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: food
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Scp330Nothing
+        Quantity: 10

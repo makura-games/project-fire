@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: Pill
   id: PillScp500
   suffix: SCP-500
@@ -8,13 +8,12 @@
     state: pill
   - type: Pill
     useStandardVisuals: false
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 2
-        reagents:
-        - ReagentId: Scp500Reagent
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 2
+      reagents:
+      - ReagentId: Scp500Reagent
+        Quantity: 1
   - type: Tag
     tags:
     - Scp500
@@ -43,3 +42,16 @@
   - type: Tag
     tags:
     - Scp500
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsScpScp50011Food
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: food
+    solution:
+      maxVol: 2
+      reagents:
+      - ReagentId: Scp500Reagent
+        Quantity: 1

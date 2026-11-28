@@ -23,16 +23,14 @@
   - type: Construction
     graph: smokeableCigarette
     node: cigarette
-# Fire edit start
-  - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 40
-        reagents:
-          - ReagentId: Nicotine
-            Quantity: 10
-# Fire edit end
-
+  # Fire edit start
+  - type: Solution
+    solution:
+      maxVol: 40
+      reagents:
+      - ReagentId: Nicotine
+        Quantity: 10
+  # Fire edit end
 - type: entity
   id: SoakedCigarette
   parent: BaseCigar
@@ -57,16 +55,14 @@
   - type: Construction
     graph: smokeableCigarette
     node: cigarette
-# Fire edit start
-  - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 40
-        reagents:
-          - ReagentId: Nicotine
-            Quantity: 10
-# Fire edit end
-
+  # Fire edit start
+  - type: Solution
+    solution:
+      maxVol: 40
+      reagents:
+      - ReagentId: Nicotine
+        Quantity: 10
+  # Fire edit end
 - type: entity
   id: CigaretteSpent
   parent: Cigarette
@@ -420,3 +416,16 @@
         Quantity: 10
       - ReagentId: Blackpepper
         Quantity: 10
+
+- type: entity
+  parent: Solution
+  id: SolutionCigaretteEntitiesObjectsConsumableSmokeablesCigarettesCigarette27Smokable
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: smokable
+    solution:
+      maxVol: 40
+      reagents:
+        - ReagentId: Nicotine
+          Quantity: 10

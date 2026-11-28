@@ -5,10 +5,22 @@
   components:
   - type: Label
     currentLabel: reagent-name-griseofulvin
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Griseofulvin
-          Quantity: 30
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Griseofulvin
+        Quantity: 30
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsSpecificChemistryChemistryBottles8Drink
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Griseofulvin
+        Quantity: 30

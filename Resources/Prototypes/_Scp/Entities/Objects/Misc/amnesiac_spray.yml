@@ -9,10 +9,10 @@
     - state: item
     - state: overlay
       color: "#ffd900"
-  - type: SolutionContainerManager
-    solutions:
-      spray:
-        maxVol: 40
-        reagents:
-        - ReagentId: AmnesiacA
-          Quantity: 20
+  - type: Solution
+    id: spray
+    solution:
+      maxVol: 40
+      reagents:
+      - ReagentId: AmnesiacA
+        Quantity: 20

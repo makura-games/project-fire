@@ -1,4 +1,4 @@
-﻿# Пресеты для артефактов-сцп.
+# Пресеты для артефактов-сцп.
 # Для разных сцп нужны разные пресеты
 
 - type: entity
@@ -21,6 +21,7 @@
     triggersTable: !type:NestedSelector
       tableId: ScpDefaultTriggers
   - type: MobState
+  - type: MutedStatusEffect
 
 - type: entity
   id: BaseScpArtifactMajor
@@ -103,6 +104,7 @@
     stealGroup: ItemScp
   - type: Injurable
     damageContainer: Inorganic
+  - type: MutedStatusEffect
 
 - type: entity # Базовый Entity для BaseScp и BaseScpFriendly
   abstract: true
@@ -111,6 +113,7 @@
   - MobFlammable
   id: BaseScpComponents
   components:
+  - type: MutedStatusEffect
   - type: Scp
     class: Neutralized
   - type: ScpRestriction

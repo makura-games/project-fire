@@ -6337,3 +6337,20 @@
     message: исправлен баг с невозможностью уничтожить камень
   id: 583
   url: https://github.com/makura-games/project-fire/pull/1222
+- author: Wardex
+  time: '2026-11-28T15:07:20.0000000+00:00'
+  changes:
+  - type: Tweak
+    message: Вырезаны картриджы КЗ и РобастЧата
+  - type: Tweak
+    message: 'Актуализированы карты: Compact, Standard, Modular, TransitHub, Scp106Backrooms, ChaosPlanet, ShuttleChaosPlanet'
+  - type: Fix
+    message: Исправлено зрение
+  - type: Fix
+    message: Теперь после выхода из 096 в агре все игроки не будут невидимыми
+  - type: Fix
+    message: Scp106 более не должен становиться невидимым
+  - type: Fix
+    message: Исправлены реагенты
+  id: 584
+  url: https://github.com/makura-games/project-fire/pull/1224

@@ -316,6 +316,7 @@ public sealed partial class TextScreenSystem : VisualizerSystem<TextScreenVisual
 
             // Ensure our string's length is within our limits.
             var maxLength = component.ScrollEnabled ? MaxScrollingCharacters : component.RowLength;
+            maxLength = Math.Max(0, maxLength); // Fire edit - исправления ошибки length
             if (line.Length > maxLength)
                 line = line.Substring(0, MaxScrollingCharacters);
 
