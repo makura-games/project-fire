@@ -8,6 +8,7 @@
     },
     "states": [
         { "name": "scp005" },
+        { "name": "scp007" },
         { "name": "scp012" },
 		{ "name": "scp018" },
 		{ "name": "scp019" },
@@ -25,12 +26,15 @@
         { "name": "scp131" },
         { "name": "scp173" },
         { "name": "scp207" },
+        { "name": "scp208" },
         { "name": "scp247" },
 		{ "name": "scp268" },
         { "name": "scp330" },
 		{ "name": "scp427" },
         { "name": "scp457" },
+        { "name": "scp492" },
         { "name": "scp500" },
+        { "name": "scp527" },
 		{ "name": "scp714" },
         { "name": "scp969" },
         { "name": "scp999" },
@@ -38,8 +42,10 @@
         { "name": "scp939" },
 		{ "name": "scp1508" },
 		{ "name": "scp1589" },
+		{ "name": "scp2020" },
 		{ "name": "scp2022" },
 		{ "name": "scp2295" },
-		{ "name": "scp2908" }
+		{ "name": "scp2908" },
+		{ "name": "scp4449" }
     ]
 }

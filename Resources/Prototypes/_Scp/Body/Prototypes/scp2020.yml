@@ -1,0 +1,27 @@
+﻿- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceScp2020
+  name: scp 2020 appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganScpTorso
+      Head: OrganScpHead
+      ArmLeft: OrganScpLeftArm
+      ArmRight: OrganScpRightArm
+      HandLeft: OrganScpLeftHand
+      HandRight: OrganScpRightHand
+      LegLeft: OrganScpLeftLeg
+      LegRight: OrganScpRightLeg
+      FootLeft: OrganScpLeftFoot
+      FootRight: OrganScpRightFoot
+      Brain: OrganHumanBrain
+      Eyes: OrganScpEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganHumanLungs
+      Heart: OrganHumanHeart
+      Stomach: OrganScp2020Stomach
+      Liver: OrganHumanLiver
+      Kidneys: OrganHumanKidneys

@@ -1,0 +1,9 @@
+﻿- type: entity
+  id: OrganScp2020Stomach
+  parent: OrganHumanStomach
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - Paper
+      - Document

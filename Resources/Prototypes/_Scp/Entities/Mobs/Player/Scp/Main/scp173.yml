@@ -42,7 +42,7 @@
     params:
     - whitelist:
         components:
-        - MobState
+        - Blinkable
         - HumanoidProfile
         requireAll: true
       damage:
@@ -54,7 +54,7 @@
       useVariance: false
       requiredMobStates:
       - Alive
-      - Critical
+#      - Critical стакает урон если у существа нет состояния смерти
     - whitelist:
         tags:
         - Scp173DestroyOnCollide
