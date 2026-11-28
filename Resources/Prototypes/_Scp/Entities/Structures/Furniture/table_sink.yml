@@ -32,14 +32,16 @@
             max: 3
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      drainBuffer:
-        maxVol: 200
-      tank:
-        reagents:
-        - ReagentId: Water
-          Quantity: 500
+    - SolutionScpScpEntitiesStructuresFurnitureTableSink35DrainBuffer
+  - type: Solution
+    id: tank
+    solution:
+      maxVol: 480
+      reagents:
+      - ReagentId: Water
+        Quantity: 500
   - type: SolutionRegeneration
     generated:
       reagents:
@@ -95,11 +97,57 @@
     sprite: _Scp/Structures/Furniture/table_sink.rsi
     offset: 0.5,0
     state: double_table
-  - type: SolutionContainerManager
-    solutions:
-      drainBuffer:
-        maxVol: 400 # две раковины
-      tank:
-        reagents:
-        - ReagentId: Water
-          Quantity: 700
+  - type: Solution
+    id: tank
+    solution:
+      maxVol: 480
+      reagents:
+      - ReagentId: Water
+        Quantity: 700
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesStructuresFurnitureTableSink98DrainBuffer
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: drainBuffer
+    solution:
+      maxVol: 400 # две раковины
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesStructuresFurnitureTableSink98Tank
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: tank
+    solution:
+      maxVol: 480
+      reagents:
+      - ReagentId: Water
+        Quantity: 700
+
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesStructuresFurnitureTableSink35DrainBuffer
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: drainBuffer
+    solution:
+      maxVol: 200
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesStructuresFurnitureTableSink35Tank
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: tank
+    solution:
+      maxVol: 480
+      reagents:
+      - ReagentId: Water
+        Quantity: 500

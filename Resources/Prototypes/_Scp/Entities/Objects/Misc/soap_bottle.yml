@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: SoapBottle
   parent:
   - DrinkBase
@@ -10,10 +10,22 @@
   - type: Sprite
     sprite: _Scp/Objects/Misc/soap_bottle.rsi
     state: icon
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 100
-        reagents:
-        - ReagentId: SoapReagent
-          Quantity: 100
+  - type: Solution
+    solution:
+      maxVol: 100
+      reagents:
+      - ReagentId: SoapReagent
+        Quantity: 100
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsMiscSoapBottle13Drink
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: drink
+    solution:
+      maxVol: 100
+      reagents:
+      - ReagentId: SoapReagent
+        Quantity: 100

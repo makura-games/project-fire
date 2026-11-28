@@ -23,11 +23,9 @@
     - state: hypo_fill1
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: false
-  - type: SolutionContainerManager
-    solutions:
-      hypospray:
-        maxVol: 20
-
+  - type: Solution
+    solution:
+      maxVol: 20
 - type: entity
   parent: ClothingBackpackDuffelNanotrasenMedicalBundleFilled
   id: ClothingBackpackDuffelScpMedicalBundleFilled
@@ -301,3 +299,13 @@
     range: 200
   - type: TriggerOnSignal
   - type: DeleteOnTrigger
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesMobsPlayerMTFsCommon26Hypospray
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: hypospray
+    solution:
+      maxVol: 20

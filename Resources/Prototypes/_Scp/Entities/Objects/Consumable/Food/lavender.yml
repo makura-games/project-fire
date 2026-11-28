@@ -7,13 +7,12 @@
   - type: FlavorProfile
     flavors:
       - leafy
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: LavenderTea
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: LavenderTea
+        Quantity: 10
   - type: Sprite
     sprite: _Scp/Objects/Consumable/Food/lavender.rsi
     state: icon
@@ -23,3 +22,16 @@
     tags:
     - Flower
     - LavenderFlower
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsConsumableFoodLavender10Food
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: food
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: LavenderTea
+        Quantity: 10

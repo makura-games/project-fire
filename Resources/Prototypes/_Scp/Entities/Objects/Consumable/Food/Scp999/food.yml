@@ -1,4 +1,4 @@
-﻿# Ентити
+# Ентити
 
 - type: entity
   parent: FoodBase
@@ -16,13 +16,12 @@
   - type: Tag
     tags:
     - Scp999jelly
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 26
-        reagents:
-        - ReagentId: Ash
-          Quantity: 20
+  - type: Solution
+    solution:
+      maxVol: 26
+      reagents:
+      - ReagentId: Ash
+        Quantity: 20
   - type: SwapReagentOnSpawn
     replace:
       Ash: JuiceCarrot
@@ -36,15 +35,14 @@
   - type: Sprite
     sprite: _Scp/Objects/Consumable/Food/Baked/misc.rsi
     state: jelly
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: JellyBunReagent
-          Quantity: 4
-        - ReagentId: Nutriment
-          Quantity: 4
+  - type: Solution
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: JellyBunReagent
+        Quantity: 4
+      - ReagentId: Nutriment
+        Quantity: 4
   - type: FlavorProfile
     flavors:
     - scp999jelly
@@ -54,15 +52,14 @@
   parent: FoodPizzaMargherita
   id: FoodPizzaJelly
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 12
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: JellyPizzaReagent
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 12
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: JellyPizzaReagent
+        Quantity: 5
   - type: FlavorProfile
     flavors:
     - scp999jelly
@@ -88,3 +85,48 @@
 
 - type: Tag
   id: Sweetness
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsConsumableFoodScp999Food57Food
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: food
+    solution:
+      maxVol: 12
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: JellyPizzaReagent
+        Quantity: 5
+
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsConsumableFoodScp999Food39Food
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: food
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: JellyBunReagent
+        Quantity: 4
+      - ReagentId: Nutriment
+        Quantity: 4
+
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsConsumableFoodScp999Food19Food
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: food
+    solution:
+      maxVol: 26
+      reagents:
+      - ReagentId: Ash
+        Quantity: 20

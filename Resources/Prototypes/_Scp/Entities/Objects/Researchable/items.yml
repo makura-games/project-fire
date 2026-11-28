@@ -1,4 +1,4 @@
-﻿# Средства защиты от сцп
+# Средства защиты от сцп
 
 # Scp-173
 
@@ -344,16 +344,14 @@
     - state: pill
   - type: Pill
     useStandardVisuals: false
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: SedativeReagent
-          Quantity: 8
-        - ReagentId: Epinephrine
-          Quantity: 7
-
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: SedativeReagent
+        Quantity: 8
+      - ReagentId: Epinephrine
+        Quantity: 7
 - type: entity
   parent: PillCanister
   id: PillCanisterSedative
@@ -369,3 +367,18 @@
     contents:
     - id: PillSedative
       amount: 4
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsResearchableItems347Food
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: food
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: SedativeReagent
+        Quantity: 8
+      - ReagentId: Epinephrine
+        Quantity: 7

@@ -1,38 +1,78 @@
-﻿- type: entity
+- type: entity
   parent: PuddleTemporary
   id: PuddleScp173Reagent25
   suffix: Scp173Reagent (25u)
   components:
-  - type: SolutionContainerManager
-    solutions:
-      puddle:
-        maxVol: 1000
-        reagents:
-        - ReagentId: Scp173Reagent
-          Quantity: 25
-
+  - type: Solution
+    id: puddle
+    solution:
+      maxVol: 1000
+      reagents:
+      - ReagentId: Scp173Reagent
+        Quantity: 25
 - type: entity
   parent: PuddleTemporary
   id: PuddleScp173Reagent50
   suffix: Scp173Reagent (50u)
   components:
-  - type: SolutionContainerManager
-    solutions:
-      puddle:
-        maxVol: 1000
-        reagents:
-        - ReagentId: Scp173Reagent
-          Quantity: 50
-
+  - type: Solution
+    id: puddle
+    solution:
+      maxVol: 1000
+      reagents:
+      - ReagentId: Scp173Reagent
+        Quantity: 50
 - type: entity
   parent: PuddleTemporary
   id: PuddleScp106Reagent200
   suffix: Scp106Reagent (200u)
   components:
-  - type: SolutionContainerManager
-    solutions:
-      puddle:
-        maxVol: 1000
-        reagents:
-        - ReagentId: Scp106Reagent
-          Quantity: 200
+  - type: Solution
+    id: puddle
+    solution:
+      maxVol: 1000
+      reagents:
+      - ReagentId: Scp106Reagent
+        Quantity: 200
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesEffectsPuddle32Puddle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: puddle
+    solution:
+      maxVol: 1000
+      reagents:
+      - ReagentId: Scp106Reagent
+        Quantity: 200
+
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesEffectsPuddle19Puddle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: puddle
+    solution:
+      maxVol: 1000
+      reagents:
+      - ReagentId: Scp173Reagent
+        Quantity: 50
+
+
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesEffectsPuddle6Puddle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: puddle
+    solution:
+      maxVol: 1000
+      reagents:
+      - ReagentId: Scp173Reagent
+        Quantity: 25

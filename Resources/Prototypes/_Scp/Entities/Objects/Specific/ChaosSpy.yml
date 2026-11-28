@@ -3,13 +3,13 @@
   parent: Pen
   categories: [ HideSpawnMenu ]
   components:
-  - type: SolutionContainerManager
-    solutions:
-      hypospray:
-        maxVol: 10
-        reagents:
-        - ReagentId: Lexorin
-          Quantity: 10
+  - type: Solution
+    id: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Lexorin
+        Quantity: 10
   - type: ExaminableSolution
     solution: hypospray
     heldOnly: true
@@ -31,12 +31,38 @@
   parent: ChaosSpyHypoPenPoision
   categories: [ HideSpawnMenu ]
   components:
-  - type: SolutionContainerManager
-    solutions:
-      hypospray:
-        maxVol: 25
-        reagents:
-        - ReagentId: Nocturine
-          Quantity: 25
+  - type: Solution
+    id: hypospray
+    solution:
+      maxVol: 25
+      reagents:
+      - ReagentId: Nocturine
+        Quantity: 25
   - type: UseDelay
     delay: 0.25
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsSpecificChaosSpy34Hypospray
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: hypospray
+    solution:
+      maxVol: 25
+      reagents:
+      - ReagentId: Nocturine
+        Quantity: 25
+
+
+- type: entity
+  parent: Solution
+  id: SolutionScpScpEntitiesObjectsSpecificChaosSpy6Hypospray
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Lexorin
+        Quantity: 10

@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: Scp939
   suffix: SCP-939
   parent:
@@ -23,6 +23,8 @@
   - type: Scp
     class: Keter
   - type: Scp939
+  - type: Injurable
+    damageContainer: StructuralBiological
   - type: MeleeWeapon
     altDisarm: false
     soundHit:

@@ -214,7 +214,9 @@ public abstract partial class SharedBlinkingSystem
         if (_timing.CurTime < ent.Comp.BlinkEndTime)
             return false;
 
-        if (RequiresExplicitOpen(ent.Comp.CloseMode) || ent.Comp.CloseMode == EyeCloseReason.None)
+        // Если состояние глаз закрыто, но режим не синхронизировался, не оставляем сущность
+        // навсегда в закрытом состоянии: после истечения таймера она должна восстановиться.
+        if (RequiresExplicitOpen(ent.Comp.CloseMode))
             return false;
 
         if (!TrySetEyelids(ent.Owner, EyesState.Opened))
